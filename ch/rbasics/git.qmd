@@ -12,7 +12,7 @@ execute:
 source(here::here("src/helpersrc.R"))
 ```
 # Prelude  
-Well, why `git`and `command line` at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (`push`and `pull`). You actually need 4-5 lines of code to push and pull. You will associate bash alternatives to Windows' Graphical User Interphase (GUI, which is mouse clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don't get the feeling of accomplishment. I am here holding your hands. Don't afraid to tinker and ponder around. You can always delete the problematic folder(s).  
+Well, why `git`and `command line` at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (`push`and `pull`). You actually need 4-5 lines of code to push and pull. You will associate bash alternatives to Windows' Graphical User Interphase (GUI, which is mouse clicking). Just get used to these stuffs. You will get the sense of accomplishment everyday. You know what, people get demotivated just because they don't get the sense of accomplishment. Smaller task completion helps to pile up "done" things. I am here holding your hands. Don't afraid to tinker and ponder around. You can always delete the problematic folder(s).  
   
 You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!
 
@@ -361,9 +361,9 @@ I assume you have many files and folders inside `Downloads`. But you should see 
 - How far your generation is from your father's?  
 - How behind your father's generation is from yours?  
 - How behind your grandfather's generation is from yours?
-- Isn't the generation of your father, aunt(s) and uncle(s) the same?   
+- Isn't the generation of your father, aunt(s) and uncle(s) the same? What about yours, your sisters and brothers or causins?
   
-Think of family tree, it is exactly the same. Try to associate.  
+Think of family tree, filesystem is having exactly the same logic. Try to associate.  
   
 In our toy example above, `folder1`, `folder2`, `folder3` are on the same level/generation (they are children of `Downloads`, and `Downloads` is their parent). Similarly, `Downloads`, `Documents` and `Desktop` are on the same level (children of `~`, so they are siblings). Makes sense? 
 
@@ -457,9 +457,9 @@ Here, `rm` means "remove" and `-r` means "recursively". So, delete the 3 mention
 - `touch`
   
   
-Can you relate them with Windows alternatives? I am giving a hint for `touch`. `touch` is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for `.docx` files. You can't name a file like `file_name.jpeg` using Microsoft Words, though. Right? You need some other tools for that image file naming (`.jpeg`). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A > B > C > D > E > ..... > Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma > Father > Son > Me + My_Siblings > Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your `hw_repo*`. `echo` it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.  
+Can you relate them with Windows alternatives? I am giving a hint for `touch`. `touch` is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for `.docx` files. You can't name a file like `file_name.jpeg` using Microsoft Words, though. Right? You need some other tools for that image file naming (`.jpeg`). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mind map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A > B > C > D > E > ..... > Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma > Father > Son > Me + My_Siblings > Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your `hw_repo*`. `echo` it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.  
   
-8. Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, `HOME` and root are the same.   
+8. Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your homework repo again? For example, folder and directory are the same thing; similarly, `HOME`, `root` and `~` are the same.   
   
 9. Share your repos with me (**email me by Friday 10PM BD Time**). I need time to check, right? Help me here....  
 
