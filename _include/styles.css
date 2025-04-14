@@ -37,3 +37,7 @@ img {
     padding: 1rem;
   }
 }
+
+.quarto-body {
+  text-align: justify;
+}

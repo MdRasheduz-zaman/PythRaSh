@@ -78,7 +78,7 @@ format:
     code-tools: true
     citations-hover: true
     footnotes-hover: true
-    theme: cosmo
+    theme: default #cosmo
     toc: true
     include-after-body: _include/footer.html
   pdf:
