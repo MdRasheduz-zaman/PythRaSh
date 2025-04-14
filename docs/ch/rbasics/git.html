@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2025-04-13">
+<meta name="dcterms.date" content="2025-04-14">
 <title>subject_teaching - Git, GitHub</title>
 <style>
 code{white-space: pre-wrap;}
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 13, 2025</p>
+      <p class="date">April 14, 2025</p>
     </div>
   </div>
   
@@ -312,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 </header><section id="prelude" class="level1"><h1>Prelude</h1>
-<p>Well, why <code>git</code>and <code>GitHub</code> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<code>push</code>and <code>pull</code>). You actually need 4-5 lines of code to push and pull. Just get used to it. You can push the codes from the class, or your own practice codes. You will feel better.</p>
+<p>Well, why <code>git</code>and <code>GitHub</code> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<code>push</code>and <code>pull</code>). You actually need 4-5 lines of code to push and pull. And associate bash alternative to Windows graphical user interphase (clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don’t get the feeling of accomplishment. I am here holding your hands. Don’t afraid to tinker and ponder around. You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!</p>
 <p><strong><em><code>Get engaged!</code></em></strong></p>
 </section><section id="intro" class="level1"><h1>Intro</h1>
 <p>GitHub is just like Google Drive, Dropbox or similar where you can <code>upload</code> (or <code>push</code>) files and folders of your project/package. What is special about the GitHub repositories then? Well, they are tracked for changes. How so? Well, <code>git</code> does that. <code>git</code> is the version control system (or tool) to track changes you make in a specific directory/repository (directory means folder as well). So you can have snapshot of your changes and fall back and forth if needed.</p>
@@ -395,7 +395,7 @@ Stop!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"you@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Just press Enter for all the prompts</strong></p>
+<p><strong>Read and just press Enter for all the prompts</strong></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -423,7 +423,7 @@ Stop!
 </div>
 </div>
 </section><section id="add-ssh-key-to-github" class="level2"><h2 class="anchored" data-anchor-id="add-ssh-key-to-github">Add SSH Key to GitHub</h2>
-<p>Now, we are adding the public key to GitHub.</p>
+<p>Now, we are going to add the public key to GitHub. But do we know it? Get it this way:</p>
 <ol type="1">
 <li>Run:</li>
 </ol>
@@ -443,7 +443,7 @@ Stop!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Did you copy-pasted it correctly?</p>
+<p>Did you copied it correctly? Check again, maybe.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -465,7 +465,7 @@ How is your key?
 <ol start="3" type="1">
 <li>Go to GitHub –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH Key</li>
 </ol>
-<p><strong>Title:</strong> Whatever you want (but keep it simple, like <code>my ssh key</code>)<br><strong>Paste the key</strong> you copied and save it. You are done.</p>
+<p><strong>Title:</strong> Whatever you want (but keep it simple, like <code>my ssh key</code>)<br><strong>Paste the key</strong> you copied and save it by clicking on <code>Add SSH key</code>. You are done.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -476,7 +476,7 @@ Stop!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Did you copy-pasted it correctly and is the key visible if you check under <code>SSH and GPG keys</code> now? It shows only the second field of your key though. If not, it is not done correctly.</p>
+<p>Did you copy-pasted it correctly and is the key visible if you check under <code>SSH and GPG keys</code> now? It shows only the second field of your key though. If not, it is not done correctly. Work around!</p>
 </div>
 </div>
 <ol start="4" type="1">
@@ -639,18 +639,18 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How are the things with <code>#</code> sign?
+What are the things with <code>#</code> sign?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Those are comments to tell you about the commands task (or anything). One just need to put them after <code>#</code> sign.</p>
+<p>Those are comments to tell you about the commands task (or anything). One just need to write a <code>#</code> sign to make it a comment in R.</p>
 </div>
 </div>
 <p>Well, if you have added or created many files and folders inside this <code>test1</code> folder (in whatever way), you should run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>.</code> means <strong>“everything”</strong> inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (<code>README.md</code>) earlier.</p>
+<p>The <code>.</code> means <strong>“everything”</strong> inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (i.e.&nbsp;<code>README.md</code>) earlier.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -661,7 +661,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <code>git add README.md</code>, use <code>git add .</code>. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</p>
+<p>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <code>git add README.md</code>, use <code>git add .</code> when you think you’re done modifying. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</p>
 </div>
 </div>
 <div class="cell">
@@ -682,7 +682,7 @@ Important
 <p>Did you replace <code>"a meaningful message for you"</code> to a real meaningful one for you?</p>
 </div>
 </div>
-<p>Check your GitHub repo now! Refresh, Maybe!</p>
+<p>Check your GitHub repo now! Refresh, maybe!</p>
 <p><em>You are feeling like a PRO, no?</em></p>
 <p>Let’s practice some more Linux navigation. See a toy folder structure below:</p>
 <pre class="text"><code>~/
@@ -721,7 +721,7 @@ Important
 <p>If you had your git bash opened from before, close it and reopen it. Notice that there is no folder names after <code>~</code> sign in your git bash.</p>
 </div>
 </div>
-<p>In real life, you have many more things like <code>Pictures</code>, <code>Video</code>, <code>Music</code> and others under <code>~</code>, right?. That’s why it is a toy example.</p>
+<p>In real life, you have many more things like <code>Pictures</code>, <code>Video</code>, <code>Music</code> and others under <code>~</code>, right? That’s why it is a toy example.</p>
 <p>So, <code>Downloads</code> is inside our <code>~</code> directory. We are inside our <code>~</code> directory when we open the git bash or terminal for the first time.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -740,7 +740,7 @@ Important
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>pwd</code> means “print working directory”. It means print one’s current location in the file system. Then we should try to see which files are inside this folder, right?</p>
+<p><code>pwd</code> means “print working directory”. It means print one’s current location in the file system. Then we should try to see which files are inside this folder, right? Run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -755,7 +755,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p><code>ls</code> means list everything at that location/folder. According to the picture, we can go to <code>Downloads</code> or <code>Documents</code> or <code>Desktop</code> folder from <code>~</code> (it is also called <code>root</code>. Isn’t the folder structure looks like a upside-down tree? That’s why it is the <code>root</code>).</p>
-<p>Let’s say we are focusing on the <code>Downloads</code> folder now. Let’s go inside <code>Downloads</code>. Wait a moment: How would you do that in Windows? You would see <code>Downloads</code> now and would double click on it, right? But there is no double click in a git bash or terminal. <code>cd</code> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It’s not so difficult. Think……</p>
+<p>Let’s say we are focusing on the <code>Downloads</code> folder now. Let’s go inside <code>Downloads</code>. Wait a moment. How would you do that in Windows? You would see <code>Downloads</code> now and would double click on it, right (open your file explorer from Windows to see things while reading and running commands to associate better)? But there is no double click in a git bash or terminal. <code>cd</code> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It’s not so difficult. Think……</p>
 <p>Ok, follow me exactly now, run these commands:</p>
 </div>
 </div>
@@ -763,7 +763,8 @@ Note
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Downloads/folder1 Downloads/folder2 Downloads/folder3</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>I assume you have many files and folders inside <code>Downloads</code>. But you should see <code>folder1</code>, <code>folder2</code>, <code>folder3</code> among others now. Don’t worry. Just run it. We are using <code>-p</code> flag/parameter with <code>mkdir</code> command. It says <code>mkdir</code> to make the directories, but if the folder name(s) exist, don’t make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <code>Downloads</code> after <code>ls</code> command now? Well, where are we? Inside the root directory (<code>~</code>). Since we are at our root directory, if we run only <code>ls</code>, it will list everything inside the root (<code>~</code>) directory. Did we wanted that? So, we have to say the folder name and <code>Downloads</code> is just a step forward from <code>~</code>. That’s why we used <code>ls Downloads</code> to list everything inside the <code>Downloads</code> folder. We could go inside <code>Downloads</code> folder first and then run <code>ls</code> only. We would achieve the same thing. <code>Downloads</code> is just one-step far from our root, do you catch this logic? If you wanted to list everything inside the <code>folder3</code> folder, you could run <code>ls Downloads/folder3</code> from the <code>~</code> directory. Do you see its logic? If not, think about this:</p>
+<p>I assume you have many files and folders inside <code>Downloads</code>. But you should see <code>folder1</code>, <code>folder2</code>, <code>folder3</code> among others now. Don’t worry. Just run it. We are using <code>-p</code> flag/parameter with <code>mkdir</code> command. It says <code>mkdir</code> to make the directories, but if the folder name(s) exist, don’t make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <code>Downloads</code> after <code>ls</code> command now? Well, where are we? Inside the root directory (<code>~</code>), right? Since we are at our root directory, if we run only <code>ls</code>, it will list everything inside the root (<code>~</code>) directory. Did we wanted that? So, we have to write the folder name/path and <code>Downloads</code> is just a step forward from <code>~</code>. That’s why we used <code>ls Downloads</code> to list everything inside the <code>Downloads</code> folder. We could go inside <code>Downloads</code> folder first and then run <code>ls</code> only. We would achieve the same thing (try it if you want and come back to the <code>root</code> directory again).</p>
+<p><code>Downloads</code> is just one-step ahead from our root, do you catch this logic? If you wanted to list everything inside the <code>folder3</code> folder, you could run <code>ls Downloads/folder3</code> from the <code>~</code> directory. Do you see its logic? If not, think about this:</p>
 <ul>
 <li>How far your father’s generation is from your grandfather?<br>
 </li>
@@ -778,8 +779,10 @@ Note
 <li>How behind your grandfather’s generation is from yours?</li>
 <li>Isn’t the generation of your father, aunt(s) and uncle(s) the same?</li>
 </ul>
-<p>In our toy example above, <code>folder1</code>, <code>folder2</code>, <code>folder3</code> are on the same level/generation (they are children of <code>Downloads</code>). Similarly, <code>Downloads</code>, <code>Documents</code> and <code>Desktop</code> are on the same level (children of <code>~</code>). Makes sense?</p>
+<p>Think of family tree, it is exactly the same. Try to associate.</p>
+<p>In our toy example above, <code>folder1</code>, <code>folder2</code>, <code>folder3</code> are on the same level/generation (they are children of <code>Downloads</code>, and <code>Downloads</code> is their parent). Similarly, <code>Downloads</code>, <code>Documents</code> and <code>Desktop</code> are on the same level (children of <code>~</code>, so they are siblings). Makes sense?</p>
 <p>Do you see how powerful this simple navigation logic is? You can go way too far (folder inside folder inside folder inside folder ……. [or folder outside folder outside folder outside folder ……]) from where you are.</p>
+<p><strong>Optional:</strong> Maybe search for <code>absolute path</code> and <code>relative path</code>, and read a bit.</p>
 <p>Let’s go inside <code>Downloads</code> now.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
@@ -797,7 +800,7 @@ Note
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>ls</code> is equivalent of seeing things inside a folder in Windows. Did you catch it?</p>
+<p><code>ls</code> is equivalent of seeing things inside a folder in Windows. Did you catch that?</p>
 </div>
 </div>
 </div>
@@ -858,7 +861,7 @@ Note
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Well, one step/folder behind, right?</p>
+<p>Well, one step/folder backward, right?</p>
 </div>
 </div>
 </div>
@@ -886,6 +889,7 @@ Note
 </div>
 <p>Here, <code>rm</code> means “remove” and <code>-r</code> means “recursively”. So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?</p>
 <ol start="3" type="1">
+<li><p>Make all the folders and files as it is shown in the toy file structure again. Don’t delete this time. Keep them.<br></p></li>
 <li><p>Navigate to <code>Downloads</code> again. Stay there. Next task is coming.<br></p></li>
 <li><p>Go to your GitHub account and make a repository named <code>hw_repo1</code>. <strong>Clone</strong> it inside your <code>Downloads</code> folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (<code>hw_repo1</code>) and push following the standard workflow. Make as many changes and pushes you like.</p></li>
 <li><p>Go to your GitHub account again and make a repository named <code>hw_repo2</code>. <strong>Clone</strong> it inside your <code>Downloads</code> folder (you know how to be inside <code>Downloads</code>, right?) again (go inside the <code>hw_repo2</code> folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (<code>hw_repo1</code>) again and push following the standard workflow. Make as many changes and pushes you like.</p></li>
@@ -902,9 +906,9 @@ Note
 <li><code>touch</code></li>
 </ul>
 <p>Can you relate them with Windows alternatives? I am giving a hint for <code>touch</code>. <code>touch</code> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <code>.docx</code> files. You can’t name a file like <code>file_name.jpeg</code> using Microsoft Words, though. Right? You need some other tools for that image file naming (<code>.jpeg</code>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, <strong>a scrambled list of the alphabets</strong> becomes <strong>A &gt; B &gt; C &gt; D &gt; E &gt; ….. &gt; Z</strong> if we organize them, right? Or a map of <strong>Father, Son, Grandson, Me, My_Siblings, Grandma</strong> will be <strong>Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson</strong> if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <code>hw_repo*</code>. <code>echo</code> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don’t mind. GitHub also doesn’t care what you are pushing to it (it is just a storage with special functionality to track files – well, some more though, we will know later). Let’s see. If you need help, don’t hesitate to reach out! There is no shame in asking for help while learning.</p>
-<p><strong>7. Optional:</strong> Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <code>HOME</code> and root are the same.</p>
 <ol start="8" type="1">
-<li>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</li>
+<li><p>Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <code>HOME</code> and root are the same.</p></li>
+<li><p>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</p></li>
 </ol></section></section><section id="a-final-though" class="level1"><h1>A Final Though</h1>
 <p>You might not know how powerful you are becoming! But trust me, you are too strong…….</p>
 
@@ -914,12 +918,12 @@ Note
 </section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
   author = {Md Rasheduzzaman},
   title = {Git, {GitHub}},
-  date = {2025-04-13},
+  date = {2025-04-14},
   langid = {en},
   abstract = {Git, GitHub and some basic shell commands}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Md Rasheduzzaman. 2025. <span>“Git, GitHub.”</span> April 13, 2025.
+Md Rasheduzzaman. 2025. <span>“Git, GitHub.”</span> April 14, 2025.
 </div></div></section></div></main><!-- /main --><hr>
 <div style="margin-top: 2em;">
   <p style="font-weight: 500; font-size: 1.1em;">
@@ -932,7 +936,7 @@ Md Rasheduzzaman. 2025. <span>“Git, GitHub.”</span> April 13, 2025.
 
 <div id="giscus_thread" style="margin-top: 1.5em;"></div>
 
-<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOMoYdeg" data-category-id="DIC_kwDOMoYdes4CpAvo" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOOZN9Xw" data-category-id="DIC_kwDOOZN9X84CpE6N" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
 </script><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1231,7 +1235,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prelude  </span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>Well, why <span class="in">`git`</span>and <span class="in">`GitHub`</span> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<span class="in">`push`</span>and <span class="in">`pull`</span>). You actually need 4-5 lines of code to push and pull. Just get used to it. You can push the codes from the class, or your own practice codes. You will feel better.  </span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>Well, why <span class="in">`git`</span>and <span class="in">`GitHub`</span> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<span class="in">`push`</span>and <span class="in">`pull`</span>). You actually need 4-5 lines of code to push and pull. And associate bash alternative to Windows graphical user interphase (clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don't get the feeling of accomplishment. I am here holding your hands. Don't afraid to tinker and ponder around. You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!</span>
 <span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>**_`Get engaged!`_**</span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -1319,7 +1323,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
 <span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"you@example.com"</span></span>
 <span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a>**Just press Enter for all the prompts**  </span>
+<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a>**Read and just press Enter for all the prompts**  </span>
 <span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
 <span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
@@ -1332,7 +1336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-115"><a href="#cb27-115" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add SSH Key to GitHub  </span></span>
-<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>Now, we are adding the public key to GitHub.  </span>
+<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>Now, we are going to add the public key to GitHub. But do we know it? Get it this way:  </span>
 <span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Run:</span>
 <span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a></span>
@@ -1344,7 +1348,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
 <span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
-<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>Did you copy-pasted it correctly?</span>
+<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>Did you copied it correctly? Check again, maybe.</span>
 <span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a></span>
@@ -1356,11 +1360,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Go to GitHub --&gt; Settings --&gt; SSH and GPG keys --&gt; New SSH Key</span>
 <span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a>**Title:** Whatever you want (but keep it simple, like <span class="in">`my ssh key`</span>)  </span>
-<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a>**Paste the key** you copied and save it. You are done.  </span>
+<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a>**Paste the key** you copied and save it by clicking on <span class="in">`Add SSH key`</span>. You are done.  </span>
 <span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
 <span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
-<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>Did you copy-pasted it correctly and is the key visible if you check under <span class="in">`SSH and GPG keys`</span> now? It shows only the second field of your key though. If not, it is not done correctly.</span>
+<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>Did you copy-pasted it correctly and is the key visible if you check under <span class="in">`SSH and GPG keys`</span> now? It shows only the second field of your key though. If not, it is not done correctly. Work around!</span>
 <span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Test it:</span>
@@ -1475,8 +1479,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-258"><a href="#cb27-258" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main <span class="co">#push it now to main branch</span></span>
 <span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-260"><a href="#cb27-260" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## How are the things with `#` sign?</span></span>
-<span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a>Those are comments to tell you about the commands task (or anything). One just need to put them after <span class="in">`#`</span> sign.</span>
+<span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## What are the things with `#` sign?</span></span>
+<span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a>Those are comments to tell you about the commands task (or anything). One just need to write a <span class="in">`#`</span> sign to make it a comment in R.</span>
 <span id="cb27-263"><a href="#cb27-263" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-264"><a href="#cb27-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a>Well, if you have added or created many files and folders inside this <span class="in">`test1`</span> folder (in whatever way), you should run:</span>
@@ -1485,12 +1489,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-268"><a href="#cb27-268" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
 <span id="cb27-269"><a href="#cb27-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a>The <span class="in">`.`</span> means **"everything"** inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (<span class="in">`README.md`</span>) earlier.  </span>
+<span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a>The <span class="in">`.`</span> means **"everything"** inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (i.e. <span class="in">`README.md`</span>) earlier.  </span>
 <span id="cb27-272"><a href="#cb27-272" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb27-273"><a href="#cb27-273" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-275"><a href="#cb27-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note  </span></span>
-<span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <span class="in">`git add README.md`</span>, use <span class="in">`git add .`</span>. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</span>
+<span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <span class="in">`git add README.md`</span>, use <span class="in">`git add .`</span> when you think you're done modifying. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</span>
 <span id="cb27-277"><a href="#cb27-277" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-278"><a href="#cb27-278" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-279"><a href="#cb27-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
@@ -1502,7 +1506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a>Did you replace <span class="in">`"a meaningful message for you"`</span> to a real meaningful one for you?</span>
 <span id="cb27-286"><a href="#cb27-286" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-287"><a href="#cb27-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a>Check your GitHub repo now! Refresh, Maybe!  </span>
+<span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a>Check your GitHub repo now! Refresh, maybe!  </span>
 <span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-290"><a href="#cb27-290" aria-hidden="true" tabindex="-1"></a>*You are feeling like a PRO, no?*  </span>
 <span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a></span>
@@ -1537,7 +1541,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-320"><a href="#cb27-320" aria-hidden="true" tabindex="-1"></a>If you had your git bash opened from before, close it and reopen it. Notice that there is no folder names after <span class="in">`~`</span> sign in your git bash.  </span>
 <span id="cb27-321"><a href="#cb27-321" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-322"><a href="#cb27-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-323"><a href="#cb27-323" aria-hidden="true" tabindex="-1"></a>In real life, you have many more things like <span class="in">`Pictures`</span>, <span class="in">`Video`</span>, <span class="in">`Music`</span> and others under <span class="in">`~`</span>,  right?. That's why it is a toy example.  </span>
+<span id="cb27-323"><a href="#cb27-323" aria-hidden="true" tabindex="-1"></a>In real life, you have many more things like <span class="in">`Pictures`</span>, <span class="in">`Video`</span>, <span class="in">`Music`</span> and others under <span class="in">`~`</span>,  right? That's why it is a toy example.  </span>
 <span id="cb27-324"><a href="#cb27-324" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-325"><a href="#cb27-325" aria-hidden="true" tabindex="-1"></a>So, <span class="in">`Downloads`</span> is inside our <span class="in">`~`</span> directory. We are inside our <span class="in">`~`</span> directory when we open the git bash or terminal for the first time.  </span>
 <span id="cb27-326"><a href="#cb27-326" aria-hidden="true" tabindex="-1"></a></span>
@@ -1549,7 +1553,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-332"><a href="#cb27-332" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
 <span id="cb27-333"><a href="#cb27-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-334"><a href="#cb27-334" aria-hidden="true" tabindex="-1"></a><span class="in">`pwd`</span> means "print working directory". It means print one's current location in the file system.</span>
-<span id="cb27-335"><a href="#cb27-335" aria-hidden="true" tabindex="-1"></a>Then we should try to see which files are inside this folder, right?</span>
+<span id="cb27-335"><a href="#cb27-335" aria-hidden="true" tabindex="-1"></a>Then we should try to see which files are inside this folder, right? Run: </span>
 <span id="cb27-336"><a href="#cb27-336" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-337"><a href="#cb27-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
 <span id="cb27-338"><a href="#cb27-338" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
@@ -1558,7 +1562,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-341"><a href="#cb27-341" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb27-342"><a href="#cb27-342" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> means list everything at that location/folder. According to the picture, we can go to <span class="in">`Downloads`</span> or <span class="in">`Documents`</span> or <span class="in">`Desktop`</span> folder from <span class="in">`~`</span> (it is also called <span class="in">`root`</span>. Isn't the folder structure looks like a upside-down tree? That's why it is the <span class="in">`root`</span>).  </span>
 <span id="cb27-343"><a href="#cb27-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-344"><a href="#cb27-344" aria-hidden="true" tabindex="-1"></a>Let's say we are focusing on the <span class="in">`Downloads`</span> folder now. Let's go inside <span class="in">`Downloads`</span>. Wait a moment: How would you do that in Windows? You would see <span class="in">`Downloads`</span> now and would double click on it, right? But there is no double click in a git bash or terminal. <span class="in">`cd`</span> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It's not so difficult. Think......  </span>
+<span id="cb27-344"><a href="#cb27-344" aria-hidden="true" tabindex="-1"></a>Let's say we are focusing on the <span class="in">`Downloads`</span> folder now. Let's go inside <span class="in">`Downloads`</span>. Wait a moment. How would you do that in Windows? You would see <span class="in">`Downloads`</span> now and would double click on it, right (open your file explorer from Windows to see things while reading and running commands to associate better)? But there is no double click in a git bash or terminal. <span class="in">`cd`</span> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It's not so difficult. Think......  </span>
 <span id="cb27-345"><a href="#cb27-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-346"><a href="#cb27-346" aria-hidden="true" tabindex="-1"></a>Ok, follow me exactly now, run these commands:</span>
 <span id="cb27-347"><a href="#cb27-347" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -1568,112 +1572,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-351"><a href="#cb27-351" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> Downloads</span>
 <span id="cb27-352"><a href="#cb27-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-353"><a href="#cb27-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-354"><a href="#cb27-354" aria-hidden="true" tabindex="-1"></a>I assume you have many files and folders inside <span class="in">`Downloads`</span>. But you should see <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among others now. Don't worry. Just run it. We are using <span class="in">`-p`</span> flag/parameter with <span class="in">`mkdir`</span> command. It says <span class="in">`mkdir`</span> to make the directories, but if the folder name(s) exist, don't make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <span class="in">`Downloads`</span> after <span class="in">`ls`</span> command now? Well, where are we? Inside the root directory (<span class="in">`~`</span>). Since we are at our root directory, if we run only <span class="in">`ls`</span>, it will list everything inside the root (<span class="in">`~`</span>) directory. Did we wanted that? So, we have to say the folder name and <span class="in">`Downloads`</span> is just a step forward from <span class="in">`~`</span>. That's why we used <span class="in">`ls Downloads`</span> to list everything inside the <span class="in">`Downloads`</span> folder. We could go inside <span class="in">`Downloads`</span> folder first and then run <span class="in">`ls`</span> only. We would achieve the same thing. <span class="in">`Downloads`</span> is just one-step far from our root, do you catch this logic? If you wanted to list everything inside the <span class="in">`folder3`</span> folder, you could run <span class="in">`ls Downloads/folder3`</span> from the <span class="in">`~`</span> directory. Do you see its logic? If not, think about this:  </span>
+<span id="cb27-354"><a href="#cb27-354" aria-hidden="true" tabindex="-1"></a>I assume you have many files and folders inside <span class="in">`Downloads`</span>. But you should see <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among others now. Don't worry. Just run it. We are using <span class="in">`-p`</span> flag/parameter with <span class="in">`mkdir`</span> command. It says <span class="in">`mkdir`</span> to make the directories, but if the folder name(s) exist, don't make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <span class="in">`Downloads`</span> after <span class="in">`ls`</span> command now? Well, where are we? Inside the root directory (<span class="in">`~`</span>), right? Since we are at our root directory, if we run only <span class="in">`ls`</span>, it will list everything inside the root (<span class="in">`~`</span>) directory. Did we wanted that? So, we have to write the folder name/path and <span class="in">`Downloads`</span> is just a step forward from <span class="in">`~`</span>. That's why we used <span class="in">`ls Downloads`</span> to list everything inside the <span class="in">`Downloads`</span> folder. We could go inside <span class="in">`Downloads`</span> folder first and then run <span class="in">`ls`</span> only. We would achieve the same thing (try it if you want and come back to the <span class="in">`root`</span> directory again).  </span>
 <span id="cb27-355"><a href="#cb27-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-356"><a href="#cb27-356" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your father's generation is from your grandfather?  </span>
-<span id="cb27-357"><a href="#cb27-357" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from your father?  </span>
-<span id="cb27-358"><a href="#cb27-358" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your grandfather's?  </span>
-<span id="cb27-359"><a href="#cb27-359" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your father's?  </span>
-<span id="cb27-360"><a href="#cb27-360" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your father's generation is from yours?  </span>
-<span id="cb27-361"><a href="#cb27-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from yours?</span>
-<span id="cb27-362"><a href="#cb27-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Isn't the generation of your father, aunt(s) and uncle(s) the same?   </span>
-<span id="cb27-363"><a href="#cb27-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-364"><a href="#cb27-364" aria-hidden="true" tabindex="-1"></a>In our toy example above, <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> are on the same level/generation (they are children of <span class="in">`Downloads`</span>). Similarly, <span class="in">`Downloads`</span>, <span class="in">`Documents`</span> and <span class="in">`Desktop`</span> are on the same level (children of <span class="in">`~`</span>). Makes sense? </span>
-<span id="cb27-365"><a href="#cb27-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-366"><a href="#cb27-366" aria-hidden="true" tabindex="-1"></a>Do you see how powerful this simple navigation logic is? You can go way too far (folder inside folder inside folder inside folder ....... <span class="co">[</span><span class="ot">or folder outside folder outside folder outside folder ......</span><span class="co">]</span>) from where you are.</span>
-<span id="cb27-367"><a href="#cb27-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-368"><a href="#cb27-368" aria-hidden="true" tabindex="-1"></a>Let's go inside <span class="in">`Downloads`</span> now.</span>
+<span id="cb27-356"><a href="#cb27-356" aria-hidden="true" tabindex="-1"></a><span class="in">`Downloads`</span> is just one-step ahead from our root, do you catch this logic? If you wanted to list everything inside the <span class="in">`folder3`</span> folder, you could run <span class="in">`ls Downloads/folder3`</span> from the <span class="in">`~`</span> directory. Do you see its logic? If not, think about this:  </span>
+<span id="cb27-357"><a href="#cb27-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-358"><a href="#cb27-358" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your father's generation is from your grandfather?  </span>
+<span id="cb27-359"><a href="#cb27-359" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from your father?  </span>
+<span id="cb27-360"><a href="#cb27-360" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your grandfather's?  </span>
+<span id="cb27-361"><a href="#cb27-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your father's?  </span>
+<span id="cb27-362"><a href="#cb27-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your father's generation is from yours?  </span>
+<span id="cb27-363"><a href="#cb27-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from yours?</span>
+<span id="cb27-364"><a href="#cb27-364" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Isn't the generation of your father, aunt(s) and uncle(s) the same?   </span>
+<span id="cb27-365"><a href="#cb27-365" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-366"><a href="#cb27-366" aria-hidden="true" tabindex="-1"></a>Think of family tree, it is exactly the same. Try to associate.  </span>
+<span id="cb27-367"><a href="#cb27-367" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-368"><a href="#cb27-368" aria-hidden="true" tabindex="-1"></a>In our toy example above, <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> are on the same level/generation (they are children of <span class="in">`Downloads`</span>, and <span class="in">`Downloads`</span> is their parent). Similarly, <span class="in">`Downloads`</span>, <span class="in">`Documents`</span> and <span class="in">`Desktop`</span> are on the same level (children of <span class="in">`~`</span>, so they are siblings). Makes sense? </span>
 <span id="cb27-369"><a href="#cb27-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-370"><a href="#cb27-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
-<span id="cb27-371"><a href="#cb27-371" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
-<span id="cb27-372"><a href="#cb27-372" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
-<span id="cb27-373"><a href="#cb27-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-370"><a href="#cb27-370" aria-hidden="true" tabindex="-1"></a>Do you see how powerful this simple navigation logic is? You can go way too far (folder inside folder inside folder inside folder ....... <span class="co">[</span><span class="ot">or folder outside folder outside folder outside folder ......</span><span class="co">]</span>) from where you are.  </span>
+<span id="cb27-371"><a href="#cb27-371" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-372"><a href="#cb27-372" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-373"><a href="#cb27-373" aria-hidden="true" tabindex="-1"></a>**Optional:** Maybe search for <span class="in">`absolute path`</span> and <span class="in">`relative path`</span>, and read a bit.</span>
 <span id="cb27-374"><a href="#cb27-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-375"><a href="#cb27-375" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-375"><a href="#cb27-375" aria-hidden="true" tabindex="-1"></a>Let's go inside <span class="in">`Downloads`</span> now.</span>
 <span id="cb27-376"><a href="#cb27-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-377"><a href="#cb27-377" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> is equivalent of seeing things inside a folder in Windows. Did you catch it?</span>
-<span id="cb27-378"><a href="#cb27-378" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb27-379"><a href="#cb27-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-380"><a href="#cb27-380" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> now shows <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among many other things, right?</span>
+<span id="cb27-377"><a href="#cb27-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-378"><a href="#cb27-378" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
+<span id="cb27-379"><a href="#cb27-379" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb27-380"><a href="#cb27-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-381"><a href="#cb27-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-382"><a href="#cb27-382" aria-hidden="true" tabindex="-1"></a>**Q.** How to go inside, let's say, <span class="in">`folder2`</span> now, and make a file named <span class="in">`data.csv`</span> file? Well, since you are already inside <span class="in">`Downloads`</span>, you need to go one step forward to go inside of it and create the (empty) file. Run one after another:</span>
+<span id="cb27-382"><a href="#cb27-382" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
 <span id="cb27-383"><a href="#cb27-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-384"><a href="#cb27-384" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
-<span id="cb27-385"><a href="#cb27-385" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folder2</span>
-<span id="cb27-386"><a href="#cb27-386" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data.csv</span>
-<span id="cb27-387"><a href="#cb27-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-384"><a href="#cb27-384" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> is equivalent of seeing things inside a folder in Windows. Did you catch that?</span>
+<span id="cb27-385"><a href="#cb27-385" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-386"><a href="#cb27-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-387"><a href="#cb27-387" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> now shows <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among many other things, right?</span>
 <span id="cb27-388"><a href="#cb27-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-389"><a href="#cb27-389" aria-hidden="true" tabindex="-1"></a>**Do you see what `touch` is doing?** </span>
+<span id="cb27-389"><a href="#cb27-389" aria-hidden="true" tabindex="-1"></a>**Q.** How to go inside, let's say, <span class="in">`folder2`</span> now, and make a file named <span class="in">`data.csv`</span> file? Well, since you are already inside <span class="in">`Downloads`</span>, you need to go one step forward to go inside of it and create the (empty) file. Run one after another:</span>
 <span id="cb27-390"><a href="#cb27-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-391"><a href="#cb27-391" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
-<span id="cb27-392"><a href="#cb27-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-393"><a href="#cb27-393" aria-hidden="true" tabindex="-1"></a>Well, <span class="in">`touch`</span> is creating the file (named <span class="in">`data.csv`</span>). Run <span class="in">`ls`</span> to see who else is the resident there. As expected, no?</span>
-<span id="cb27-394"><a href="#cb27-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-391"><a href="#cb27-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-392"><a href="#cb27-392" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folder2</span>
+<span id="cb27-393"><a href="#cb27-393" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data.csv</span>
+<span id="cb27-394"><a href="#cb27-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-395"><a href="#cb27-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-396"><a href="#cb27-396" aria-hidden="true" tabindex="-1"></a>*Q.* How to come out of <span class="in">`folder2`</span> to <span class="in">`Downloads`</span> again?  </span>
-<span id="cb27-397"><a href="#cb27-397" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-396"><a href="#cb27-396" aria-hidden="true" tabindex="-1"></a>**Do you see what `touch` is doing?** </span>
+<span id="cb27-397"><a href="#cb27-397" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-398"><a href="#cb27-398" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
 <span id="cb27-399"><a href="#cb27-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-400"><a href="#cb27-400" aria-hidden="true" tabindex="-1"></a>Think backward now, see the picture for the folder structure to get visual help. You need to go one step behind, right? So? How to go backwards?</span>
+<span id="cb27-400"><a href="#cb27-400" aria-hidden="true" tabindex="-1"></a>Well, <span class="in">`touch`</span> is creating the file (named <span class="in">`data.csv`</span>). Run <span class="in">`ls`</span> to see who else is the resident there. As expected, no?</span>
 <span id="cb27-401"><a href="#cb27-401" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-402"><a href="#cb27-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-403"><a href="#cb27-403" aria-hidden="true" tabindex="-1"></a>Run this:</span>
-<span id="cb27-404"><a href="#cb27-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-405"><a href="#cb27-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
-<span id="cb27-406"><a href="#cb27-406" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb27-407"><a href="#cb27-407" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-408"><a href="#cb27-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-409"><a href="#cb27-409" aria-hidden="true" tabindex="-1"></a>**Could you relate what `..` is meaning here?**  </span>
-<span id="cb27-410"><a href="#cb27-410" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-411"><a href="#cb27-411" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
-<span id="cb27-412"><a href="#cb27-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-413"><a href="#cb27-413" aria-hidden="true" tabindex="-1"></a>Well, one step/folder behind, right?</span>
-<span id="cb27-414"><a href="#cb27-414" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb27-415"><a href="#cb27-415" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-416"><a href="#cb27-416" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb27-417"><a href="#cb27-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-418"><a href="#cb27-418" aria-hidden="true" tabindex="-1"></a>Ahha.... Wondering why do we have <span class="in">`/`</span> after the folder names? Well, that is the way to denote a folder. We could use <span class="in">`ls Downloads/`</span>, but we dropped the <span class="in">`/`</span> since we are not denoting any more folder after <span class="in">`Downloads`</span>. If you want to see things inside <span class="in">`folder3`</span>, we should have use <span class="in">`ls Downloads/folder3`</span> or <span class="in">`ls Downloads/folder3/`</span> from the <span class="in">`~`</span> directory, we could not do it like <span class="in">`ls Downloadsfolder3`</span> or <span class="in">`ls Downloadsfolder3/`</span>. Now it is looking for <span class="in">`Downloadsfolder3`</span> folder which is not there in your computer. You will get error.  </span>
-<span id="cb27-419"><a href="#cb27-419" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-420"><a href="#cb27-420" aria-hidden="true" tabindex="-1"></a>**Another point:** Did you notice that <span class="in">`ls Downloads/folder3`</span> is just listing everything inside <span class="in">`Downloads/folder3`</span> on the fly, we are not really changing our physical location there, we are still in <span class="in">`~`</span>. To go inside <span class="in">`folder3`</span>, we should use <span class="in">`cd Downloads/folder3`</span>. Caught this correctly? Ponder....</span>
+<span id="cb27-403"><a href="#cb27-403" aria-hidden="true" tabindex="-1"></a>*Q.* How to come out of <span class="in">`folder2`</span> to <span class="in">`Downloads`</span> again?  </span>
+<span id="cb27-404"><a href="#cb27-404" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-405"><a href="#cb27-405" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-406"><a href="#cb27-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-407"><a href="#cb27-407" aria-hidden="true" tabindex="-1"></a>Think backward now, see the picture for the folder structure to get visual help. You need to go one step behind, right? So? How to go backwards?</span>
+<span id="cb27-408"><a href="#cb27-408" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-409"><a href="#cb27-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-410"><a href="#cb27-410" aria-hidden="true" tabindex="-1"></a>Run this:</span>
+<span id="cb27-411"><a href="#cb27-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-412"><a href="#cb27-412" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-413"><a href="#cb27-413" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb27-414"><a href="#cb27-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-415"><a href="#cb27-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-416"><a href="#cb27-416" aria-hidden="true" tabindex="-1"></a>**Could you relate what `..` is meaning here?**  </span>
+<span id="cb27-417"><a href="#cb27-417" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-418"><a href="#cb27-418" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-419"><a href="#cb27-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-420"><a href="#cb27-420" aria-hidden="true" tabindex="-1"></a>Well, one step/folder backward, right?</span>
 <span id="cb27-421"><a href="#cb27-421" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb27-422"><a href="#cb27-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-423"><a href="#cb27-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homeworks  </span></span>
+<span id="cb27-422"><a href="#cb27-422" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-423"><a href="#cb27-423" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb27-424"><a href="#cb27-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-425"><a href="#cb27-425" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Go inside <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> folders one after another and create the empty files as you see in the picture (with exact names). If you can do it, you are almost a PRO in Linux/command line.  </span>
+<span id="cb27-425"><a href="#cb27-425" aria-hidden="true" tabindex="-1"></a>Ahha.... Wondering why do we have <span class="in">`/`</span> after the folder names? Well, that is the way to denote a folder. We could use <span class="in">`ls Downloads/`</span>, but we dropped the <span class="in">`/`</span> since we are not denoting any more folder after <span class="in">`Downloads`</span>. If you want to see things inside <span class="in">`folder3`</span>, we should have use <span class="in">`ls Downloads/folder3`</span> or <span class="in">`ls Downloads/folder3/`</span> from the <span class="in">`~`</span> directory, we could not do it like <span class="in">`ls Downloadsfolder3`</span> or <span class="in">`ls Downloadsfolder3/`</span>. Now it is looking for <span class="in">`Downloadsfolder3`</span> folder which is not there in your computer. You will get error.  </span>
 <span id="cb27-426"><a href="#cb27-426" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-427"><a href="#cb27-427" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Now, remove all the folders running this command below:</span>
-<span id="cb27-428"><a href="#cb27-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-429"><a href="#cb27-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
-<span id="cb27-430"><a href="#cb27-430" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> folder1 folder2 folder3</span>
-<span id="cb27-431"><a href="#cb27-431" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-432"><a href="#cb27-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-433"><a href="#cb27-433" aria-hidden="true" tabindex="-1"></a>Here, <span class="in">`rm`</span> means "remove" and <span class="in">`-r`</span> means "recursively". So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?  </span>
-<span id="cb27-434"><a href="#cb27-434" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-435"><a href="#cb27-435" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Navigate to <span class="in">`Downloads`</span> again. Stay there. Next task is coming.   </span>
-<span id="cb27-436"><a href="#cb27-436" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Go to your GitHub account and make a repository named <span class="in">`hw_repo1`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) and push following the standard workflow. Make as many changes and pushes you like.  </span>
-<span id="cb27-437"><a href="#cb27-437" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-438"><a href="#cb27-438" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Go to your GitHub account again and make a repository named <span class="in">`hw_repo2`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (you know how to be inside <span class="in">`Downloads`</span>, right?) again (go inside the <span class="in">`hw_repo2`</span> folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) again and push following the standard workflow. Make as many changes and pushes you like.  </span>
-<span id="cb27-439"><a href="#cb27-439" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-440"><a href="#cb27-440" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>You learned these bash commands today:</span>
+<span id="cb27-427"><a href="#cb27-427" aria-hidden="true" tabindex="-1"></a>**Another point:** Did you notice that <span class="in">`ls Downloads/folder3`</span> is just listing everything inside <span class="in">`Downloads/folder3`</span> on the fly, we are not really changing our physical location there, we are still in <span class="in">`~`</span>. To go inside <span class="in">`folder3`</span>, we should use <span class="in">`cd Downloads/folder3`</span>. Caught this correctly? Ponder....</span>
+<span id="cb27-428"><a href="#cb27-428" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-429"><a href="#cb27-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-430"><a href="#cb27-430" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homeworks  </span></span>
+<span id="cb27-431"><a href="#cb27-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-432"><a href="#cb27-432" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Go inside <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> folders one after another and create the empty files as you see in the picture (with exact names). If you can do it, you are almost a PRO in Linux/command line.  </span>
+<span id="cb27-433"><a href="#cb27-433" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-434"><a href="#cb27-434" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Now, remove all the folders running this command below:</span>
+<span id="cb27-435"><a href="#cb27-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-436"><a href="#cb27-436" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-437"><a href="#cb27-437" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> folder1 folder2 folder3</span>
+<span id="cb27-438"><a href="#cb27-438" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-439"><a href="#cb27-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-440"><a href="#cb27-440" aria-hidden="true" tabindex="-1"></a>Here, <span class="in">`rm`</span> means "remove" and <span class="in">`-r`</span> means "recursively". So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?  </span>
 <span id="cb27-441"><a href="#cb27-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-442"><a href="#cb27-442" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`pwd`</span></span>
-<span id="cb27-443"><a href="#cb27-443" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ls`</span></span>
-<span id="cb27-444"><a href="#cb27-444" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`cat`</span></span>
-<span id="cb27-445"><a href="#cb27-445" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`echo`</span></span>
-<span id="cb27-446"><a href="#cb27-446" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`mkdir`</span></span>
-<span id="cb27-447"><a href="#cb27-447" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`cd`</span></span>
-<span id="cb27-448"><a href="#cb27-448" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`rm`</span></span>
-<span id="cb27-449"><a href="#cb27-449" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`touch`</span></span>
-<span id="cb27-450"><a href="#cb27-450" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-451"><a href="#cb27-451" aria-hidden="true" tabindex="-1"></a>Can you relate them with Windows alternatives? I am giving a hint for <span class="in">`touch`</span>. <span class="in">`touch`</span> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <span class="in">`.docx`</span> files. You can't name a file like <span class="in">`file_name.jpeg`</span> using Microsoft Words, though. Right? You need some other tools for that image file naming (<span class="in">`.jpeg`</span>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A &gt; B &gt; C &gt; D &gt; E &gt; ..... &gt; Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <span class="in">`hw_repo*`</span>. <span class="in">`echo`</span> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.  </span>
-<span id="cb27-452"><a href="#cb27-452" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-453"><a href="#cb27-453" aria-hidden="true" tabindex="-1"></a>**7. Optional:** Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <span class="in">`HOME`</span> and root are the same.   </span>
-<span id="cb27-454"><a href="#cb27-454" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-455"><a href="#cb27-455" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</span>
-<span id="cb27-456"><a href="#cb27-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-457"><a href="#cb27-457" aria-hidden="true" tabindex="-1"></a><span class="fu"># A Final Though  </span></span>
-<span id="cb27-458"><a href="#cb27-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-459"><a href="#cb27-459" aria-hidden="true" tabindex="-1"></a>You might not know how powerful you are becoming! But trust me, you are too strong.......</span>
+<span id="cb27-442"><a href="#cb27-442" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Make all the folders and files as it is shown in the toy file structure again. Don't delete this time. Keep them.   </span>
+<span id="cb27-443"><a href="#cb27-443" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Navigate to <span class="in">`Downloads`</span> again. Stay there. Next task is coming.   </span>
+<span id="cb27-444"><a href="#cb27-444" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Go to your GitHub account and make a repository named <span class="in">`hw_repo1`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) and push following the standard workflow. Make as many changes and pushes you like.  </span>
+<span id="cb27-445"><a href="#cb27-445" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-446"><a href="#cb27-446" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Go to your GitHub account again and make a repository named <span class="in">`hw_repo2`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (you know how to be inside <span class="in">`Downloads`</span>, right?) again (go inside the <span class="in">`hw_repo2`</span> folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) again and push following the standard workflow. Make as many changes and pushes you like.  </span>
+<span id="cb27-447"><a href="#cb27-447" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-448"><a href="#cb27-448" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>You learned these bash commands today:</span>
+<span id="cb27-449"><a href="#cb27-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-450"><a href="#cb27-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pwd`</span></span>
+<span id="cb27-451"><a href="#cb27-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ls`</span></span>
+<span id="cb27-452"><a href="#cb27-452" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`cat`</span></span>
+<span id="cb27-453"><a href="#cb27-453" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`echo`</span></span>
+<span id="cb27-454"><a href="#cb27-454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`mkdir`</span></span>
+<span id="cb27-455"><a href="#cb27-455" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`cd`</span></span>
+<span id="cb27-456"><a href="#cb27-456" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`rm`</span></span>
+<span id="cb27-457"><a href="#cb27-457" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`touch`</span></span>
+<span id="cb27-458"><a href="#cb27-458" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-459"><a href="#cb27-459" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-460"><a href="#cb27-460" aria-hidden="true" tabindex="-1"></a>Can you relate them with Windows alternatives? I am giving a hint for <span class="in">`touch`</span>. <span class="in">`touch`</span> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <span class="in">`.docx`</span> files. You can't name a file like <span class="in">`file_name.jpeg`</span> using Microsoft Words, though. Right? You need some other tools for that image file naming (<span class="in">`.jpeg`</span>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A &gt; B &gt; C &gt; D &gt; E &gt; ..... &gt; Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <span class="in">`hw_repo*`</span>. <span class="in">`echo`</span> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.  </span>
+<span id="cb27-461"><a href="#cb27-461" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-462"><a href="#cb27-462" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <span class="in">`HOME`</span> and root are the same.   </span>
+<span id="cb27-463"><a href="#cb27-463" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-464"><a href="#cb27-464" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</span>
+<span id="cb27-465"><a href="#cb27-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-466"><a href="#cb27-466" aria-hidden="true" tabindex="-1"></a><span class="fu"># A Final Though  </span></span>
+<span id="cb27-467"><a href="#cb27-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-468"><a href="#cb27-468" aria-hidden="true" tabindex="-1"></a>You might not know how powerful you are becoming! But trust me, you are too strong.......</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
