@@ -5,7 +5,7 @@ project:
 website:
   title: "subject_teaching"
   navbar:
-    title: PythRash
+    title: PythRaSh
     search: true
     left:
       - text: Home
