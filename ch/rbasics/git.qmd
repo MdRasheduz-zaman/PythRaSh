@@ -212,7 +212,7 @@ So, it is a new file we created, right? It is on our computer, but not in our re
 
 ::: callout-note
 ## Diversion
-`echo "# Hello GitHub"` actually prints `# Hello GitHub` on the terminal/git bash (you can check by copy-pasting only this part). The `>` operator is sending `# Hello GitHub` to the file named `README.md`. We did not need to create this file from before. See the power of `echo`, `<` together.
+`echo "# Hello GitHub"` actually prints `# Hello GitHub` on the terminal/git bash (you can check/run by copy-pasting only this part). The `>` operator is sending `# Hello GitHub` to the file named `README.md`. We did not need to create this file from before. See the power of `echo`, `>` together.
 :::
 
 ### Track and Commit Changes  
@@ -224,7 +224,7 @@ git status
 Isn't it showing that our `README.md` file is untracked (in red color)?  
 
 ::: {.callout-note collapse="true"}
-It shows the status of the files and folders. You see the untracked files here. Untracked files mean the ones those are different than your GitHub repo.  
+It shows the status of the files and folders. You see the untracked files here. Untracked files mean the ones those are different than your GitHub repo. If you add something more in any of your file in this folder -- even an extra space, it would be a change of the file and it would be stated as "untracked". 
 :::
 
 ```{bash, eval=FALSE}
