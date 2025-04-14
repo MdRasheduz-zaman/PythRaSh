@@ -1,0 +1,9 @@
+---
+title: "Statistics Basics"
+abstract: "Statistical tests, Statistics, Statistic, CLT, etc"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

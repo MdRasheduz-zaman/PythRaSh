@@ -1,0 +1,14 @@
+{
+  "hash": "18a14f7d1de8e46b3500f440a69626c2",
+  "result": {
+    "markdown": "---\ntitle: \"Correlation & Regression\"\nabstract: \"Correlation and simple linear regression (with and without intercept).\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

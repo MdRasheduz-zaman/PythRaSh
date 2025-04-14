@@ -1,0 +1,9 @@
+---
+title: "Correlation & Regression"
+abstract: "Correlation and simple linear regression (with and without intercept)."
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

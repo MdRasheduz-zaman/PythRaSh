@@ -1,0 +1,14 @@
+{
+  "hash": "9942454082913b5b436c2a5c14e3912d",
+  "result": {
+    "markdown": "---\ntitle: \"Python Basics\"\nabstract: \"Variable, Object, vector, fucntions, etc.\"\n---\n\n\n\n::: {.cell}\n\n:::\n\n\n## Intro\n\n\n::: {.cell}\n\n```{.python .cell-code}\nprint(\"Hello, world!\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```{.custom-output}\nHello, world!\n```\n:::\n:::\n\n\n## np array\n\n\n::: {.cell}\n\n```{.python .cell-code}\n# Your Python code\n#py_install(\"numpy\"\")\nimport numpy as np\n\narr = np.array([1, 2, 3, 4, 5])\nprint(arr * 2)\n```\n\n::: {.cell-output .cell-output-stdout}\n```{.custom-output}\n[ 2  4  6  8 10]\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

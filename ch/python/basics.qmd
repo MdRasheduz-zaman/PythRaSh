@@ -1,0 +1,32 @@
+---
+title: "Python Basics"
+abstract: "Variable, Object, vector, fucntions, etc."
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```
+
+```{r, echo=FALSE}
+#install.packages("reticulate")
+library(reticulate)
+reticulate::use_python("/Users/md.rasheduzzaman/miniconda3/bin/python")
+```
+
+## Intro
+
+```{python, echo = TRUE}
+print("Hello, world!")
+```
+
+## np array
+
+```{python, echo = TRUE}
+# Your Python code
+#py_install("numpy"")
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+print(arr * 2)
+```

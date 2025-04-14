@@ -1,0 +1,9 @@
+---
+title: "Advanced Genomics"
+abstract: "conda environment, HPC cluster, quality control, trimming and filtering, Genome assembly, mapping, alignment, classification, contamination removal, pangenomics, Illumina, ONT, PacBio"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

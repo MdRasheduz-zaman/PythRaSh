@@ -1,0 +1,294 @@
+---
+title: "R Basics"
+abstract: "Data types, vectors, functions, R packages"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```
+
+## R as Calculator
+
+```{r}
+3+2  # Run 
+
+3-2
+
+3*2
+
+3/2
+
+3%/%2 #integer division
+
+5%%3 #modulus division
+
+(10 - 5) * (2 + 4)  # Importance of brackets
+
+10 - 5 * 2 + 4
+(10 - 5)  * (2 + 4) # The use of brackets change the order
+
+########################### 
+
+7/(1+3)
+
+7/1+3
+
+7/(1+3); 7/1+3
+
+1+2; log(1); 1/10
+
+
+###########################################
+## You can also give numbers a name, 
+## known as variables
+
+a=5
+a
+
+a*7
+
+a=a+10
+a
+
+
+a*3
+
+a=a+10
+b=a+10
+
+a
+a^2 #power/exponent 2 or square
+
+a**2 #same as ^ (power)
+
+#Task: normal division, integer division and modulus division of 7 and 3
+#####################
+7/3
+7%/%3
+7%%3
+
+
+
+
+x=5/3 #normal division
+x
+y=5%/%3 #Integer division
+y
+z=5%%3 #modulus
+z
+
+
+
+
+
+x=5/3
+x
+floor(x)
+
+
+# -> 1 ## previous largest integer/divident
+ceiling(x)
+
+
+# -> 2 ## next smallest integer/reminder
+round(x) # -> 2 (decided based on the number)
+
+x=5/4 
+x 
+floor(x) 
+ceiling(x) #in the form of nearby integer
+x%%2 
+
+
+#Task;
+#make a varible having a value of 15
+#do different types of arithmatic operations
+
+y=15
+y
+y+5
+y-5
+y*5
+y/5
+
+(y+4)*(4-y)
+
+y%/%4
+y%%4
+
+floor(y/4)
+ceiling(y/4)
+y/4
+round(y/4)
+
+##########################################
+## Exercise :
+
+(2+3) + (2*3) - (6/3) -3^2 
+
+###########################################
+######### logical operations #############
+a=5
+b=7
+
+a=5
+b=8
+
+a==b #FALSE
+a!=b # TRUE
+a>b # FALSE and so on for the remaining
+a<b
+a>=b
+a<=b
+
+a<b | a>b 
+a<b & a>b
+
+a<b | a>=b # ? 
+a<b & a>=b # ?
+
+
+# | (pipe) ==> 
+
+######################################
+### help ###########################
+?log
+help(log)
+example(log)
+?sd
+
+###########################
+
+
+
+# create your first vector
+
+x=c(1,2,3,4,5)
+y=c(3,6,9,12,15)
+y
+x
+
+
+length(x)
+length(y)
+mode(x)
+is(x)
+mode(y)
+is(y)
+
+x= c(1, 2, 3, 4, 5, 6, 7, 8, 9) # c="concatenate"
+# x is a vector
+x
+
+mode(x)    # mode of x
+
+
+is(x)     # type of x
+
+
+length(x) #length of x
+
+DNA=c("A", "T", "G", "C")
+DNA
+
+mode(DNA)
+is(DNA)
+length(DNA)
+
+#Task: character vector of 1, 3, 5, 7
+
+
+char=c("1", "3", "5", "7")
+char
+
+
+DNA2=c("ATGTGTCA", "GTCA", "GTCATC")
+#Task: mode, is function, length
+
+mode(DNA2)
+is(DNA2)
+length(DNA2)
+
+logicals=c(TRUE, TRUE, FALSE, TRUE, FALSE)
+logicals
+mode(logicals)
+length(logicals)
+is(logicals)
+
+
+
+
+y= c("1", "2", "3", "4")
+
+mode(y)
+
+dec=c(10,20,30,60,80,90,100,50,40)
+dec
+dec[2]
+dec[7]
+dec[3]
+
+DNA2=c("ATGTGTCA", "GTCA", "GTCATC")
+DNA2[2]
+DNA2[3]
+
+yz=c(3, 4, 7, 9, 10, 5)
+yz
+
+#Task: 3rd, 4th, and 2nd element from yz
+
+yz[3]
+yz[4]
+yz[2]
+
+s= c("AATTGCCC", "ATGCATT", "AACCGTTG")
+s[1]
+
+# Task: find the others with indexing
+s[2]
+s[3]
+
+##########################################
+########## vector operations ############
+# Most standard mathematical functions work with vectors.
+x= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+x+x  #goes index-wise
+mode(x)
+is(x)
+
+
+y= c(5, 10 ,15, 20, 25, 30, 35, 40, 45, 50)
+
+y/x
+y * x
+log2(x)
+
+
+#Round the values
+x= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+log2(x)
+round(log2(x))
+
+####Task: Round the value for 1, 3 digits after decimal
+round(log2(x), 1)
+round(log2(x), 3)
+
+
+
+########### Exercise 1
+# Compute the difference between 2020
+# and the year you started at the university and 
+# divide this by the difference between 2020 and the year you were born.
+# Multiply this with 100 to get the percentage of your life 
+# you have spent at the university.
+```
+
+## Basic plotting
+
+```{r}
+a <- 1:10
+b <-10:1
+plot(a, b)
+```

@@ -1,0 +1,16 @@
+{
+  "hash": "6834838678022326d87acdebf5724607",
+  "result": {
+    "markdown": "---\ntitle: \"Statistics Basics\"\nabstract: \"Statistical tests, Statistics, Statistic, CLT, etc\"\n---\n\n\n",
+    "supporting": [
+      "stat_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

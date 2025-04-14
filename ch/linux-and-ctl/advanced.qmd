@@ -1,0 +1,9 @@
+---
+title: "Advanced Linux and CTL"
+abstract: "awk, grep, cut, etc."
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

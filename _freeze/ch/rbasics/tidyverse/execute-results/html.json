@@ -1,0 +1,16 @@
+{
+  "hash": "2c97db7dbd0c7aa4328b65ad922fc7dc",
+  "result": {
+    "markdown": "---\ntitle: \"The tidyverse\"\nabstract: \"Pipe (%>%), Tibbles, dplyr-verbs, long/wide format and more.\"\n---\n\n\n",
+    "supporting": [
+      "tidyverse_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

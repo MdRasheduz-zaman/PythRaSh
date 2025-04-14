@@ -1,0 +1,16 @@
+{
+  "hash": "d1903139cb767a868404e2816b4875c1",
+  "result": {
+    "markdown": "---\ntitle: \"Advanced Linux and CTL\"\nabstract: \"awk, grep, cut, etc.\"\n---\n\n\n",
+    "supporting": [
+      "advanced_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

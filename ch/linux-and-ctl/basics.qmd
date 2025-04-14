@@ -1,0 +1,27 @@
+---
+title: "Linux Basics"
+abstract: "Linux, WSL2, Navigation, simple commands"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```
+
+## Linux and WSL(2)
+
+Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this [step-by-step guide](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) to install Ubuntu (a Linux distribution).
+
+Follow this pages to install `Windows Subsystem for Linux` if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can't do anything except using Linux to analyse Genomic (sequencing) data. So, **better start now**.
+
+Follow [link1](https://learn.microsoft.com/en-us/windows/wsl/about) & [link2](https://learn.microsoft.com/en-us/windows/wsl/install) to get step-by-step guideline to do it.
+
+The problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be **update your kernel first and then try**.
+
+## Intro
+
+```{bash}
+# Your Linux/Bash code here 
+echo "Hello from Bash!" 
+ls -l
+```

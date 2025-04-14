@@ -1,0 +1,39 @@
+/* Justify all paragraph text globally */
+p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* Apply a comfortable max width and responsive padding to the main content */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* Ensure images scale well and stay centered if needed */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Responsive text sizing */
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}

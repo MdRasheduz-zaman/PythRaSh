@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PythRaSh",
+    "section": "",
+    "text": "PythRaSh starts out as a step-by-step introduction to R, Python, Linux and Command-line Tools, Probability and Statistics, etc. while its later parts are more of a cookbook with analyses of typical examples in life sciences with focus on (Molecular) Biology, Breeding and Genetics, (Gen)-omics, Medical Sciences, Agriculture, Ecology and other related fields."
+  },
+  {
+    "objectID": "index.html#workshops",
+    "href": "index.html#workshops",
+    "title": "PythRaSh",
+    "section": "Workshops",
+    "text": "Workshops\nMoreover, the chapters published here serve as the basis for my YouTube teaching. Also, these are the primers for my upcoming workshops. Email me at md.rasheduzzaman.ugoe[at]gmail.com if you are interested in one of my upcoming workshops. Provide me with your details, what you want to learn, motivation behind that, what you are expert in, etc.\nI am teaching Data Analysis with R now. Here, I teach R, basic git and GitHub, Linux and CLTs. These are the first step of taking you towards your (Gen)-omics journey."
+  },
+  {
+    "objectID": "ch/prob_stat/prob_basic.html",
+    "href": "ch/prob_stat/prob_basic.html",
+    "title": "Probabilty Basics",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Probabilty {Basics}},\n  date = {2024-08-14},\n  langid = {en},\n  abstract = {Experiment, trial, distribution, PMF, PDF, CDF, etc.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Probabilty Basics.” August 14,\n2024."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html",
+    "href": "ch/linux-and-ctl/basics.html",
+    "title": "Linux Basics",
+    "section": "",
+    "text": "Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this step-by-step guide to install Ubuntu (a Linux distribution).\nFollow this pages to install Windows Subsystem for Linux if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can’t do anything except using Linux to analyse Genomic (sequencing) data. So, better start now.\nFollow link1 & link2 to get step-by-step guideline to do it.\nThe problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be update your kernel first and then try."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#linux-and-wsl2",
+    "href": "ch/linux-and-ctl/basics.html#linux-and-wsl2",
+    "title": "Linux Basics",
+    "section": "",
+    "text": "Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this step-by-step guide to install Ubuntu (a Linux distribution).\nFollow this pages to install Windows Subsystem for Linux if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can’t do anything except using Linux to analyse Genomic (sequencing) data. So, better start now.\nFollow link1 & link2 to get step-by-step guideline to do it.\nThe problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be update your kernel first and then try."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#intro",
+    "href": "ch/linux-and-ctl/basics.html#intro",
+    "title": "Linux Basics",
+    "section": "Intro",
+    "text": "Intro\n\n# Your Linux/Bash code here \necho \"Hello from Bash!\" \nls -l\n\nHello from Bash!\ntotal 64\n-rw-r--r--  1 md.rasheduzzaman  staff  22844 Aug 26 11:36 advanced.html\n-rw-r--r--  1 md.rasheduzzaman  staff      0 Aug 13 11:25 advanced.qmd\n-rw-r--r--  1 md.rasheduzzaman  staff   1166 Aug 20 12:06 basics.qmd\n-rw-r--r--  1 md.rasheduzzaman  staff   1169 Aug 26 11:36 basics.rmarkdown"
+  },
+  {
+    "objectID": "ch/rbasics/tidyverse.html",
+    "href": "ch/rbasics/tidyverse.html",
+    "title": "The tidyverse",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {The Tidyverse},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {Pipe (\\%\\textgreater\\%), Tibbles, dplyr-verbs, long/wide\n    format and more.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “The Tidyverse.” April 11, 2025."
+  },
+  {
+    "objectID": "ch/rbasics/git.html",
+    "href": "ch/rbasics/git.html",
+    "title": "Git, GitHub",
+    "section": "",
+    "text": "Well, why gitand GitHub at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (pushand pull). You actually need 4-5 lines of code to push and pull. Just get used to it. You can push the codes from the class, or your own practice codes. You will feel better.\nGet engaged!"
+  },
+  {
+    "objectID": "ch/rbasics/git.html#install-git",
+    "href": "ch/rbasics/git.html#install-git",
+    "title": "Git, GitHub",
+    "section": "Install Git",
+    "text": "Install Git\nFor Windows\n\n\nDownload: Download Git from https://git-scm.com/download/win\n\n\nInstall: Now install, accept the default settings while installing\n\nOpen git bash: After installation, open Git Bash (not cmd/PowerShell). Find it and open by double clicking. Just keep it open, nothing else. We will return to this a bit later.\nFor MacOS\nIt should already be there. Open your terminal/shell now (Press \"command\" + \"space\" buttons together and write “terminal”. Choose the terminal). Then run:\n\ngit --version\n\nIf Git isn’t installed, macOS will prompt you to install the Xcode Command Line Tools. Click “Install” and you are done. But find the recommended below. Just run these two commands to keep your directory/repo clean.\n\necho .DS_Store &gt;&gt; ~/.gitignore_global\ngit config --global core.excludesfile ~/.gitignore_global\n\nMacOS makes .DS_Store which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, you should have choosed the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don’t worry. We are adding it to gitignore and telling git to ignore it for file tracking.\nFor Ubuntu/Debian\nOpen your terminal (Press Ctrl + Alt + T.) and run these two commands one after another:\n\nsudo apt update\nsudo apt install git\n\nProvide your password if prompted. You are all set!"
+  },
+  {
+    "objectID": "ch/rbasics/git.html#create-a-github-account",
+    "href": "ch/rbasics/git.html#create-a-github-account",
+    "title": "Git, GitHub",
+    "section": "Create a GitHub Account",
+    "text": "Create a GitHub Account\n\nNow go to https://github.com -&gt; Sign up with your email\nChoose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.\n\nHint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like “@”, “!”, “?”, etc.\n\nVerify email (with hte OTP) and you are set."
+  },
+  {
+    "objectID": "ch/rbasics/git.html#set-up-git-for-the-first-time-only",
+    "href": "ch/rbasics/git.html#set-up-git-for-the-first-time-only",
+    "title": "Git, GitHub",
+    "section": "Set Up Git (for the first time only)",
+    "text": "Set Up Git (for the first time only)\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your_email@example.com\"\n\n\n\n\n\n\n\nStop!\n\n\n\nHere, Your Name and your_email@example.com means your user name (the one you set up just a bit ago. You don’t remember? Explore your GitHub account, you will see it there.) and the email address you used for GitHub. Use them correctly. Space, punctuation marks, capital or small letters should exactly match (Don’t be a “Murad takla”).\n\n\nYou can check your config:\n\ngit config --global --list\n\nIsn’t it showing things correctly? It should!"
+  },
+  {
+    "objectID": "ch/rbasics/git.html#homeworks",
+    "href": "ch/rbasics/git.html#homeworks",
+    "title": "Git, GitHub",
+    "section": "Homeworks",
+    "text": "Homeworks\n\nGo inside folder1, folder2, folder3 folders one after another and create the empty files as you see in the picture (with exact names). If you can do it, you are almost a PRO in Linux/command line.\nNow, remove all the folders running this command below:\n\n\nrm -r folder1 folder2 folder3\n\nHere, rm means “remove” and -r means “recursively”. So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?\n\nNavigate to Downloads again. Stay there. Next task is coming.\nGo to your GitHub account and make a repository named hw_repo1. Clone it inside your Downloads folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (hw_repo1) and push following the standard workflow. Make as many changes and pushes you like.\nGo to your GitHub account again and make a repository named hw_repo2. Clone it inside your Downloads folder (you know how to be inside Downloads, right?) again (go inside the hw_repo2 folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (hw_repo1) again and push following the standard workflow. Make as many changes and pushes you like.\nYou learned these bash commands today:\n\n\npwd\nls\ncat\necho\nmkdir\ncd\nrm\ntouch\n\nCan you relate them with Windows alternatives? I am giving a hint for touch. touch is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for .docx files. You can’t name a file like file_name.jpeg using Microsoft Words, though. Right? You need some other tools for that image file naming (.jpeg). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, a scrambled list of the alphabets becomes A &gt; B &gt; C &gt; D &gt; E &gt; ….. &gt; Z if we organize them, right? Or a map of Father, Son, Grandson, Me, My_Siblings, Grandma will be Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson if we think of generations, right? Try to make one for those commands and add it in a file inside one of your hw_repo*. echo it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don’t mind. GitHub also doesn’t care what you are pushing to it (it is just a storage with special functionality to track files – well, some more though, we will know later). Let’s see. If you need help, don’t hesitate to reach out! There is no shame in asking for help while learning.\n7. Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, HOME and root are the same.\n\nShare your repos with me (email me by Friday 10PM BD Time). I need time to check, right?"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html",
+    "href": "ch/linux-and-ctl/advanced.html",
+    "title": "Advanced Linux and CTL",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Advanced {Linux} and {CTL}},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {awk, grep, cut, etc.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Advanced Linux and CTL.” April 11,\n2025."
+  },
+  {
+    "objectID": "ch/prob_stat/stat.html",
+    "href": "ch/prob_stat/stat.html",
+    "title": "Statistics Basics",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Statistics {Basics}},\n  date = {2024-08-14},\n  langid = {en},\n  abstract = {Statistical tests, Statistics, Statistic, CLT, etc}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Statistics Basics.” August 14,\n2024."
+  },
+  {
+    "objectID": "ch/rbasics/git.html#generate-ssh-key-and-connect-to-github-recommended-need-to-do-only-once",
+    "href": "ch/rbasics/git.html#generate-ssh-key-and-connect-to-github-recommended-need-to-do-only-once",
+    "title": "Git, GitHub",
+    "section": "Generate SSH Key and Connect to GitHub (Recommended, need to do only once)",
+    "text": "Generate SSH Key and Connect to GitHub (Recommended, need to do only once)\n\nssh-keygen -t ed25519 -C \"you@example.com\"\n\n\nJust press Enter for all the prompts\nYour key will be saved in ~/.ssh/id_ed25519 (Mac/Linux) or C:.ssh (Windows).\nWrite yes in some specific fields if it asks for yes/no."
+  },
+  {
+    "objectID": "ch/rbasics/git.html#add-ssh-key-to-github",
+    "href": "ch/rbasics/git.html#add-ssh-key-to-github",
+    "title": "Git, GitHub",
+    "section": "Add SSH Key to GitHub",
+    "text": "Add SSH Key to GitHub\nNow, we are adding the public key to GitHub.\n\nRun:\n\n\ncat ~/.ssh/id_ed25519.pub\n\n\nCopy the output: Be careful here. Just copy the output. No extra space after your email address (i.e. till .com).\n\n\n\n\n\n\n\nStop!\n\n\n\nDid you copy-pasted it correctly?\n\n\n\n\n\n\n\n\nHow is your key?\n\n\n\n\n\nIt has 3 fields separated with 2 spaces. Did you notice that?\n\n\n\n\nGo to GitHub –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH Key\n\nTitle: Whatever you want (but keep it simple, like my ssh key)Paste the key you copied and save it. You are done.\n\n\n\n\n\n\nStop!\n\n\n\nDid you copy-pasted it correctly and is the key visible if you check under SSH and GPG keys now? It shows only the second field of your key though. If not, it is not done correctly.\n\n\n\nTest it:\n\n\nssh -T git@github.com\n\n\n\n\n\n\n\nHow is it?\n\n\n\nHi Your_user_name! You’ve successfully authenticated, but GitHub does not provide shell access.\n\n\nIt is totally fine, ignore the warning.\nSetting and configuration is done. Voila!"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html",
+    "href": "ch/rbasics/firststeps.html",
+    "title": "R Basics",
+    "section": "",
+    "text": "3+2  # Run \n\n[1] 5\n\n3-2\n\n[1] 1\n\n3*2\n\n[1] 6\n\n3/2\n\n[1] 1.5\n\n3%/%2 #integer division\n\n[1] 1\n\n5%%3 #modulus division\n\n[1] 2\n\n(10 - 5) * (2 + 4)  # Importance of brackets\n\n[1] 30\n\n10 - 5 * 2 + 4\n\n[1] 4\n\n(10 - 5)  * (2 + 4) # The use of brackets change the order\n\n[1] 30\n\n########################### \n\n7/(1+3)\n\n[1] 1.75\n\n7/1+3\n\n[1] 10\n\n7/(1+3); 7/1+3\n\n[1] 1.75\n\n\n[1] 10\n\n1+2; log(1); 1/10\n\n[1] 3\n\n\n[1] 0\n\n\n[1] 0.1\n\n###########################################\n## You can also give numbers a name, \n## known as variables\n\na=5\na\n\n[1] 5\n\na*7\n\n[1] 35\n\na=a+10\na\n\n[1] 15\n\na*3\n\n[1] 45\n\na=a+10\nb=a+10\n\na\n\n[1] 25\n\na^2 #power/exponent 2 or square\n\n[1] 625\n\na**2 #same as ^ (power)\n\n[1] 625\n\n#Task: normal division, integer division and modulus division of 7 and 3\n#####################\n7/3\n\n[1] 2.333333\n\n7%/%3\n\n[1] 2\n\n7%%3\n\n[1] 1\n\nx=5/3 #normal division\nx\n\n[1] 1.666667\n\ny=5%/%3 #Integer division\ny\n\n[1] 1\n\nz=5%%3 #modulus\nz\n\n[1] 2\n\nx=5/3\nx\n\n[1] 1.666667\n\nfloor(x)\n\n[1] 1\n\n# -&gt; 1 ## previous largest integer/divident\nceiling(x)\n\n[1] 2\n\n# -&gt; 2 ## next smallest integer/reminder\nround(x) # -&gt; 2 (decided based on the number)\n\n[1] 2\n\nx=5/4 \nx \n\n[1] 1.25\n\nfloor(x) \n\n[1] 1\n\nceiling(x) #in the form of nearby integer\n\n[1] 2\n\nx%%2 \n\n[1] 1.25\n\n#Task;\n#make a varible having a value of 15\n#do different types of arithmatic operations\n\ny=15\ny\n\n[1] 15\n\ny+5\n\n[1] 20\n\ny-5\n\n[1] 10\n\ny*5\n\n[1] 75\n\ny/5\n\n[1] 3\n\n(y+4)*(4-y)\n\n[1] -209\n\ny%/%4\n\n[1] 3\n\ny%%4\n\n[1] 3\n\nfloor(y/4)\n\n[1] 3\n\nceiling(y/4)\n\n[1] 4\n\ny/4\n\n[1] 3.75\n\nround(y/4)\n\n[1] 4\n\n##########################################\n## Exercise :\n\n(2+3) + (2*3) - (6/3) -3^2 \n\n[1] 0\n\n###########################################\n######### logical operations #############\na=5\nb=7\n\na=5\nb=8\n\na==b #FALSE\n\n[1] FALSE\n\na!=b # TRUE\n\n[1] TRUE\n\na&gt;b # FALSE and so on for the remaining\n\n[1] FALSE\n\na&lt;b\n\n[1] TRUE\n\na&gt;=b\n\n[1] FALSE\n\na&lt;=b\n\n[1] TRUE\n\na&lt;b | a&gt;b \n\n[1] TRUE\n\na&lt;b & a&gt;b\n\n[1] FALSE\n\na&lt;b | a&gt;=b # ? \n\n[1] TRUE\n\na&lt;b & a&gt;=b # ?\n\n[1] FALSE\n\n# | (pipe) ==&gt; \n\n######################################\n### help ###########################\n?log\nhelp(log)\nexample(log)\n\n\nlog&gt; log(exp(3))\n[1] 3\n\nlog&gt; log10(1e7) # = 7\n[1] 7\n\nlog&gt; x &lt;- 10^-(1+2*1:9)\n\nlog&gt; cbind(deparse.level=2, # to get nice column names\nlog+       x, log(1+x), log1p(x), exp(x)-1, expm1(x))\n          x   log(1 + x)     log1p(x)   exp(x) - 1     expm1(x)\n [1,] 1e-03 9.995003e-04 9.995003e-04 1.000500e-03 1.000500e-03\n [2,] 1e-05 9.999950e-06 9.999950e-06 1.000005e-05 1.000005e-05\n [3,] 1e-07 1.000000e-07 1.000000e-07 1.000000e-07 1.000000e-07\n [4,] 1e-09 1.000000e-09 1.000000e-09 1.000000e-09 1.000000e-09\n [5,] 1e-11 1.000000e-11 1.000000e-11 1.000000e-11 1.000000e-11\n [6,] 1e-13 9.992007e-14 1.000000e-13 9.992007e-14 1.000000e-13\n [7,] 1e-15 1.110223e-15 1.000000e-15 1.110223e-15 1.000000e-15\n [8,] 1e-17 0.000000e+00 1.000000e-17 0.000000e+00 1.000000e-17\n [9,] 1e-19 0.000000e+00 1.000000e-19 0.000000e+00 1.000000e-19\n\n?sd\n\n###########################\n\n\n\n# create your first vector\n\nx=c(1,2,3,4,5)\ny=c(3,6,9,12,15)\ny\n\n[1]  3  6  9 12 15\n\nx\n\n[1] 1 2 3 4 5\n\nlength(x)\n\n[1] 5\n\nlength(y)\n\n[1] 5\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\nmode(y)\n\n[1] \"numeric\"\n\nis(y)\n\n[1] \"numeric\" \"vector\" \n\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9) # c=\"concatenate\"\n# x is a vector\nx\n\n[1] 1 2 3 4 5 6 7 8 9\n\nmode(x)    # mode of x\n\n[1] \"numeric\"\n\nis(x)     # type of x\n\n[1] \"numeric\" \"vector\" \n\nlength(x) #length of x\n\n[1] 9\n\nDNA=c(\"A\", \"T\", \"G\", \"C\")\nDNA\n\n[1] \"A\" \"T\" \"G\" \"C\"\n\nmode(DNA)\n\n[1] \"character\"\n\nis(DNA)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA)\n\n[1] 4\n\n#Task: character vector of 1, 3, 5, 7\n\n\nchar=c(\"1\", \"3\", \"5\", \"7\")\nchar\n\n[1] \"1\" \"3\" \"5\" \"7\"\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\n#Task: mode, is function, length\n\nmode(DNA2)\n\n[1] \"character\"\n\nis(DNA2)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA2)\n\n[1] 3\n\nlogicals=c(TRUE, TRUE, FALSE, TRUE, FALSE)\nlogicals\n\n[1]  TRUE  TRUE FALSE  TRUE FALSE\n\nmode(logicals)\n\n[1] \"logical\"\n\nlength(logicals)\n\n[1] 5\n\nis(logicals)\n\n[1] \"logical\" \"vector\" \n\ny= c(\"1\", \"2\", \"3\", \"4\")\n\nmode(y)\n\n[1] \"character\"\n\ndec=c(10,20,30,60,80,90,100,50,40)\ndec\n\n[1]  10  20  30  60  80  90 100  50  40\n\ndec[2]\n\n[1] 20\n\ndec[7]\n\n[1] 100\n\ndec[3]\n\n[1] 30\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\nDNA2[2]\n\n[1] \"GTCA\"\n\nDNA2[3]\n\n[1] \"GTCATC\"\n\nyz=c(3, 4, 7, 9, 10, 5)\nyz\n\n[1]  3  4  7  9 10  5\n\n#Task: 3rd, 4th, and 2nd element from yz\n\nyz[3]\n\n[1] 7\n\nyz[4]\n\n[1] 9\n\nyz[2]\n\n[1] 4\n\ns= c(\"AATTGCCC\", \"ATGCATT\", \"AACCGTTG\")\ns[1]\n\n[1] \"AATTGCCC\"\n\n# Task: find the others with indexing\ns[2]\n\n[1] \"ATGCATT\"\n\ns[3]\n\n[1] \"AACCGTTG\"\n\n##########################################\n########## vector operations ############\n# Most standard mathematical functions work with vectors.\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n\nx+x  #goes index-wise\n\n [1]  2  4  6  8 10 12 14 16 18 20\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\ny= c(5, 10 ,15, 20, 25, 30, 35, 40, 45, 50)\n\ny/x\n\n [1] 5 5 5 5 5 5 5 5 5 5\n\ny * x\n\n [1]   5  20  45  80 125 180 245 320 405 500\n\nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\n#Round the values\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) \nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\nround(log2(x))\n\n [1] 0 1 2 2 2 3 3 3 3 3\n\n####Task: Round the value for 1, 3 digits after decimal\nround(log2(x), 1)\n\n [1] 0.0 1.0 1.6 2.0 2.3 2.6 2.8 3.0 3.2 3.3\n\nround(log2(x), 3)\n\n [1] 0.000 1.000 1.585 2.000 2.322 2.585 2.807 3.000 3.170 3.322\n\n########### Exercise 1\n# Compute the difference between 2020\n# and the year you started at the university and \n# divide this by the difference between 2020 and the year you were born.\n# Multiply this with 100 to get the percentage of your life \n# you have spent at the university."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#r-as-calculator",
+    "href": "ch/rbasics/firststeps.html#r-as-calculator",
+    "title": "R Basics",
+    "section": "",
+    "text": "3+2  # Run \n\n[1] 5\n\n3-2\n\n[1] 1\n\n3*2\n\n[1] 6\n\n3/2\n\n[1] 1.5\n\n3%/%2 #integer division\n\n[1] 1\n\n5%%3 #modulus division\n\n[1] 2\n\n(10 - 5) * (2 + 4)  # Importance of brackets\n\n[1] 30\n\n10 - 5 * 2 + 4\n\n[1] 4\n\n(10 - 5)  * (2 + 4) # The use of brackets change the order\n\n[1] 30\n\n########################### \n\n7/(1+3)\n\n[1] 1.75\n\n7/1+3\n\n[1] 10\n\n7/(1+3); 7/1+3\n\n[1] 1.75\n\n\n[1] 10\n\n1+2; log(1); 1/10\n\n[1] 3\n\n\n[1] 0\n\n\n[1] 0.1\n\n###########################################\n## You can also give numbers a name, \n## known as variables\n\na=5\na\n\n[1] 5\n\na*7\n\n[1] 35\n\na=a+10\na\n\n[1] 15\n\na*3\n\n[1] 45\n\na=a+10\nb=a+10\n\na\n\n[1] 25\n\na^2 #power/exponent 2 or square\n\n[1] 625\n\na**2 #same as ^ (power)\n\n[1] 625\n\n#Task: normal division, integer division and modulus division of 7 and 3\n#####################\n7/3\n\n[1] 2.333333\n\n7%/%3\n\n[1] 2\n\n7%%3\n\n[1] 1\n\nx=5/3 #normal division\nx\n\n[1] 1.666667\n\ny=5%/%3 #Integer division\ny\n\n[1] 1\n\nz=5%%3 #modulus\nz\n\n[1] 2\n\nx=5/3\nx\n\n[1] 1.666667\n\nfloor(x)\n\n[1] 1\n\n# -&gt; 1 ## previous largest integer/divident\nceiling(x)\n\n[1] 2\n\n# -&gt; 2 ## next smallest integer/reminder\nround(x) # -&gt; 2 (decided based on the number)\n\n[1] 2\n\nx=5/4 \nx \n\n[1] 1.25\n\nfloor(x) \n\n[1] 1\n\nceiling(x) #in the form of nearby integer\n\n[1] 2\n\nx%%2 \n\n[1] 1.25\n\n#Task;\n#make a varible having a value of 15\n#do different types of arithmatic operations\n\ny=15\ny\n\n[1] 15\n\ny+5\n\n[1] 20\n\ny-5\n\n[1] 10\n\ny*5\n\n[1] 75\n\ny/5\n\n[1] 3\n\n(y+4)*(4-y)\n\n[1] -209\n\ny%/%4\n\n[1] 3\n\ny%%4\n\n[1] 3\n\nfloor(y/4)\n\n[1] 3\n\nceiling(y/4)\n\n[1] 4\n\ny/4\n\n[1] 3.75\n\nround(y/4)\n\n[1] 4\n\n##########################################\n## Exercise :\n\n(2+3) + (2*3) - (6/3) -3^2 \n\n[1] 0\n\n###########################################\n######### logical operations #############\na=5\nb=7\n\na=5\nb=8\n\na==b #FALSE\n\n[1] FALSE\n\na!=b # TRUE\n\n[1] TRUE\n\na&gt;b # FALSE and so on for the remaining\n\n[1] FALSE\n\na&lt;b\n\n[1] TRUE\n\na&gt;=b\n\n[1] FALSE\n\na&lt;=b\n\n[1] TRUE\n\na&lt;b | a&gt;b \n\n[1] TRUE\n\na&lt;b & a&gt;b\n\n[1] FALSE\n\na&lt;b | a&gt;=b # ? \n\n[1] TRUE\n\na&lt;b & a&gt;=b # ?\n\n[1] FALSE\n\n# | (pipe) ==&gt; \n\n######################################\n### help ###########################\n?log\nhelp(log)\nexample(log)\n\n\nlog&gt; log(exp(3))\n[1] 3\n\nlog&gt; log10(1e7) # = 7\n[1] 7\n\nlog&gt; x &lt;- 10^-(1+2*1:9)\n\nlog&gt; cbind(deparse.level=2, # to get nice column names\nlog+       x, log(1+x), log1p(x), exp(x)-1, expm1(x))\n          x   log(1 + x)     log1p(x)   exp(x) - 1     expm1(x)\n [1,] 1e-03 9.995003e-04 9.995003e-04 1.000500e-03 1.000500e-03\n [2,] 1e-05 9.999950e-06 9.999950e-06 1.000005e-05 1.000005e-05\n [3,] 1e-07 1.000000e-07 1.000000e-07 1.000000e-07 1.000000e-07\n [4,] 1e-09 1.000000e-09 1.000000e-09 1.000000e-09 1.000000e-09\n [5,] 1e-11 1.000000e-11 1.000000e-11 1.000000e-11 1.000000e-11\n [6,] 1e-13 9.992007e-14 1.000000e-13 9.992007e-14 1.000000e-13\n [7,] 1e-15 1.110223e-15 1.000000e-15 1.110223e-15 1.000000e-15\n [8,] 1e-17 0.000000e+00 1.000000e-17 0.000000e+00 1.000000e-17\n [9,] 1e-19 0.000000e+00 1.000000e-19 0.000000e+00 1.000000e-19\n\n?sd\n\n###########################\n\n\n\n# create your first vector\n\nx=c(1,2,3,4,5)\ny=c(3,6,9,12,15)\ny\n\n[1]  3  6  9 12 15\n\nx\n\n[1] 1 2 3 4 5\n\nlength(x)\n\n[1] 5\n\nlength(y)\n\n[1] 5\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\nmode(y)\n\n[1] \"numeric\"\n\nis(y)\n\n[1] \"numeric\" \"vector\" \n\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9) # c=\"concatenate\"\n# x is a vector\nx\n\n[1] 1 2 3 4 5 6 7 8 9\n\nmode(x)    # mode of x\n\n[1] \"numeric\"\n\nis(x)     # type of x\n\n[1] \"numeric\" \"vector\" \n\nlength(x) #length of x\n\n[1] 9\n\nDNA=c(\"A\", \"T\", \"G\", \"C\")\nDNA\n\n[1] \"A\" \"T\" \"G\" \"C\"\n\nmode(DNA)\n\n[1] \"character\"\n\nis(DNA)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA)\n\n[1] 4\n\n#Task: character vector of 1, 3, 5, 7\n\n\nchar=c(\"1\", \"3\", \"5\", \"7\")\nchar\n\n[1] \"1\" \"3\" \"5\" \"7\"\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\n#Task: mode, is function, length\n\nmode(DNA2)\n\n[1] \"character\"\n\nis(DNA2)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA2)\n\n[1] 3\n\nlogicals=c(TRUE, TRUE, FALSE, TRUE, FALSE)\nlogicals\n\n[1]  TRUE  TRUE FALSE  TRUE FALSE\n\nmode(logicals)\n\n[1] \"logical\"\n\nlength(logicals)\n\n[1] 5\n\nis(logicals)\n\n[1] \"logical\" \"vector\" \n\ny= c(\"1\", \"2\", \"3\", \"4\")\n\nmode(y)\n\n[1] \"character\"\n\ndec=c(10,20,30,60,80,90,100,50,40)\ndec\n\n[1]  10  20  30  60  80  90 100  50  40\n\ndec[2]\n\n[1] 20\n\ndec[7]\n\n[1] 100\n\ndec[3]\n\n[1] 30\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\nDNA2[2]\n\n[1] \"GTCA\"\n\nDNA2[3]\n\n[1] \"GTCATC\"\n\nyz=c(3, 4, 7, 9, 10, 5)\nyz\n\n[1]  3  4  7  9 10  5\n\n#Task: 3rd, 4th, and 2nd element from yz\n\nyz[3]\n\n[1] 7\n\nyz[4]\n\n[1] 9\n\nyz[2]\n\n[1] 4\n\ns= c(\"AATTGCCC\", \"ATGCATT\", \"AACCGTTG\")\ns[1]\n\n[1] \"AATTGCCC\"\n\n# Task: find the others with indexing\ns[2]\n\n[1] \"ATGCATT\"\n\ns[3]\n\n[1] \"AACCGTTG\"\n\n##########################################\n########## vector operations ############\n# Most standard mathematical functions work with vectors.\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n\nx+x  #goes index-wise\n\n [1]  2  4  6  8 10 12 14 16 18 20\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\ny= c(5, 10 ,15, 20, 25, 30, 35, 40, 45, 50)\n\ny/x\n\n [1] 5 5 5 5 5 5 5 5 5 5\n\ny * x\n\n [1]   5  20  45  80 125 180 245 320 405 500\n\nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\n#Round the values\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) \nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\nround(log2(x))\n\n [1] 0 1 2 2 2 3 3 3 3 3\n\n####Task: Round the value for 1, 3 digits after decimal\nround(log2(x), 1)\n\n [1] 0.0 1.0 1.6 2.0 2.3 2.6 2.8 3.0 3.2 3.3\n\nround(log2(x), 3)\n\n [1] 0.000 1.000 1.585 2.000 2.322 2.585 2.807 3.000 3.170 3.322\n\n########### Exercise 1\n# Compute the difference between 2020\n# and the year you started at the university and \n# divide this by the difference between 2020 and the year you were born.\n# Multiply this with 100 to get the percentage of your life \n# you have spent at the university."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#basic-plotting",
+    "href": "ch/rbasics/firststeps.html#basic-plotting",
+    "title": "R Basics",
+    "section": "Basic plotting",
+    "text": "Basic plotting\n\na &lt;- 1:10\nb &lt;-10:1\nplot(a, b)"
+  },
+  {
+    "objectID": "ch/python/basics.html",
+    "href": "ch/python/basics.html",
+    "title": "Python Basics",
+    "section": "",
+    "text": "print(\"Hello, world!\")\n\nHello, world!"
+  },
+  {
+    "objectID": "ch/python/basics.html#intro",
+    "href": "ch/python/basics.html#intro",
+    "title": "Python Basics",
+    "section": "",
+    "text": "print(\"Hello, world!\")\n\nHello, world!"
+  },
+  {
+    "objectID": "ch/python/basics.html#np-array",
+    "href": "ch/python/basics.html#np-array",
+    "title": "Python Basics",
+    "section": "np array",
+    "text": "np array\n\n# Your Python code\n#py_install(\"numpy\"\")\nimport numpy as np\n\narr = np.array([1, 2, 3, 4, 5])\nprint(arr * 2)\n\n[ 2  4  6  8 10]"
+  },
+  {
+    "objectID": "ch/python/panda.html",
+    "href": "ch/python/panda.html",
+    "title": "Panda Dataframe, scypy, numpy, etc.",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Panda {Dataframe,} Scypy, Numpy, Etc.},\n  date = {2024-08-13},\n  langid = {en},\n  abstract = {Panda df}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Panda Dataframe, Scypy, Numpy,\nEtc.” August 13, 2024."
+  },
+  {
+    "objectID": "ch/python/MLA.html",
+    "href": "ch/python/MLA.html",
+    "title": "Machine Learning",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Machine {Learning}},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {Supervised and Unsupervised ML}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Machine Learning.” April 11, 2025."
+  },
+  {
+    "objectID": "ch/python/AI.html",
+    "href": "ch/python/AI.html",
+    "title": "Artificial Intelegence",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Artificial {Intelegence}},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {Tensor, etc.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Artificial Intelegence.” April 11,\n2025."
+  },
+  {
+    "objectID": "ch/genomics/basics.html",
+    "href": "ch/genomics/basics.html",
+    "title": "Basic Genomics",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Basic {Genomics}},\n  date = {2024-08-14},\n  langid = {en},\n  abstract = {Genome, -omics, data formats, platforms}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Basic Genomics.” August 14, 2024."
+  },
+  {
+    "objectID": "ch/rbasics/git.html#generate-ssh-key-and-connect-to-github",
+    "href": "ch/rbasics/git.html#generate-ssh-key-and-connect-to-github",
+    "title": "Git, GitHub",
+    "section": "Generate SSH Key and Connect to GitHub",
+    "text": "Generate SSH Key and Connect to GitHub\nRecommended, need to do only once\n\n\n\n\n\n\nStop!\n\n\n\nThis step is creating a private and public key for you to identify that it is really you who is interacting (pushing, pulling, cloning for example) with the GitHub account later. We only upload the public key to GitHub, but never the private key. That is exclusively for yourself. Never share it with anybody.\n\n\n\nssh-keygen -t ed25519 -C \"you@example.com\"\n\nJust press Enter for all the prompts\n\n\n\n\n\n\nStop!\n\n\n\nDid you replace you@example.com with yours? If not, do it again replacing it with correct email address for your GitHub account.\n\n\n\n\n\n\n\n\nStop!\n\n\n\nDid you press Enter or return key multiple times or just kept staring at the screen? Read the messages on your screen to understand, and keep pressing Enter."
+  },
+  {
+    "objectID": "ch/rbasics/git.html#expandable-info-message",
+    "href": "ch/rbasics/git.html#expandable-info-message",
+    "title": "Git, GitHub",
+    "section": "Expandable info message",
+    "text": "Expandable info message\nIt has 3 fields separated with 2 spaces. Did you notice that?"
+  }
+]

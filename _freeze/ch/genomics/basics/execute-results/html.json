@@ -1,0 +1,14 @@
+{
+  "hash": "5fcdd18433b49974568cf45ffc73fc7d",
+  "result": {
+    "markdown": "---\ntitle: \"Basic Genomics\"\nabstract: \"Genome, -omics, data formats, platforms\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

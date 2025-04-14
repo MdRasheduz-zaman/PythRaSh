@@ -1,0 +1,136 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "subject_teaching"
+  navbar:
+    title: PythRash
+    search: true
+    left:
+      - text: Home
+        href: index.qmd
+        
+      - text: R 
+        menu:
+          - text: git
+            href: ch/rbasics/git.qmd
+          - text: First Steps
+            href: ch/rbasics/firststeps.qmd
+          - text: The tidyverse
+            href: ch/rbasics/tidyverse.qmd
+          - text: Correlation & Regression
+            href: ch/rbasics/correlation_regression.qmd
+          - text: Bad data & Outliers
+            href: ch/rbasics/baddata.qmd
+            
+      - text: Python
+        menu: 
+          - text: Basics
+            href: ch/python/basics.qmd
+          - text: Advanced Python
+            href: ch/python/panda.qmd
+          - text: Machine Learning Algorithms
+            href: ch/python/MLA.qmd
+          - text: AI
+            href: ch/python/AI.qmd
+            
+      - text: Linux and CLT
+        menu: 
+          - text: Linux Basics
+            href: ch/linux-and-ctl/basics.qmd
+          - text: Advanced Command Line
+            href: ch/linux-and-ctl/advanced.qmd
+            
+      - text: Probability and Statistics
+        menu:
+          - text: Probability Basics
+            href: ch/prob_stat/prob_basic.qmd
+          - text: Statistics
+            href: ch/prob_stat/stat.qmd
+
+      - text: Genomics
+        menu: 
+          - text: Genomics Basics
+            href: ch/genomics/basics.qmd
+          - text: Advanced Genomics
+            href: ch/genomics/advanced.qmd
+          - text: Pipelines
+            href: ch/genomics/pipeline.qmd
+        
+    right:
+      - text: Contact
+        href: https://github.com/MdRasheduz-zaman
+        
+      - icon: github
+        href: https://github.com/MdRasheduz-zaman/PythRaSh
+        aria-label: GitHub
+
+format:
+  html:
+    anchor-sections: true
+    css: _include/styles.css
+    code-fold: false
+    code-summary: "Click to show/hide code"
+    code-overflow: scroll
+    code-copy: true
+    code-link: true
+    code-tools: true
+    citations-hover: true
+    footnotes-hover: true
+    theme: cosmo
+    toc: true
+    include-after-body: _include/footer.html
+  pdf:
+    exclude-from:
+      - ch/phd_org/organization.qmd
+    colorlinks: true
+    number-sections: true
+    toc: true
+
+
+# remove this once lightbox no longer needs an extension    
+#filters:
+#  - lightbox
+#lightbox:
+#  match: auto
+#  effect: fade
+    
+author:
+  - name:
+      given: Md
+      family: Rasheduzzaman
+      literal: 'Md Rasheduzzaman'
+    # orcid: XXXXXXXXX
+    affiliations:
+      - name: "FLI Insel Riems"
+        city: Greifswald
+        country: Germany
+        url: https://www.fli.de/de/institute/institut-fuer-infektionsmedizin-imed/
+      - name: "& Freelancer"
+        url: https://github.com/MdRasheduz-zaman
+
+editor: visual
+abstract-title: "Content summary"
+bibliography: references.bib
+date: last-modified
+published-title: "Last updated"
+
+execute:
+  warning: false
+  message: false
+  freeze: auto
+  #eval: false  # prevent ANY code execution unless overridden
+  engine: knitr # explicitly use knitr and not jupyter
+
+fig-dpi: 300
+fig-width: 5.5
+fig-height: 3.5
+
+#engines:
+#  jupyter: false
+  
+citation: true
+
+body-header: | 
+  <meta property="og:image" content="img/page2.jpeg" />

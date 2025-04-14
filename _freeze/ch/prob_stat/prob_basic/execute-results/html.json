@@ -1,0 +1,14 @@
+{
+  "hash": "c0f6c123398fdc4130fe168a54bf8546",
+  "result": {
+    "markdown": "---\ntitle: \"Probabilty Basics\"\nabstract: \"Experiment, trial, distribution, PMF, PDF, CDF, etc.\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

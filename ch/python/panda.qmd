@@ -1,0 +1,9 @@
+---
+title: "Panda Dataframe, scypy, numpy, etc."
+abstract: "Panda df"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

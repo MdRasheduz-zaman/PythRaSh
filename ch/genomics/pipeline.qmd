@@ -1,0 +1,10 @@
+---
+title: "Bioinformatics Pipelines Using Snakemake"
+abstract: "Automating pipelines, snakemake, HPC cluster, etc."
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```
+Here is a nice [repo](https://snakemake.github.io/snakemake-workflow-catalog/?usage=snakemake-workflows%2Frna-seq-star-deseq2) to learn snakemake workflows. Just try some to learn.  

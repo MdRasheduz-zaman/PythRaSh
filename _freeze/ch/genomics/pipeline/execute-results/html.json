@@ -1,0 +1,14 @@
+{
+  "hash": "8d41304172f77467dee10ae01513d918",
+  "result": {
+    "markdown": "---\ntitle: \"Bioinformatics Pipelines Using Snakemake\"\nabstract: \"Automating pipelines, snakemake, HPC cluster, etc.\"\n---\n\n\n\nHere is a nice [repo](https://snakemake.github.io/snakemake-workflow-catalog/?usage=snakemake-workflows%2Frna-seq-star-deseq2) to learn snakemake workflows. Just try some to learn.  \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "hash": "9a2d44d40f6ecc777d315c1211c711f5",
+  "result": {
+    "markdown": "---\ntitle: \"Panda Dataframe, scypy, numpy, etc.\"\nabstract: \"Panda df\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

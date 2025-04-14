@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2024-08-13">
+<title>subject_teaching - R Basics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="../../include/styles.css">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PythRash</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">
+<li>
+    <a class="dropdown-item" href="../../ch/rbasics/git.html" rel="" target="">
+ <span class="dropdown-text">git</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/firststeps.html" rel="" target="">
+ <span class="dropdown-text">First Steps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/tidyverse.html" rel="" target="">
+ <span class="dropdown-text">The tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/correlation_regression.html" rel="" target="">
+ <span class="dropdown-text">Correlation &amp; Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/baddata.html" rel="" target="">
+ <span class="dropdown-text">Bad data &amp; Outliers</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">
+<li>
+    <a class="dropdown-item" href="../../ch/python/basics.html" rel="" target="">
+ <span class="dropdown-text">Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/panda.html" rel="" target="">
+ <span class="dropdown-text">Advanced Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/MLA.html" rel="" target="">
+ <span class="dropdown-text">Machine Learning Algorithms</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/AI.html" rel="" target="">
+ <span class="dropdown-text">AI</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linux-and-clt" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Linux and CLT</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linux-and-clt">
+<li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/basics.html" rel="" target="">
+ <span class="dropdown-text">Linux Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Command Line</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-probability-and-statistics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Probability and Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-probability-and-statistics">
+<li>
+    <a class="dropdown-item" href="../../ch/prob_stat/prob_basic.html" rel="" target="">
+ <span class="dropdown-text">Probability Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/prob_stat/stat.html" rel="" target="">
+ <span class="dropdown-text">Statistics</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Genomics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomics">
+<li>
+    <a class="dropdown-item" href="../../ch/genomics/basics.html" rel="" target="">
+ <span class="dropdown-text">Genomics Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Genomics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/pipeline.html" rel="" target="">
+ <span class="dropdown-text">Pipelines</span></a>
+  </li>  
+    </ul>
+</li>
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman/PythRaSh" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#r-as-calculator" id="toc-r-as-calculator" class="nav-link active" data-scroll-target="#r-as-calculator">R as Calculator</a></li>
+  <li><a href="#basic-plotting" id="toc-basic-plotting" class="nav-link" data-scroll-target="#basic-plotting">Basic plotting</a></li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="firststeps.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">R Basics</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Md Rasheduzzaman </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.fli.de/de/institute/institut-fuer-infektionsmedizin-imed/">
+            FLI Insel Riems
+            </a>
+          </p>
+        <p class="affiliation">
+            <a href="https://github.com/MdRasheduz-zaman">
+            &amp; Freelancer
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Content summary</div>
+    Data types, vectors, functions, R packages
+  </div>
+</div>
+
+</header><section id="r-as-calculator" class="level2"><h2 class="anchored" data-anchor-id="r-as-calculator">R as Calculator</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span><span class="op">+</span><span class="fl">2</span>  <span class="co"># Run </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span><span class="op">-</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span><span class="op">*</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span><span class="op">/</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.5</code></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">2</span> <span class="co">#integer division</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">5</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">3</span> <span class="co">#modulus division</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">5</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">4</span><span class="op">)</span>  <span class="co"># Importance of brackets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 30</code></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">10</span> <span class="op">-</span> <span class="fl">5</span> <span class="op">*</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">5</span><span class="op">)</span>  <span class="op">*</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">4</span><span class="op">)</span> <span class="co"># The use of brackets change the order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 30</code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">########################### </span></span>
+<span></span>
+<span><span class="fl">7</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.75</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">7</span><span class="op">/</span><span class="fl">1</span><span class="op">+</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">7</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">3</span><span class="op">)</span>; <span class="fl">7</span><span class="op">/</span><span class="fl">1</span><span class="op">+</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.75</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span>; <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>; <span class="fl">1</span><span class="op">/</span><span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 0.1</code></pre>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">###########################################</span></span>
+<span><span class="co">## You can also give numbers a name, </span></span>
+<span><span class="co">## known as variables</span></span>
+<span></span>
+<span><span class="va">a</span><span class="op">=</span><span class="fl">5</span></span>
+<span><span class="va">a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">*</span><span class="fl">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 35</code></pre>
+</div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">=</span><span class="va">a</span><span class="op">+</span><span class="fl">10</span></span>
+<span><span class="va">a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 15</code></pre>
+</div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">*</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 45</code></pre>
+</div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">=</span><span class="va">a</span><span class="op">+</span><span class="fl">10</span></span>
+<span><span class="va">b</span><span class="op">=</span><span class="va">a</span><span class="op">+</span><span class="fl">10</span></span>
+<span></span>
+<span><span class="va">a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 25</code></pre>
+</div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">^</span><span class="fl">2</span> <span class="co">#power/exponent 2 or square</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 625</code></pre>
+</div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">**</span><span class="fl">2</span> <span class="co">#same as ^ (power)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 625</code></pre>
+</div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Task: normal division, integer division and modulus division of 7 and 3</span></span>
+<span><span class="co">#####################</span></span>
+<span><span class="fl">7</span><span class="op">/</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2.333333</code></pre>
+</div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">7</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">7</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span><span class="fl">5</span><span class="op">/</span><span class="fl">3</span> <span class="co">#normal division</span></span>
+<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.666667</code></pre>
+</div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">=</span><span class="fl">5</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">3</span> <span class="co">#Integer division</span></span>
+<span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">z</span><span class="op">=</span><span class="fl">5</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">3</span> <span class="co">#modulus</span></span>
+<span><span class="va">z</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span><span class="fl">5</span><span class="op">/</span><span class="fl">3</span></span>
+<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.666667</code></pre>
+</div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># -&gt; 1 ## previous largest integer/divident</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># -&gt; 2 ## next smallest integer/reminder</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># -&gt; 2 (decided based on the number)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span><span class="fl">5</span><span class="op">/</span><span class="fl">4</span> </span>
+<span><span class="va">x</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.25</code></pre>
+</div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co">#in the form of nearby integer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1.25</code></pre>
+</div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Task;</span></span>
+<span><span class="co">#make a varible having a value of 15</span></span>
+<span><span class="co">#do different types of arithmatic operations</span></span>
+<span></span>
+<span><span class="va">y</span><span class="op">=</span><span class="fl">15</span></span>
+<span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 15</code></pre>
+</div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">+</span><span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 20</code></pre>
+</div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">-</span><span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">*</span><span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 75</code></pre>
+</div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">/</span><span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">y</span><span class="op">+</span><span class="fl">4</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">4</span><span class="op">-</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] -209</code></pre>
+</div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">y</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">y</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">/</span><span class="fl">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3.75</code></pre>
+</div>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">y</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">##########################################</span></span>
+<span><span class="co">## Exercise :</span></span>
+<span></span>
+<span><span class="op">(</span><span class="fl">2</span><span class="op">+</span><span class="fl">3</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span> <span class="op">-</span> <span class="op">(</span><span class="fl">6</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span> <span class="op">-</span><span class="fl">3</span><span class="op">^</span><span class="fl">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">###########################################</span></span>
+<span><span class="co">######### logical operations #############</span></span>
+<span><span class="va">a</span><span class="op">=</span><span class="fl">5</span></span>
+<span><span class="va">b</span><span class="op">=</span><span class="fl">7</span></span>
+<span></span>
+<span><span class="va">a</span><span class="op">=</span><span class="fl">5</span></span>
+<span><span class="va">b</span><span class="op">=</span><span class="fl">8</span></span>
+<span></span>
+<span><span class="va">a</span><span class="op">==</span><span class="va">b</span> <span class="co">#FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">!=</span><span class="va">b</span> <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&gt;</span><span class="va">b</span> <span class="co"># FALSE and so on for the remaining</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;</span><span class="va">b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&gt;=</span><span class="va">b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;=</span><span class="va">b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;</span><span class="va">b</span> <span class="op">|</span> <span class="va">a</span><span class="op">&gt;</span><span class="va">b</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;</span><span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span><span class="op">&gt;</span><span class="va">b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;</span><span class="va">b</span> <span class="op">|</span> <span class="va">a</span><span class="op">&gt;=</span><span class="va">b</span> <span class="co"># ? </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">&lt;</span><span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span><span class="op">&gt;=</span><span class="va">b</span> <span class="co"># ?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># | (pipe) ==&gt; </span></span>
+<span></span>
+<span><span class="co">######################################</span></span>
+<span><span class="co">### help ###########################</span></span>
+<span><span class="op">?</span><span class="va">log</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">log</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/example.html">example</a></span><span class="op">(</span><span class="va">log</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>
+log&gt; log(exp(3))
+[1] 3
+
+log&gt; log10(1e7) # = 7
+[1] 7
+
+log&gt; x &lt;- 10^-(1+2*1:9)
+
+log&gt; cbind(deparse.level=2, # to get nice column names
+log+       x, log(1+x), log1p(x), exp(x)-1, expm1(x))
+          x   log(1 + x)     log1p(x)   exp(x) - 1     expm1(x)
+ [1,] 1e-03 9.995003e-04 9.995003e-04 1.000500e-03 1.000500e-03
+ [2,] 1e-05 9.999950e-06 9.999950e-06 1.000005e-05 1.000005e-05
+ [3,] 1e-07 1.000000e-07 1.000000e-07 1.000000e-07 1.000000e-07
+ [4,] 1e-09 1.000000e-09 1.000000e-09 1.000000e-09 1.000000e-09
+ [5,] 1e-11 1.000000e-11 1.000000e-11 1.000000e-11 1.000000e-11
+ [6,] 1e-13 9.992007e-14 1.000000e-13 9.992007e-14 1.000000e-13
+ [7,] 1e-15 1.110223e-15 1.000000e-15 1.110223e-15 1.000000e-15
+ [8,] 1e-17 0.000000e+00 1.000000e-17 0.000000e+00 1.000000e-17
+ [9,] 1e-19 0.000000e+00 1.000000e-19 0.000000e+00 1.000000e-19</code></pre>
+</div>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">sd</span></span>
+<span></span>
+<span><span class="co">###########################</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co"># create your first vector</span></span>
+<span></span>
+<span><span class="va">x</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span>,<span class="fl">9</span>,<span class="fl">12</span>,<span class="fl">15</span><span class="op">)</span></span>
+<span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1]  3  6  9 12 15</code></pre>
+</div>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric" "vector" </code></pre>
+</div>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric" "vector" </code></pre>
+</div>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span><span class="op">)</span> <span class="co"># c="concatenate"</span></span>
+<span><span class="co"># x is a vector</span></span>
+<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 1 2 3 4 5 6 7 8 9</code></pre>
+</div>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>    <span class="co"># mode of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>     <span class="co"># type of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric" "vector" </code></pre>
+</div>
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co">#length of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 9</code></pre>
+</div>
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">DNA</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span><span class="op">)</span></span>
+<span><span class="va">DNA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "A" "T" "G" "C"</code></pre>
+</div>
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">DNA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">DNA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "character"           "vector"              "data.frameRowLabels"
+[4] "SuperClassMethod"   </code></pre>
+</div>
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">DNA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Task: character vector of 1, 3, 5, 7</span></span>
+<span></span>
+<span></span>
+<span><span class="va">char</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span></span>
+<span><span class="va">char</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "1" "3" "5" "7"</code></pre>
+</div>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">DNA2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ATGTGTCA"</span>, <span class="st">"GTCA"</span>, <span class="st">"GTCATC"</span><span class="op">)</span></span>
+<span><span class="co">#Task: mode, is function, length</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">DNA2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">DNA2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "character"           "vector"              "data.frameRowLabels"
+[4] "SuperClassMethod"   </code></pre>
+</div>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">DNA2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">logicals</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">logicals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1]  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">logicals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "logical"</code></pre>
+</div>
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">logicals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">logicals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "logical" "vector" </code></pre>
+</div>
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dec</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>,<span class="fl">30</span>,<span class="fl">60</span>,<span class="fl">80</span>,<span class="fl">90</span>,<span class="fl">100</span>,<span class="fl">50</span>,<span class="fl">40</span><span class="op">)</span></span>
+<span><span class="va">dec</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1]  10  20  30  60  80  90 100  50  40</code></pre>
+</div>
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 20</code></pre>
+</div>
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dec</span><span class="op">[</span><span class="fl">7</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 100</code></pre>
+</div>
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dec</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 30</code></pre>
+</div>
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">DNA2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ATGTGTCA"</span>, <span class="st">"GTCA"</span>, <span class="st">"GTCATC"</span><span class="op">)</span></span>
+<span><span class="va">DNA2</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "GTCA"</code></pre>
+</div>
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">DNA2</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "GTCATC"</code></pre>
+</div>
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yz</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">yz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1]  3  4  7  9 10  5</code></pre>
+</div>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Task: 3rd, 4th, and 2nd element from yz</span></span>
+<span></span>
+<span><span class="va">yz</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 7</code></pre>
+</div>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yz</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 9</code></pre>
+</div>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yz</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AATTGCCC"</span>, <span class="st">"ATGCATT"</span>, <span class="st">"AACCGTTG"</span><span class="op">)</span></span>
+<span><span class="va">s</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "AATTGCCC"</code></pre>
+</div>
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Task: find the others with indexing</span></span>
+<span><span class="va">s</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "ATGCATT"</code></pre>
+</div>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "AACCGTTG"</code></pre>
+</div>
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">##########################################</span></span>
+<span><span class="co">########## vector operations ############</span></span>
+<span><span class="co"># Most standard mathematical functions work with vectors.</span></span>
+<span><span class="va">x</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span><span class="op">+</span><span class="va">x</span>  <span class="co">#goes index-wise</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "numeric" "vector" </code></pre>
+</div>
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span> ,<span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">35</span>, <span class="fl">40</span>, <span class="fl">45</span>, <span class="fl">50</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">y</span><span class="op">/</span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 5 5 5 5 5 5 5 5 5 5</code></pre>
+</div>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">*</span> <span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1]   5  20  45  80 125 180 245 320 405 500</code></pre>
+</div>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000
+ [9] 3.169925 3.321928</code></pre>
+</div>
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Round the values</span></span>
+<span><span class="va">x</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000
+ [9] 3.169925 3.321928</code></pre>
+</div>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 0 1 2 2 2 3 3 3 3 3</code></pre>
+</div>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">####Task: Round the value for 1, 3 digits after decimal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 0.0 1.0 1.6 2.0 2.3 2.6 2.8 3.0 3.2 3.3</code></pre>
+</div>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 0.000 1.000 1.585 2.000 2.322 2.585 2.807 3.000 3.170 3.322</code></pre>
+</div>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">########### Exercise 1</span></span>
+<span><span class="co"># Compute the difference between 2020</span></span>
+<span><span class="co"># and the year you started at the university and </span></span>
+<span><span class="co"># divide this by the difference between 2020 and the year you were born.</span></span>
+<span><span class="co"># Multiply this with 100 to get the percentage of your life </span></span>
+<span><span class="co"># you have spent at the university.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="basic-plotting" class="level2"><h2 class="anchored" data-anchor-id="basic-plotting">Basic plotting</h2>
+<div class="cell">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span><span class="fl">10</span><span class="op">:</span><span class="fl">1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="firststeps_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2024,
+  author = {Md Rasheduzzaman},
+  title = {R {Basics}},
+  date = {2024-08-13},
+  langid = {en},
+  abstract = {Data types, vectors, functions, R packages}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Md Rasheduzzaman. 2024. <span>“R Basics.”</span> August 13, 2024.
+</div></div></section></div></main><!-- /main --><hr>
+<div style="margin-top: 2em;">
+  <p style="font-weight: 500; font-size: 1.1em;">
+    💬 Have thoughts or questions? Join the discussion below using your GitHub account!
+  </p>
+  <p style="font-size: 0.95em; color: #666;">
+    You can <strong>edit or delete</strong> your own comments. Reactions like 👍 ❤️ 🚀 are also supported.
+  </p>
+</div>
+
+<div id="giscus_thread" style="margin-top: 1.5em;"></div>
+
+<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOMoYdeg" data-category-id="DIC_kwDOMoYdes4CpAvo" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+</script><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb218" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R Basics"</span></span>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Data types, vectors, functions, R packages"</span></span>
+<span id="cb218-4"><a href="#cb218-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb218-5"><a href="#cb218-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-8"><a href="#cb218-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb218-9"><a href="#cb218-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb218-10"><a href="#cb218-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
+<span id="cb218-11"><a href="#cb218-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb218-12"><a href="#cb218-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-13"><a href="#cb218-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## R as Calculator</span></span>
+<span id="cb218-14"><a href="#cb218-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-17"><a href="#cb218-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb218-18"><a href="#cb218-18" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span>  <span class="co"># Run </span></span>
+<span id="cb218-19"><a href="#cb218-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-20"><a href="#cb218-20" aria-hidden="true" tabindex="-1"></a><span class="dv">3-2</span></span>
+<span id="cb218-21"><a href="#cb218-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-22"><a href="#cb218-22" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb218-23"><a href="#cb218-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-24"><a href="#cb218-24" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb218-25"><a href="#cb218-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-26"><a href="#cb218-26" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">%/%</span><span class="dv">2</span> <span class="co">#integer division</span></span>
+<span id="cb218-27"><a href="#cb218-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-28"><a href="#cb218-28" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">%%</span><span class="dv">3</span> <span class="co">#modulus division</span></span>
+<span id="cb218-29"><a href="#cb218-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-30"><a href="#cb218-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">-</span> <span class="dv">5</span>) <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span>)  <span class="co"># Importance of brackets</span></span>
+<span id="cb218-31"><a href="#cb218-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-32"><a href="#cb218-32" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span></span>
+<span id="cb218-33"><a href="#cb218-33" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">-</span> <span class="dv">5</span>)  <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span>) <span class="co"># The use of brackets change the order</span></span>
+<span id="cb218-34"><a href="#cb218-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-35"><a href="#cb218-35" aria-hidden="true" tabindex="-1"></a><span class="do">########################### </span></span>
+<span id="cb218-36"><a href="#cb218-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-37"><a href="#cb218-37" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">3</span>)</span>
+<span id="cb218-38"><a href="#cb218-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-39"><a href="#cb218-39" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span><span class="dv">1</span><span class="sc">+</span><span class="dv">3</span></span>
+<span id="cb218-40"><a href="#cb218-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-41"><a href="#cb218-41" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">3</span>); <span class="dv">7</span><span class="sc">/</span><span class="dv">1</span><span class="sc">+</span><span class="dv">3</span></span>
+<span id="cb218-42"><a href="#cb218-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-43"><a href="#cb218-43" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>; <span class="fu">log</span>(<span class="dv">1</span>); <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span></span>
+<span id="cb218-44"><a href="#cb218-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-45"><a href="#cb218-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-46"><a href="#cb218-46" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################</span></span>
+<span id="cb218-47"><a href="#cb218-47" aria-hidden="true" tabindex="-1"></a><span class="do">## You can also give numbers a name, </span></span>
+<span id="cb218-48"><a href="#cb218-48" aria-hidden="true" tabindex="-1"></a><span class="do">## known as variables</span></span>
+<span id="cb218-49"><a href="#cb218-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-50"><a href="#cb218-50" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb218-51"><a href="#cb218-51" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb218-52"><a href="#cb218-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-53"><a href="#cb218-53" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">7</span></span>
+<span id="cb218-54"><a href="#cb218-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-55"><a href="#cb218-55" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span>a<span class="sc">+</span><span class="dv">10</span></span>
+<span id="cb218-56"><a href="#cb218-56" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb218-57"><a href="#cb218-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-58"><a href="#cb218-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-59"><a href="#cb218-59" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb218-60"><a href="#cb218-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-61"><a href="#cb218-61" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span>a<span class="sc">+</span><span class="dv">10</span></span>
+<span id="cb218-62"><a href="#cb218-62" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span>a<span class="sc">+</span><span class="dv">10</span></span>
+<span id="cb218-63"><a href="#cb218-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-64"><a href="#cb218-64" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb218-65"><a href="#cb218-65" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="co">#power/exponent 2 or square</span></span>
+<span id="cb218-66"><a href="#cb218-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-67"><a href="#cb218-67" aria-hidden="true" tabindex="-1"></a>a<span class="sc">**</span><span class="dv">2</span> <span class="co">#same as ^ (power)</span></span>
+<span id="cb218-68"><a href="#cb218-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-69"><a href="#cb218-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Task: normal division, integer division and modulus division of 7 and 3</span></span>
+<span id="cb218-70"><a href="#cb218-70" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb218-71"><a href="#cb218-71" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb218-72"><a href="#cb218-72" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%/%</span><span class="dv">3</span></span>
+<span id="cb218-73"><a href="#cb218-73" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%%</span><span class="dv">3</span></span>
+<span id="cb218-74"><a href="#cb218-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-75"><a href="#cb218-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-76"><a href="#cb218-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-77"><a href="#cb218-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-78"><a href="#cb218-78" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">5</span><span class="sc">/</span><span class="dv">3</span> <span class="co">#normal division</span></span>
+<span id="cb218-79"><a href="#cb218-79" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb218-80"><a href="#cb218-80" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="dv">5</span><span class="sc">%/%</span><span class="dv">3</span> <span class="co">#Integer division</span></span>
+<span id="cb218-81"><a href="#cb218-81" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb218-82"><a href="#cb218-82" aria-hidden="true" tabindex="-1"></a>z<span class="ot">=</span><span class="dv">5</span><span class="sc">%%</span><span class="dv">3</span> <span class="co">#modulus</span></span>
+<span id="cb218-83"><a href="#cb218-83" aria-hidden="true" tabindex="-1"></a>z</span>
+<span id="cb218-84"><a href="#cb218-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-85"><a href="#cb218-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-86"><a href="#cb218-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-87"><a href="#cb218-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-88"><a href="#cb218-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-89"><a href="#cb218-89" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">5</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb218-90"><a href="#cb218-90" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb218-91"><a href="#cb218-91" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(x)</span>
+<span id="cb218-92"><a href="#cb218-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-93"><a href="#cb218-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-94"><a href="#cb218-94" aria-hidden="true" tabindex="-1"></a><span class="co"># -&gt; 1 ## previous largest integer/divident</span></span>
+<span id="cb218-95"><a href="#cb218-95" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(x)</span>
+<span id="cb218-96"><a href="#cb218-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-97"><a href="#cb218-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-98"><a href="#cb218-98" aria-hidden="true" tabindex="-1"></a><span class="co"># -&gt; 2 ## next smallest integer/reminder</span></span>
+<span id="cb218-99"><a href="#cb218-99" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x) <span class="co"># -&gt; 2 (decided based on the number)</span></span>
+<span id="cb218-100"><a href="#cb218-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-101"><a href="#cb218-101" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">5</span><span class="sc">/</span><span class="dv">4</span> </span>
+<span id="cb218-102"><a href="#cb218-102" aria-hidden="true" tabindex="-1"></a>x </span>
+<span id="cb218-103"><a href="#cb218-103" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(x) </span>
+<span id="cb218-104"><a href="#cb218-104" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(x) <span class="co">#in the form of nearby integer</span></span>
+<span id="cb218-105"><a href="#cb218-105" aria-hidden="true" tabindex="-1"></a>x<span class="sc">%%</span><span class="dv">2</span> </span>
+<span id="cb218-106"><a href="#cb218-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-107"><a href="#cb218-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-108"><a href="#cb218-108" aria-hidden="true" tabindex="-1"></a><span class="co">#Task;</span></span>
+<span id="cb218-109"><a href="#cb218-109" aria-hidden="true" tabindex="-1"></a><span class="co">#make a varible having a value of 15</span></span>
+<span id="cb218-110"><a href="#cb218-110" aria-hidden="true" tabindex="-1"></a><span class="co">#do different types of arithmatic operations</span></span>
+<span id="cb218-111"><a href="#cb218-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-112"><a href="#cb218-112" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="dv">15</span></span>
+<span id="cb218-113"><a href="#cb218-113" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb218-114"><a href="#cb218-114" aria-hidden="true" tabindex="-1"></a>y<span class="sc">+</span><span class="dv">5</span></span>
+<span id="cb218-115"><a href="#cb218-115" aria-hidden="true" tabindex="-1"></a>y<span class="dv">-5</span></span>
+<span id="cb218-116"><a href="#cb218-116" aria-hidden="true" tabindex="-1"></a>y<span class="sc">*</span><span class="dv">5</span></span>
+<span id="cb218-117"><a href="#cb218-117" aria-hidden="true" tabindex="-1"></a>y<span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb218-118"><a href="#cb218-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-119"><a href="#cb218-119" aria-hidden="true" tabindex="-1"></a>(y<span class="sc">+</span><span class="dv">4</span>)<span class="sc">*</span>(<span class="dv">4</span><span class="sc">-</span>y)</span>
+<span id="cb218-120"><a href="#cb218-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-121"><a href="#cb218-121" aria-hidden="true" tabindex="-1"></a>y<span class="sc">%/%</span><span class="dv">4</span></span>
+<span id="cb218-122"><a href="#cb218-122" aria-hidden="true" tabindex="-1"></a>y<span class="sc">%%</span><span class="dv">4</span></span>
+<span id="cb218-123"><a href="#cb218-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-124"><a href="#cb218-124" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(y<span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb218-125"><a href="#cb218-125" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(y<span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb218-126"><a href="#cb218-126" aria-hidden="true" tabindex="-1"></a>y<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb218-127"><a href="#cb218-127" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(y<span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb218-128"><a href="#cb218-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-129"><a href="#cb218-129" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb218-130"><a href="#cb218-130" aria-hidden="true" tabindex="-1"></a><span class="do">## Exercise :</span></span>
+<span id="cb218-131"><a href="#cb218-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-132"><a href="#cb218-132" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">+</span><span class="dv">3</span>) <span class="sc">+</span> (<span class="dv">2</span><span class="sc">*</span><span class="dv">3</span>) <span class="sc">-</span> (<span class="dv">6</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">-</span><span class="dv">3</span><span class="sc">^</span><span class="dv">2</span> </span>
+<span id="cb218-133"><a href="#cb218-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-134"><a href="#cb218-134" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################</span></span>
+<span id="cb218-135"><a href="#cb218-135" aria-hidden="true" tabindex="-1"></a><span class="do">######### logical operations #############</span></span>
+<span id="cb218-136"><a href="#cb218-136" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb218-137"><a href="#cb218-137" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="dv">7</span></span>
+<span id="cb218-138"><a href="#cb218-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-139"><a href="#cb218-139" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb218-140"><a href="#cb218-140" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="dv">8</span></span>
+<span id="cb218-141"><a href="#cb218-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-142"><a href="#cb218-142" aria-hidden="true" tabindex="-1"></a>a<span class="sc">==</span>b <span class="co">#FALSE</span></span>
+<span id="cb218-143"><a href="#cb218-143" aria-hidden="true" tabindex="-1"></a>a<span class="sc">!=</span>b <span class="co"># TRUE</span></span>
+<span id="cb218-144"><a href="#cb218-144" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&gt;</span>b <span class="co"># FALSE and so on for the remaining</span></span>
+<span id="cb218-145"><a href="#cb218-145" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;</span>b</span>
+<span id="cb218-146"><a href="#cb218-146" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&gt;=</span>b</span>
+<span id="cb218-147"><a href="#cb218-147" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;=</span>b</span>
+<span id="cb218-148"><a href="#cb218-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-149"><a href="#cb218-149" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;</span>b <span class="sc">|</span> a<span class="sc">&gt;</span>b </span>
+<span id="cb218-150"><a href="#cb218-150" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;</span>b <span class="sc">&amp;</span> a<span class="sc">&gt;</span>b</span>
+<span id="cb218-151"><a href="#cb218-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-152"><a href="#cb218-152" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;</span>b <span class="sc">|</span> a<span class="sc">&gt;=</span>b <span class="co"># ? </span></span>
+<span id="cb218-153"><a href="#cb218-153" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;</span>b <span class="sc">&amp;</span> a<span class="sc">&gt;=</span>b <span class="co"># ?</span></span>
+<span id="cb218-154"><a href="#cb218-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-155"><a href="#cb218-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-156"><a href="#cb218-156" aria-hidden="true" tabindex="-1"></a><span class="co"># | (pipe) ==&gt; </span></span>
+<span id="cb218-157"><a href="#cb218-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-158"><a href="#cb218-158" aria-hidden="true" tabindex="-1"></a><span class="do">######################################</span></span>
+<span id="cb218-159"><a href="#cb218-159" aria-hidden="true" tabindex="-1"></a><span class="do">### help ###########################</span></span>
+<span id="cb218-160"><a href="#cb218-160" aria-hidden="true" tabindex="-1"></a>?log</span>
+<span id="cb218-161"><a href="#cb218-161" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(log)</span>
+<span id="cb218-162"><a href="#cb218-162" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(log)</span>
+<span id="cb218-163"><a href="#cb218-163" aria-hidden="true" tabindex="-1"></a>?sd</span>
+<span id="cb218-164"><a href="#cb218-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-165"><a href="#cb218-165" aria-hidden="true" tabindex="-1"></a><span class="do">###########################</span></span>
+<span id="cb218-166"><a href="#cb218-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-167"><a href="#cb218-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-168"><a href="#cb218-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-169"><a href="#cb218-169" aria-hidden="true" tabindex="-1"></a><span class="co"># create your first vector</span></span>
+<span id="cb218-170"><a href="#cb218-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-171"><a href="#cb218-171" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb218-172"><a href="#cb218-172" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">12</span>,<span class="dv">15</span>)</span>
+<span id="cb218-173"><a href="#cb218-173" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb218-174"><a href="#cb218-174" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb218-175"><a href="#cb218-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-176"><a href="#cb218-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-177"><a href="#cb218-177" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
+<span id="cb218-178"><a href="#cb218-178" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
+<span id="cb218-179"><a href="#cb218-179" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(x)</span>
+<span id="cb218-180"><a href="#cb218-180" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x)</span>
+<span id="cb218-181"><a href="#cb218-181" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(y)</span>
+<span id="cb218-182"><a href="#cb218-182" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(y)</span>
+<span id="cb218-183"><a href="#cb218-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-184"><a href="#cb218-184" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>) <span class="co"># c="concatenate"</span></span>
+<span id="cb218-185"><a href="#cb218-185" aria-hidden="true" tabindex="-1"></a><span class="co"># x is a vector</span></span>
+<span id="cb218-186"><a href="#cb218-186" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb218-187"><a href="#cb218-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-188"><a href="#cb218-188" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(x)    <span class="co"># mode of x</span></span>
+<span id="cb218-189"><a href="#cb218-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-190"><a href="#cb218-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-191"><a href="#cb218-191" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x)     <span class="co"># type of x</span></span>
+<span id="cb218-192"><a href="#cb218-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-193"><a href="#cb218-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-194"><a href="#cb218-194" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x) <span class="co">#length of x</span></span>
+<span id="cb218-195"><a href="#cb218-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-196"><a href="#cb218-196" aria-hidden="true" tabindex="-1"></a>DNA<span class="ot">=</span><span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>)</span>
+<span id="cb218-197"><a href="#cb218-197" aria-hidden="true" tabindex="-1"></a>DNA</span>
+<span id="cb218-198"><a href="#cb218-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-199"><a href="#cb218-199" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(DNA)</span>
+<span id="cb218-200"><a href="#cb218-200" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(DNA)</span>
+<span id="cb218-201"><a href="#cb218-201" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(DNA)</span>
+<span id="cb218-202"><a href="#cb218-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-203"><a href="#cb218-203" aria-hidden="true" tabindex="-1"></a><span class="co">#Task: character vector of 1, 3, 5, 7</span></span>
+<span id="cb218-204"><a href="#cb218-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-205"><a href="#cb218-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-206"><a href="#cb218-206" aria-hidden="true" tabindex="-1"></a>char<span class="ot">=</span><span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span>, <span class="st">"7"</span>)</span>
+<span id="cb218-207"><a href="#cb218-207" aria-hidden="true" tabindex="-1"></a>char</span>
+<span id="cb218-208"><a href="#cb218-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-209"><a href="#cb218-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-210"><a href="#cb218-210" aria-hidden="true" tabindex="-1"></a>DNA2<span class="ot">=</span><span class="fu">c</span>(<span class="st">"ATGTGTCA"</span>, <span class="st">"GTCA"</span>, <span class="st">"GTCATC"</span>)</span>
+<span id="cb218-211"><a href="#cb218-211" aria-hidden="true" tabindex="-1"></a><span class="co">#Task: mode, is function, length</span></span>
+<span id="cb218-212"><a href="#cb218-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-213"><a href="#cb218-213" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(DNA2)</span>
+<span id="cb218-214"><a href="#cb218-214" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(DNA2)</span>
+<span id="cb218-215"><a href="#cb218-215" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(DNA2)</span>
+<span id="cb218-216"><a href="#cb218-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-217"><a href="#cb218-217" aria-hidden="true" tabindex="-1"></a>logicals<span class="ot">=</span><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb218-218"><a href="#cb218-218" aria-hidden="true" tabindex="-1"></a>logicals</span>
+<span id="cb218-219"><a href="#cb218-219" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(logicals)</span>
+<span id="cb218-220"><a href="#cb218-220" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(logicals)</span>
+<span id="cb218-221"><a href="#cb218-221" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(logicals)</span>
+<span id="cb218-222"><a href="#cb218-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-223"><a href="#cb218-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-224"><a href="#cb218-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-225"><a href="#cb218-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-226"><a href="#cb218-226" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>)</span>
+<span id="cb218-227"><a href="#cb218-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-228"><a href="#cb218-228" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(y)</span>
+<span id="cb218-229"><a href="#cb218-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-230"><a href="#cb218-230" aria-hidden="true" tabindex="-1"></a>dec<span class="ot">=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">40</span>)</span>
+<span id="cb218-231"><a href="#cb218-231" aria-hidden="true" tabindex="-1"></a>dec</span>
+<span id="cb218-232"><a href="#cb218-232" aria-hidden="true" tabindex="-1"></a>dec[<span class="dv">2</span>]</span>
+<span id="cb218-233"><a href="#cb218-233" aria-hidden="true" tabindex="-1"></a>dec[<span class="dv">7</span>]</span>
+<span id="cb218-234"><a href="#cb218-234" aria-hidden="true" tabindex="-1"></a>dec[<span class="dv">3</span>]</span>
+<span id="cb218-235"><a href="#cb218-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-236"><a href="#cb218-236" aria-hidden="true" tabindex="-1"></a>DNA2<span class="ot">=</span><span class="fu">c</span>(<span class="st">"ATGTGTCA"</span>, <span class="st">"GTCA"</span>, <span class="st">"GTCATC"</span>)</span>
+<span id="cb218-237"><a href="#cb218-237" aria-hidden="true" tabindex="-1"></a>DNA2[<span class="dv">2</span>]</span>
+<span id="cb218-238"><a href="#cb218-238" aria-hidden="true" tabindex="-1"></a>DNA2[<span class="dv">3</span>]</span>
+<span id="cb218-239"><a href="#cb218-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-240"><a href="#cb218-240" aria-hidden="true" tabindex="-1"></a>yz<span class="ot">=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb218-241"><a href="#cb218-241" aria-hidden="true" tabindex="-1"></a>yz</span>
+<span id="cb218-242"><a href="#cb218-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-243"><a href="#cb218-243" aria-hidden="true" tabindex="-1"></a><span class="co">#Task: 3rd, 4th, and 2nd element from yz</span></span>
+<span id="cb218-244"><a href="#cb218-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-245"><a href="#cb218-245" aria-hidden="true" tabindex="-1"></a>yz[<span class="dv">3</span>]</span>
+<span id="cb218-246"><a href="#cb218-246" aria-hidden="true" tabindex="-1"></a>yz[<span class="dv">4</span>]</span>
+<span id="cb218-247"><a href="#cb218-247" aria-hidden="true" tabindex="-1"></a>yz[<span class="dv">2</span>]</span>
+<span id="cb218-248"><a href="#cb218-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-249"><a href="#cb218-249" aria-hidden="true" tabindex="-1"></a>s<span class="ot">=</span> <span class="fu">c</span>(<span class="st">"AATTGCCC"</span>, <span class="st">"ATGCATT"</span>, <span class="st">"AACCGTTG"</span>)</span>
+<span id="cb218-250"><a href="#cb218-250" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">1</span>]</span>
+<span id="cb218-251"><a href="#cb218-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-252"><a href="#cb218-252" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: find the others with indexing</span></span>
+<span id="cb218-253"><a href="#cb218-253" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">2</span>]</span>
+<span id="cb218-254"><a href="#cb218-254" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">3</span>]</span>
+<span id="cb218-255"><a href="#cb218-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-256"><a href="#cb218-256" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb218-257"><a href="#cb218-257" aria-hidden="true" tabindex="-1"></a><span class="do">########## vector operations ############</span></span>
+<span id="cb218-258"><a href="#cb218-258" aria-hidden="true" tabindex="-1"></a><span class="co"># Most standard mathematical functions work with vectors.</span></span>
+<span id="cb218-259"><a href="#cb218-259" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb218-260"><a href="#cb218-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-261"><a href="#cb218-261" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span>x  <span class="co">#goes index-wise</span></span>
+<span id="cb218-262"><a href="#cb218-262" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(x)</span>
+<span id="cb218-263"><a href="#cb218-263" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x)</span>
+<span id="cb218-264"><a href="#cb218-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-265"><a href="#cb218-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-266"><a href="#cb218-266" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span> ,<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>)</span>
+<span id="cb218-267"><a href="#cb218-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-268"><a href="#cb218-268" aria-hidden="true" tabindex="-1"></a>y<span class="sc">/</span>x</span>
+<span id="cb218-269"><a href="#cb218-269" aria-hidden="true" tabindex="-1"></a>y <span class="sc">*</span> x</span>
+<span id="cb218-270"><a href="#cb218-270" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)</span>
+<span id="cb218-271"><a href="#cb218-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-272"><a href="#cb218-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-273"><a href="#cb218-273" aria-hidden="true" tabindex="-1"></a><span class="co">#Round the values</span></span>
+<span id="cb218-274"><a href="#cb218-274" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>) </span>
+<span id="cb218-275"><a href="#cb218-275" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)</span>
+<span id="cb218-276"><a href="#cb218-276" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x))</span>
+<span id="cb218-277"><a href="#cb218-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-278"><a href="#cb218-278" aria-hidden="true" tabindex="-1"></a><span class="do">####Task: Round the value for 1, 3 digits after decimal</span></span>
+<span id="cb218-279"><a href="#cb218-279" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">1</span>)</span>
+<span id="cb218-280"><a href="#cb218-280" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">3</span>)</span>
+<span id="cb218-281"><a href="#cb218-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-282"><a href="#cb218-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-283"><a href="#cb218-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-284"><a href="#cb218-284" aria-hidden="true" tabindex="-1"></a><span class="do">########### Exercise 1</span></span>
+<span id="cb218-285"><a href="#cb218-285" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the difference between 2020</span></span>
+<span id="cb218-286"><a href="#cb218-286" aria-hidden="true" tabindex="-1"></a><span class="co"># and the year you started at the university and </span></span>
+<span id="cb218-287"><a href="#cb218-287" aria-hidden="true" tabindex="-1"></a><span class="co"># divide this by the difference between 2020 and the year you were born.</span></span>
+<span id="cb218-288"><a href="#cb218-288" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiply this with 100 to get the percentage of your life </span></span>
+<span id="cb218-289"><a href="#cb218-289" aria-hidden="true" tabindex="-1"></a><span class="co"># you have spent at the university.</span></span>
+<span id="cb218-290"><a href="#cb218-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb218-291"><a href="#cb218-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-292"><a href="#cb218-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic plotting</span></span>
+<span id="cb218-293"><a href="#cb218-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-296"><a href="#cb218-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb218-297"><a href="#cb218-297" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb218-298"><a href="#cb218-298" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb218-299"><a href="#cb218-299" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a, b)</span>
+<span id="cb218-300"><a href="#cb218-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

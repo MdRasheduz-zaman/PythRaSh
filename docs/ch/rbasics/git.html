@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2025-04-13">
+<title>subject_teaching - Git, GitHub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="../../_include/styles.css">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PythRash</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">
+<li>
+    <a class="dropdown-item" href="../../ch/rbasics/git.html" rel="" target="">
+ <span class="dropdown-text">git</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/firststeps.html" rel="" target="">
+ <span class="dropdown-text">First Steps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/tidyverse.html" rel="" target="">
+ <span class="dropdown-text">The tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/correlation_regression.html" rel="" target="">
+ <span class="dropdown-text">Correlation &amp; Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/baddata.html" rel="" target="">
+ <span class="dropdown-text">Bad data &amp; Outliers</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">
+<li>
+    <a class="dropdown-item" href="../../ch/python/basics.html" rel="" target="">
+ <span class="dropdown-text">Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/panda.html" rel="" target="">
+ <span class="dropdown-text">Advanced Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/MLA.html" rel="" target="">
+ <span class="dropdown-text">Machine Learning Algorithms</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/AI.html" rel="" target="">
+ <span class="dropdown-text">AI</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linux-and-clt" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Linux and CLT</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linux-and-clt">
+<li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/basics.html" rel="" target="">
+ <span class="dropdown-text">Linux Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Command Line</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-probability-and-statistics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Probability and Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-probability-and-statistics">
+<li>
+    <a class="dropdown-item" href="../../ch/prob_stat/prob_basic.html" rel="" target="">
+ <span class="dropdown-text">Probability Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/prob_stat/stat.html" rel="" target="">
+ <span class="dropdown-text">Statistics</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Genomics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomics">
+<li>
+    <a class="dropdown-item" href="../../ch/genomics/basics.html" rel="" target="">
+ <span class="dropdown-text">Genomics Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Genomics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/pipeline.html" rel="" target="">
+ <span class="dropdown-text">Pipelines</span></a>
+  </li>  
+    </ul>
+</li>
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman/PythRaSh" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#prelude" id="toc-prelude" class="nav-link active" data-scroll-target="#prelude">Prelude</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li>
+<a href="#set-git-and-github" id="toc-set-git-and-github" class="nav-link" data-scroll-target="#set-git-and-github">Set git and GitHub</a>
+  <ul class="collapse">
+<li>
+<a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install Git</a>
+  <ul class="collapse">
+<li><a href="#for-windows" id="toc-for-windows" class="nav-link" data-scroll-target="#for-windows">For Windows</a></li>
+  <li><a href="#for-macos" id="toc-for-macos" class="nav-link" data-scroll-target="#for-macos">For MacOS</a></li>
+  <li><a href="#for-ubuntudebian" id="toc-for-ubuntudebian" class="nav-link" data-scroll-target="#for-ubuntudebian">For Ubuntu/Debian</a></li>
+  </ul>
+</li>
+  <li><a href="#create-a-github-account" id="toc-create-a-github-account" class="nav-link" data-scroll-target="#create-a-github-account">Create a GitHub Account</a></li>
+  <li><a href="#set-up-git-for-the-first-time-only" id="toc-set-up-git-for-the-first-time-only" class="nav-link" data-scroll-target="#set-up-git-for-the-first-time-only">Set Up Git (for the first time only)</a></li>
+  <li><a href="#generate-ssh-key-and-connect-to-github" id="toc-generate-ssh-key-and-connect-to-github" class="nav-link" data-scroll-target="#generate-ssh-key-and-connect-to-github">Generate SSH Key and Connect to GitHub</a></li>
+  <li><a href="#add-ssh-key-to-github" id="toc-add-ssh-key-to-github" class="nav-link" data-scroll-target="#add-ssh-key-to-github">Add SSH Key to GitHub</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#basic-git-workflow-local-github" id="toc-basic-git-workflow-local-github" class="nav-link" data-scroll-target="#basic-git-workflow-local-github">Basic Git Workflow (Local + GitHub)</a>
+  <ul class="collapse">
+<li><a href="#create-a-new-repository-on-github" id="toc-create-a-new-repository-on-github" class="nav-link" data-scroll-target="#create-a-new-repository-on-github">Create a New Repository on GitHub</a></li>
+  <li><a href="#clone-it-to-your-computer-now" id="toc-clone-it-to-your-computer-now" class="nav-link" data-scroll-target="#clone-it-to-your-computer-now">Clone It to Your Computer Now:</a></li>
+  <li><a href="#add-a-new-readme.md-file" id="toc-add-a-new-readme.md-file" class="nav-link" data-scroll-target="#add-a-new-readme.md-file">Add a new <code>README.md</code> file</a></li>
+  <li><a href="#track-and-commit-changes" id="toc-track-and-commit-changes" class="nav-link" data-scroll-target="#track-and-commit-changes">Track and Commit Changes</a></li>
+  <li><a href="#push-to-github" id="toc-push-to-github" class="nav-link" data-scroll-target="#push-to-github">Push to GitHub</a></li>
+  <li><a href="#homeworks" id="toc-homeworks" class="nav-link" data-scroll-target="#homeworks">Homeworks</a></li>
+  </ul>
+</li>
+  <li><a href="#a-final-though" id="toc-a-final-though" class="nav-link" data-scroll-target="#a-final-though">A Final Though</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Git, GitHub</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Md Rasheduzzaman </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.fli.de/de/institute/institut-fuer-infektionsmedizin-imed/">
+            FLI Insel Riems
+            </a>
+          </p>
+        <p class="affiliation">
+            <a href="https://github.com/MdRasheduz-zaman">
+            &amp; Freelancer
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 13, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Content summary</div>
+    Git, GitHub and some basic shell commands
+  </div>
+</div>
+
+</header><section id="prelude" class="level1"><h1>Prelude</h1>
+<p>Well, why <code>git</code>and <code>GitHub</code> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<code>push</code>and <code>pull</code>). You actually need 4-5 lines of code to push and pull. Just get used to it. You can push the codes from the class, or your own practice codes. You will feel better.</p>
+<p><strong><em><code>Get engaged!</code></em></strong></p>
+</section><section id="intro" class="level1"><h1>Intro</h1>
+<p>GitHub is just like Google Drive, Dropbox or similar where you can <code>upload</code> (or <code>push</code>) files and folders of your project/package. What is special about the GitHub repositories then? Well, they are tracked for changes. How so? Well, <code>git</code> does that. <code>git</code> is the version control system (or tool) to track changes you make in a specific directory/repository (directory means folder as well). So you can have snapshot of your changes and fall back and forth if needed.</p>
+<p><strong>Imagine this situation:</strong> You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don’t know what is wrong! You closed the file many times and you can’t just <em>undo</em> and <em>redo</em> things. What would you do? Here comes <code>git</code> in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (<code>clone</code>/<code>download</code>/<code>pull</code> it in your machine again). Maybe, upload and downloads make a bit more sense, rather than <code>push</code> and <code>pull</code>/<code>clone</code>!</p>
+</section><section id="set-git-and-github" class="level1"><h1>Set git and GitHub</h1>
+<section id="install-git" class="level2"><h2 class="anchored" data-anchor-id="install-git">Install Git</h2>
+<section id="for-windows" class="level3"><h3 class="anchored" data-anchor-id="for-windows">For Windows</h3>
+<ul>
+<li>
+<strong>Download:</strong> Download <code>Git</code> from <a href="https://git-scm.com/download/win" class="uri">https://git-scm.com/download/win</a>
+</li>
+<li>
+<strong>Install:</strong> Now install, accept the default settings while installing</li>
+<li>
+<strong>Open git bash:</strong> After installation, open <code>Git Bash</code> (not cmd/PowerShell). Find it and open by double clicking. Just keep it open, nothing else. We will return to this a bit later.</li>
+</ul></section><section id="for-macos" class="level3"><h3 class="anchored" data-anchor-id="for-macos">For MacOS</h3>
+<p>It should already be there. Open your terminal/shell now (Press <code>"command"</code> + <code>"space"</code> buttons together and write “terminal”. Choose the terminal). Then run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If Git isn’t installed, macOS will prompt you to install the Xcode Command Line Tools. Click “Install” and you are done. But find the recommended below. Just run these two commands to keep your directory/repo clean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> .DS_Store <span class="op">&gt;&gt;</span> ~/.gitignore_global</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.excludesfile ~/.gitignore_global</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>MacOS makes <code>.DS_Store</code> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, you should have choosed the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don’t worry. We are adding it to gitignore and telling git to ignore it for file tracking.</p>
+</section><section id="for-ubuntudebian" class="level3"><h3 class="anchored" data-anchor-id="for-ubuntudebian">For Ubuntu/Debian</h3>
+<p>Open your terminal (Press <code>Ctrl + Alt + T</code>.) and run these two commands one after another:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Provide your password if prompted. You are all set!</p>
+</section></section><section id="create-a-github-account" class="level2"><h2 class="anchored" data-anchor-id="create-a-github-account">Create a GitHub Account</h2>
+<ul>
+<li>Now go to <a href="https://github.com" class="uri">https://github.com</a> -&gt; Sign up with your email</li>
+<li>Choose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.</li>
+</ul>
+<p>Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like “@”, “!”, “?”, etc.</p>
+<ul>
+<li>Verify email (with hte OTP) and you are set.</li>
+</ul></section><section id="set-up-git-for-the-first-time-only" class="level2"><h2 class="anchored" data-anchor-id="set-up-git-for-the-first-time-only">Set Up Git (for the first time only)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here, <code>Your Name</code> and <code>your_email@example.com</code> means your user name (the one you set up just a bit ago. You don’t remember? Explore your GitHub account, you will see it there.) and the email address you used for GitHub. Use them correctly. Space, punctuation marks, capital or small letters should exactly match (Don’t be a “Murad takla”).</p>
+</div>
+</div>
+<p>You can check your config:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Isn’t it showing things correctly? It should!</p>
+</section><section id="generate-ssh-key-and-connect-to-github" class="level2"><h2 class="anchored" data-anchor-id="generate-ssh-key-and-connect-to-github">Generate SSH Key and Connect to GitHub</h2>
+<p><strong>Recommended, need to do only once</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This step is creating a private and public key for you to identify that it is really you who is interacting (pushing, pulling, cloning for example) with the GitHub account later. We only upload the public key to GitHub, but never the private key. That is exclusively for yourself. Never share it with anybody.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"you@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Just press Enter for all the prompts</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you replace <code>you@example.com</code> with yours? If not, do it again replacing it with correct email address for your GitHub account.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you press Enter or return key multiple times or just kept staring at the screen? Read the messages on your screen to understand, and keep pressing Enter.</p>
+</div>
+</div>
+</section><section id="add-ssh-key-to-github" class="level2"><h2 class="anchored" data-anchor-id="add-ssh-key-to-github">Add SSH Key to GitHub</h2>
+<p>Now, we are adding the public key to GitHub.</p>
+<ol type="1">
+<li>Run:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Copy the output: Be careful here. Just copy the output. No extra space after your email address (i.e.&nbsp;till <code>.com</code>).</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you copy-pasted it correctly?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How is your key?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It has 3 fields separated with 2 spaces. Did you notice that?</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Go to GitHub –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH Key</li>
+</ol>
+<p><strong>Title:</strong> Whatever you want (but keep it simple, like <code>my ssh key</code>)<br><strong>Paste the key</strong> you copied and save it. You are done.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you copy-pasted it correctly and is the key visible if you check under <code>SSH and GPG keys</code> now? It shows only the second field of your key though. If not, it is not done correctly.</p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Test it:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How is it?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hi <code>Your_user_name</code>! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</div>
+</div>
+<p>It is totally fine, ignore the warning.</p>
+<p>Setting and configuration is done. Voila!</p>
+</section></section><section id="basic-git-workflow-local-github" class="level1"><h1>Basic Git Workflow (Local + GitHub)</h1>
+<section id="create-a-new-repository-on-github" class="level3"><h3 class="anchored" data-anchor-id="create-a-new-repository-on-github">Create a New Repository on GitHub</h3>
+<ol type="1">
+<li>Go to your GitHub account –&gt; Find the <code>+</code> sign and click on it –&gt; Click on <code>New Repository</code>. Or there is another way. Find it.</li>
+<li>Name it (e.g., test1).</li>
+<li>Don’t initialize with README (we’ll do it ourselves). You can decide to add a <code>.gitignore</code> template from the drop-down as well. But don’t do it now.</li>
+<li>Keep it public (as the default setting).</li>
+<li>Save it by clicking on <code>Create repository</code>.</li>
+</ol></section><section id="clone-it-to-your-computer-now" class="level3"><h3 class="anchored" data-anchor-id="clone-it-to-your-computer-now">Clone It to Your Computer Now:</h3>
+<p>So, the repository (basically a folder in GitHub) is in GitHub server. It is not in your machine. Let’s copy it exactly how it is in our computer.</p>
+<ul>
+<li>At first, go to correct location you want to be in. For example, let’s say, you want to be inside the <code>Downloads</code> folder. Run this:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It works because you are inside the home/root directory (denoted as <code>~</code>) when you just open the terminal or git bash.</p>
+</div>
+</div>
+<p>Well, If you want to be inside the <code>Desktop</code> or <code>Documents</code> folder, you could run <code>cd Desktop</code> or <code>cd Documents</code> instead of the one for <code>Downloads</code>. You got the idea for the navigation, right? Just use the correct folder name. Now, go to your GitHub repo. Click on <code>&lt;&gt;Code</code> and select <code>SSH</code> (or find the SSH link of your repo). Copy the link from there. Use/replace the link in the code below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:yourusername/test1.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you replace the <code>git@github.com:yourusername/test1.git</code> with your copied ssh link?</p>
+</div>
+</div>
+<p>So, you are copying/cloning your empty repository you just have created to your laptop/machine. Good job! Ignore the warning from <code>git</code>. The warning is ok, right?</p>
+</section><section id="add-a-new-readme.md-file" class="level3"><h3 class="anchored" data-anchor-id="add-a-new-readme.md-file">Add a new <code>README.md</code> file</h3>
+<p>Let’s add a new README.md file to our empty repo now. Poeple add basic information about the repo in this file. But it is something simple for us for now. Let’s proceed!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test1 </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Hello GitHub"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>So, it is a new file we created, right? It is on our computer, but not in our remote (GitHub) repository. So, let’s proceed to upload/<code>push</code> it to our GitHub repo named <code>test1</code>. It won’t go to other repo. Think about the logic. Why should it go to other repo/folder, right?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Diversion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>echo "# Hello GitHub"</code> actually prints <code># Hello GitHub</code> on the terminal/git bash (you can check by copy-pasting only this part). The <code>&gt;</code> operator is sending <code># Hello GitHub</code> to the file named <code>README.md</code>. We did not need to create this file from before. See the power of <code>echo</code>, <code>&lt;</code> together.</p>
+</div>
+</div>
+</section><section id="track-and-commit-changes" class="level3"><h3 class="anchored" data-anchor-id="track-and-commit-changes">Track and Commit Changes</h3>
+<p>We said <code>git</code> is a tracking tool (version control system). So, let’s see how it tracked our <code>test1</code> folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Isn’t it showing that our <code>README.md</code> file is untracked (in red color)?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It shows the status of the files and folders. You see the untracked files here. Untracked files mean the ones those are different than your GitHub repo.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It stages/prepares the untracked files to be added.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add README"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You add a meaningful commit message for yourself to remind you what you did in this step (a decoration). Make it meaningful. But all these steps are still on your local machine. You have prepared (by using <code>git add</code>) and decorated (by using <code>git commit -m</code>) your file(s). You are just one step away to <code>push</code> it to your remote repo. Just run the command below, and feel like a soft-dev!</p>
+</section><section id="push-to-github" class="level3"><h3 class="anchored" data-anchor-id="push-to-github">Push to GitHub</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Go to your GitHub repo to see the changes. Refresh your browser, maybe.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>git status</code> is not a compulsory thing to do/run, but the other 3 downstream commands are. In summary, you should always run these 3 commands to push something:</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md    <span class="co"># Stage the specific file named README.md</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add README"</span> <span class="co">#you added a meaningful message for yourself</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main <span class="co">#push it now to main branch</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How are the things with <code>#</code> sign?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Those are comments to tell you about the commands task (or anything). One just need to put them after <code>#</code> sign.</p>
+</div>
+</div>
+<p>Well, if you have added or created many files and folders inside this <code>test1</code> folder (in whatever way), you should run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>.</code> means <strong>“everything”</strong> inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (<code>README.md</code>) earlier.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <code>git add README.md</code>, use <code>git add .</code>. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"a meaningful message for you"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you replace <code>"a meaningful message for you"</code> to a real meaningful one for you?</p>
+</div>
+</div>
+<p>Check your GitHub repo now! Refresh, Maybe!</p>
+<p><em>You are feeling like a PRO, no?</em></p>
+<p>Let’s practice some more Linux navigation. See a toy folder structure below:</p>
+<pre class="text"><code>~/
+├── Desktop/
+│   ├── project_overview.pdf
+│   └── meeting_notes.txt
+├── Documents/
+│   ├── resume.docx
+│   ├── thesis/
+│   │   ├── chapter1.md
+│   │   └── references.bib
+│   └── tax_2024.xlsx
+└── Downloads/
+    ├── folder1/
+    │   ├── file1.txt
+    │   ├── file2.txt
+    │   └── notes.md
+    ├── folder2/
+    │   ├── data.csv
+    │   ├── report.docx
+    │   └── image.png
+    └── folder3/
+        ├── script.sh
+        ├── config.json
+        └── README.md</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you had your git bash opened from before, close it and reopen it. Notice that there is no folder names after <code>~</code> sign in your git bash.</p>
+</div>
+</div>
+<p>In real life, you have many more things like <code>Pictures</code>, <code>Video</code>, <code>Music</code> and others under <code>~</code>, right?. That’s why it is a toy example.</p>
+<p>So, <code>Downloads</code> is inside our <code>~</code> directory. We are inside our <code>~</code> directory when we open the git bash or terminal for the first time.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>HOME</code>or <code>root</code> directory is shown as <code>~</code> in your computer. Notice the things in different color in your terminal or git bash where you write commands.</p>
+</div>
+</div>
+<p>Check your location (current working directory) by running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>pwd</code> means “print working directory”. It means print one’s current location in the file system. Then we should try to see which files are inside this folder, right?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ls</code> means list everything at that location/folder. According to the picture, we can go to <code>Downloads</code> or <code>Documents</code> or <code>Desktop</code> folder from <code>~</code> (it is also called <code>root</code>. Isn’t the folder structure looks like a upside-down tree? That’s why it is the <code>root</code>).</p>
+<p>Let’s say we are focusing on the <code>Downloads</code> folder now. Let’s go inside <code>Downloads</code>. Wait a moment: How would you do that in Windows? You would see <code>Downloads</code> now and would double click on it, right? But there is no double click in a git bash or terminal. <code>cd</code> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It’s not so difficult. Think……</p>
+<p>Ok, follow me exactly now, run these commands:</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Downloads/folder1 Downloads/folder2 Downloads/folder3</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I assume you have many files and folders inside <code>Downloads</code>. But you should see <code>folder1</code>, <code>folder2</code>, <code>folder3</code> among others now. Don’t worry. Just run it. We are using <code>-p</code> flag/parameter with <code>mkdir</code> command. It says <code>mkdir</code> to make the directories, but if the folder name(s) exist, don’t make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <code>Downloads</code> after <code>ls</code> command now? Well, where are we? Inside the root directory (<code>~</code>). Since we are at our root directory, if we run only <code>ls</code>, it will list everything inside the root (<code>~</code>) directory. Did we wanted that? So, we have to say the folder name and <code>Downloads</code> is just a step forward from <code>~</code>. That’s why we used <code>ls Downloads</code> to list everything inside the <code>Downloads</code> folder. We could go inside <code>Downloads</code> folder first and then run <code>ls</code> only. We would achieve the same thing. <code>Downloads</code> is just one-step far from our root, do you catch this logic? If you wanted to list everything inside the <code>folder3</code> folder, you could run <code>ls Downloads/folder3</code> from the <code>~</code> directory. Do you see its logic? If not, think about this:</p>
+<ul>
+<li>How far your father’s generation is from your grandfather?<br>
+</li>
+<li>How behind your grandfather’s generation is from your father?<br>
+</li>
+<li>How far your generation is from your grandfather’s?<br>
+</li>
+<li>How far your generation is from your father’s?<br>
+</li>
+<li>How behind your father’s generation is from yours?<br>
+</li>
+<li>How behind your grandfather’s generation is from yours?</li>
+<li>Isn’t the generation of your father, aunt(s) and uncle(s) the same?</li>
+</ul>
+<p>In our toy example above, <code>folder1</code>, <code>folder2</code>, <code>folder3</code> are on the same level/generation (they are children of <code>Downloads</code>). Similarly, <code>Downloads</code>, <code>Documents</code> and <code>Desktop</code> are on the same level (children of <code>~</code>). Makes sense?</p>
+<p>Do you see how powerful this simple navigation logic is? You can go way too far (folder inside folder inside folder inside folder ……. [or folder outside folder outside folder outside folder ……]) from where you are.</p>
+<p>Let’s go inside <code>Downloads</code> now.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>ls</code> is equivalent of seeing things inside a folder in Windows. Did you catch it?</p>
+</div>
+</div>
+</div>
+<p><code>ls</code> now shows <code>folder1</code>, <code>folder2</code>, <code>folder3</code> among many other things, right?</p>
+<p><strong>Q.</strong> How to go inside, let’s say, <code>folder2</code> now, and make a file named <code>data.csv</code> file? Well, since you are already inside <code>Downloads</code>, you need to go one step forward to go inside of it and create the (empty) file. Run one after another:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folder2</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Do you see what <code>touch</code> is doing?</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Well, <code>touch</code> is creating the file (named <code>data.csv</code>). Run <code>ls</code> to see who else is the resident there. As expected, no?</p>
+</div>
+</div>
+</div>
+<p><em>Q.</em> How to come out of <code>folder2</code> to <code>Downloads</code> again?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Think backward now, see the picture for the folder structure to get visual help. You need to go one step behind, right? So? How to go backwards?</p>
+</div>
+</div>
+</div>
+<p>Run this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Could you relate what <code>..</code> is meaning here?</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Well, one step/folder behind, right?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ahha…. Wondering why do we have <code>/</code> after the folder names? Well, that is the way to denote a folder. We could use <code>ls Downloads/</code>, but we dropped the <code>/</code> since we are not denoting any more folder after <code>Downloads</code>. If you want to see things inside <code>folder3</code>, we should have use <code>ls Downloads/folder3</code> or <code>ls Downloads/folder3/</code> from the <code>~</code> directory, we could not do it like <code>ls Downloadsfolder3</code> or <code>ls Downloadsfolder3/</code>. Now it is looking for <code>Downloadsfolder3</code> folder which is not there in your computer. You will get error.</p>
+<p><strong>Another point:</strong> Did you notice that <code>ls Downloads/folder3</code> is just listing everything inside <code>Downloads/folder3</code> on the fly, we are not really changing our physical location there, we are still in <code>~</code>. To go inside <code>folder3</code>, we should use <code>cd Downloads/folder3</code>. Caught this correctly? Ponder….</p>
+</div>
+</div>
+</section><section id="homeworks" class="level2"><h2 class="anchored" data-anchor-id="homeworks">Homeworks</h2>
+<ol type="1">
+<li><p>Go inside <code>folder1</code>, <code>folder2</code>, <code>folder3</code> folders one after another and create the empty files as you see in the picture (with exact names). If you can do it, you are almost a PRO in Linux/command line.</p></li>
+<li><p>Now, remove all the folders running this command below:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> folder1 folder2 folder3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, <code>rm</code> means “remove” and <code>-r</code> means “recursively”. So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?</p>
+<ol start="3" type="1">
+<li><p>Navigate to <code>Downloads</code> again. Stay there. Next task is coming.<br></p></li>
+<li><p>Go to your GitHub account and make a repository named <code>hw_repo1</code>. <strong>Clone</strong> it inside your <code>Downloads</code> folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (<code>hw_repo1</code>) and push following the standard workflow. Make as many changes and pushes you like.</p></li>
+<li><p>Go to your GitHub account again and make a repository named <code>hw_repo2</code>. <strong>Clone</strong> it inside your <code>Downloads</code> folder (you know how to be inside <code>Downloads</code>, right?) again (go inside the <code>hw_repo2</code> folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (<code>hw_repo1</code>) again and push following the standard workflow. Make as many changes and pushes you like.</p></li>
+<li><p>You learned these bash commands today:</p></li>
+</ol>
+<ul>
+<li><code>pwd</code></li>
+<li><code>ls</code></li>
+<li><code>cat</code></li>
+<li><code>echo</code></li>
+<li><code>mkdir</code></li>
+<li><code>cd</code></li>
+<li><code>rm</code></li>
+<li><code>touch</code></li>
+</ul>
+<p>Can you relate them with Windows alternatives? I am giving a hint for <code>touch</code>. <code>touch</code> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <code>.docx</code> files. You can’t name a file like <code>file_name.jpeg</code> using Microsoft Words, though. Right? You need some other tools for that image file naming (<code>.jpeg</code>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, <strong>a scrambled list of the alphabets</strong> becomes <strong>A &gt; B &gt; C &gt; D &gt; E &gt; ….. &gt; Z</strong> if we organize them, right? Or a map of <strong>Father, Son, Grandson, Me, My_Siblings, Grandma</strong> will be <strong>Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson</strong> if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <code>hw_repo*</code>. <code>echo</code> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don’t mind. GitHub also doesn’t care what you are pushing to it (it is just a storage with special functionality to track files – well, some more though, we will know later). Let’s see. If you need help, don’t hesitate to reach out! There is no shame in asking for help while learning.</p>
+<p><strong>7. Optional:</strong> Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <code>HOME</code> and root are the same.</p>
+<ol start="8" type="1">
+<li>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</li>
+</ol></section></section><section id="a-final-though" class="level1"><h1>A Final Though</h1>
+<p>You might not know how powerful you are becoming! But trust me, you are too strong…….</p>
+
+
+<!-- -->
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
+  author = {Md Rasheduzzaman},
+  title = {Git, {GitHub}},
+  date = {2025-04-13},
+  langid = {en},
+  abstract = {Git, GitHub and some basic shell commands}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Md Rasheduzzaman. 2025. <span>“Git, GitHub.”</span> April 13, 2025.
+</div></div></section></div></main><!-- /main --><hr>
+<div style="margin-top: 2em;">
+  <p style="font-weight: 500; font-size: 1.1em;">
+    💬 Have thoughts or questions? Join the discussion below using your GitHub account!
+  </p>
+  <p style="font-size: 0.95em; color: #666;">
+    You can <strong>edit or delete</strong> your own comments. Reactions like 👍 ❤️ 🚀 are also supported.
+  </p>
+</div>
+
+<div id="giscus_thread" style="margin-top: 1.5em;"></div>
+
+<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOMoYdeg" data-category-id="DIC_kwDOMoYdes4CpAvo" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+</script><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb27" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Git, GitHub"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Git, GitHub and some basic shell commands"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false  # disables code execution globally</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prelude  </span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>Well, why <span class="in">`git`</span>and <span class="in">`GitHub`</span> at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (<span class="in">`push`</span>and <span class="in">`pull`</span>). You actually need 4-5 lines of code to push and pull. Just get used to it. You can push the codes from the class, or your own practice codes. You will feel better.  </span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>**_`Get engaged!`_**</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># Intro  </span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>GitHub is just like Google Drive, Dropbox or similar where you can <span class="in">`upload`</span> (or <span class="in">`push`</span>) files and folders of your project/package. What is special about the GitHub repositories then? Well, they are tracked for changes. How so? Well, <span class="in">`git`</span> does that. <span class="in">`git`</span> is the version control system (or tool) to track changes you make in a specific directory/repository (directory means folder as well). So you can have snapshot of your changes and fall back and forth if needed.  </span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>**Imagine this situation:** You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don't know what is wrong! You closed the file many times and you can't just *undo* and *redo* things. What would you do? Here comes <span class="in">`git`</span> in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (<span class="in">`clone`</span>/<span class="in">`download`</span>/<span class="in">`pull`</span> it in your machine again). Maybe, upload and downloads make a bit more sense, rather than <span class="in">`push`</span> and <span class="in">`pull`</span>/<span class="in">`clone`</span>!</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Set git and GitHub</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Install Git</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### For Windows</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Download:** Download <span class="in">`Git`</span> from <span class="ot">&lt;https://git-scm.com/download/win&gt;</span></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Install:** Now install, accept the default settings while installing</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Open git bash:** After installation, open <span class="in">`Git Bash`</span> (not cmd/PowerShell). Find it and open by double clicking. Just keep it open, nothing else. We will return to this a bit later.</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### For MacOS</span></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>It should already be there. Open your terminal/shell now (Press <span class="in">`"command"`</span> + <span class="in">`"space"`</span> buttons together and write "terminal". Choose the terminal). Then run:</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>If Git isn’t installed, macOS will prompt you to install the Xcode Command Line Tools. Click "Install" and you are done. But find the recommended below. Just run these two commands to keep your directory/repo clean.</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> .DS_Store <span class="op">&gt;&gt;</span> ~/.gitignore_global</span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.excludesfile ~/.gitignore_global</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>MacOS makes <span class="in">`.DS_Store`</span> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, you should have choosed the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don't worry. We are adding it to gitignore and telling git to ignore it for file tracking.</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### For Ubuntu/Debian</span></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>Open your terminal (Press <span class="in">`Ctrl + Alt + T`</span>.) and run these two commands one after another:</span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a>Provide your password if prompted. You are all set!</span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Create a GitHub Account</span></span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Now go to <span class="ot">&lt;https://github.com&gt;</span> -&gt; Sign up with your email</span>
+<span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Choose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.  </span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a>Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like "@", "!", "?", etc.  </span>
+<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify email (with hte OTP) and you are set.</span>
+<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Set Up Git (for the first time only)</span></span>
+<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_email@example.com"</span></span>
+<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-81"><a href="#cb27-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
+<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a>Here, <span class="in">`Your Name`</span> and <span class="in">`your_email@example.com`</span> means your user name (the one you set up just a bit ago. You don't remember? Explore your GitHub account, you will see it there.) and the email address you used for GitHub. Use them correctly. Space, punctuation marks, capital or small letters should exactly match (Don't be a "Murad takla").</span>
+<span id="cb27-83"><a href="#cb27-83" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-85"><a href="#cb27-85" aria-hidden="true" tabindex="-1"></a>You can check your config:</span>
+<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-87"><a href="#cb27-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span>
+<span id="cb27-89"><a href="#cb27-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-90"><a href="#cb27-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a>Isn't it showing things correctly? It should!</span>
+<span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-93"><a href="#cb27-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generate SSH Key and Connect to GitHub </span></span>
+<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-95"><a href="#cb27-95" aria-hidden="true" tabindex="-1"></a>**Recommended, need to do only once**  </span>
+<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-97"><a href="#cb27-97" aria-hidden="true" tabindex="-1"></a>:::callout-warning</span>
+<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a><span class="fu"># Stop!</span></span>
+<span id="cb27-99"><a href="#cb27-99" aria-hidden="true" tabindex="-1"></a>This step is creating a private and public key for you to identify that it is really you who is interacting (pushing, pulling, cloning for example) with the GitHub account later. We only upload the public key to GitHub, but never the private key. That is exclusively for yourself. Never share it with anybody.  </span>
+<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-101"><a href="#cb27-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"you@example.com"</span></span>
+<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a>**Just press Enter for all the prompts**  </span>
+<span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
+<span id="cb27-109"><a href="#cb27-109" aria-hidden="true" tabindex="-1"></a>Did you replace <span class="in">`you@example.com`</span> with yours? If not, do it again replacing it with correct email address for your GitHub account.</span>
+<span id="cb27-110"><a href="#cb27-110" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-111"><a href="#cb27-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-112"><a href="#cb27-112" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-113"><a href="#cb27-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
+<span id="cb27-114"><a href="#cb27-114" aria-hidden="true" tabindex="-1"></a>Did you press Enter or return key multiple times or just kept staring at the screen? Read the messages on your screen to understand, and keep pressing Enter.</span>
+<span id="cb27-115"><a href="#cb27-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add SSH Key to GitHub  </span></span>
+<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>Now, we are adding the public key to GitHub.  </span>
+<span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Run:</span>
+<span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-123"><a href="#cb27-123" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span>
+<span id="cb27-124"><a href="#cb27-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Copy the output: Be careful here. Just copy the output. No extra space after your email address (i.e. till <span class="in">`.com`</span>).</span>
+<span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
+<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>Did you copy-pasted it correctly?</span>
+<span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## How is your key?</span></span>
+<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a>It has 3 fields separated with 2 spaces. Did you notice that?</span>
+<span id="cb27-137"><a href="#cb27-137" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-138"><a href="#cb27-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Go to GitHub --&gt; Settings --&gt; SSH and GPG keys --&gt; New SSH Key</span>
+<span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a>**Title:** Whatever you want (but keep it simple, like <span class="in">`my ssh key`</span>)  </span>
+<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a>**Paste the key** you copied and save it. You are done.  </span>
+<span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stop!</span></span>
+<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>Did you copy-pasted it correctly and is the key visible if you check under <span class="in">`SSH and GPG keys`</span> now? It shows only the second field of your key though. If not, it is not done correctly.</span>
+<span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Test it:</span>
+<span id="cb27-150"><a href="#cb27-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-151"><a href="#cb27-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-152"><a href="#cb27-152" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span>
+<span id="cb27-153"><a href="#cb27-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-154"><a href="#cb27-154" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-155"><a href="#cb27-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## How is it?</span></span>
+<span id="cb27-156"><a href="#cb27-156" aria-hidden="true" tabindex="-1"></a>Hi <span class="in">`Your_user_name`</span>! You've successfully authenticated, but GitHub does not provide shell access. </span>
+<span id="cb27-157"><a href="#cb27-157" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-158"><a href="#cb27-158" aria-hidden="true" tabindex="-1"></a>It is totally fine, ignore the warning.  </span>
+<span id="cb27-159"><a href="#cb27-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-160"><a href="#cb27-160" aria-hidden="true" tabindex="-1"></a>Setting and configuration is done. Voila!</span>
+<span id="cb27-161"><a href="#cb27-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-162"><a href="#cb27-162" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basic Git Workflow (Local + GitHub)</span></span>
+<span id="cb27-163"><a href="#cb27-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-164"><a href="#cb27-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create a New Repository on GitHub</span></span>
+<span id="cb27-165"><a href="#cb27-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-166"><a href="#cb27-166" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your GitHub account --&gt; Find the <span class="in">`+`</span> sign and click on it --&gt; Click on <span class="in">`New Repository`</span>. Or there is another way. Find it.</span>
+<span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Name it (e.g., test1).</span>
+<span id="cb27-168"><a href="#cb27-168" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Don’t initialize with README (we’ll do it ourselves). You can decide to add a <span class="in">`.gitignore`</span> template from the drop-down as well. But don't do it now.</span>
+<span id="cb27-169"><a href="#cb27-169" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Keep it public (as the default setting).</span>
+<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Save it by clicking on <span class="in">`Create repository`</span>.</span>
+<span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clone It to Your Computer Now:</span></span>
+<span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a>So, the repository (basically a folder in GitHub) is in GitHub server. It is not in your machine. Let's copy it exactly how it is in our computer. </span>
+<span id="cb27-174"><a href="#cb27-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-175"><a href="#cb27-175" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>At first, go to correct location you want to be in. For example, let's say, you want to be inside the <span class="in">`Downloads`</span> folder. Run this:</span>
+<span id="cb27-176"><a href="#cb27-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-177"><a href="#cb27-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-178"><a href="#cb27-178" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
+<span id="cb27-179"><a href="#cb27-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-181"><a href="#cb27-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Information</span></span>
+<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a>It works because you are inside the home/root directory (denoted as <span class="in">`~`</span>) when you just open the terminal or git bash. </span>
+<span id="cb27-183"><a href="#cb27-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a>Well, If you want to be inside the <span class="in">`Desktop`</span> or <span class="in">`Documents`</span> folder, you could run <span class="in">`cd Desktop`</span> or <span class="in">`cd Documents`</span> instead of the one for <span class="in">`Downloads`</span>. You got the idea for the navigation, right? Just use the correct folder name.</span>
+<span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a>Now, go to your GitHub repo. Click on <span class="in">`&lt;&gt;Code`</span> and select <span class="in">`SSH`</span> (or find the SSH link of your repo). Copy the link from there. Use/replace the link in the code below:</span>
+<span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-189"><a href="#cb27-189" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:yourusername/test1.git</span>
+<span id="cb27-190"><a href="#cb27-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-191"><a href="#cb27-191" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warning</span></span>
+<span id="cb27-193"><a href="#cb27-193" aria-hidden="true" tabindex="-1"></a>Did you replace the <span class="in">`git@github.com:yourusername/test1.git`</span> with your copied ssh link?</span>
+<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-195"><a href="#cb27-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a>So, you are copying/cloning your empty repository you just have created to your laptop/machine. Good job! Ignore the warning from <span class="in">`git`</span>. The warning is ok, right?</span>
+<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-198"><a href="#cb27-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Add a new `README.md` file</span></span>
+<span id="cb27-199"><a href="#cb27-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-200"><a href="#cb27-200" aria-hidden="true" tabindex="-1"></a>Let's add a new README.md file to our empty repo now. Poeple add basic information about the repo in this file. But it is something simple for us for now. Let's proceed!  </span>
+<span id="cb27-201"><a href="#cb27-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-202"><a href="#cb27-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-203"><a href="#cb27-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-204"><a href="#cb27-204" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test1 </span>
+<span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Hello GitHub"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-209"><a href="#cb27-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## Information</span></span>
+<span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a>So, it is a new file we created, right? It is on our computer, but not in our remote (GitHub) repository. So, let's proceed to upload/<span class="in">`push`</span> it to our GitHub repo named <span class="in">`test1`</span>. It won't go to other repo. Think about the logic. Why should it go to other repo/folder, right?</span>
+<span id="cb27-211"><a href="#cb27-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-212"><a href="#cb27-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-213"><a href="#cb27-213" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-214"><a href="#cb27-214" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diversion</span></span>
+<span id="cb27-215"><a href="#cb27-215" aria-hidden="true" tabindex="-1"></a><span class="in">`echo "# Hello GitHub"`</span> actually prints <span class="in">`# Hello GitHub`</span> on the terminal/git bash (you can check by copy-pasting only this part). The <span class="in">`&gt;`</span> operator is sending <span class="in">`# Hello GitHub`</span> to the file named <span class="in">`README.md`</span>. We did not need to create this file from before. See the power of <span class="in">`echo`</span>, <span class="in">`&lt;`</span> together.</span>
+<span id="cb27-216"><a href="#cb27-216" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-217"><a href="#cb27-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-218"><a href="#cb27-218" aria-hidden="true" tabindex="-1"></a><span class="fu">### Track and Commit Changes  </span></span>
+<span id="cb27-219"><a href="#cb27-219" aria-hidden="true" tabindex="-1"></a>We said <span class="in">`git`</span> is a tracking tool (version control system). So, let's see how it tracked our <span class="in">`test1`</span> folder. </span>
+<span id="cb27-220"><a href="#cb27-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-221"><a href="#cb27-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-222"><a href="#cb27-222" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb27-223"><a href="#cb27-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-224"><a href="#cb27-224" aria-hidden="true" tabindex="-1"></a>Isn't it showing that our <span class="in">`README.md`</span> file is untracked (in red color)?  </span>
+<span id="cb27-225"><a href="#cb27-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-226"><a href="#cb27-226" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb27-227"><a href="#cb27-227" aria-hidden="true" tabindex="-1"></a>It shows the status of the files and folders. You see the untracked files here. Untracked files mean the ones those are different than your GitHub repo.  </span>
+<span id="cb27-228"><a href="#cb27-228" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-229"><a href="#cb27-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-230"><a href="#cb27-230" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-231"><a href="#cb27-231" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb27-232"><a href="#cb27-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-233"><a href="#cb27-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-234"><a href="#cb27-234" aria-hidden="true" tabindex="-1"></a>It stages/prepares the untracked files to be added.</span>
+<span id="cb27-235"><a href="#cb27-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-236"><a href="#cb27-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-237"><a href="#cb27-237" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add README"</span></span>
+<span id="cb27-238"><a href="#cb27-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-239"><a href="#cb27-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-240"><a href="#cb27-240" aria-hidden="true" tabindex="-1"></a>You add a meaningful commit message for yourself to remind you what you did in this step (a decoration). Make it meaningful. But all these steps are still on your local machine. You have prepared (by using <span class="in">`git add`</span>) and decorated (by using <span class="in">`git commit -m`</span>) your file(s). You are just one step away to <span class="in">`push`</span> it to your remote repo. Just run the command below, and feel like a soft-dev!</span>
+<span id="cb27-241"><a href="#cb27-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-242"><a href="#cb27-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Push to GitHub</span></span>
+<span id="cb27-243"><a href="#cb27-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-244"><a href="#cb27-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-245"><a href="#cb27-245" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb27-246"><a href="#cb27-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-247"><a href="#cb27-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-248"><a href="#cb27-248" aria-hidden="true" tabindex="-1"></a>Go to your GitHub repo to see the changes. Refresh your browser, maybe.  </span>
+<span id="cb27-249"><a href="#cb27-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-250"><a href="#cb27-250" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-251"><a href="#cb27-251" aria-hidden="true" tabindex="-1"></a><span class="in">`git status`</span> is not a compulsory thing to do/run, but the other 3 downstream commands are.</span>
+<span id="cb27-252"><a href="#cb27-252" aria-hidden="true" tabindex="-1"></a>In summary, you should always run these 3 commands to push something:</span>
+<span id="cb27-253"><a href="#cb27-253" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-254"><a href="#cb27-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-255"><a href="#cb27-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-256"><a href="#cb27-256" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md    <span class="co"># Stage the specific file named README.md</span></span>
+<span id="cb27-257"><a href="#cb27-257" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add README"</span> <span class="co">#you added a meaningful message for yourself</span></span>
+<span id="cb27-258"><a href="#cb27-258" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main <span class="co">#push it now to main branch</span></span>
+<span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-260"><a href="#cb27-260" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## How are the things with `#` sign?</span></span>
+<span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a>Those are comments to tell you about the commands task (or anything). One just need to put them after <span class="in">`#`</span> sign.</span>
+<span id="cb27-263"><a href="#cb27-263" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-264"><a href="#cb27-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a>Well, if you have added or created many files and folders inside this <span class="in">`test1`</span> folder (in whatever way), you should run:</span>
+<span id="cb27-266"><a href="#cb27-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-267"><a href="#cb27-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-268"><a href="#cb27-268" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb27-269"><a href="#cb27-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a>The <span class="in">`.`</span> means **"everything"** inside the current folder/directory. Well, you could run it all the time instead of mentioning specific file name (<span class="in">`README.md`</span>) earlier.  </span>
+<span id="cb27-272"><a href="#cb27-272" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-273"><a href="#cb27-273" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-275"><a href="#cb27-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note  </span></span>
+<span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a>You can add and push as many files as you want. Just create/modify them inside the correct folder/directory and instead of <span class="in">`git add README.md`</span>, use <span class="in">`git add .`</span>. The dot here means all the files/folders. Then you could follow the next steps as usual. So, you could do:</span>
+<span id="cb27-277"><a href="#cb27-277" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-278"><a href="#cb27-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-279"><a href="#cb27-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-280"><a href="#cb27-280" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb27-281"><a href="#cb27-281" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"a meaningful message for you"</span></span>
+<span id="cb27-282"><a href="#cb27-282" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb27-283"><a href="#cb27-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-284"><a href="#cb27-284" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a>Did you replace <span class="in">`"a meaningful message for you"`</span> to a real meaningful one for you?</span>
+<span id="cb27-286"><a href="#cb27-286" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-287"><a href="#cb27-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a>Check your GitHub repo now! Refresh, Maybe!  </span>
+<span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-290"><a href="#cb27-290" aria-hidden="true" tabindex="-1"></a>*You are feeling like a PRO, no?*  </span>
+<span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-292"><a href="#cb27-292" aria-hidden="true" tabindex="-1"></a>Let's practice some more Linux navigation. See a toy folder structure below:  </span>
+<span id="cb27-293"><a href="#cb27-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-294"><a href="#cb27-294" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb27-295"><a href="#cb27-295" aria-hidden="true" tabindex="-1"></a><span class="in">~/</span></span>
+<span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a><span class="in">├── Desktop/</span></span>
+<span id="cb27-297"><a href="#cb27-297" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── project_overview.pdf</span></span>
+<span id="cb27-298"><a href="#cb27-298" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── meeting_notes.txt</span></span>
+<span id="cb27-299"><a href="#cb27-299" aria-hidden="true" tabindex="-1"></a><span class="in">├── Documents/</span></span>
+<span id="cb27-300"><a href="#cb27-300" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── resume.docx</span></span>
+<span id="cb27-301"><a href="#cb27-301" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── thesis/</span></span>
+<span id="cb27-302"><a href="#cb27-302" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   ├── chapter1.md</span></span>
+<span id="cb27-303"><a href="#cb27-303" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   └── references.bib</span></span>
+<span id="cb27-304"><a href="#cb27-304" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── tax_2024.xlsx</span></span>
+<span id="cb27-305"><a href="#cb27-305" aria-hidden="true" tabindex="-1"></a><span class="in">└── Downloads/</span></span>
+<span id="cb27-306"><a href="#cb27-306" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── folder1/</span></span>
+<span id="cb27-307"><a href="#cb27-307" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── file1.txt</span></span>
+<span id="cb27-308"><a href="#cb27-308" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── file2.txt</span></span>
+<span id="cb27-309"><a href="#cb27-309" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── notes.md</span></span>
+<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── folder2/</span></span>
+<span id="cb27-311"><a href="#cb27-311" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── data.csv</span></span>
+<span id="cb27-312"><a href="#cb27-312" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── report.docx</span></span>
+<span id="cb27-313"><a href="#cb27-313" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── image.png</span></span>
+<span id="cb27-314"><a href="#cb27-314" aria-hidden="true" tabindex="-1"></a><span class="in">    └── folder3/</span></span>
+<span id="cb27-315"><a href="#cb27-315" aria-hidden="true" tabindex="-1"></a><span class="in">        ├── script.sh</span></span>
+<span id="cb27-316"><a href="#cb27-316" aria-hidden="true" tabindex="-1"></a><span class="in">        ├── config.json</span></span>
+<span id="cb27-317"><a href="#cb27-317" aria-hidden="true" tabindex="-1"></a><span class="in">        └── README.md</span></span>
+<span id="cb27-318"><a href="#cb27-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-319"><a href="#cb27-319" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb27-320"><a href="#cb27-320" aria-hidden="true" tabindex="-1"></a>If you had your git bash opened from before, close it and reopen it. Notice that there is no folder names after <span class="in">`~`</span> sign in your git bash.  </span>
+<span id="cb27-321"><a href="#cb27-321" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-322"><a href="#cb27-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-323"><a href="#cb27-323" aria-hidden="true" tabindex="-1"></a>In real life, you have many more things like <span class="in">`Pictures`</span>, <span class="in">`Video`</span>, <span class="in">`Music`</span> and others under <span class="in">`~`</span>,  right?. That's why it is a toy example.  </span>
+<span id="cb27-324"><a href="#cb27-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-325"><a href="#cb27-325" aria-hidden="true" tabindex="-1"></a>So, <span class="in">`Downloads`</span> is inside our <span class="in">`~`</span> directory. We are inside our <span class="in">`~`</span> directory when we open the git bash or terminal for the first time.  </span>
+<span id="cb27-326"><a href="#cb27-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-327"><a href="#cb27-327" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb27-328"><a href="#cb27-328" aria-hidden="true" tabindex="-1"></a><span class="in">`HOME`</span>or <span class="in">`root`</span> directory is shown as <span class="in">`~`</span> in your computer. Notice the things in different color in your terminal or git bash where you write commands.</span>
+<span id="cb27-329"><a href="#cb27-329" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-330"><a href="#cb27-330" aria-hidden="true" tabindex="-1"></a>Check your location (current working directory) by running:</span>
+<span id="cb27-331"><a href="#cb27-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-332"><a href="#cb27-332" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb27-333"><a href="#cb27-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-334"><a href="#cb27-334" aria-hidden="true" tabindex="-1"></a><span class="in">`pwd`</span> means "print working directory". It means print one's current location in the file system.</span>
+<span id="cb27-335"><a href="#cb27-335" aria-hidden="true" tabindex="-1"></a>Then we should try to see which files are inside this folder, right?</span>
+<span id="cb27-336"><a href="#cb27-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-337"><a href="#cb27-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-338"><a href="#cb27-338" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb27-339"><a href="#cb27-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-340"><a href="#cb27-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-341"><a href="#cb27-341" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-342"><a href="#cb27-342" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> means list everything at that location/folder. According to the picture, we can go to <span class="in">`Downloads`</span> or <span class="in">`Documents`</span> or <span class="in">`Desktop`</span> folder from <span class="in">`~`</span> (it is also called <span class="in">`root`</span>. Isn't the folder structure looks like a upside-down tree? That's why it is the <span class="in">`root`</span>).  </span>
+<span id="cb27-343"><a href="#cb27-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-344"><a href="#cb27-344" aria-hidden="true" tabindex="-1"></a>Let's say we are focusing on the <span class="in">`Downloads`</span> folder now. Let's go inside <span class="in">`Downloads`</span>. Wait a moment: How would you do that in Windows? You would see <span class="in">`Downloads`</span> now and would double click on it, right? But there is no double click in a git bash or terminal. <span class="in">`cd`</span> does it for us. Do you see what is equivalent to that double click? Do you see what is equivalent to seeing the file in Windows and folder structure in the git bash or terminal? It's not so difficult. Think......  </span>
+<span id="cb27-345"><a href="#cb27-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-346"><a href="#cb27-346" aria-hidden="true" tabindex="-1"></a>Ok, follow me exactly now, run these commands:</span>
+<span id="cb27-347"><a href="#cb27-347" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-348"><a href="#cb27-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-349"><a href="#cb27-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-350"><a href="#cb27-350" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Downloads/folder1 Downloads/folder2 Downloads/folder3</span>
+<span id="cb27-351"><a href="#cb27-351" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> Downloads</span>
+<span id="cb27-352"><a href="#cb27-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-353"><a href="#cb27-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-354"><a href="#cb27-354" aria-hidden="true" tabindex="-1"></a>I assume you have many files and folders inside <span class="in">`Downloads`</span>. But you should see <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among others now. Don't worry. Just run it. We are using <span class="in">`-p`</span> flag/parameter with <span class="in">`mkdir`</span> command. It says <span class="in">`mkdir`</span> to make the directories, but if the folder name(s) exist, don't make any changes there. So, your files and folders are safe. But did you notice that I used the folder name <span class="in">`Downloads`</span> after <span class="in">`ls`</span> command now? Well, where are we? Inside the root directory (<span class="in">`~`</span>). Since we are at our root directory, if we run only <span class="in">`ls`</span>, it will list everything inside the root (<span class="in">`~`</span>) directory. Did we wanted that? So, we have to say the folder name and <span class="in">`Downloads`</span> is just a step forward from <span class="in">`~`</span>. That's why we used <span class="in">`ls Downloads`</span> to list everything inside the <span class="in">`Downloads`</span> folder. We could go inside <span class="in">`Downloads`</span> folder first and then run <span class="in">`ls`</span> only. We would achieve the same thing. <span class="in">`Downloads`</span> is just one-step far from our root, do you catch this logic? If you wanted to list everything inside the <span class="in">`folder3`</span> folder, you could run <span class="in">`ls Downloads/folder3`</span> from the <span class="in">`~`</span> directory. Do you see its logic? If not, think about this:  </span>
+<span id="cb27-355"><a href="#cb27-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-356"><a href="#cb27-356" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your father's generation is from your grandfather?  </span>
+<span id="cb27-357"><a href="#cb27-357" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from your father?  </span>
+<span id="cb27-358"><a href="#cb27-358" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your grandfather's?  </span>
+<span id="cb27-359"><a href="#cb27-359" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How far your generation is from your father's?  </span>
+<span id="cb27-360"><a href="#cb27-360" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your father's generation is from yours?  </span>
+<span id="cb27-361"><a href="#cb27-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How behind your grandfather's generation is from yours?</span>
+<span id="cb27-362"><a href="#cb27-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Isn't the generation of your father, aunt(s) and uncle(s) the same?   </span>
+<span id="cb27-363"><a href="#cb27-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-364"><a href="#cb27-364" aria-hidden="true" tabindex="-1"></a>In our toy example above, <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> are on the same level/generation (they are children of <span class="in">`Downloads`</span>). Similarly, <span class="in">`Downloads`</span>, <span class="in">`Documents`</span> and <span class="in">`Desktop`</span> are on the same level (children of <span class="in">`~`</span>). Makes sense? </span>
+<span id="cb27-365"><a href="#cb27-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-366"><a href="#cb27-366" aria-hidden="true" tabindex="-1"></a>Do you see how powerful this simple navigation logic is? You can go way too far (folder inside folder inside folder inside folder ....... <span class="co">[</span><span class="ot">or folder outside folder outside folder outside folder ......</span><span class="co">]</span>) from where you are.</span>
+<span id="cb27-367"><a href="#cb27-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-368"><a href="#cb27-368" aria-hidden="true" tabindex="-1"></a>Let's go inside <span class="in">`Downloads`</span> now.</span>
+<span id="cb27-369"><a href="#cb27-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-370"><a href="#cb27-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-371"><a href="#cb27-371" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Downloads</span>
+<span id="cb27-372"><a href="#cb27-372" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb27-373"><a href="#cb27-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-374"><a href="#cb27-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-375"><a href="#cb27-375" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-376"><a href="#cb27-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-377"><a href="#cb27-377" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> is equivalent of seeing things inside a folder in Windows. Did you catch it?</span>
+<span id="cb27-378"><a href="#cb27-378" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-379"><a href="#cb27-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-380"><a href="#cb27-380" aria-hidden="true" tabindex="-1"></a><span class="in">`ls`</span> now shows <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> among many other things, right?</span>
+<span id="cb27-381"><a href="#cb27-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-382"><a href="#cb27-382" aria-hidden="true" tabindex="-1"></a>**Q.** How to go inside, let's say, <span class="in">`folder2`</span> now, and make a file named <span class="in">`data.csv`</span> file? Well, since you are already inside <span class="in">`Downloads`</span>, you need to go one step forward to go inside of it and create the (empty) file. Run one after another:</span>
+<span id="cb27-383"><a href="#cb27-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-384"><a href="#cb27-384" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-385"><a href="#cb27-385" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folder2</span>
+<span id="cb27-386"><a href="#cb27-386" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data.csv</span>
+<span id="cb27-387"><a href="#cb27-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-388"><a href="#cb27-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-389"><a href="#cb27-389" aria-hidden="true" tabindex="-1"></a>**Do you see what `touch` is doing?** </span>
+<span id="cb27-390"><a href="#cb27-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-391"><a href="#cb27-391" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-392"><a href="#cb27-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-393"><a href="#cb27-393" aria-hidden="true" tabindex="-1"></a>Well, <span class="in">`touch`</span> is creating the file (named <span class="in">`data.csv`</span>). Run <span class="in">`ls`</span> to see who else is the resident there. As expected, no?</span>
+<span id="cb27-394"><a href="#cb27-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-395"><a href="#cb27-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-396"><a href="#cb27-396" aria-hidden="true" tabindex="-1"></a>*Q.* How to come out of <span class="in">`folder2`</span> to <span class="in">`Downloads`</span> again?  </span>
+<span id="cb27-397"><a href="#cb27-397" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-398"><a href="#cb27-398" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-399"><a href="#cb27-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-400"><a href="#cb27-400" aria-hidden="true" tabindex="-1"></a>Think backward now, see the picture for the folder structure to get visual help. You need to go one step behind, right? So? How to go backwards?</span>
+<span id="cb27-401"><a href="#cb27-401" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-402"><a href="#cb27-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-403"><a href="#cb27-403" aria-hidden="true" tabindex="-1"></a>Run this:</span>
+<span id="cb27-404"><a href="#cb27-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-405"><a href="#cb27-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-406"><a href="#cb27-406" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb27-407"><a href="#cb27-407" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-408"><a href="#cb27-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-409"><a href="#cb27-409" aria-hidden="true" tabindex="-1"></a>**Could you relate what `..` is meaning here?**  </span>
+<span id="cb27-410"><a href="#cb27-410" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-411"><a href="#cb27-411" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}  </span>
+<span id="cb27-412"><a href="#cb27-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-413"><a href="#cb27-413" aria-hidden="true" tabindex="-1"></a>Well, one step/folder behind, right?</span>
+<span id="cb27-414"><a href="#cb27-414" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-415"><a href="#cb27-415" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-416"><a href="#cb27-416" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb27-417"><a href="#cb27-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-418"><a href="#cb27-418" aria-hidden="true" tabindex="-1"></a>Ahha.... Wondering why do we have <span class="in">`/`</span> after the folder names? Well, that is the way to denote a folder. We could use <span class="in">`ls Downloads/`</span>, but we dropped the <span class="in">`/`</span> since we are not denoting any more folder after <span class="in">`Downloads`</span>. If you want to see things inside <span class="in">`folder3`</span>, we should have use <span class="in">`ls Downloads/folder3`</span> or <span class="in">`ls Downloads/folder3/`</span> from the <span class="in">`~`</span> directory, we could not do it like <span class="in">`ls Downloadsfolder3`</span> or <span class="in">`ls Downloadsfolder3/`</span>. Now it is looking for <span class="in">`Downloadsfolder3`</span> folder which is not there in your computer. You will get error.  </span>
+<span id="cb27-419"><a href="#cb27-419" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-420"><a href="#cb27-420" aria-hidden="true" tabindex="-1"></a>**Another point:** Did you notice that <span class="in">`ls Downloads/folder3`</span> is just listing everything inside <span class="in">`Downloads/folder3`</span> on the fly, we are not really changing our physical location there, we are still in <span class="in">`~`</span>. To go inside <span class="in">`folder3`</span>, we should use <span class="in">`cd Downloads/folder3`</span>. Caught this correctly? Ponder....</span>
+<span id="cb27-421"><a href="#cb27-421" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-422"><a href="#cb27-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-423"><a href="#cb27-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homeworks  </span></span>
+<span id="cb27-424"><a href="#cb27-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-425"><a href="#cb27-425" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Go inside <span class="in">`folder1`</span>, <span class="in">`folder2`</span>, <span class="in">`folder3`</span> folders one after another and create the empty files as you see in the picture (with exact names). If you can do it, you are almost a PRO in Linux/command line.  </span>
+<span id="cb27-426"><a href="#cb27-426" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-427"><a href="#cb27-427" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Now, remove all the folders running this command below:</span>
+<span id="cb27-428"><a href="#cb27-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-429"><a href="#cb27-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb27-430"><a href="#cb27-430" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> folder1 folder2 folder3</span>
+<span id="cb27-431"><a href="#cb27-431" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-432"><a href="#cb27-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-433"><a href="#cb27-433" aria-hidden="true" tabindex="-1"></a>Here, <span class="in">`rm`</span> means "remove" and <span class="in">`-r`</span> means "recursively". So, delete the 3 mentioned directories recursively. It needs to recurse since the folders are not empty (have files, although empty for us. But they can have contents as well). Deleting/just running the command is your task. Did it work?  </span>
+<span id="cb27-434"><a href="#cb27-434" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-435"><a href="#cb27-435" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Navigate to <span class="in">`Downloads`</span> again. Stay there. Next task is coming.   </span>
+<span id="cb27-436"><a href="#cb27-436" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Go to your GitHub account and make a repository named <span class="in">`hw_repo1`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (navigate to this folder correctly after cloning). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) and push following the standard workflow. Make as many changes and pushes you like.  </span>
+<span id="cb27-437"><a href="#cb27-437" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-438"><a href="#cb27-438" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Go to your GitHub account again and make a repository named <span class="in">`hw_repo2`</span>. **Clone** it inside your <span class="in">`Downloads`</span> folder (you know how to be inside <span class="in">`Downloads`</span>, right?) again (go inside the <span class="in">`hw_repo2`</span> folder correctly after cloning, you know how). Add something (files, folder, whatever) in this folder (<span class="in">`hw_repo1`</span>) again and push following the standard workflow. Make as many changes and pushes you like.  </span>
+<span id="cb27-439"><a href="#cb27-439" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-440"><a href="#cb27-440" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>You learned these bash commands today:</span>
+<span id="cb27-441"><a href="#cb27-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-442"><a href="#cb27-442" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`pwd`</span></span>
+<span id="cb27-443"><a href="#cb27-443" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ls`</span></span>
+<span id="cb27-444"><a href="#cb27-444" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`cat`</span></span>
+<span id="cb27-445"><a href="#cb27-445" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`echo`</span></span>
+<span id="cb27-446"><a href="#cb27-446" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`mkdir`</span></span>
+<span id="cb27-447"><a href="#cb27-447" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`cd`</span></span>
+<span id="cb27-448"><a href="#cb27-448" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`rm`</span></span>
+<span id="cb27-449"><a href="#cb27-449" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`touch`</span></span>
+<span id="cb27-450"><a href="#cb27-450" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-451"><a href="#cb27-451" aria-hidden="true" tabindex="-1"></a>Can you relate them with Windows alternatives? I am giving a hint for <span class="in">`touch`</span>. <span class="in">`touch`</span> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <span class="in">`.docx`</span> files. You can't name a file like <span class="in">`file_name.jpeg`</span> using Microsoft Words, though. Right? You need some other tools for that image file naming (<span class="in">`.jpeg`</span>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mental map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A &gt; B &gt; C &gt; D &gt; E &gt; ..... &gt; Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <span class="in">`hw_repo*`</span>. <span class="in">`echo`</span> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.  </span>
+<span id="cb27-452"><a href="#cb27-452" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-453"><a href="#cb27-453" aria-hidden="true" tabindex="-1"></a>**7. Optional:** Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your repo again? For example, folder and directory are the same thing; similarly, <span class="in">`HOME`</span> and root are the same.   </span>
+<span id="cb27-454"><a href="#cb27-454" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-455"><a href="#cb27-455" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Share your repos with me (email me by Friday 10PM BD Time). I need time to check, right?</span>
+<span id="cb27-456"><a href="#cb27-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-457"><a href="#cb27-457" aria-hidden="true" tabindex="-1"></a><span class="fu"># A Final Though  </span></span>
+<span id="cb27-458"><a href="#cb27-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-459"><a href="#cb27-459" aria-hidden="true" tabindex="-1"></a>You might not know how powerful you are becoming! But trust me, you are too strong.......</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,9 @@
+---
+title: "Basic Genomics"
+abstract: "Genome, -omics, data formats, platforms"
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```

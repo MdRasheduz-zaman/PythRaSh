@@ -1,0 +1,14 @@
+{
+  "hash": "79bc46882fc6c3395ff156371aecfd35",
+  "result": {
+    "markdown": "---\ntitle: \"Advanced Genomics\"\nabstract: \"conda environment, HPC cluster, quality control, trimming and filtering, Genome assembly, mapping, alignment, classification, contamination removal, pangenomics, Illumina, ONT, PacBio\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

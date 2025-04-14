@@ -1,0 +1,9 @@
+---
+title: "Probabilty Basics"
+abstract: "Experiment, trial, distribution, PMF, PDF, CDF, etc."
+---
+
+```{r}
+#| include: false
+source(here::here("src/helpersrc.R"))
+```
