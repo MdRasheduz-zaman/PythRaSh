@@ -53,7 +53,7 @@
     "href": "ch/rbasics/git.html",
     "title": "Git, GitHub",
     "section": "",
-    "text": "Well, why gitand GitHub at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (pushand pull). You actually need 4-5 lines of code to push and pull. And associate bash alternative to Windows graphical user interphase (clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don’t get the feeling of accomplishment. I am here holding your hands. Don’t afraid to tinker and ponder around. You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!\nGet engaged!"
+    "text": "Well, why gitand command line at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (pushand pull). You actually need 4-5 lines of code to push and pull. You will associate bash alternatives to Windows’ Graphical User Interphase (GUI, which is mouse clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don’t get the feeling of accomplishment. I am here holding your hands. Don’t afraid to tinker and ponder around. You can always delete the problematic folder(s).\nYou can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!\nGET ENGAGED!"
   },
   {
     "objectID": "ch/rbasics/git.html#install-git",

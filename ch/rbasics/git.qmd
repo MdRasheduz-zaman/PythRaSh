@@ -12,15 +12,17 @@ execute:
 source(here::here("src/helpersrc.R"))
 ```
 # Prelude  
-Well, why `git`and `GitHub` at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (`push`and `pull`). You actually need 4-5 lines of code to push and pull. And associate bash alternative to Windows graphical user interphase (clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don't get the feeling of accomplishment. I am here holding your hands. Don't afraid to tinker and ponder around. You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!
+Well, why `git`and `command line` at the very beginning? I want you to be able to interact with me for all the lessons, take part in the discussion and make you competent with basic tasks (`push`and `pull`). You actually need 4-5 lines of code to push and pull. You will associate bash alternatives to Windows' Graphical User Interphase (GUI, which is mouse clicking). Just get used to these stuffs. You will get the feeling of accomplishment everyday. You know what, people get demotivated just because they don't get the feeling of accomplishment. I am here holding your hands. Don't afraid to tinker and ponder around. You can always delete the problematic folder(s).  
+  
+You can push the codes/scripts from the classes or your own practice codes. You will FEEL better and stronger after a bit of hustling!
 
-**_`Get engaged!`_**
+**_`GET ENGAGED!`_**
 
 # Intro  
 
 GitHub is just like Google Drive, Dropbox or similar where you can `upload` (or `push`) files and folders of your project/package. What is special about the GitHub repositories then? Well, they are tracked for changes. How so? Well, `git` does that. `git` is the version control system (or tool) to track changes you make in a specific directory/repository (directory means folder as well). So you can have snapshot of your changes and fall back and forth if needed.  
 
-**Imagine this situation:** You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don't know what is wrong! You closed the file many times and you can't just *undo* and *redo* things. What would you do? Here comes `git` in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (`clone`/`download`/`pull` it in your machine again). Maybe, upload and downloads make a bit more sense, rather than `push` and `pull`/`clone`!
+**Imagine this situation:** You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don't know what is wrong! You closed the file many times and you can't just `undo` and `redo` things. What would you do now except cursing (or other similar behavior of frustration)? Here comes `git` in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (`clone`/`download`/`pull` it in your machine again). Maybe, the terms "upload" and "download" make a bit more sense, rather than `push` and `pull`/`clone`! But you got the idea (equivalent), right?
 
 # Set git and GitHub
 
