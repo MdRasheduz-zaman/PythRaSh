@@ -8,13 +8,12 @@ format:
 
 PythRaSh starts out as a step-by-step introduction to R, Python, Linux and Command-line Tools, Probability and Statistics, etc. while its later parts are more of a cookbook with analyses of typical examples in life sciences with focus on (Molecular) Biology, Breeding and Genetics, (Gen)-omics, Medical Sciences, Agriculture, Ecology and other related fields.
 
-::: {.text-center}
+::: text-center
 ![](img/page2.jpeg){width="80%"}
 :::
 
-
 ::: callout-important
-This website is currently under construction. I am trying to organize everything here. A huge appreciation to **Dr. Paul Schmidt** who motivated me in many ways, including the website designing. I just copy-pasted many things from him. [Check out his works here](https://schmidtpaul.github.io). 
+This website is currently under construction. I am trying to organize everything here. A huge appreciation to **Dr. Paul Schmidt** who motivated me in many ways, including the website designing. I just copy-pasted many things from him. [Check out his works here](https://schmidtpaul.github.io).
 :::
 
 ## Workshops

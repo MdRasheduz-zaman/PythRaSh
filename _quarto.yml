@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "subject_teaching"
+  title: "pythrash"
   navbar:
     title: PythRaSh
     search: true
