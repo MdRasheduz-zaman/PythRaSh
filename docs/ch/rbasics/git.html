@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The standard workflow to work with a GitHub repository follows these few steps:</p></li>
 </ul>
 <ol type="1">
-<li>Go to your GitHub account –&gt; Find the <code>+</code> sign and click on it –&gt; Click on <code>New Repository</code>.</li>
+<li>Go to your GitHub account → Find the <code>+</code> sign and click on it → Click on <code>New Repository</code>.</li>
 <li>Clone it in your computer (inside your preferred folder) running <code>git clone git@github.com:yourusername/test1.git</code>. Don’t forget to replace <code>git@github.com:yourusername/test1.git</code> with the SSH link you copied for your repo.</li>
 <li>Make change in your folder adding or creating files/folders. You can optionally check status of your folder running <code>git status</code>.</li>
 <li>Stage/prepare/add them all to git running <code>git add .</code>.<br>
@@ -362,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> .DS_Store <span class="op">&gt;&gt;</span> ~/.gitignore_global</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.excludesfile ~/.gitignore_global</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>MacOS makes <code>.DS_Store</code> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, you should have choosed the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don’t worry. We are adding it to gitignore and telling git to ignore it for file tracking.</p>
+<p>MacOS makes <code>.DS_Store</code> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, we should have chosen the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don’t worry. We are adding it to gitignore and telling git to ignore it for file tracking.</p>
 </section><section id="for-ubuntudebian" class="level3"><h3 class="anchored" data-anchor-id="for-ubuntudebian">For Ubuntu/Debian</h3>
 <p>Open your terminal (Press <code>Ctrl + Alt + T</code>.) and run these two commands one after another:</p>
 <div class="cell">
@@ -372,12 +372,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Provide your password if prompted. You are all set!</p>
 </section></section><section id="create-a-github-account" class="level2"><h2 class="anchored" data-anchor-id="create-a-github-account">Create a GitHub Account</h2>
 <ul>
-<li>Now go to <a href="https://github.com" class="uri">https://github.com</a> -&gt; Sign up with your email</li>
+<li>Now go to <a href="https://github.com" class="uri">https://github.com</a> → Sign up with your email</li>
 <li>Choose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.</li>
 </ul>
 <p>Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like “@”, “!”, “?”, etc.</p>
 <ul>
-<li>Verify email (with hte OTP) and you are set.</li>
+<li>Verify email (with the OTP) and you are set.</li>
 </ul></section><section id="set-up-git-for-the-first-time-only" class="level2"><h2 class="anchored" data-anchor-id="set-up-git-for-the-first-time-only">Set Up Git (for the first time only)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
@@ -500,9 +500,9 @@ How is your key?
 </div>
 </div>
 <ol start="3" type="1">
-<li>Go to GitHub –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH Key</li>
+<li>Go to GitHub → Settings → SSH and GPG keys → New SSH Key</li>
 </ol>
-<p><strong>Title:</strong> Whatever you want (but keep it simple, like <code>my ssh key</code>)<br><strong>Paste the key</strong> you copied and save it by clicking on <code>Add SSH key</code>. You are done.</p>
+<p><strong>Title:</strong> Whatever you want (but keep it simple, like <code>my ssh key</code>) <strong>Paste the key</strong> you copied and save it by clicking on <code>Add SSH key</code>. You are done.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -540,7 +540,7 @@ How is it?
 </section></section><section id="basic-git-workflow-local-github" class="level1"><h1>Basic Git Workflow (Local + GitHub)</h1>
 <section id="create-a-new-repository-on-github" class="level3"><h3 class="anchored" data-anchor-id="create-a-new-repository-on-github">Create a New Repository on GitHub</h3>
 <ol type="1">
-<li>Go to your GitHub account –&gt; Find the <code>+</code> sign and click on it –&gt; Click on <code>New Repository</code>. Or there is another way. Find it.</li>
+<li>Go to your GitHub account Find the <code>+</code> sign and click on it → Click on <code>New Repository</code>. Or there is another way. Find it.</li>
 <li>Name it (e.g., test1).</li>
 <li>Don’t initialize with README (we’ll do it ourselves). You can decide to add a <code>.gitignore</code> template from the drop-down as well. But don’t do it now.</li>
 <li>Keep it public (as the default setting).</li>
@@ -944,7 +944,7 @@ Note
 <li><code>rm</code></li>
 <li><code>touch</code></li>
 </ul>
-<p>Can you relate them with Windows alternatives? I am giving a hint for <code>touch</code>. <code>touch</code> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <code>.docx</code> files. You can’t name a file like <code>file_name.jpeg</code> using Microsoft Words, though. Right? You need some other tools for that image file naming (<code>.jpeg</code>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mind map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, <strong>a scrambled list of the alphabets</strong> becomes <strong>A &gt; B &gt; C &gt; D &gt; E &gt; ….. &gt; Z</strong> if we organize them, right? Or a map of <strong>Father, Son, Grandson, Me, My_Siblings, Grandma</strong> will be <strong>Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson</strong> if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <code>hw_repo*</code>. <code>echo</code> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don’t mind, I just want to see that you got the idea. GitHub also doesn’t care what you are pushing to it (it is just a storage with special functionality to track files – well, some more though, we will know later). Let’s see. If you need help, don’t hesitate to reach out! There is no shame in asking for help while learning.</p>
+<p>Can you relate them with Windows alternatives? I am giving a hint for <code>touch</code>. <code>touch</code> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <code>.docx</code> files. You can’t name a file like <code>file_name.jpeg</code> using Microsoft Words, though. Right? You need some other tools for that image file naming (<code>.jpeg</code>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mind map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, <strong>a shuffled list of the alphabets</strong> becomes <strong>A → B → C → D → E → ….. → Z</strong> if we organize them, right? Or a map of <strong>Father, Son, Grandson, Me, My_Siblings, Grandma</strong> will be <strong>Grandma → Father → Son → Me + My_Siblings → Grandson</strong> if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <code>hw_repo*</code>. <code>echo</code> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don’t mind, I just want to see that you got the idea. GitHub also doesn’t care what you are pushing to it (it is just a storage with special functionality to track files – well, some more though, we will know later). Let’s see. If you need help, don’t hesitate to reach out! There is no shame in asking for help while learning.</p>
 <ol start="8" type="1">
 <li><p>Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your homework repo again? For example, folder, repo, and directory are basically the same thing; similarly, <code>HOME</code>, <code>root</code> and <code>~</code> are the same.</p></li>
 <li><p>Share your repos with me (<strong>email me by Friday 10PM BD Time</strong>). I need time to check, right? Please, help me here….</p></li>
@@ -1288,7 +1288,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The standard workflow to work with a GitHub repository follows these few steps:  </span>
 <span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your GitHub account --&gt; Find the <span class="in">`+`</span> sign and click on it --&gt; Click on <span class="in">`New Repository`</span>.</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your GitHub account → Find the <span class="in">`+`</span> sign and click on it → Click on <span class="in">`New Repository`</span>.</span>
 <span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clone it in your computer (inside your preferred folder) running <span class="in">`git clone git@github.com:yourusername/test1.git`</span>. Don't forget to replace <span class="in">`git@github.com:yourusername/test1.git`</span> with the SSH link you copied for your repo.</span>
 <span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Make change in your folder adding or creating files/folders. You can optionally check status of your folder running <span class="in">`git status`</span>.</span>
 <span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Stage/prepare/add them all to git running <span class="in">`git add .`</span>.  </span>
@@ -1340,7 +1340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.excludesfile ~/.gitignore_global</span>
 <span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>MacOS makes <span class="in">`.DS_Store`</span> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, you should have choosed the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don't worry. We are adding it to gitignore and telling git to ignore it for file tracking.</span>
+<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>MacOS makes <span class="in">`.DS_Store`</span> which is not really needed for any projects (this is just an internal thingy for MacOS). But to make it work, we should have chosen the option for a gitignore file while opening the GitHub repository. We will know more about it later. Don't worry. We are adding it to gitignore and telling git to ignore it for file tracking.</span>
 <span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### For Ubuntu/Debian</span></span>
 <span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a></span>
@@ -1355,12 +1355,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Create a GitHub Account</span></span>
 <span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Now go to <span class="ot">&lt;https://github.com&gt;</span> -<span class="sc">\&gt;</span> Sign up with your email</span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Now go to <span class="ot">&lt;https://github.com&gt;</span> → Sign up with your email</span>
 <span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Choose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.</span>
 <span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like "\@", "!", "?", etc.</span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like "@", "!", "?", etc.</span>
 <span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Verify email (with hte OTP) and you are set.</span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Verify email (with the OTP) and you are set.</span>
 <span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Set Up Git (for the first time only)</span></span>
 <span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a></span>
@@ -1440,9 +1440,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a>It has 3 fields separated with 2 spaces. Did you notice that?</span>
 <span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Go to GitHub --<span class="sc">\&gt;</span> Settings --<span class="sc">\&gt;</span> SSH and GPG keys --<span class="sc">\&gt;</span> New SSH Key</span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Go to GitHub → Settings → SSH and GPG keys → New SSH Key</span>
 <span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a>**Title:** Whatever you want (but keep it simple, like <span class="in">`my ssh key`</span>)\</span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a>**Title:** Whatever you want (but keep it simple, like <span class="in">`my ssh key`</span>)</span>
 <span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a>**Paste the key** you copied and save it by clicking on <span class="in">`Add SSH key`</span>. You are done.</span>
 <span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
@@ -1471,7 +1471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create a New Repository on GitHub</span></span>
 <span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Go to your GitHub account --<span class="sc">\&gt;</span> Find the <span class="in">`+`</span> sign and click on it --<span class="sc">\&gt;</span> Click on <span class="in">`New Repository`</span>. Or there is another way. Find it.</span>
+<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Go to your GitHub account Find the <span class="in">`+`</span> sign and click on it → Click on <span class="in">`New Repository`</span>. Or there is another way. Find it.</span>
 <span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Name it (e.g., test1).</span>
 <span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Don’t initialize with README (we’ll do it ourselves). You can decide to add a <span class="in">`.gitignore`</span> template from the drop-down as well. But don't do it now.</span>
 <span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Keep it public (as the default setting).</span>
@@ -1781,7 +1781,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-521"><a href="#cb28-521" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`rm`</span></span>
 <span id="cb28-522"><a href="#cb28-522" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`touch`</span></span>
 <span id="cb28-523"><a href="#cb28-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-524"><a href="#cb28-524" aria-hidden="true" tabindex="-1"></a>Can you relate them with Windows alternatives? I am giving a hint for <span class="in">`touch`</span>. <span class="in">`touch`</span> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <span class="in">`.docx`</span> files. You can't name a file like <span class="in">`file_name.jpeg`</span> using Microsoft Words, though. Right? You need some other tools for that image file naming (<span class="in">`.jpeg`</span>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mind map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a scrambled list of the alphabets** becomes **A &gt; B &gt; C &gt; D &gt; E &gt; ..... &gt; Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma &gt; Father &gt; Son &gt; Me + My_Siblings &gt; Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <span class="in">`hw_repo*`</span>. <span class="in">`echo`</span> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind, I just want to see that you got the idea. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.</span>
+<span id="cb28-524"><a href="#cb28-524" aria-hidden="true" tabindex="-1"></a>Can you relate them with Windows alternatives? I am giving a hint for <span class="in">`touch`</span>. <span class="in">`touch`</span> is the alternative of naming a new file while creating in Windows. Windows is doing it visually to help us (using different tools though, for example, Microsoft Words for <span class="in">`.docx`</span> files. You can't name a file like <span class="in">`file_name.jpeg`</span> using Microsoft Words, though. Right? You need some other tools for that image file naming (<span class="in">`.jpeg`</span>). But bash or terminal has no apparent limit). Think of the other commands now. Can you make a mind map of which command comes before or after which one if you are navigating your folders and creating some empty CSV files and inserting content in those files? For example, **a shuffled list of the alphabets** becomes **A → B → C → D → E → ..... → Z** if we organize them, right? Or a map of **Father, Son, Grandson, Me, My_Siblings, Grandma** will be **Grandma → Father → Son → Me + My_Siblings → Grandson** if we think of generations, right? Try to make one for those commands and add it in a file inside one of your <span class="in">`hw_repo*`</span>. <span class="in">`echo`</span> it in a file, make a .doc, .ppt, .png/jpeg/jpg or .txt file or whatever. I don't mind, I just want to see that you got the idea. GitHub also doesn't care what you are pushing to it (it is just a storage with special functionality to track files -- well, some more though, we will know later). Let's see. If you need help, don't hesitate to reach out! There is no shame in asking for help while learning.</span>
 <span id="cb28-525"><a href="#cb28-525" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-526"><a href="#cb28-526" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Optional: Navigate your other folders as well. Catch the logic of navigation. Also, can you make a list of words I used alternatively (back and forth) and maybe add them in one of your homework repo again? For example, folder, repo, and directory are basically the same thing; similarly, <span class="in">`HOME`</span>, <span class="in">`root`</span> and <span class="in">`~`</span> are the same.</span>
 <span id="cb28-527"><a href="#cb28-527" aria-hidden="true" tabindex="-1"></a></span>

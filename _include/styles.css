@@ -41,3 +41,7 @@ img {
 .quarto-body {
   text-align: justify;
 }
+
+p {
+  text-align: justify !important;
+}
