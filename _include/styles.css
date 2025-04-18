@@ -8,6 +8,7 @@ p {
 /* Apply a comfortable max width and responsive padding to the main content */
 body {
   font-family: system-ui, sans-serif;
+  text-align: justify !important;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -42,6 +43,11 @@ img {
   text-align: justify;
 }
 
-p {
+/* Ensure all paragraph content inside lists and sections are justified */
+.quarto-body p,
+.quarto-body ol p,
+.quarto-body ul p,
+.quarto-body li p {
   text-align: justify !important;
 }
+
