@@ -131,7 +131,7 @@ Isn't it showing things correctly? It should!
 **Recommended, need to do only once**
 
 ::: callout-warning
-# Stop!
+## Stop!
 
 This step is creating a private and public key for you to identify that it is really you who is interacting (pushing, pulling, cloning for example) with the GitHub account later. We only upload the public key to GitHub, but never the private key. That is exclusively for yourself. Never share it with anybody.
 :::

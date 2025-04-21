@@ -15,13 +15,13 @@ website:
         menu:
           - text: git
             href: ch/rbasics/git.qmd
-          - text: First Steps
+          - text: Basic R
             href: ch/rbasics/firststeps.qmd
           - text: The tidyverse
             href: ch/rbasics/tidyverse.qmd
-          - text: Correlation & Regression
+          - text: Advanced R
             href: ch/rbasics/correlation_regression.qmd
-          - text: Bad data & Outliers
+          - text: Data Wrangling
             href: ch/rbasics/baddata.qmd
             
       - text: Python

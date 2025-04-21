@@ -72,9 +72,9 @@
   {
     "objectID": "ch/rbasics/firststeps.html",
     "href": "ch/rbasics/firststeps.html",
-    "title": "R Basics",
+    "title": "Basic R",
     "section": "",
-    "text": "3+2  # Run \n\n[1] 5\n\n3-2\n\n[1] 1\n\n3*2\n\n[1] 6\n\n3/2\n\n[1] 1.5\n\n3%/%2 #integer division\n\n[1] 1\n\n5%%3 #modulus division\n\n[1] 2\n\n(10 - 5) * (2 + 4)  # Importance of brackets\n\n[1] 30\n\n10 - 5 * 2 + 4\n\n[1] 4\n\n(10 - 5)  * (2 + 4) # The use of brackets change the order\n\n[1] 30\n\n########################### \n\n7/(1+3)\n\n[1] 1.75\n\n7/1+3\n\n[1] 10\n\n7/(1+3); 7/1+3\n\n[1] 1.75\n\n\n[1] 10\n\n1+2; log(1); 1/10\n\n[1] 3\n\n\n[1] 0\n\n\n[1] 0.1\n\n###########################################\n## You can also give numbers a name, \n## known as variables\n\na=5\na\n\n[1] 5\n\na*7\n\n[1] 35\n\na=a+10\na\n\n[1] 15\n\na*3\n\n[1] 45\n\na=a+10\nb=a+10\n\na\n\n[1] 25\n\na^2 #power/exponent 2 or square\n\n[1] 625\n\na**2 #same as ^ (power)\n\n[1] 625\n\n#Task: normal division, integer division and modulus division of 7 and 3\n#####################\n7/3\n\n[1] 2.333333\n\n7%/%3\n\n[1] 2\n\n7%%3\n\n[1] 1\n\nx=5/3 #normal division\nx\n\n[1] 1.666667\n\ny=5%/%3 #Integer division\ny\n\n[1] 1\n\nz=5%%3 #modulus\nz\n\n[1] 2\n\nx=5/3\nx\n\n[1] 1.666667\n\nfloor(x)\n\n[1] 1\n\n# -&gt; 1 ## previous largest integer/divident\nceiling(x)\n\n[1] 2\n\n# -&gt; 2 ## next smallest integer/reminder\nround(x) # -&gt; 2 (decided based on the number)\n\n[1] 2\n\nx=5/4 \nx \n\n[1] 1.25\n\nfloor(x) \n\n[1] 1\n\nceiling(x) #in the form of nearby integer\n\n[1] 2\n\nx%%2 \n\n[1] 1.25\n\n#Task;\n#make a varible having a value of 15\n#do different types of arithmatic operations\n\ny=15\ny\n\n[1] 15\n\ny+5\n\n[1] 20\n\ny-5\n\n[1] 10\n\ny*5\n\n[1] 75\n\ny/5\n\n[1] 3\n\n(y+4)*(4-y)\n\n[1] -209\n\ny%/%4\n\n[1] 3\n\ny%%4\n\n[1] 3\n\nfloor(y/4)\n\n[1] 3\n\nceiling(y/4)\n\n[1] 4\n\ny/4\n\n[1] 3.75\n\nround(y/4)\n\n[1] 4\n\n##########################################\n## Exercise :\n\n(2+3) + (2*3) - (6/3) -3^2 \n\n[1] 0\n\n###########################################\n######### logical operations #############\na=5\nb=7\n\na=5\nb=8\n\na==b #FALSE\n\n[1] FALSE\n\na!=b # TRUE\n\n[1] TRUE\n\na&gt;b # FALSE and so on for the remaining\n\n[1] FALSE\n\na&lt;b\n\n[1] TRUE\n\na&gt;=b\n\n[1] FALSE\n\na&lt;=b\n\n[1] TRUE\n\na&lt;b | a&gt;b \n\n[1] TRUE\n\na&lt;b & a&gt;b\n\n[1] FALSE\n\na&lt;b | a&gt;=b # ? \n\n[1] TRUE\n\na&lt;b & a&gt;=b # ?\n\n[1] FALSE\n\n# | (pipe) ==&gt; \n\n######################################\n### help ###########################\n?log\nhelp(log)\nexample(log)\n\n\nlog&gt; log(exp(3))\n[1] 3\n\nlog&gt; log10(1e7) # = 7\n[1] 7\n\nlog&gt; x &lt;- 10^-(1+2*1:9)\n\nlog&gt; cbind(deparse.level=2, # to get nice column names\nlog+       x, log(1+x), log1p(x), exp(x)-1, expm1(x))\n          x   log(1 + x)     log1p(x)   exp(x) - 1     expm1(x)\n [1,] 1e-03 9.995003e-04 9.995003e-04 1.000500e-03 1.000500e-03\n [2,] 1e-05 9.999950e-06 9.999950e-06 1.000005e-05 1.000005e-05\n [3,] 1e-07 1.000000e-07 1.000000e-07 1.000000e-07 1.000000e-07\n [4,] 1e-09 1.000000e-09 1.000000e-09 1.000000e-09 1.000000e-09\n [5,] 1e-11 1.000000e-11 1.000000e-11 1.000000e-11 1.000000e-11\n [6,] 1e-13 9.992007e-14 1.000000e-13 9.992007e-14 1.000000e-13\n [7,] 1e-15 1.110223e-15 1.000000e-15 1.110223e-15 1.000000e-15\n [8,] 1e-17 0.000000e+00 1.000000e-17 0.000000e+00 1.000000e-17\n [9,] 1e-19 0.000000e+00 1.000000e-19 0.000000e+00 1.000000e-19\n\n?sd\n\n###########################\n\n\n\n# create your first vector\n\nx=c(1,2,3,4,5)\ny=c(3,6,9,12,15)\ny\n\n[1]  3  6  9 12 15\n\nx\n\n[1] 1 2 3 4 5\n\nlength(x)\n\n[1] 5\n\nlength(y)\n\n[1] 5\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\nmode(y)\n\n[1] \"numeric\"\n\nis(y)\n\n[1] \"numeric\" \"vector\" \n\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9) # c=\"concatenate\"\n# x is a vector\nx\n\n[1] 1 2 3 4 5 6 7 8 9\n\nmode(x)    # mode of x\n\n[1] \"numeric\"\n\nis(x)     # type of x\n\n[1] \"numeric\" \"vector\" \n\nlength(x) #length of x\n\n[1] 9\n\nDNA=c(\"A\", \"T\", \"G\", \"C\")\nDNA\n\n[1] \"A\" \"T\" \"G\" \"C\"\n\nmode(DNA)\n\n[1] \"character\"\n\nis(DNA)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA)\n\n[1] 4\n\n#Task: character vector of 1, 3, 5, 7\n\n\nchar=c(\"1\", \"3\", \"5\", \"7\")\nchar\n\n[1] \"1\" \"3\" \"5\" \"7\"\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\n#Task: mode, is function, length\n\nmode(DNA2)\n\n[1] \"character\"\n\nis(DNA2)\n\n[1] \"character\"           \"vector\"              \"data.frameRowLabels\"\n[4] \"SuperClassMethod\"   \n\nlength(DNA2)\n\n[1] 3\n\nlogicals=c(TRUE, TRUE, FALSE, TRUE, FALSE)\nlogicals\n\n[1]  TRUE  TRUE FALSE  TRUE FALSE\n\nmode(logicals)\n\n[1] \"logical\"\n\nlength(logicals)\n\n[1] 5\n\nis(logicals)\n\n[1] \"logical\" \"vector\" \n\ny= c(\"1\", \"2\", \"3\", \"4\")\n\nmode(y)\n\n[1] \"character\"\n\ndec=c(10,20,30,60,80,90,100,50,40)\ndec\n\n[1]  10  20  30  60  80  90 100  50  40\n\ndec[2]\n\n[1] 20\n\ndec[7]\n\n[1] 100\n\ndec[3]\n\n[1] 30\n\nDNA2=c(\"ATGTGTCA\", \"GTCA\", \"GTCATC\")\nDNA2[2]\n\n[1] \"GTCA\"\n\nDNA2[3]\n\n[1] \"GTCATC\"\n\nyz=c(3, 4, 7, 9, 10, 5)\nyz\n\n[1]  3  4  7  9 10  5\n\n#Task: 3rd, 4th, and 2nd element from yz\n\nyz[3]\n\n[1] 7\n\nyz[4]\n\n[1] 9\n\nyz[2]\n\n[1] 4\n\ns= c(\"AATTGCCC\", \"ATGCATT\", \"AACCGTTG\")\ns[1]\n\n[1] \"AATTGCCC\"\n\n# Task: find the others with indexing\ns[2]\n\n[1] \"ATGCATT\"\n\ns[3]\n\n[1] \"AACCGTTG\"\n\n##########################################\n########## vector operations ############\n# Most standard mathematical functions work with vectors.\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n\nx+x  #goes index-wise\n\n [1]  2  4  6  8 10 12 14 16 18 20\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\ny= c(5, 10 ,15, 20, 25, 30, 35, 40, 45, 50)\n\ny/x\n\n [1] 5 5 5 5 5 5 5 5 5 5\n\ny * x\n\n [1]   5  20  45  80 125 180 245 320 405 500\n\nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\n#Round the values\nx= c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) \nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\nround(log2(x))\n\n [1] 0 1 2 2 2 3 3 3 3 3\n\n####Task: Round the value for 1, 3 digits after decimal\nround(log2(x), 1)\n\n [1] 0.0 1.0 1.6 2.0 2.3 2.6 2.8 3.0 3.2 3.3\n\nround(log2(x), 3)\n\n [1] 0.000 1.000 1.585 2.000 2.322 2.585 2.807 3.000 3.170 3.322\n\n########### Exercise 1\n# Compute the difference between 2020\n# and the year you started at the university and \n# divide this by the difference between 2020 and the year you were born.\n# Multiply this with 100 to get the percentage of your life \n# you have spent at the university."
+    "text": "5+3\n\n[1] 8\n\n3+2\n\n[1] 5\n\n3-2\n\n[1] 1\n\n3*2\n\n[1] 6\n\n3/2 #normal division\n\n[1] 1.5\n\n7 %/% 2 #integer division, only the quotient\n\n[1] 3\n\n5 %% 3 #modulus division, the remainder\n\n[1] 2\n\n(10-5)*(2+4) #use of parentheses\n\n[1] 30\n\n10-5*2+4 #Noticed BODMAS?\n\n[1] 4\n\n(10-5)*(2+4) #Noticed BODMAS\n\n[1] 30\n\n7/(1+3); 7/1+3 #multi-line codes, separated with semi-colon\n\n[1] 1.75\n\n\n[1] 10\n\n1+2; log(1); 1/10 #more multi-line codes\n\n[1] 3\n\n\n[1] 0\n\n\n[1] 0.1"
   },
   {
     "objectID": "ch/rbasics/firststeps.html#r-as-calculator",
@@ -201,5 +201,82 @@
     "title": "Probabilty Basics",
     "section": "",
     "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Probabilty {Basics}},\n  date = {2024-08-14},\n  langid = {en},\n  abstract = {Experiment, trial, distribution, PMF, PDF, CDF, etc.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Probabilty Basics.” August 14,\n2024."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#using-r-as-a-calculator",
+    "href": "ch/rbasics/firststeps.html#using-r-as-a-calculator",
+    "title": "Basic R",
+    "section": "",
+    "text": "5+3\n\n[1] 8\n\n3+2\n\n[1] 5\n\n3-2\n\n[1] 1\n\n3*2\n\n[1] 6\n\n3/2 #normal division\n\n[1] 1.5\n\n7 %/% 2 #integer division, only the quotient\n\n[1] 3\n\n5 %% 3 #modulus division, the remainder\n\n[1] 2\n\n(10-5)*(2+4) #use of parentheses\n\n[1] 30\n\n10-5*2+4 #Noticed BODMAS?\n\n[1] 4\n\n(10-5)*(2+4) #Noticed BODMAS\n\n[1] 30\n\n7/(1+3); 7/1+3 #multi-line codes, separated with semi-colon\n\n[1] 1.75\n\n\n[1] 10\n\n1+2; log(1); 1/10 #more multi-line codes\n\n[1] 3\n\n\n[1] 0\n\n\n[1] 0.1"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#variables-and-assignments",
+    "href": "ch/rbasics/firststeps.html#variables-and-assignments",
+    "title": "Basic R",
+    "section": "Variables and Assignments",
+    "text": "Variables and Assignments\n\na &lt;- 5 #assign value 5 to a \nb = 10\na\n\n[1] 5\n\nb\n\n[1] 10\n\na &lt;- a + 10\nb = b + 15\na\n\n[1] 15\n\na^2 #a squared\n\n[1] 225\n\na**2 #a squared again, in a different way.\n\n[1] 225\n\na^3 #a qubed\n\n[1] 3375\n\n\n\n\n\n\n\n\nNote\n\n\n\n&lt;- and = are used to assign values. It is not mathematical equality. b &lt;- b + 15 might make better sense than b = b + 15."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#integer-and-modulus-division-again",
+    "href": "ch/rbasics/firststeps.html#integer-and-modulus-division-again",
+    "title": "Basic R",
+    "section": "Integer and Modulus division again",
+    "text": "Integer and Modulus division again\n\n7/3\n\n[1] 2.333333\n\n7%/%3\n\n[1] 2\n\n7%%3\n\n[1] 1"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#rounding",
+    "href": "ch/rbasics/firststeps.html#rounding",
+    "title": "Basic R",
+    "section": "Rounding",
+    "text": "Rounding\n\nx &lt;- 9/4\nfloor(x)\n\n[1] 2\n\nceiling(x)\n\n[1] 3\n\nround(x)\n\n[1] 2\n\nround(x, 2) #round till 2 decimal points\n\n[1] 2.25"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#logical-operations",
+    "href": "ch/rbasics/firststeps.html#logical-operations",
+    "title": "Basic R",
+    "section": "Logical Operations",
+    "text": "Logical Operations\n\na = 5\nb = 7\nc = 10\nd = 3\na == b #is a equal to b? Ans: No/FALSE\n\n[1] FALSE\n\na != b #is a not equal to b? Ans: Yes/TRUE\n\n[1] TRUE\n\na &gt; b #is a greater than b? Ans: FALSE\n\n[1] FALSE\n\na &lt; b #is a less than b? Ans: TRUE\n\n[1] TRUE\n\na &gt;= b #is a greater than or equal to b? Ans: FALSE\n\n[1] FALSE\n\na &lt;= b #is a less than or equal to b? Ans: TRUE\n\n[1] TRUE\n\na &lt; b | d &gt; b #is a less than b OR d greater than b?\n\n[1] TRUE\n\n#It's answer will be TRUE OR FALSE --&gt; So, TRUE\na &lt; b & c &gt; d #is a less than b AND a greater than b? It's answer will be TRUE AND TRUE --&gt; So, TRUE\n\n[1] TRUE\n\na &lt; b & d &gt; c #is a less than b AND a greater than b? It's answer will be TRUE AND FALSE --&gt; So, FALSE\n\n[1] FALSE"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#help-and-documentation",
+    "href": "ch/rbasics/firststeps.html#help-and-documentation",
+    "title": "Basic R",
+    "section": "Help and Documentation",
+    "text": "Help and Documentation\n\n?log\nexample(log)\n\n\nlog&gt; log(exp(3))\n[1] 3\n\nlog&gt; log10(1e7) # = 7\n[1] 7\n\nlog&gt; x &lt;- 10^-(1+2*1:9)\n\nlog&gt; cbind(deparse.level=2, # to get nice column names\nlog+       x, log(1+x), log1p(x), exp(x)-1, expm1(x))\n          x   log(1 + x)     log1p(x)   exp(x) - 1     expm1(x)\n [1,] 1e-03 9.995003e-04 9.995003e-04 1.000500e-03 1.000500e-03\n [2,] 1e-05 9.999950e-06 9.999950e-06 1.000005e-05 1.000005e-05\n [3,] 1e-07 1.000000e-07 1.000000e-07 1.000000e-07 1.000000e-07\n [4,] 1e-09 1.000000e-09 1.000000e-09 1.000000e-09 1.000000e-09\n [5,] 1e-11 1.000000e-11 1.000000e-11 1.000000e-11 1.000000e-11\n [6,] 1e-13 9.992007e-14 1.000000e-13 9.992007e-14 1.000000e-13\n [7,] 1e-15 1.110223e-15 1.000000e-15 1.110223e-15 1.000000e-15\n [8,] 1e-17 0.000000e+00 1.000000e-17 0.000000e+00 1.000000e-17\n [9,] 1e-19 0.000000e+00 1.000000e-19 0.000000e+00 1.000000e-19\n\n?log()"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#working-with-vectors",
+    "href": "ch/rbasics/firststeps.html#working-with-vectors",
+    "title": "Basic R",
+    "section": "Working with Vectors",
+    "text": "Working with Vectors\n\nx &lt;- c(1, 2, 3, 4, 5) #c means concatenate\nz &lt;- 1:5 #consecutively, from 1 through 5. A short-hand\ny &lt;- c(3, 6, 9, 12, 15, 20)\nlength(x)\n\n[1] 5\n\nmode(x)\n\n[1] \"numeric\"\n\nis(x)\n\n[1] \"numeric\" \"vector\" \n\nx[1] #first entry in vector y\n\n[1] 1\n\nx[2:5] #2nd to 5th entries in vector y\n\n[1] 2 3 4 5\n\nDNA &lt;- c(\"A\", \"T\", \"G\", \"C\") #character vector. Notice the quotation marks.\ndec &lt;- c(10.0, 20.5, 30, 60, 80.9, 90, 100.7, 50, 40, 45, 48, 56, 55) #vector of floats. All numbers became floats, it's called coercion\ndec[c(1:3, 7:length(dec))] #1st to 3rd and then 7th till the end of vector `dec`. Output as a vector.\n\n [1]  10.0  20.5  30.0 100.7  50.0  40.0  45.0  48.0  56.0  55.0"
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#vector-operations",
+    "href": "ch/rbasics/firststeps.html#vector-operations",
+    "title": "Basic R",
+    "section": "Vector Operations",
+    "text": "Vector Operations\n\nx &lt;- 1:10\ny &lt;- 2:11\n#x and y are of same length\nx + y\n\n [1]  3  5  7  9 11 13 15 17 19 21\n\ny / x\n\n [1] 2.000000 1.500000 1.333333 1.250000 1.200000 1.166667 1.142857 1.125000\n [9] 1.111111 1.100000\n\nlog2(x)\n\n [1] 0.000000 1.000000 1.584963 2.000000 2.321928 2.584963 2.807355 3.000000\n [9] 3.169925 3.321928\n\nround(log2(x), 1) #log2 of all the values of `x`, 1 digit after decimal to round.\n\n [1] 0.0 1.0 1.6 2.0 2.3 2.6 2.8 3.0 3.2 3.3\n\nround(log2(x), 3) #same logic\n\n [1] 0.000 1.000 1.585 2.000 2.322 2.585 2.807 3.000 3.170 3.322\n\n\nNested functions work inside out."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#data-frame-example",
+    "href": "ch/rbasics/firststeps.html#data-frame-example",
+    "title": "Basic R",
+    "section": "Data Frame Example",
+    "text": "Data Frame Example\n\nnames &lt;- c(\"Mina\", \"Raju\", \"Mithu\", \"Lali\")\ngender &lt;- c(\"Female\", \"Male\", \"Female\", \"Female\")\nage &lt;- c(15, 12, 2, 3)\nis_human &lt;- c(TRUE, TRUE, FALSE, FALSE)\ncartoon &lt;- data.frame(names, gender, age, is_human)\nwrite.table(cartoon, \"cartoon.csv\", sep = \",\", col.names = TRUE)\ndf &lt;- read.table(\"cartoon.csv\", header = TRUE, sep = \",\")\ndim(df) #`dim` means dimension. so, rows * columns\n\n[1] 4 4\n\nstr(df) #structure of `df`\n\n'data.frame':   4 obs. of  4 variables:\n $ names   : chr  \"Mina\" \"Raju\" \"Mithu\" \"Lali\"\n $ gender  : chr  \"Female\" \"Male\" \"Female\" \"Female\"\n $ age     : int  15 12 2 3\n $ is_human: logi  TRUE TRUE FALSE FALSE\n\n\nWe made the vectors first, and the used them to make the cartton data frame or table. We learned how to export the data frame using write.table function. Also, we learned to import or read back the table using read.table function. What are the sep, col.names, header arguments there? Why do we need them? Think. Try thinking of different properties of a data set."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#gene-expression-table",
+    "href": "ch/rbasics/firststeps.html#gene-expression-table",
+    "title": "Basic R",
+    "section": "Gene Expression Table",
+    "text": "Gene Expression Table\n\ngene_expr &lt;- data.frame(\n  genes = c(\"TP53\", \"BRCA1\", \"MYC\", \"EGFR\", \"GAPDH\", \"CDC2\"),\n  sample1 = c(8.2, 6.1, 9.5, 7.0, 10.0, 12),\n  Sample2 = c(5.9, 3.9, 7.2, 4.8, 7.9, 9),\n  Sample3 = c(8.25, 6.15, 9.6, 7.1, 10.1, 11.9),\n  pathways = c(\"Apoptosis\", \"DNA Repair\", \"Cell Cycle\", \"Signaling\", \"Housekeeping\", \"Cell Division\")\n)\nwrite.table(gene_expr, \"gene_expr.csv\", sep = \",\", col.names = TRUE)\ngene_set &lt;- read.table(\"gene_expr.csv\", header = TRUE, sep = \",\")\n\nHere, we directly used the vectors as different columns. Did you notice that? Also, the syntax is different here. We can’t asign the vectors with the assignment operator (means we can’t use &lt;- sign. We have to use the = sign)."
+  },
+  {
+    "objectID": "ch/rbasics/firststeps.html#homeworks",
+    "href": "ch/rbasics/firststeps.html#homeworks",
+    "title": "Basic R",
+    "section": "Homeworks",
+    "text": "Homeworks\n\nCompute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.\n\nWhat are the properties of a data frame?\nHint: Open an excel file you have and try to “generalize”.\n\nCan you make logical questions on the 2 small data sets we used? Try. It will help you understanding the logical operations we tried on variables. Now we are going to apply them on vectors (columns) on the data sets. For example, in the cartoon data set, we can ask/try to subset the data set filtering for Females only. Or for both females age greater than 2.\nPush the script with your solutions to one of your GitHub repo (and send me the repo link)."
   }
 ]
