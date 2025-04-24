@@ -1,7 +1,10 @@
 ---
-title: "Git Basics"
+title: "Place Holder"
 format: html
 lang: en
 ---
-  
+
 bla bla bla.......  
+  
+[← Back to all English Blogs](index.qmd)
+

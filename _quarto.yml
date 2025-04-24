@@ -87,9 +87,9 @@ format:
     footnotes-hover: true
     theme: default #cosmo
     toc: true
-    page-footer:
-      left: |
-        {{< include _footer-nav.qmd >}}
+    #page-footer:
+    #  left: |
+    #    {{< include _footer-nav.qmd >}}
     include-after-body: _include/footer.html
     
   pdf:

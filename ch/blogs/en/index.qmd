@@ -8,4 +8,4 @@ listing:
 page-layout: full
 ---
 
-Welcome to the English blog archive! 📚
+Welcome to the English blog archive! ✍️📚
