@@ -1,0 +1,10 @@
+```{=html}
+<script>
+// Determine which language path we're in
+if (window.location.pathname.includes('/ch/blogs/en/')) {
+  document.write('<p><a href="/ch/blogs/en/index.qmd">🔙 Back to all English Blogs</a></p>');
+} else if (window.location.pathname.includes('/ch/blogs/bn/')) {
+  document.write('<p><a href="/ch/blogs/bn/index.qmd">🔙 Back to all Bangla Blogs</a></p>');
+}
+</script>
+```

@@ -59,6 +59,13 @@ website:
             href: ch/genomics/pipeline.qmd
         
     right:
+      - text: "Blogs"
+        menu:
+          - text: "English"
+            href: ch/blogs/en/index.qmd
+          - text: "Bangla"
+            href: ch/blogs/bn/index.qmd
+        
       - text: Contact
         href: https://github.com/MdRasheduz-zaman
         
@@ -80,7 +87,11 @@ format:
     footnotes-hover: true
     theme: default #cosmo
     toc: true
+    page-footer:
+      left: |
+        {{< include _footer-nav.qmd >}}
     include-after-body: _include/footer.html
+    
   pdf:
     exclude-from:
       - ch/phd_org/organization.qmd
@@ -88,7 +99,7 @@ format:
     number-sections: true
     toc: true
 
-
+#metadata-files: [ch/blogs/_metadata.yml]
 # remove this once lightbox no longer needs an extension    
 #filters:
 #  - lightbox

@@ -7,3 +7,29 @@ abstract: "awk, grep, cut, etc."
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
+  
+# Q1  
+I have many files inside a folder. I want to move them into to sub-folders named `f1` and `f2` (I made them using `mkdir -p f1 f2`). How to do that?  
+This is the way:  
+  
+```{bash, eval=FALSE}
+i=0
+for file in $(ls *.fastq.gz | sort -V); do
+  if [ $i -le 400 ]; then
+    mv "$file" f1/
+  else
+    mv "$file" f2/
+  fi
+  i=$((i + 1))
+done
+```
+Here, I am sending files having 0-400 in there name to `f1` folder and remaining ones to `f2`. You just need to use your file naming pattern, and you are all set.  
+
+**How to execute/run this file now?**  
+Run these:
+```{bash, eval=FALSE}
+chmod +x move_files.sh
+./move_files.sh
+```
+`chmod +x` is making the file executable. Then we are running it using `./move_files.sh`.  
+  

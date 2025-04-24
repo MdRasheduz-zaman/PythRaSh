@@ -1,0 +1,11 @@
+---
+title: "বাংলা ব্লগ"
+listing:
+  contents: .
+  sort: "date desc"
+  type: default
+  fields: [title, author, date, description]
+page-layout: full
+---
+
+স্বাগতম বাংলা ব্লগ আর্কাইভে! ✍️

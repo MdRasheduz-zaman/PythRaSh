@@ -1,0 +1,11 @@
+---
+title: "English Blogs"
+listing:
+  contents: .
+  sort: "date desc"
+  type: default
+  fields: [title, author, date, description]
+page-layout: full
+---
+
+Welcome to the English blog archive! 📚

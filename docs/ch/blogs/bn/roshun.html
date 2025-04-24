@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bn" xml:lang="bn"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>pythrash - এক বিধবার গল্প</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../_include/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">PythRaSh</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/rbasics/git.html" rel="" target="">
+ <span class="dropdown-text">git</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/rbasics/firststeps.html" rel="" target="">
+ <span class="dropdown-text">Basic R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/rbasics/tidyverse.html" rel="" target="">
+ <span class="dropdown-text">The tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/rbasics/correlation_regression.html" rel="" target="">
+ <span class="dropdown-text">Advanced R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/rbasics/baddata.html" rel="" target="">
+ <span class="dropdown-text">Data Wrangling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/python/basics.html" rel="" target="">
+ <span class="dropdown-text">Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/python/panda.html" rel="" target="">
+ <span class="dropdown-text">Advanced Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/python/MLA.html" rel="" target="">
+ <span class="dropdown-text">Machine Learning Algorithms</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/python/AI.html" rel="" target="">
+ <span class="dropdown-text">AI</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linux-and-clt" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Linux and CLT</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linux-and-clt">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/linux-and-ctl/basics.html" rel="" target="">
+ <span class="dropdown-text">Linux Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/linux-and-ctl/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Command Line</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-probability-and-statistics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Probability and Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-probability-and-statistics">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/prob_stat/prob_basic.html" rel="" target="">
+ <span class="dropdown-text">Probability Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/prob_stat/stat.html" rel="" target="">
+ <span class="dropdown-text">Statistics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Genomics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomics">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/genomics/basics.html" rel="" target="">
+ <span class="dropdown-text">Genomics Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/genomics/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Genomics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/genomics/pipeline.html" rel="" target="">
+ <span class="dropdown-text">Pipelines</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blogs" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Blogs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blogs">    
+        <li>
+    <a class="dropdown-item" href="../../../ch/blogs/en/index.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../ch/blogs/bn/index.html" rel="" target="">
+ <span class="dropdown-text">Bangla</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman/PythRaSh" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">এক বিধবার গল্প</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Md Rasheduzzaman </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.fli.de/de/institute/institut-fuer-infektionsmedizin-imed/">
+            FLI Insel Riems
+            </a>
+          </p>
+        <p class="affiliation">
+            <a href="https://github.com/MdRasheduz-zaman">
+            &amp; Freelancer
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">২৪ এপ্রিল, ২০২৫</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>এক বিধবার গল্প</p>
+<p>নাম তার <em>Alium sativum</em>। খালাত বোন <em>Alium cepa</em>-র সাথে তার অনেক মিল। তাই তারা একই ফ্যামিলিতে আছে। অবশ্য অমিলও আছে অনেক। <em>Alium sativum</em> এর গায়ে সেই আজন্ম বাল্যবৈধব্যের সাজ, আর <em>Alium cepa</em>-র লাল টুকটুকে বিয়ের সাজ আজও ঘোচে নি।</p>
+<p>আজ থেকে প্রায় ২-৩ বছর আগে, একদিন দেখি আমার ছোট বোন এক আঁটি ফুল (flower stalk) নিয়ে আসছে। মনে হল পিয়াজের। কিন্তু কাছে আসতে মনে হল— না, ওগুলো রসুনের হবে। রসুন রসুন গন্ধ বেরুচ্ছে। তবু জিজ্ঞাসা করলাম, “ওগুলো কি?” সে বলল, “রসুনের ঢেঁপ।” হাতে নিয়ে অবাক হয়ে দেখতে লাগলাম। জিবনের এতোগুলো বছর পাড়ি দিলাম, গ্রামেই বাস, ফসলের মাঠের সাথে লুটোপুটি খেতে খেতে বড় হলাম, অথচ রসুনের ফুলই আমি দেখি নি এর আগে!!! দেখলাম কিছু পুষ্পদন্ড ( scape বা ঢেঁপ) কিছুটা প্যাঁচানো, আর কিছু সোজা। আসলে কিছুটা প্যাঁচানোগুলো ছিল বেশি কচি, আর সোজাগুলো ছিল একটু ম্যাচিউর। যখন আরো ভাল করে দেখতে লাগলাম আমার তো চোখ চড়ক গাছ হবার পালা। একি! এর umbel বা ক্যাপসুলের ভিতরে দেখি ছোট ছোট রসুনের কোয়া!!! বাহ্, মাটির নিচেও রসুন, বাতাসেও রসুন, ভাল না?? Umbel এর ভিতরের এই কোয়াগুলোকে বলে bulbils। আর মাটির নিচেরগুলোকে বলে cloves। Clove-গুলো মিলে গঠন করে bulb (বাতি)। আসলে দেখতে বাতির মত বলেই এর নাম হয়েছে bulb. এই bulb আর bulbils দিয়ে রসুনের অঙ্গজ জনন ঘটে। রসুনের umbel এর ভিতরে আবার অনেক ফুলও আছে। আসলে রসুনের inflorescence (পুষ্পবিন্যাস) এর নিচের দিকটা তৈরি করে bulbils, আর উপরের দিকটা হয়ে যায় ফুল। যাই হোক, আমি এতোদিন রসুনের এই রূপের কিছুই দেখি নি। শুধু মায়ের হাতের রান্নায় রসুনের ব্যবহার দেখেছি। জ্বর হলে ওষুধের সাথে সাথে চাল ভাজা, মরিচ, আদা, রসুনের ঝাল চাটনি খেয়ে ফোঁপাতে ফোঁপাতে জ্বর সারার আশা করেছি। রসুনের গন্ধযুক্ত নিঃশ্বাস (garlic breath) ছেড়েছি—- হরেক রকম ফুলও আমি দেখেছি, অস্বীকার করছি না— কিন্তু রসুনের ফুল আমি এর আগে দেখি নি।</p>
+<p>আমি যেমন রসুনের ফুলের ব্যাপারে ছিলাম লাওয়াকিফ, ঠিক তেমনি আগে ভাবা হত এর ফুল sterile (বন্ধ্যা)। কিন্তু এগুলো আসলে বন্ধ্যা নয়। ১৮৭৫ সালে Eduard Regel সর্বপ্রথম রসুনের এই অনন্য ফুলধারণ পদ্ধতির বর্ণনা দেন।</p>
+<p>এখন তাহলে আমরা বলতেই পারি রসুনের প্রজননের মাধ্যম কয়টি। বলুন তো কি কি? হ্যাঁ, cloves, bulbils আর বীজ। তাহলে শুধু cloves দিয়ে আমাদের দেশের কৃষকেরা চাষ করে কেন এই প্রশ্নটা আপনাদের মনে জাগতে পারে। আমারও জেগেছিল। এর সহজ উত্তর হচ্ছে বীজ ও bulbils এর কন্ট্রোলিং, আবাদ করা বেশ ঝক্কির ব্যাপার।তাছাড়া এগুলো থেকে রসুন পেতে লেগে যাবে অনেক বেশি সময়, শ্রমও লাগবে বেশি। অর্থ উপার্জন, দেশভর্তি মানুষের চাহিদা মেটানো যেখানে কৃষকদের প্রধান ও প্রথম লক্ষ্য সেখানে এমন সময় ও শ্রমসাপেক্ষ কাজ করা নিশ্চই কৃষকদের কাজ নয়। তবুও প্রশ্ন থেকেই যায় bulbils বা বীজ দিয়ে কী আবাদ করার দরকার পড়বে কখনো?</p>
+<p>হ্যাঁ, এর উত্তরটা অনেক important. রসুন প্রজাতীর স্বকীয়তা রক্ষা করা, জাত উন্নয়ন, বংশনাশের হাত থেকে রক্ষা করা সবকিছুর সমাধান দেবে এই উত্তরটিই।</p>
+<p>যদিও রসুন স্বাভাবিকভাবেই অযৌন জনন প্রক্রিয়ায় (bulb বা bulbils দিয়ে) বংশ বৃদ্ধি করে, বীজ উৎপাদন হার ও অঙ্কুরোদগম হার অনেক কম তবুও আমরা যদি বীজ পাবার জন্য চাষ করতে শুরু করি ধীরে ধীরে বীজ উৎপাদন হার বাড়তে থাকবে। অযৌন বা অঙ্গজ জনন পদ্ধতি মাতৃ উদ্ভিদের হুবহু কপি (clone) তৈরি করে। অর্থাৎ, কোনো গাছের যা বৈশিষ্ট্য, অঙ্গজ প্রজননের মাধ্যমে পাওয়া গাছেরও ঠিক একই বৈশিষ্ট্য হবে। কাজেই যদি মিউটেশন বা ভাইরাল ইনফেকশনের কারণে কোনো ক্ষতিকর বৈশিষ্ট্যের আগমন ঘটে তাহলে সেটাও যতবার এই পদ্ধতিতে আবাদ করবেন ততবারই বাহিত হবে। এতে হয়তো একটা নির্দিষ্ট এলাকায় (পরিসর অনেক বড়ও হতে পারে) রসুনের চাষই হয়তো বন্ধ হয়ে যাবে। অবশ্য umbel এর ভিতরে সুরক্ষিত থাকায় bulbils এ এই ধরণের পরিবর্তন খুব কমই হয়। তবু চান্স তো থেকেই যায়। কিন্তু বীজ দিয়ে চাষ করলে এই সম্ভাবনা আমরা এড়াতে পারি। কেননা দেহকোষের মিউটেশনের প্রভাব বীজে বাহিত হয় না। কাজেই আমরা যদি হুমকির হাত থেকে রসুনকে বাঁচাতে চাই, সহজেই জাত উন্নয়ন করতে চাই (hybridization বা crossing এর মাধ্যমে), কিংবা যদি নিদেনপক্ষে এর চমৎকার ফুলধারণ দেখে মন জুড়াতে চাই, তাহলে আসুন সেটা কীভাবে করা যায় দেখে নিই। বাগানের একখন্ড জমিতে রসুনের cloves লাগিয়ে ফেলুন। জায়গার অভাব থাকলে টবে কিংবা ছাদে মাটি দিয়ে কাজটা করে ফেলুন।</p>
+<p>জাত উন্নয়ন বা হাইব্রিডাইজেশনের জন্য প্যারেন্ট উদ্ভিতের অন্তত একটা নির্দিষ্ট এলাকায় খুব ভালভাবে বেঁচে থাকার সক্ষমতা (adaptability) থাকতে হবে, বীজ দিয়ে বংশবৃদ্ধি করা গাছগুলোর বেঁচে থাকতে হবে। কিন্তু রসুনের তা খুবই কম। তাই আগে রসুনের এই adaptability নিয়ে আসার জন্য বেশ কিছু প্রজন্ম ধরে বীজ দিয়ে চাষ করতে থাকতে হবে।</p>
+<p>রসুনের ফুল protandrous ধরণের, অর্থাৎ এর stigma (গর্ভমুন্ড) পরাগগ্রাহী (receptive) হবার আগেই পরাগরেণু (pollen grain) ম্যাচিউর হয়ে যায়। তাই এদের স্বনিষেক (self-fertilization) ঘটে না। তবে একই umbel এর অন্যান্য ফুলকে নিষিক্ত করতে পারে। মৌমাছির মত অন্যান্য কীটপতঙ্গেরা এতে সাহায্য করে ফুলে ফুলে ঘুরে মধু আহরণের চারিত্রিক বৈশিষ্ট্য দিয়ে। রসুনের গর্ভাশয়ে থাকে তিনটি seed chamber. প্রতি চ্যাম্বারে আছে দুইটি করে ডিম্বক (ovule— যা বীজে পরিণত হয়।). সুতরাং, রসুনের একটি ফুল থেকেই আমরা পেয়ে যাব ছয়টি বীজ। প্রতি umbel থেকে কয়েক শ’।</p>
+<p>এখন সমস্যা হচ্ছে ফুল ও bulbils পুষ্টি পাবার লড়াইয়ে নামে। প্রাকৃতিকভাবে bulbils-ই জেতে। তাই বীজ পেতে চাইলে আগে এদেরকে ছাড়ানো দরকার। ভ্যারিটিভেদে bulbils এর সংখ্যা ও প্রকৃতির তারতম্য আছে। সংখ্যা কম ও আকারে বড় হলে ছাড়ানোটা সহজ হয়। তবে সংখ্যায় বেশি ও আকারে ছোট হলে প্রথমে বাইরের দিকেরগুলো ছাড়িয়ে নিয়ে কয়েকদিন পর ভিতরের দিকেরগুলো ছাড়াতে হবে। নজর রাখতে হবে যেন ফুলের কোনো ক্ষতি না হয়। আমাদের দেশে যেগুলো চাষ হয় সেগুলোতে bulbils এর সংখ্যা কম আর আকারেও বড়। কাজেই কাজটা সহজই হবে। পানি, সার ও পরিচর্যা অব্যাহত রাখতে হবে। পরাগায়ন হবার ৪৫-৬০ দিনের মধ্যেই বীজ পরিপক্ব হয়ে যায়। বীজ পরিপক্ব হবার আগেই যদি গাছ বুড়িয়ে যায় তাহলে scape টা কেটে নিয়ে পানিতে ডুবিয়ে রাখতে হবে— পাতাবাহারের ডালকে যেভাবে বাঁচিয়ে রাখা হয়, ঠিক সেভাবেই।তাহলেই আপনি বীজ পেয়ে যাবেন। এরপর এভাবে বীজ উৎপাদনের মাধ্যমে উপর্যুপরি আবাদ করতে থাকলে একটা অভিযোজিত (well adapted) ভ্যারিটি পেয়ে যাব আমরা। এরপর ক্রসিং বা হাইব্রিডাইজেশনের বিভিন্ন টেকনিক কাজে লাগিয়ে আমরা পেয়ে যাব অনেক উন্নত জাত। আর এই উন্নত জাতগুলোরও তো bulb, bulbils থাকবেই, এদের দিয়ে আমরা প্রতিটি নতুন জাত বা ভ্যারিটিকে সংরক্ষণ করতে পারি। যৌন জননের পাশাপাশি অঙ্গজ বা অযৌন জনন থাকার এটাই এক বিশাল সুবিধা। কাজেই আসুন আমরা নতুনভাবে প্রকৃতিটাকে দেখতে শুরু করি। একবীজপত্রী ও দ্বিবীজপত্রী উদ্ভিদের অযৌন ও যৌন জনন পদ্ধতিগুলো নিয়ে ভাবতে থাকি।পদ্ধতিগুলোর পার্থক্যগুলোও ভাবতে থাকি। পথ চলতে চলতে যে গাছগুলো চোখে পড়ে সেগুলোর কান্ড, পাতা, ফুল, ফলের মিল-অমিলগুলো নিয়ে ভাবতে থাকি। তাহলেই উদ্ভিদবিদ্যা জানার উৎসাহ-উদ্দীপনা, আনন্দ দ্বিগুণ হয়ে যাবে বলে আমি মনে করি।।</p>
+
+
+<!-- -->
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
+  author = {Md Rasheduzzaman},
+  title = {এক বিধবার গল্প},
+  date = {2025-04-24},
+  langid = {bn}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Md Rasheduzzaman. 2025. <span>“এক বিধবার গল্প.”</span> April 24, 2025.
+</div></div></section></div></main> <!-- /main -->
+<hr>
+
+<div style="margin-top: 2em;">
+  <p style="font-weight: 500; font-size: 1.1em;">
+    💬 Have thoughts or questions? Join the discussion below using your GitHub account!
+  </p>
+  <p style="font-size: 0.95em; color: #666;">
+    You can <strong>edit or delete</strong> your own comments. Reactions like 👍 ❤️ 🚀 are also supported.
+  </p>
+</div>
+
+<div id="giscus_thread" style="margin-top: 1.5em;"></div>
+
+<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOOZN9Xw" data-category-id="DIC_kwDOOZN9X84CpE6N" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "এক বিধবার গল্প"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> bn</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>এক বিধবার গল্প</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>নাম তার *Alium sativum*। খালাত বোন *Alium cepa*-র সাথে তার অনেক মিল। তাই তারা একই ফ্যামিলিতে আছে। অবশ্য অমিলও আছে অনেক। *Alium sativum* এর গায়ে সেই আজন্ম বাল্যবৈধব্যের সাজ, আর *Alium cepa*-র লাল টুকটুকে বিয়ের সাজ আজও ঘোচে নি।</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>আজ থেকে প্রায় ২-৩ বছর আগে, একদিন দেখি আমার ছোট বোন এক আঁটি ফুল (flower stalk) নিয়ে আসছে। মনে হল পিয়াজের। কিন্তু কাছে আসতে মনে হল— না, ওগুলো রসুনের হবে। রসুন রসুন গন্ধ বেরুচ্ছে। তবু জিজ্ঞাসা করলাম, “ওগুলো কি?” সে বলল, “রসুনের ঢেঁপ।” হাতে নিয়ে অবাক হয়ে দেখতে লাগলাম। জিবনের এতোগুলো বছর পাড়ি দিলাম, গ্রামেই বাস, ফসলের মাঠের সাথে লুটোপুটি খেতে খেতে বড় হলাম, অথচ রসুনের ফুলই আমি দেখি নি এর আগে!!! দেখলাম কিছু পুষ্পদন্ড ( scape বা ঢেঁপ) কিছুটা প্যাঁচানো, আর কিছু সোজা। আসলে কিছুটা প্যাঁচানোগুলো ছিল বেশি কচি, আর সোজাগুলো ছিল একটু ম্যাচিউর। যখন আরো ভাল করে দেখতে লাগলাম আমার তো চোখ চড়ক গাছ হবার পালা। একি! এর umbel বা ক্যাপসুলের ভিতরে দেখি ছোট ছোট রসুনের কোয়া!!! বাহ্, মাটির নিচেও রসুন, বাতাসেও রসুন, ভাল না?? Umbel এর ভিতরের এই কোয়াগুলোকে বলে bulbils। আর মাটির নিচেরগুলোকে বলে cloves। Clove-গুলো মিলে গঠন করে bulb (বাতি)। আসলে দেখতে বাতির মত বলেই এর নাম হয়েছে bulb. এই bulb আর bulbils দিয়ে রসুনের অঙ্গজ জনন ঘটে। রসুনের umbel এর ভিতরে আবার অনেক ফুলও আছে। আসলে রসুনের inflorescence (পুষ্পবিন্যাস) এর নিচের দিকটা তৈরি করে bulbils, আর উপরের দিকটা হয়ে যায় ফুল। যাই হোক, আমি এতোদিন রসুনের এই রূপের কিছুই দেখি নি। শুধু মায়ের হাতের রান্নায় রসুনের ব্যবহার দেখেছি। জ্বর হলে ওষুধের সাথে সাথে চাল ভাজা, মরিচ, আদা, রসুনের ঝাল চাটনি খেয়ে ফোঁপাতে ফোঁপাতে জ্বর সারার আশা করেছি। রসুনের গন্ধযুক্ত নিঃশ্বাস (garlic breath) ছেড়েছি—- হরেক রকম ফুলও আমি দেখেছি, অস্বীকার করছি না— কিন্তু রসুনের ফুল আমি এর আগে দেখি নি।</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>আমি যেমন রসুনের ফুলের ব্যাপারে ছিলাম লাওয়াকিফ, ঠিক তেমনি আগে ভাবা হত এর ফুল sterile (বন্ধ্যা)। কিন্তু এগুলো আসলে বন্ধ্যা নয়। ১৮৭৫ সালে Eduard Regel সর্বপ্রথম রসুনের এই অনন্য ফুলধারণ পদ্ধতির বর্ণনা দেন।</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>এখন তাহলে আমরা বলতেই পারি রসুনের প্রজননের মাধ্যম কয়টি। বলুন তো কি কি? হ্যাঁ, cloves, bulbils আর বীজ। তাহলে শুধু cloves দিয়ে আমাদের দেশের কৃষকেরা চাষ করে কেন এই প্রশ্নটা আপনাদের মনে জাগতে পারে। আমারও জেগেছিল। এর সহজ উত্তর হচ্ছে বীজ ও bulbils এর কন্ট্রোলিং, আবাদ করা বেশ ঝক্কির ব্যাপার।তাছাড়া এগুলো থেকে রসুন পেতে লেগে যাবে অনেক বেশি সময়, শ্রমও লাগবে বেশি। অর্থ উপার্জন, দেশভর্তি মানুষের চাহিদা মেটানো যেখানে কৃষকদের প্রধান ও প্রথম লক্ষ্য সেখানে এমন সময় ও শ্রমসাপেক্ষ কাজ করা নিশ্চই কৃষকদের কাজ নয়। তবুও প্রশ্ন থেকেই যায় bulbils বা বীজ দিয়ে কী আবাদ করার দরকার পড়বে কখনো?</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>হ্যাঁ, এর উত্তরটা অনেক important. রসুন প্রজাতীর স্বকীয়তা রক্ষা করা, জাত উন্নয়ন, বংশনাশের হাত থেকে রক্ষা করা সবকিছুর সমাধান দেবে এই উত্তরটিই।</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>যদিও রসুন স্বাভাবিকভাবেই অযৌন জনন প্রক্রিয়ায় (bulb বা bulbils দিয়ে) বংশ বৃদ্ধি করে, বীজ উৎপাদন হার ও অঙ্কুরোদগম হার অনেক কম তবুও আমরা যদি বীজ পাবার জন্য চাষ করতে শুরু করি ধীরে ধীরে বীজ উৎপাদন হার বাড়তে থাকবে। অযৌন বা অঙ্গজ জনন পদ্ধতি মাতৃ উদ্ভিদের হুবহু কপি (clone) তৈরি করে। অর্থাৎ, কোনো গাছের যা বৈশিষ্ট্য, অঙ্গজ প্রজননের মাধ্যমে পাওয়া গাছেরও ঠিক একই বৈশিষ্ট্য হবে। কাজেই যদি মিউটেশন বা ভাইরাল ইনফেকশনের কারণে কোনো ক্ষতিকর বৈশিষ্ট্যের আগমন ঘটে তাহলে সেটাও যতবার এই পদ্ধতিতে আবাদ করবেন ততবারই বাহিত হবে। এতে হয়তো একটা নির্দিষ্ট এলাকায় (পরিসর অনেক বড়ও হতে পারে) রসুনের চাষই হয়তো বন্ধ হয়ে যাবে। অবশ্য umbel এর ভিতরে সুরক্ষিত থাকায় bulbils এ এই ধরণের পরিবর্তন খুব কমই হয়। তবু চান্স তো থেকেই যায়। কিন্তু বীজ দিয়ে চাষ করলে এই সম্ভাবনা আমরা এড়াতে পারি। কেননা দেহকোষের মিউটেশনের প্রভাব বীজে বাহিত হয় না। কাজেই আমরা যদি হুমকির হাত থেকে রসুনকে বাঁচাতে চাই, সহজেই জাত উন্নয়ন করতে চাই (hybridization বা crossing এর মাধ্যমে), কিংবা যদি নিদেনপক্ষে এর চমৎকার ফুলধারণ দেখে মন জুড়াতে চাই, তাহলে আসুন সেটা কীভাবে করা যায় দেখে নিই। বাগানের একখন্ড জমিতে রসুনের cloves লাগিয়ে ফেলুন। জায়গার অভাব থাকলে টবে কিংবা ছাদে মাটি দিয়ে কাজটা করে ফেলুন।</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>জাত উন্নয়ন বা হাইব্রিডাইজেশনের জন্য প্যারেন্ট উদ্ভিতের অন্তত একটা নির্দিষ্ট এলাকায় খুব ভালভাবে বেঁচে থাকার সক্ষমতা (adaptability) থাকতে হবে, বীজ দিয়ে বংশবৃদ্ধি করা গাছগুলোর বেঁচে থাকতে হবে। কিন্তু রসুনের তা খুবই কম। তাই আগে রসুনের এই adaptability নিয়ে আসার জন্য বেশ কিছু প্রজন্ম ধরে বীজ দিয়ে চাষ করতে থাকতে হবে।</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>রসুনের ফুল protandrous ধরণের, অর্থাৎ এর stigma (গর্ভমুন্ড) পরাগগ্রাহী (receptive) হবার আগেই পরাগরেণু (pollen grain) ম্যাচিউর হয়ে যায়। তাই এদের স্বনিষেক (self-fertilization) ঘটে না। তবে একই umbel এর অন্যান্য ফুলকে নিষিক্ত করতে পারে। মৌমাছির মত অন্যান্য কীটপতঙ্গেরা এতে সাহায্য করে ফুলে ফুলে ঘুরে মধু আহরণের চারিত্রিক বৈশিষ্ট্য দিয়ে। রসুনের গর্ভাশয়ে থাকে তিনটি seed chamber. প্রতি চ্যাম্বারে আছে দুইটি করে ডিম্বক (ovule— যা বীজে পরিণত হয়।). সুতরাং, রসুনের একটি ফুল থেকেই আমরা পেয়ে যাব ছয়টি বীজ। প্রতি umbel থেকে কয়েক শ’।</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>এখন সমস্যা হচ্ছে ফুল ও bulbils পুষ্টি পাবার লড়াইয়ে নামে। প্রাকৃতিকভাবে bulbils-ই জেতে। তাই বীজ পেতে চাইলে আগে এদেরকে ছাড়ানো দরকার। ভ্যারিটিভেদে bulbils এর সংখ্যা ও প্রকৃতির তারতম্য আছে। সংখ্যা কম ও আকারে বড় হলে ছাড়ানোটা সহজ হয়। তবে সংখ্যায় বেশি ও আকারে ছোট হলে প্রথমে বাইরের দিকেরগুলো ছাড়িয়ে নিয়ে কয়েকদিন পর ভিতরের দিকেরগুলো ছাড়াতে হবে। নজর রাখতে হবে যেন ফুলের কোনো ক্ষতি না হয়। আমাদের দেশে যেগুলো চাষ হয় সেগুলোতে bulbils এর সংখ্যা কম আর আকারেও বড়। কাজেই কাজটা সহজই হবে। পানি, সার ও পরিচর্যা অব্যাহত রাখতে হবে। পরাগায়ন হবার ৪৫-৬০ দিনের মধ্যেই বীজ পরিপক্ব হয়ে যায়। বীজ পরিপক্ব হবার আগেই যদি গাছ বুড়িয়ে যায় তাহলে scape টা কেটে নিয়ে পানিতে ডুবিয়ে রাখতে হবে— পাতাবাহারের ডালকে যেভাবে বাঁচিয়ে রাখা হয়, ঠিক সেভাবেই।তাহলেই আপনি বীজ পেয়ে যাবেন। এরপর এভাবে বীজ উৎপাদনের মাধ্যমে উপর্যুপরি আবাদ করতে থাকলে একটা অভিযোজিত (well adapted) ভ্যারিটি পেয়ে যাব আমরা। এরপর ক্রসিং বা হাইব্রিডাইজেশনের বিভিন্ন টেকনিক কাজে লাগিয়ে আমরা পেয়ে যাব অনেক উন্নত জাত। আর এই উন্নত জাতগুলোরও তো bulb, bulbils থাকবেই, এদের দিয়ে আমরা প্রতিটি নতুন জাত বা ভ্যারিটিকে সংরক্ষণ করতে পারি। যৌন জননের পাশাপাশি অঙ্গজ বা অযৌন জনন থাকার এটাই এক বিশাল সুবিধা। কাজেই আসুন আমরা নতুনভাবে প্রকৃতিটাকে দেখতে শুরু করি। একবীজপত্রী ও দ্বিবীজপত্রী উদ্ভিদের অযৌন ও যৌন জনন পদ্ধতিগুলো নিয়ে ভাবতে থাকি।পদ্ধতিগুলোর পার্থক্যগুলোও ভাবতে থাকি। পথ চলতে চলতে যে গাছগুলো চোখে পড়ে সেগুলোর কান্ড, পাতা, ফুল, ফলের মিল-অমিলগুলো নিয়ে ভাবতে থাকি। তাহলেই উদ্ভিদবিদ্যা জানার উৎসাহ-উদ্দীপনা, আনন্দ দ্বিগুণ হয়ে যাবে বলে আমি মনে করি।।</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

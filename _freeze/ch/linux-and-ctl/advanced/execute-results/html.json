@@ -1,7 +1,7 @@
 {
-  "hash": "d1903139cb767a868404e2816b4875c1",
+  "hash": "19688e43581eea8be069f5384b53c497",
   "result": {
-    "markdown": "---\ntitle: \"Advanced Linux and CTL\"\nabstract: \"awk, grep, cut, etc.\"\n---\n\n\n",
+    "markdown": "---\ntitle: \"Advanced Linux and CTL\"\nabstract: \"awk, grep, cut, etc.\"\n---\n\n\n\n  \n# Q1  \nI have many files inside a folder. I want to move them into to sub-folders named `f1` and `f2` (I made them using `mkdir -p f1 f2`). How to do that?  \nThis is the way:  \n  \n\n::: {.cell}\n\n```{.bash .cell-code}\ni=0\nfor file in $(ls *.fastq.gz | sort -V); do\n  if [ $i -le 400 ]; then\n    mv \"$file\" f1/\n  else\n    mv \"$file\" f2/\n  fi\n  i=$((i + 1))\ndone\n```\n:::\n\nHere, I am sending files having 0-400 in there name to `f1` folder and remaining ones to `f2`. You just need to use your file naming pattern, and you are all set.  \n\n**How to execute/run this file now?**  \nRun these:\n\n::: {.cell}\n\n```{.bash .cell-code}\nchmod +x move_files.sh\n./move_files.sh\n```\n:::\n\n`chmod +x` is making the file executable. Then we are running it using `./move_files.sh`.  \n  \n",
     "supporting": [
       "advanced_files"
     ],
