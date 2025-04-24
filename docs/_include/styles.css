@@ -44,10 +44,11 @@ img {
 }
 
 /* Ensure all paragraph content inside lists and sections are justified */
-.quarto-body p,
-.quarto-body ol p,
-.quarto-body ul p,
-.quarto-body li p {
+.quarto-title-block .quarto-title-banner p,
+.quarto-body article p,
+.quarto-body section p,
+.quarto-body div p,
+#quarto-content p {
   text-align: justify !important;
 }
 

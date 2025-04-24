@@ -76,7 +76,8 @@ website:
 format:
   html:
     anchor-sections: true
-    css: _include/styles.css
+    css:
+      _include/styles.css
     code-fold: false
     code-summary: "Click to show/hide code"
     code-overflow: scroll
