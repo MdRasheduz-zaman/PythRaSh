@@ -2,7 +2,19 @@
 title: "Correlation & Regression"
 abstract: "Correlation and simple linear regression (with and without intercept)."
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))

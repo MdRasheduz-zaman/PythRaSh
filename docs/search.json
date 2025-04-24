@@ -46,21 +46,21 @@
     "href": "ch/rbasics/tidyverse.html",
     "title": "The tidyverse",
     "section": "",
-    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {The Tidyverse},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {Pipe (\\%\\textgreater\\%), Tibbles, dplyr-verbs, long/wide\n    format and more.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “The Tidyverse.” April 11, 2025."
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {The Tidyverse},\n  date = {2025-04-24},\n  langid = {en},\n  abstract = {Pipe (\\%\\textgreater\\%), Tibbles, dplyr-verbs, long/wide\n    format and more.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “The Tidyverse.” April 24, 2025."
   },
   {
     "objectID": "ch/rbasics/baddata.html",
     "href": "ch/rbasics/baddata.html",
     "title": "Bad data & Outliers",
     "section": "",
-    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Bad Data \\& {Outliers}},\n  date = {2025-04-11},\n  langid = {en},\n  abstract = {Cleaning data, dealing with missing data and comparing\n    results for correlation and regression before vs. after removing an\n    outlier from the data.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Bad Data & Outliers.” April\n11, 2025."
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Bad Data \\& {Outliers}},\n  date = {2025-04-24},\n  langid = {en},\n  abstract = {Cleaning data, dealing with missing data and comparing\n    results for correlation and regression before vs. after removing an\n    outlier from the data.}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Bad Data & Outliers.” April\n24, 2025."
   },
   {
     "objectID": "ch/rbasics/correlation_regression.html",
     "href": "ch/rbasics/correlation_regression.html",
     "title": "Correlation & Regression",
     "section": "",
-    "text": "CitationBibTeX citation:@online{rasheduzzaman2024,\n  author = {Md Rasheduzzaman},\n  title = {Correlation \\& {Regression}},\n  date = {2024-08-14},\n  langid = {en},\n  abstract = {Correlation and simple linear regression (with and without\n    intercept).}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2024. “Correlation & Regression.”\nAugust 14, 2024."
+    "text": "CitationBibTeX citation:@online{rasheduzzaman2025,\n  author = {Md Rasheduzzaman},\n  title = {Correlation \\& {Regression}},\n  date = {2025-04-24},\n  langid = {en},\n  abstract = {Correlation and simple linear regression (with and without\n    intercept).}\n}\nFor attribution, please cite this work as:\nMd Rasheduzzaman. 2025. “Correlation & Regression.”\nApril 24, 2025."
   },
   {
     "objectID": "ch/python/basics.html",

@@ -2,7 +2,19 @@
 title: "Basic R"
 abstract: "Data types, variables, vectors, data frame, functions"
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
@@ -152,15 +164,16 @@ gene_set <- read.table("gene_expr.csv", header = TRUE, sep = ",")
 
 Here, we directly used the vectors as different columns. Did you notice that? Also, the syntax is different here. We can't asign the vectors with the assignment operator (means we can't use `<-` sign. We have to use the `=` sign).
 
-## Homeworks  
+## Homeworks
 
-1. Compute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.  
-2. Make different kinds of variables and vectors with the data types we learned together.  
-3. What are the properties of a data frame?  
-Hint: Open an excel/csv/txt file you have and try to "generalize".  
-4. Can you make logical questions on the 2 small data sets we used? Try. It will help you understanding the logical operations we tried on variables. Now we are going to apply them on vectors (columns) on the data sets. For example, in the `cartoon` data set, we can ask/try to subset the data set filtering for females only, or for both females and age greater than 2 years.  
-5. If you are writing or practicing coding in R, write comment for each line on what it is doing. It will help to chunk it better into your brain.  
-6. Push the script and/or your answers to the questions (with your solutions) to one of your GitHub repo (and send me the repo link).  
+1.  Compute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.\
+2.  Make different kinds of variables and vectors with the data types we learned together.\
+3.  What are the properties of a data frame?\
+    Hint: Open an excel/csv/txt file you have and try to "generalize".\
+4.  Can you make logical questions on the 2 small data sets we used? Try. It will help you understanding the logical operations we tried on variables. Now we are going to apply them on vectors (columns) on the data sets. For example, in the `cartoon` data set, we can ask/try to subset the data set filtering for females only, or for both females and age greater than 2 years.\
+5.  If you are writing or practicing coding in R, write comment for each line on what it is doing. It will help to chunk it better into your brain.\
+6.  Push the script and/or your answers to the questions (with your solutions) to one of your GitHub repo (and send me the repo link).
 
-### Deadline  
-**Friday, 10pm BD Time.**  
+### Deadline
+
+**Friday, 10pm BD Time.**

@@ -2,9 +2,20 @@
 title: "The tidyverse"
 abstract: "Pipe (%>%), Tibbles, dplyr-verbs, long/wide format and more."
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
-

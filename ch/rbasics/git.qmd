@@ -6,6 +6,19 @@ execute:
   echo: true
   eval: false  # disables code execution globally
 ---
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 
 ```{r}
 #| include: false

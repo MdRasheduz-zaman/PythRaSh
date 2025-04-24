@@ -311,7 +311,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 
-</header><section id="using-r-as-a-calculator" class="level2"><h2 class="anchored" data-anchor-id="using-r-as-a-calculator">Using R as a Calculator</h2>
+</header><style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+<section id="using-r-as-a-calculator" class="level2"><h2 class="anchored" data-anchor-id="using-r-as-a-calculator">Using R as a Calculator</h2>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">5</span><span class="op">+</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -951,168 +962,181 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Basic R"</span></span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Data types, variables, vectors, data frame, functions"</span></span>
 <span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
-<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using R as a Calculator</span></span>
-<span id="cb102-14"><a href="#cb102-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-17"><a href="#cb102-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-18"><a href="#cb102-18" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span>
-<span id="cb102-19"><a href="#cb102-19" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span></span>
-<span id="cb102-20"><a href="#cb102-20" aria-hidden="true" tabindex="-1"></a><span class="dv">3-2</span></span>
-<span id="cb102-21"><a href="#cb102-21" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb102-22"><a href="#cb102-22" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span> <span class="co">#normal division</span></span>
-<span id="cb102-23"><a href="#cb102-23" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%/%</span> <span class="dv">2</span> <span class="co">#integer division, only the quotient</span></span>
-<span id="cb102-24"><a href="#cb102-24" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="co">#modulus division, the remainder</span></span>
-<span id="cb102-25"><a href="#cb102-25" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10-5</span>)<span class="sc">*</span>(<span class="dv">2</span><span class="sc">+</span><span class="dv">4</span>) <span class="co">#use of parentheses</span></span>
-<span id="cb102-26"><a href="#cb102-26" aria-hidden="true" tabindex="-1"></a><span class="dv">10-5</span><span class="sc">*</span><span class="dv">2</span><span class="sc">+</span><span class="dv">4</span> <span class="co">#Noticed BODMAS?</span></span>
-<span id="cb102-27"><a href="#cb102-27" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10-5</span>)<span class="sc">*</span>(<span class="dv">2</span><span class="sc">+</span><span class="dv">4</span>) <span class="co">#Noticed BODMAS</span></span>
-<span id="cb102-28"><a href="#cb102-28" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">3</span>); <span class="dv">7</span><span class="sc">/</span><span class="dv">1</span><span class="sc">+</span><span class="dv">3</span> <span class="co">#multi-line codes, separated with semi-colon</span></span>
-<span id="cb102-29"><a href="#cb102-29" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>; <span class="fu">log</span>(<span class="dv">1</span>); <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span> <span class="co">#more multi-line codes</span></span>
-<span id="cb102-30"><a href="#cb102-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-31"><a href="#cb102-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-32"><a href="#cb102-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables and Assignments</span></span>
-<span id="cb102-33"><a href="#cb102-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-36"><a href="#cb102-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-37"><a href="#cb102-37" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co">#assign value 5 to a </span></span>
-<span id="cb102-38"><a href="#cb102-38" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb102-39"><a href="#cb102-39" aria-hidden="true" tabindex="-1"></a>a</span>
-<span id="cb102-40"><a href="#cb102-40" aria-hidden="true" tabindex="-1"></a>b</span>
-<span id="cb102-41"><a href="#cb102-41" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb102-42"><a href="#cb102-42" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> b <span class="sc">+</span> <span class="dv">15</span></span>
-<span id="cb102-43"><a href="#cb102-43" aria-hidden="true" tabindex="-1"></a>a</span>
-<span id="cb102-44"><a href="#cb102-44" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="co">#a squared</span></span>
-<span id="cb102-45"><a href="#cb102-45" aria-hidden="true" tabindex="-1"></a>a<span class="sc">**</span><span class="dv">2</span> <span class="co">#a squared again, in a different way.</span></span>
-<span id="cb102-46"><a href="#cb102-46" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">3</span> <span class="co">#a qubed</span></span>
-<span id="cb102-47"><a href="#cb102-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-48"><a href="#cb102-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-49"><a href="#cb102-49" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb102-50"><a href="#cb102-50" aria-hidden="true" tabindex="-1"></a><span class="in">`&lt;-`</span> and <span class="in">`=`</span> are used to assign values. It is not mathematical equality. <span class="in">`b &lt;- b + 15`</span> might make better sense than <span class="in">`b = b + 15`</span>.</span>
-<span id="cb102-51"><a href="#cb102-51" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb102-52"><a href="#cb102-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-53"><a href="#cb102-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integer and Modulus division again</span></span>
-<span id="cb102-54"><a href="#cb102-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-57"><a href="#cb102-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-58"><a href="#cb102-58" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb102-59"><a href="#cb102-59" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%/%</span><span class="dv">3</span></span>
-<span id="cb102-60"><a href="#cb102-60" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%%</span><span class="dv">3</span></span>
-<span id="cb102-61"><a href="#cb102-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-62"><a href="#cb102-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-63"><a href="#cb102-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rounding</span></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;style&gt;</span></span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.content</span> {</span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a>  p {</span>
+<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.quarto-body</span> {</span>
+<span id="cb102-14"><a href="#cb102-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb102-15"><a href="#cb102-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb102-16"><a href="#cb102-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/style&gt;</span></span>
+<span id="cb102-17"><a href="#cb102-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb102-20"><a href="#cb102-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-21"><a href="#cb102-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb102-22"><a href="#cb102-22" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
+<span id="cb102-23"><a href="#cb102-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-24"><a href="#cb102-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-25"><a href="#cb102-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using R as a Calculator</span></span>
+<span id="cb102-26"><a href="#cb102-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-29"><a href="#cb102-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-30"><a href="#cb102-30" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span>
+<span id="cb102-31"><a href="#cb102-31" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb102-32"><a href="#cb102-32" aria-hidden="true" tabindex="-1"></a><span class="dv">3-2</span></span>
+<span id="cb102-33"><a href="#cb102-33" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb102-34"><a href="#cb102-34" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span> <span class="co">#normal division</span></span>
+<span id="cb102-35"><a href="#cb102-35" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%/%</span> <span class="dv">2</span> <span class="co">#integer division, only the quotient</span></span>
+<span id="cb102-36"><a href="#cb102-36" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="co">#modulus division, the remainder</span></span>
+<span id="cb102-37"><a href="#cb102-37" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10-5</span>)<span class="sc">*</span>(<span class="dv">2</span><span class="sc">+</span><span class="dv">4</span>) <span class="co">#use of parentheses</span></span>
+<span id="cb102-38"><a href="#cb102-38" aria-hidden="true" tabindex="-1"></a><span class="dv">10-5</span><span class="sc">*</span><span class="dv">2</span><span class="sc">+</span><span class="dv">4</span> <span class="co">#Noticed BODMAS?</span></span>
+<span id="cb102-39"><a href="#cb102-39" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10-5</span>)<span class="sc">*</span>(<span class="dv">2</span><span class="sc">+</span><span class="dv">4</span>) <span class="co">#Noticed BODMAS</span></span>
+<span id="cb102-40"><a href="#cb102-40" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">3</span>); <span class="dv">7</span><span class="sc">/</span><span class="dv">1</span><span class="sc">+</span><span class="dv">3</span> <span class="co">#multi-line codes, separated with semi-colon</span></span>
+<span id="cb102-41"><a href="#cb102-41" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>; <span class="fu">log</span>(<span class="dv">1</span>); <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span> <span class="co">#more multi-line codes</span></span>
+<span id="cb102-42"><a href="#cb102-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-43"><a href="#cb102-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-44"><a href="#cb102-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables and Assignments</span></span>
+<span id="cb102-45"><a href="#cb102-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-48"><a href="#cb102-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-49"><a href="#cb102-49" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co">#assign value 5 to a </span></span>
+<span id="cb102-50"><a href="#cb102-50" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb102-51"><a href="#cb102-51" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb102-52"><a href="#cb102-52" aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb102-53"><a href="#cb102-53" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb102-54"><a href="#cb102-54" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> b <span class="sc">+</span> <span class="dv">15</span></span>
+<span id="cb102-55"><a href="#cb102-55" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb102-56"><a href="#cb102-56" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="co">#a squared</span></span>
+<span id="cb102-57"><a href="#cb102-57" aria-hidden="true" tabindex="-1"></a>a<span class="sc">**</span><span class="dv">2</span> <span class="co">#a squared again, in a different way.</span></span>
+<span id="cb102-58"><a href="#cb102-58" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">3</span> <span class="co">#a qubed</span></span>
+<span id="cb102-59"><a href="#cb102-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-60"><a href="#cb102-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-61"><a href="#cb102-61" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb102-62"><a href="#cb102-62" aria-hidden="true" tabindex="-1"></a><span class="in">`&lt;-`</span> and <span class="in">`=`</span> are used to assign values. It is not mathematical equality. <span class="in">`b &lt;- b + 15`</span> might make better sense than <span class="in">`b = b + 15`</span>.</span>
+<span id="cb102-63"><a href="#cb102-63" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb102-64"><a href="#cb102-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-67"><a href="#cb102-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-68"><a href="#cb102-68" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">4</span></span>
-<span id="cb102-69"><a href="#cb102-69" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(x)</span>
-<span id="cb102-70"><a href="#cb102-70" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(x)</span>
-<span id="cb102-71"><a href="#cb102-71" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x)</span>
-<span id="cb102-72"><a href="#cb102-72" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">2</span>) <span class="co">#round till 2 decimal points</span></span>
+<span id="cb102-65"><a href="#cb102-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integer and Modulus division again</span></span>
+<span id="cb102-66"><a href="#cb102-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-69"><a href="#cb102-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-70"><a href="#cb102-70" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb102-71"><a href="#cb102-71" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%/%</span><span class="dv">3</span></span>
+<span id="cb102-72"><a href="#cb102-72" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">%%</span><span class="dv">3</span></span>
 <span id="cb102-73"><a href="#cb102-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb102-74"><a href="#cb102-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-75"><a href="#cb102-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logical Operations</span></span>
+<span id="cb102-75"><a href="#cb102-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rounding</span></span>
 <span id="cb102-76"><a href="#cb102-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-79"><a href="#cb102-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-80"><a href="#cb102-80" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb102-81"><a href="#cb102-81" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb102-82"><a href="#cb102-82" aria-hidden="true" tabindex="-1"></a>c <span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb102-83"><a href="#cb102-83" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb102-84"><a href="#cb102-84" aria-hidden="true" tabindex="-1"></a>a <span class="sc">==</span> b <span class="co">#is a equal to b? Ans: No/FALSE</span></span>
-<span id="cb102-85"><a href="#cb102-85" aria-hidden="true" tabindex="-1"></a>a <span class="sc">!=</span> b <span class="co">#is a not equal to b? Ans: Yes/TRUE</span></span>
-<span id="cb102-86"><a href="#cb102-86" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;</span> b <span class="co">#is a greater than b? Ans: FALSE</span></span>
-<span id="cb102-87"><a href="#cb102-87" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="co">#is a less than b? Ans: TRUE</span></span>
-<span id="cb102-88"><a href="#cb102-88" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;=</span> b <span class="co">#is a greater than or equal to b? Ans: FALSE</span></span>
-<span id="cb102-89"><a href="#cb102-89" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;=</span> b <span class="co">#is a less than or equal to b? Ans: TRUE</span></span>
-<span id="cb102-90"><a href="#cb102-90" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">|</span> d <span class="sc">&gt;</span> b <span class="co">#is a less than b OR d greater than b?</span></span>
-<span id="cb102-91"><a href="#cb102-91" aria-hidden="true" tabindex="-1"></a><span class="co">#It's answer will be TRUE OR FALSE --&gt; So, TRUE</span></span>
-<span id="cb102-92"><a href="#cb102-92" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">&amp;</span> c <span class="sc">&gt;</span> d <span class="co">#is a less than b AND a greater than b? It's answer will be TRUE AND TRUE --&gt; So, TRUE</span></span>
-<span id="cb102-93"><a href="#cb102-93" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">&amp;</span> d <span class="sc">&gt;</span> c <span class="co">#is a less than b AND a greater than b? It's answer will be TRUE AND FALSE --&gt; So, FALSE</span></span>
-<span id="cb102-94"><a href="#cb102-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-95"><a href="#cb102-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-96"><a href="#cb102-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Help and Documentation</span></span>
-<span id="cb102-97"><a href="#cb102-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-100"><a href="#cb102-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-101"><a href="#cb102-101" aria-hidden="true" tabindex="-1"></a>?log</span>
-<span id="cb102-102"><a href="#cb102-102" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(log)</span>
-<span id="cb102-103"><a href="#cb102-103" aria-hidden="true" tabindex="-1"></a>?<span class="fu">log</span>()</span>
-<span id="cb102-104"><a href="#cb102-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-105"><a href="#cb102-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-106"><a href="#cb102-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with Vectors</span></span>
+<span id="cb102-80"><a href="#cb102-80" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb102-81"><a href="#cb102-81" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(x)</span>
+<span id="cb102-82"><a href="#cb102-82" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(x)</span>
+<span id="cb102-83"><a href="#cb102-83" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x)</span>
+<span id="cb102-84"><a href="#cb102-84" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">2</span>) <span class="co">#round till 2 decimal points</span></span>
+<span id="cb102-85"><a href="#cb102-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-86"><a href="#cb102-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-87"><a href="#cb102-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logical Operations</span></span>
+<span id="cb102-88"><a href="#cb102-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-91"><a href="#cb102-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-92"><a href="#cb102-92" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb102-93"><a href="#cb102-93" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb102-94"><a href="#cb102-94" aria-hidden="true" tabindex="-1"></a>c <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb102-95"><a href="#cb102-95" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb102-96"><a href="#cb102-96" aria-hidden="true" tabindex="-1"></a>a <span class="sc">==</span> b <span class="co">#is a equal to b? Ans: No/FALSE</span></span>
+<span id="cb102-97"><a href="#cb102-97" aria-hidden="true" tabindex="-1"></a>a <span class="sc">!=</span> b <span class="co">#is a not equal to b? Ans: Yes/TRUE</span></span>
+<span id="cb102-98"><a href="#cb102-98" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;</span> b <span class="co">#is a greater than b? Ans: FALSE</span></span>
+<span id="cb102-99"><a href="#cb102-99" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="co">#is a less than b? Ans: TRUE</span></span>
+<span id="cb102-100"><a href="#cb102-100" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;=</span> b <span class="co">#is a greater than or equal to b? Ans: FALSE</span></span>
+<span id="cb102-101"><a href="#cb102-101" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;=</span> b <span class="co">#is a less than or equal to b? Ans: TRUE</span></span>
+<span id="cb102-102"><a href="#cb102-102" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">|</span> d <span class="sc">&gt;</span> b <span class="co">#is a less than b OR d greater than b?</span></span>
+<span id="cb102-103"><a href="#cb102-103" aria-hidden="true" tabindex="-1"></a><span class="co">#It's answer will be TRUE OR FALSE --&gt; So, TRUE</span></span>
+<span id="cb102-104"><a href="#cb102-104" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">&amp;</span> c <span class="sc">&gt;</span> d <span class="co">#is a less than b AND a greater than b? It's answer will be TRUE AND TRUE --&gt; So, TRUE</span></span>
+<span id="cb102-105"><a href="#cb102-105" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="sc">&amp;</span> d <span class="sc">&gt;</span> c <span class="co">#is a less than b AND a greater than b? It's answer will be TRUE AND FALSE --&gt; So, FALSE</span></span>
+<span id="cb102-106"><a href="#cb102-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb102-107"><a href="#cb102-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-110"><a href="#cb102-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-111"><a href="#cb102-111" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="co">#c means concatenate</span></span>
-<span id="cb102-112"><a href="#cb102-112" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="co">#consecutively, from 1 through 5. A short-hand</span></span>
-<span id="cb102-113"><a href="#cb102-113" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
-<span id="cb102-114"><a href="#cb102-114" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
-<span id="cb102-115"><a href="#cb102-115" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(x)</span>
-<span id="cb102-116"><a href="#cb102-116" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x)</span>
-<span id="cb102-117"><a href="#cb102-117" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="co">#first entry in vector y</span></span>
-<span id="cb102-118"><a href="#cb102-118" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] <span class="co">#2nd to 5th entries in vector y</span></span>
-<span id="cb102-119"><a href="#cb102-119" aria-hidden="true" tabindex="-1"></a>DNA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>) <span class="co">#character vector. Notice the quotation marks.</span></span>
-<span id="cb102-120"><a href="#cb102-120" aria-hidden="true" tabindex="-1"></a>dec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.0</span>, <span class="fl">20.5</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="fl">80.9</span>, <span class="dv">90</span>, <span class="fl">100.7</span>, <span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">56</span>, <span class="dv">55</span>) <span class="co">#vector of floats. All numbers became floats, it's called coercion</span></span>
-<span id="cb102-121"><a href="#cb102-121" aria-hidden="true" tabindex="-1"></a>dec[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">7</span><span class="sc">:</span><span class="fu">length</span>(dec))] <span class="co">#1st to 3rd and then 7th till the end of vector `dec`. Output as a vector.</span></span>
-<span id="cb102-122"><a href="#cb102-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-123"><a href="#cb102-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-124"><a href="#cb102-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vector Operations</span></span>
-<span id="cb102-125"><a href="#cb102-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-128"><a href="#cb102-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-129"><a href="#cb102-129" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb102-130"><a href="#cb102-130" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">11</span></span>
-<span id="cb102-131"><a href="#cb102-131" aria-hidden="true" tabindex="-1"></a><span class="co">#x and y are of same length</span></span>
-<span id="cb102-132"><a href="#cb102-132" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
-<span id="cb102-133"><a href="#cb102-133" aria-hidden="true" tabindex="-1"></a>y <span class="sc">/</span> x</span>
-<span id="cb102-134"><a href="#cb102-134" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)</span>
-<span id="cb102-135"><a href="#cb102-135" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">1</span>) <span class="co">#log2 of all the values of `x`, 1 digit after decimal to round.</span></span>
-<span id="cb102-136"><a href="#cb102-136" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">3</span>) <span class="co">#same logic</span></span>
-<span id="cb102-137"><a href="#cb102-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-138"><a href="#cb102-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-139"><a href="#cb102-139" aria-hidden="true" tabindex="-1"></a>Nested functions work inside out.</span>
-<span id="cb102-140"><a href="#cb102-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-141"><a href="#cb102-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frame Example</span></span>
-<span id="cb102-142"><a href="#cb102-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-145"><a href="#cb102-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-146"><a href="#cb102-146" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mina"</span>, <span class="st">"Raju"</span>, <span class="st">"Mithu"</span>, <span class="st">"Lali"</span>)</span>
-<span id="cb102-147"><a href="#cb102-147" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>)</span>
-<span id="cb102-148"><a href="#cb102-148" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb102-149"><a href="#cb102-149" aria-hidden="true" tabindex="-1"></a>is_human <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb102-150"><a href="#cb102-150" aria-hidden="true" tabindex="-1"></a>cartoon <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(names, gender, age, is_human)</span>
-<span id="cb102-151"><a href="#cb102-151" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(cartoon, <span class="st">"cartoon.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb102-152"><a href="#cb102-152" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"cartoon.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
-<span id="cb102-153"><a href="#cb102-153" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df) <span class="co">#`dim` means dimension. so, rows * columns</span></span>
-<span id="cb102-154"><a href="#cb102-154" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df) <span class="co">#structure of `df`</span></span>
-<span id="cb102-155"><a href="#cb102-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-156"><a href="#cb102-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-157"><a href="#cb102-157" aria-hidden="true" tabindex="-1"></a>We made the vectors first, and the used them to make the <span class="in">`cartton`</span> data frame or table. We learned how to export the data frame using write.table function. Also, we learned to import or read back the table using <span class="in">`read.table`</span> function. What are the <span class="in">`sep`</span>, <span class="in">`col.names`</span>, <span class="in">`header`</span> arguments there? Why do we need them? Think. Try thinking of different properties of a data set.</span>
-<span id="cb102-158"><a href="#cb102-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-159"><a href="#cb102-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gene Expression Table</span></span>
-<span id="cb102-160"><a href="#cb102-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-163"><a href="#cb102-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb102-164"><a href="#cb102-164" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb102-165"><a href="#cb102-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">genes =</span> <span class="fu">c</span>(<span class="st">"TP53"</span>, <span class="st">"BRCA1"</span>, <span class="st">"MYC"</span>, <span class="st">"EGFR"</span>, <span class="st">"GAPDH"</span>, <span class="st">"CDC2"</span>),</span>
-<span id="cb102-166"><a href="#cb102-166" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample1 =</span> <span class="fu">c</span>(<span class="fl">8.2</span>, <span class="fl">6.1</span>, <span class="fl">9.5</span>, <span class="fl">7.0</span>, <span class="fl">10.0</span>, <span class="dv">12</span>),</span>
-<span id="cb102-167"><a href="#cb102-167" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sample2 =</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">3.9</span>, <span class="fl">7.2</span>, <span class="fl">4.8</span>, <span class="fl">7.9</span>, <span class="dv">9</span>),</span>
-<span id="cb102-168"><a href="#cb102-168" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sample3 =</span> <span class="fu">c</span>(<span class="fl">8.25</span>, <span class="fl">6.15</span>, <span class="fl">9.6</span>, <span class="fl">7.1</span>, <span class="fl">10.1</span>, <span class="fl">11.9</span>),</span>
-<span id="cb102-169"><a href="#cb102-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">pathways =</span> <span class="fu">c</span>(<span class="st">"Apoptosis"</span>, <span class="st">"DNA Repair"</span>, <span class="st">"Cell Cycle"</span>, <span class="st">"Signaling"</span>, <span class="st">"Housekeeping"</span>, <span class="st">"Cell Division"</span>)</span>
-<span id="cb102-170"><a href="#cb102-170" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb102-171"><a href="#cb102-171" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(gene_expr, <span class="st">"gene_expr.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb102-172"><a href="#cb102-172" aria-hidden="true" tabindex="-1"></a>gene_set <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"gene_expr.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
-<span id="cb102-173"><a href="#cb102-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb102-174"><a href="#cb102-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-175"><a href="#cb102-175" aria-hidden="true" tabindex="-1"></a>Here, we directly used the vectors as different columns. Did you notice that? Also, the syntax is different here. We can't asign the vectors with the assignment operator (means we can't use <span class="in">`&lt;-`</span> sign. We have to use the <span class="in">`=`</span> sign).</span>
-<span id="cb102-176"><a href="#cb102-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-177"><a href="#cb102-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homeworks  </span></span>
-<span id="cb102-178"><a href="#cb102-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-179"><a href="#cb102-179" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.  </span>
-<span id="cb102-180"><a href="#cb102-180" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make different kinds of variables and vectors with the data types we learned together.  </span>
-<span id="cb102-181"><a href="#cb102-181" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>What are the properties of a data frame?  </span>
-<span id="cb102-182"><a href="#cb102-182" aria-hidden="true" tabindex="-1"></a>Hint: Open an excel/csv/txt file you have and try to "generalize".  </span>
-<span id="cb102-183"><a href="#cb102-183" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Can you make logical questions on the 2 small data sets we used? Try. It will help you understanding the logical operations we tried on variables. Now we are going to apply them on vectors (columns) on the data sets. For example, in the <span class="in">`cartoon`</span> data set, we can ask/try to subset the data set filtering for females only, or for both females and age greater than 2 years.  </span>
-<span id="cb102-184"><a href="#cb102-184" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>If you are writing or practicing coding in R, write comment for each line on what it is doing. It will help to chunk it better into your brain.  </span>
-<span id="cb102-185"><a href="#cb102-185" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Push the script and/or your answers to the questions (with your solutions) to one of your GitHub repo (and send me the repo link).  </span>
+<span id="cb102-108"><a href="#cb102-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Help and Documentation</span></span>
+<span id="cb102-109"><a href="#cb102-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-112"><a href="#cb102-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-113"><a href="#cb102-113" aria-hidden="true" tabindex="-1"></a>?log</span>
+<span id="cb102-114"><a href="#cb102-114" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(log)</span>
+<span id="cb102-115"><a href="#cb102-115" aria-hidden="true" tabindex="-1"></a>?<span class="fu">log</span>()</span>
+<span id="cb102-116"><a href="#cb102-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-117"><a href="#cb102-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-118"><a href="#cb102-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with Vectors</span></span>
+<span id="cb102-119"><a href="#cb102-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-122"><a href="#cb102-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-123"><a href="#cb102-123" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="co">#c means concatenate</span></span>
+<span id="cb102-124"><a href="#cb102-124" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="co">#consecutively, from 1 through 5. A short-hand</span></span>
+<span id="cb102-125"><a href="#cb102-125" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
+<span id="cb102-126"><a href="#cb102-126" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
+<span id="cb102-127"><a href="#cb102-127" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(x)</span>
+<span id="cb102-128"><a href="#cb102-128" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x)</span>
+<span id="cb102-129"><a href="#cb102-129" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="co">#first entry in vector y</span></span>
+<span id="cb102-130"><a href="#cb102-130" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] <span class="co">#2nd to 5th entries in vector y</span></span>
+<span id="cb102-131"><a href="#cb102-131" aria-hidden="true" tabindex="-1"></a>DNA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>) <span class="co">#character vector. Notice the quotation marks.</span></span>
+<span id="cb102-132"><a href="#cb102-132" aria-hidden="true" tabindex="-1"></a>dec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.0</span>, <span class="fl">20.5</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="fl">80.9</span>, <span class="dv">90</span>, <span class="fl">100.7</span>, <span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">56</span>, <span class="dv">55</span>) <span class="co">#vector of floats. All numbers became floats, it's called coercion</span></span>
+<span id="cb102-133"><a href="#cb102-133" aria-hidden="true" tabindex="-1"></a>dec[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">7</span><span class="sc">:</span><span class="fu">length</span>(dec))] <span class="co">#1st to 3rd and then 7th till the end of vector `dec`. Output as a vector.</span></span>
+<span id="cb102-134"><a href="#cb102-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-135"><a href="#cb102-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-136"><a href="#cb102-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vector Operations</span></span>
+<span id="cb102-137"><a href="#cb102-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-140"><a href="#cb102-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-141"><a href="#cb102-141" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb102-142"><a href="#cb102-142" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">11</span></span>
+<span id="cb102-143"><a href="#cb102-143" aria-hidden="true" tabindex="-1"></a><span class="co">#x and y are of same length</span></span>
+<span id="cb102-144"><a href="#cb102-144" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
+<span id="cb102-145"><a href="#cb102-145" aria-hidden="true" tabindex="-1"></a>y <span class="sc">/</span> x</span>
+<span id="cb102-146"><a href="#cb102-146" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)</span>
+<span id="cb102-147"><a href="#cb102-147" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">1</span>) <span class="co">#log2 of all the values of `x`, 1 digit after decimal to round.</span></span>
+<span id="cb102-148"><a href="#cb102-148" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">log2</span>(x), <span class="dv">3</span>) <span class="co">#same logic</span></span>
+<span id="cb102-149"><a href="#cb102-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-150"><a href="#cb102-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-151"><a href="#cb102-151" aria-hidden="true" tabindex="-1"></a>Nested functions work inside out.</span>
+<span id="cb102-152"><a href="#cb102-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-153"><a href="#cb102-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frame Example</span></span>
+<span id="cb102-154"><a href="#cb102-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-157"><a href="#cb102-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-158"><a href="#cb102-158" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mina"</span>, <span class="st">"Raju"</span>, <span class="st">"Mithu"</span>, <span class="st">"Lali"</span>)</span>
+<span id="cb102-159"><a href="#cb102-159" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>)</span>
+<span id="cb102-160"><a href="#cb102-160" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb102-161"><a href="#cb102-161" aria-hidden="true" tabindex="-1"></a>is_human <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb102-162"><a href="#cb102-162" aria-hidden="true" tabindex="-1"></a>cartoon <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(names, gender, age, is_human)</span>
+<span id="cb102-163"><a href="#cb102-163" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(cartoon, <span class="st">"cartoon.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb102-164"><a href="#cb102-164" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"cartoon.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb102-165"><a href="#cb102-165" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df) <span class="co">#`dim` means dimension. so, rows * columns</span></span>
+<span id="cb102-166"><a href="#cb102-166" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df) <span class="co">#structure of `df`</span></span>
+<span id="cb102-167"><a href="#cb102-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb102-168"><a href="#cb102-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-169"><a href="#cb102-169" aria-hidden="true" tabindex="-1"></a>We made the vectors first, and the used them to make the <span class="in">`cartton`</span> data frame or table. We learned how to export the data frame using write.table function. Also, we learned to import or read back the table using <span class="in">`read.table`</span> function. What are the <span class="in">`sep`</span>, <span class="in">`col.names`</span>, <span class="in">`header`</span> arguments there? Why do we need them? Think. Try thinking of different properties of a data set.</span>
+<span id="cb102-170"><a href="#cb102-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-171"><a href="#cb102-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gene Expression Table</span></span>
+<span id="cb102-172"><a href="#cb102-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-175"><a href="#cb102-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb102-176"><a href="#cb102-176" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb102-177"><a href="#cb102-177" aria-hidden="true" tabindex="-1"></a>  <span class="at">genes =</span> <span class="fu">c</span>(<span class="st">"TP53"</span>, <span class="st">"BRCA1"</span>, <span class="st">"MYC"</span>, <span class="st">"EGFR"</span>, <span class="st">"GAPDH"</span>, <span class="st">"CDC2"</span>),</span>
+<span id="cb102-178"><a href="#cb102-178" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample1 =</span> <span class="fu">c</span>(<span class="fl">8.2</span>, <span class="fl">6.1</span>, <span class="fl">9.5</span>, <span class="fl">7.0</span>, <span class="fl">10.0</span>, <span class="dv">12</span>),</span>
+<span id="cb102-179"><a href="#cb102-179" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sample2 =</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">3.9</span>, <span class="fl">7.2</span>, <span class="fl">4.8</span>, <span class="fl">7.9</span>, <span class="dv">9</span>),</span>
+<span id="cb102-180"><a href="#cb102-180" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sample3 =</span> <span class="fu">c</span>(<span class="fl">8.25</span>, <span class="fl">6.15</span>, <span class="fl">9.6</span>, <span class="fl">7.1</span>, <span class="fl">10.1</span>, <span class="fl">11.9</span>),</span>
+<span id="cb102-181"><a href="#cb102-181" aria-hidden="true" tabindex="-1"></a>  <span class="at">pathways =</span> <span class="fu">c</span>(<span class="st">"Apoptosis"</span>, <span class="st">"DNA Repair"</span>, <span class="st">"Cell Cycle"</span>, <span class="st">"Signaling"</span>, <span class="st">"Housekeeping"</span>, <span class="st">"Cell Division"</span>)</span>
+<span id="cb102-182"><a href="#cb102-182" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb102-183"><a href="#cb102-183" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(gene_expr, <span class="st">"gene_expr.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb102-184"><a href="#cb102-184" aria-hidden="true" tabindex="-1"></a>gene_set <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"gene_expr.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb102-185"><a href="#cb102-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb102-186"><a href="#cb102-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-187"><a href="#cb102-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deadline  </span></span>
-<span id="cb102-188"><a href="#cb102-188" aria-hidden="true" tabindex="-1"></a>**Friday, 10pm BD Time.**  </span>
+<span id="cb102-187"><a href="#cb102-187" aria-hidden="true" tabindex="-1"></a>Here, we directly used the vectors as different columns. Did you notice that? Also, the syntax is different here. We can't asign the vectors with the assignment operator (means we can't use <span class="in">`&lt;-`</span> sign. We have to use the <span class="in">`=`</span> sign).</span>
+<span id="cb102-188"><a href="#cb102-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-189"><a href="#cb102-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homeworks</span></span>
+<span id="cb102-190"><a href="#cb102-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-191"><a href="#cb102-191" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Compute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.\</span>
+<span id="cb102-192"><a href="#cb102-192" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Make different kinds of variables and vectors with the data types we learned together.\</span>
+<span id="cb102-193"><a href="#cb102-193" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>What are the properties of a data frame?\</span>
+<span id="cb102-194"><a href="#cb102-194" aria-hidden="true" tabindex="-1"></a>    Hint: Open an excel/csv/txt file you have and try to "generalize".\</span>
+<span id="cb102-195"><a href="#cb102-195" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Can you make logical questions on the 2 small data sets we used? Try. It will help you understanding the logical operations we tried on variables. Now we are going to apply them on vectors (columns) on the data sets. For example, in the <span class="in">`cartoon`</span> data set, we can ask/try to subset the data set filtering for females only, or for both females and age greater than 2 years.\</span>
+<span id="cb102-196"><a href="#cb102-196" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>If you are writing or practicing coding in R, write comment for each line on what it is doing. It will help to chunk it better into your brain.\</span>
+<span id="cb102-197"><a href="#cb102-197" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Push the script and/or your answers to the questions (with your solutions) to one of your GitHub repo (and send me the repo link).</span>
+<span id="cb102-198"><a href="#cb102-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-199"><a href="#cb102-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deadline</span></span>
+<span id="cb102-200"><a href="#cb102-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-201"><a href="#cb102-201" aria-hidden="true" tabindex="-1"></a>**Friday, 10pm BD Time.**</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

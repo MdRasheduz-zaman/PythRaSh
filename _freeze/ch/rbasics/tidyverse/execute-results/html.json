@@ -1,10 +1,8 @@
 {
-  "hash": "2c97db7dbd0c7aa4328b65ad922fc7dc",
+  "hash": "375ba65eccce19dd1e8c124db4fead86",
   "result": {
-    "markdown": "---\ntitle: \"The tidyverse\"\nabstract: \"Pipe (%>%), Tibbles, dplyr-verbs, long/wide format and more.\"\n---\n\n\n",
-    "supporting": [
-      "tidyverse_files"
-    ],
+    "markdown": "---\ntitle: \"The tidyverse\"\nabstract: \"Pipe (%>%), Tibbles, dplyr-verbs, long/wide format and more.\"\n---\n\n  \n<style>\n  .content {\n    text-align: justify !important;\n  }\n  p {\n    text-align: justify !important;\n  }\n  .quarto-body {\n    text-align: justify !important;\n  }\n</style>\n  \n\n\n",
+    "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

@@ -7,5 +7,17 @@ listing:
   fields: [title, author, date, description]
 page-layout: full
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 Welcome to the English blog archive! ✍️📚

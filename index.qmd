@@ -5,7 +5,19 @@ format:
     toc: false
     code-tools: false
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  
 PythRaSh starts out as a step-by-step introduction to R, Python, Linux and Command-line Tools, Probability and Statistics, etc. while its later parts are more of a cookbook with analyses of typical examples in life sciences with focus on (Molecular) Biology, Breeding and Genetics, (Gen)-omics, Medical Sciences, Agriculture, Ecology and other related fields.
 
 ::: text-center

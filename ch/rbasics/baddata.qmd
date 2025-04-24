@@ -2,4 +2,16 @@
 title: "Bad data & Outliers"
 abstract: "Cleaning data, dealing with missing data and comparing results for correlation and regression before vs. after removing an outlier from the data."
 ---
-
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+  

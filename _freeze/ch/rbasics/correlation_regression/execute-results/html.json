@@ -1,7 +1,7 @@
 {
-  "hash": "18a14f7d1de8e46b3500f440a69626c2",
+  "hash": "e54f06f7d56f333c49eac9614d5cb9cc",
   "result": {
-    "markdown": "---\ntitle: \"Correlation & Regression\"\nabstract: \"Correlation and simple linear regression (with and without intercept).\"\n---\n\n\n",
+    "markdown": "---\ntitle: \"Correlation & Regression\"\nabstract: \"Correlation and simple linear regression (with and without intercept).\"\n---\n\n  \n<style>\n  .content {\n    text-align: justify !important;\n  }\n  p {\n    text-align: justify !important;\n  }\n  .quarto-body {\n    text-align: justify !important;\n  }\n</style>\n  \n\n\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
