@@ -311,7 +311,7 @@ atomic_vec["Mouse"]
   
 ### Basic Stuffs: Matrices  
   
-Matrices are essential for biologists working with expression data, distance matrices, and other numerical data. ONLY NUMERICAL DATA.
+Matrices are essential for biologists working with expression data, distance matrices, and other numerical data. 
 
 ```{r matrices}
 # Create a gene expression matrix: rows=genes, columns=samples
@@ -361,6 +361,179 @@ heatmap(expr_matrix,
         main = "Gene Expression Heatmap")
 ```
   
+#### More Matrix Practice:  
+```{r more-mat-practice}
+#Create a simple Gene Expression matrix (RNA-seq style)
+
+Gene_Expression <- matrix(c(
+  5.2, 3.1, 8.5,   # Sample 1
+  6.0, 2.8, 7.9    # Sample 2
+), nrow = 2, byrow = TRUE)
+
+rownames(Gene_Expression) <- c("Sample_1", "Sample_2")
+colnames(Gene_Expression) <- c("GeneA", "GeneB", "GeneC")
+
+print("Gene Expression Matrix:")
+print(Gene_Expression)
+
+#1. Transpose: Genes become rows, Samples become columns
+
+Gene_Expression_T <- t(Gene_Expression)
+print("Transpose of Gene Expression Matrix:")
+print(Gene_Expression_T)
+
+#2. Matrix multiplication
+# Suppose each gene has an associated "gene weight" (e.g., biological importance)
+
+Gene_Weights <- matrix(c(0.8, 1.2, 1.0), nrow = 3, byrow = TRUE)
+rownames(Gene_Weights) <- c("GeneA", "GeneB", "GeneC")
+colnames(Gene_Weights) <- c("Weight")
+
+Total_Weighted_Expression <- Gene_Expression %*% Gene_Weights
+print("Total Weighted Expression per Sample:")
+print(Total_Weighted_Expression)
+
+# 3. Matrix addition
+# Hypothetically increase expression by 1 TPM everywhere (technical adjustment)
+
+Adjusted_Expression <- Gene_Expression + 1
+print("Expression Matrix after adding 1 TPM:")
+print(Adjusted_Expression)
+
+# 4. Identity matrix 
+I <- diag(3)
+rownames(I) <- c("GeneA", "GeneB", "GeneC")
+colnames(I) <- c("GeneA", "GeneB", "GeneC")
+
+print("Identity Matrix (for genes):")
+print(I)
+
+# Multiplying Gene Expression by Identity
+Identity_Check <- Gene_Expression %*% I
+print("Gene Expression multiplied by Identity Matrix:")
+print(Identity_Check)
+
+# 5. Scalar multiplication 
+# Suppose you want to simulate doubling expression values
+
+Doubled_Expression <- 2 * Gene_Expression
+print("Doubled Gene Expression:")
+print(Doubled_Expression)
+
+# 6. Summations 
+
+# Total expression per sample
+Total_Expression_Per_Sample <- rowSums(Gene_Expression)
+print("Total Expression per Sample:")
+print(Total_Expression_Per_Sample)
+
+# Total expression per gene
+Total_Expression_Per_Gene <- colSums(Gene_Expression)
+print("Total Expression per Gene:")
+print(Total_Expression_Per_Gene)
+
+# 7. Simple plots 
+
+# Barplot: Total expression per sample
+barplot(Total_Expression_Per_Sample, main="Total Expression per Sample", ylab="TPM", col=c("skyblue", "salmon"))
+
+# Barplot: Total expression per gene
+barplot(Total_Expression_Per_Gene, main="Total Expression per Gene", ylab="TPM", col=c("lightgreen", "orange", "violet"))
+
+# Heatmap: Expression matrix
+heatmap(Gene_Expression, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", main="Gene Expression Heatmap")
+```
+  
+  
+Another Example:
+You have counts of cells in different organs for two animal species.  
+You also have a matrix with average cell sizes (micrometer, µm²) for each organ.  
+You can then multiply count × size to get total cell area for each species in each organ.  
+
+```{r mat-prac-2}
+# Create a matrix: Cell counts
+Cell_Counts <- matrix(c(500, 600, 300, 400, 700, 800), nrow = 2, byrow = TRUE)
+rownames(Cell_Counts) <- c("Mouse", "Rat")
+colnames(Cell_Counts) <- c("Heart", "Liver", "Brain")
+
+print("Cell Counts Matrix:")
+print(Cell_Counts)
+
+# Create a matrix: Average cell size in µm²
+Cell_Size <- matrix(c(50, 200, 150), nrow = 3, byrow = TRUE)
+rownames(Cell_Size) <- c("Heart", "Liver", "Brain")
+colnames(Cell_Size) <- c("Avg_Cell_Size")
+
+print("Cell Size Matrix (µm²):")
+print(Cell_Size)
+
+# 1. Transpose of Cell Counts
+Cell_Counts_T <- t(Cell_Counts)
+print("Transpose of Cell Counts:")
+print(Cell_Counts_T)
+
+# 2. Matrix multiplication: Total cell area
+# (2x3) %*% (3x1) => (2x1)
+Total_Cell_Area <- Cell_Counts %*% Cell_Size
+print("Total Cell Area (Counts × Size) (µm²):")
+print(Total_Cell_Area)
+
+# 3. Matrix addition: Add 10 cells artificially to all counts (for example)
+Added_Cells <- Cell_Counts + 10
+print("Cell Counts after adding 10 artificial cells:")
+print(Added_Cells)
+
+# 4. Identity matrix
+I <- diag(3)
+rownames(I) <- c("Heart", "Liver", "Brain")
+colnames(I) <- c("Heart", "Liver", "Brain")
+
+print("Identity Matrix:")
+print(I)
+
+# 5. Multiplying Cell Counts by Identity Matrix (no real change but shows dimension rules)
+Check_Identity <- Cell_Counts %*% I
+print("Cell Counts multiplied by Identity Matrix:")
+print(Check_Identity)
+
+# 6. Scalar multiplication: double the counts (hypothetical growth)
+Double_Cell_Counts <- 2 * Cell_Counts
+print("Doubled Cell Counts:")
+print(Double_Cell_Counts)
+
+# Total number of cells per animal (row sums)
+Total_Cells_Per_Species <- rowSums(Cell_Counts)
+print("Total number of cells per species:")
+print(Total_Cells_Per_Species)
+
+# Total number of cells per organ (column sums)
+Total_Cells_Per_Organ <- colSums(Cell_Counts)
+print("Total number of cells per organ:")
+print(Total_Cells_Per_Organ)
+
+# --- Simple plots ---
+
+# Bar plot of total cells per species
+barplot(Total_Cells_Per_Species, main="Total Cell Counts per Species", ylab="Number of Cells", col=c("lightblue", "lightgreen"))
+
+# Bar plot of total cells per organ
+barplot(Total_Cells_Per_Organ, main="Total Cell Counts per Organ", ylab="Number of Cells", col=c("pink", "lightyellow", "lightgray"))
+
+# Heatmap of the original Cell Counts matrix
+heatmap(Cell_Counts, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", main="Heatmap of Cell Counts")
+```
+  
+| Operation               | Explanation                        | R Function/Example             |
+|:-------------------------|:-----------------------------------|:-------------------------------|
+| Matrix Creation          | Create gene expression matrix     | `matrix()`                     |
+| Transpose                | Flip genes and samples             | `t(Gene_Expression)`            |
+| Matrix Multiplication    | Calculate weighted sums           | `Gene_Expression %*% Gene_Weights` |
+| Matrix Addition          | Adjust counts                     | `Gene_Expression + 1`           |
+| Identity Matrix          | Special neutral matrix            | `diag(3)`                      |
+| Scalar Multiplication    | Simulate overall increase         | `2 * Gene_Expression`           |
+| Row/Column Summation     | Total per sample/gene              | `rowSums()`, `colSums()`        |
+| Plotting                 | Visualize expression patterns     | `barplot()`, `heatmap()`        |
+
 ### Basic Stuffs: List  
 Lists are the most flexible data structure in R - they can hold any combination of data types, including other lists! This makes them essential for biological data analysis where we often deal with mixed data types.  
 
