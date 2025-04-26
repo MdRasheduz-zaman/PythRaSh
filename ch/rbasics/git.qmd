@@ -6,7 +6,8 @@ execute:
   echo: true
   eval: false  # disables code execution globally
 ---
-  
+
+```{=html}
 <style>
   .content {
     text-align: justify !important;
@@ -18,8 +19,7 @@ execute:
     text-align: justify !important;
   }
 </style>
-  
-
+```
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))

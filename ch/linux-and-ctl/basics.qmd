@@ -4,6 +4,12 @@ abstract: "Linux, WSL2, Navigation, simple commands"
 ---
 
 ```{r}
+```
+
+```{r}
+```
+
+```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
@@ -25,3 +31,8 @@ The problem here is, I am not using Windows. So, I might not be able to help you
 echo "Hello from Bash!" 
 ls -l
 ```
+Learn a lot from https://github.com/hbctraining
+```{bash}
+
+```
+

@@ -1,0 +1,6 @@
+"","gene_id","expression","mutation","pathway"
+"BRCA1","BRCA1",8.2,"Yes","DNA Repair"
+"TP53","TP53",6.1,"No","Apoptosis"
+"MYC","MYC",9.5,"Yes","Cell Cycle"
+"EGFR","EGFR",7,"No","Signaling"
+"GAPDH","GAPDH",10,"No","Metabolism"
