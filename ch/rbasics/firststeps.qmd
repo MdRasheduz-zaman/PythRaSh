@@ -19,7 +19,7 @@ abstract: "Data types, variables, vectors, data frame, functions"
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
-# L1: Data Representation  
+# L2: Data Representation  
   
 ## Using R as a Calculator  
 Let's do some basic calculation.  
@@ -185,7 +185,7 @@ Here, we directly used the vectors as different columns while making the data fr
 **Friday, 10pm BD Time.**
 
 
-# L2: Data Transformation  
+# L3: Data Transformation  
   
 Firstly, how did you solve the problems?  
 <br>
@@ -235,6 +235,9 @@ cartoon <- data.frame(
   is_human = c(TRUE, TRUE, FALSE, FALSE)
 )
 cartoon
+dim(cartoon)
+str(cartoon)
+length(cartoon$names)
 ##subseting
 cartoon[1:2, 2:3] #row 1-2, column 2-3
 cartoon[c(1, 3), c(1:3)] #row 1-3, column 1-3
@@ -419,6 +422,7 @@ patient_data <- list(
 )
 ```
   
+
 Common List Operations  
 ```{r list-op}
 # Add new element
@@ -431,7 +435,40 @@ genomics_data$is_cancer_gene <- NULL
 str(genomics_data)
 ```
   
-Converting Between Structures
+By the way, how would you add more patients?  
+```{r}
+# Add new patient
+patient_data$P1002 <- list(
+  id = "P1002",
+  tests = data.frame(
+    test = c("WBC", "RBC", "Platelets"),
+    value = c(6.2, 4.8, 150)
+  ),
+  has_mutation = FALSE
+)
+# Access specific patient
+patient_data$P1001$tests
+```
+For Batch Processing:  
+```{r}
+patients <- list(
+  list(
+    id = "P1001",
+    tests = data.frame(test = c("WBC", "RBC"), value = c(4.5, 5.1)),
+    has_mutation = TRUE
+  ),
+  list(
+    id = "P1002",
+    tests = data.frame(test = c("WBC", "RBC", "Platelets"), value = c(6.2, 4.8, 150)),
+    has_mutation = FALSE
+  )
+)
+
+# Access 2nd patient's WBC value
+patients[[2]]$tests$value[patients[[2]]$tests$test == "WBC"]
+```
+
+Converting Between Structures  
 ```{r}
 # List → Vector
 unlist(genomics_data[1:3])
