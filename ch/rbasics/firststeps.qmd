@@ -793,13 +793,14 @@ $$
   15 & 12 & 10 \\
 \end{bmatrix}
 $$
-- Rows = Samples:  
-  - Sample1  
+
+- Rows = Samples:
+  - Sample1
   - Sample2
 
-- Columns = Genes:  
-  - GeneA  
-  - GeneB  
+- Columns = Genes:
+  - GeneA
+  - GeneB
   - GeneC
 
 Each gene translates into proteins with a certain efficiency. The efficiency of translation from each gene to its corresponding protein is given by the following diagonal matrix:
@@ -1037,11 +1038,12 @@ You should now build a named list called bioList containing the following four e
 - Plant = list(matrix = ParentTraits, weights = HybridWeights)
 - Animal = list(matrix = BullEBVs, weights = EconomicWeights)
 
-Hint: Each inner list should contain both:  
-- matrix = the main data matrix  
+Hint: Each inner list should contain both:
+
+- matrix = the main data matrix
 - weights = the vector used for multiplication
 
-No R code is required here (You have from previous part) — just structure your data like this in your workspace.
+No R code is required here (You have them from previous part, use inside same rmd/notebook file) — just structure your data like this in your workspace.
 
 ---
 
