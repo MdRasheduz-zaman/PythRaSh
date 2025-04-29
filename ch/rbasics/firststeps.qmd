@@ -814,7 +814,8 @@ $$
 \end{bmatrix}
 $$
 
-This means:  
+This means:
+
   - GeneA → ProteinA with 1.5× efficiency  
   - GeneB → ProteinB with 1.2× efficiency  
   - GeneC → ProteinC with 1.8× efficiency
