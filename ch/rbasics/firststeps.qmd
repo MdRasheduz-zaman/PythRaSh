@@ -362,6 +362,7 @@ heatmap(expr_matrix,
 ```
   
 #### More Matrix Practice:  
+
 ```{r more-mat-practice}
 #Create a simple Gene Expression matrix (RNA-seq style)
 
@@ -717,7 +718,382 @@ iii) A logical vector indicating pathway membership
 
 iv) A nested list with lab metadata
   
+## 📘 Homeworks: Matrix and List Operations    
+
+### 🧪 Protein Concentration
+
+You are given the following protein concentration matrix:  
+
+$$
+\text{ProteinMatrix} =
+\begin{bmatrix}
+  5 & 3 & 2 \\
+  7 & 6 & 4 \\
+\end{bmatrix}
+$$
+
+- Rows represent samples:
+  - Sample1
+  - Sample2
+- Columns represent proteins:
+  - ProteinX
+  - ProteinY
+  - ProteinZ
+
+You are also given a weight (importance) matrix for the proteins:
+
+$$
+\text{WeightVector} =
+\begin{bmatrix}
+  0.5 \\
+  1.0 \\
+  1.5 \\
+\end{bmatrix}
+$$
+
+---
+
+### 🔧 Tasks
+
+1. Make the matrices (with exact names) and multiply the ProteinMatrix by the WeightVector.
+
+   That is:
+
+   $$
+   \text{ProteinMatrix} \times \text{WeightVector}
+   $$
+
+2. Transpose the ProteinMatrix and show what it looks like.
+
+3. Create the Identity matrix of compatible size and show what happens when you multiply:
+   $$
+   \text{ProteinMatrix} \times I
+   $$
+
+4. Do the calculations (rowSums, colSums, etc.) and visualization (barplot, heatmap) as shown in the class.
+
+---
+
+### 🧠 Interpretation Questions
+
+- What does multiplying the protein levels by the weight vector mean biologically?
+- What does the result tell you about total protein burden (or total protein impact) for each sample?
+- What do the identity matrix represent in the context of protein interactions or measurement biases?
+- If you changed the weight of ProteinZ to 3.0, how would the result change?
+
+---
+
+### 🧬 Gene-to-Protein Translation
+
+You are given the following matrix representing normalized gene expression levels (e.g., TPM):
+$$
+\text{GeneExpression} =
+\begin{bmatrix}
+  10 &  8 &  5 \\
+  15 & 12 & 10 \\
+\end{bmatrix}
+$$
+- Rows = Samples:  
+  - Sample1  
+  - Sample2
+
+- Columns = Genes:  
+  - GeneA  
+  - GeneB  
+  - GeneC
+
+Each gene translates into proteins with a certain efficiency. The efficiency of translation from each gene to its corresponding protein is given by the following diagonal matrix:
+
+$$
+\text{TranslationMatrix} =
+\begin{bmatrix}
+  1.5 & 0   & 0 \\
+  0   & 1.2 & 0 \\
+  0   & 0   & 1.8 \\
+\end{bmatrix}
+$$
+
+This means:  
+  - GeneA → ProteinA with 1.5× efficiency  
+  - GeneB → ProteinB with 1.2× efficiency  
+  - GeneC → ProteinC with 1.8× efficiency
+
+---
+
+### 🔧 Tasks
+
+1. Make the matrices and multiply GeneExpression × TranslationMatrix to compute the resulting ProteinMatrix.
+   - Show the result step-by-step.
+
+2. Transpose the GeneExpression matrix. What does this new matrix represent?
+
+3. Create the Identity matrix I₃ and multiply it with the TranslationMatrix. What happens?
+
+4. Create a new matrix containing only the expression of GeneA and GeneB across both samples. Call this submatrix A.
+
+   - Compute the inverse A⁻¹ using `solve()` function.
+   - Then verify:  
+     A × A⁻¹ = I₂
+
+---
+
+### 📊 Visualization Tasks
+
+5. Plot a MARplot-style scatter plot:
+   - x-axis: Gene expression values (GeneExpression matrix, flattened)
+   - y-axis: Corresponding Protein values (ProteinMatrix, flattened)
+   - Label each point as "Sample-Gene"
+
+6. Generate a heatmap of the ProteinMatrix using R’s `heatmap()` function.
+   - Add meaningful row and column labels.
+   - Enable clustering by rows and columns.
+
+---
+
+### 🧠 Interpretation Questions
+
+- What does matrix multiplication represent biologically in this case?
+- Why does the diagonal TranslationMatrix make sense biologically?
+- What does it mean if Sample2 has higher protein levels even with similar gene expression?
+- How does the MARplot help interpret translation efficiency?
+- How does clustering in the heatmap reveal relationships between samples and proteins?
+
+---
+
+### 🐄 Animal Breeding – Economic Ranking of Bulls by Traits
+
+You are evaluating two bulls for use in a dairy breeding program. Their Estimated Breeding Values (EBVs) are:
+
+$$
+\text{BullEBVs} =
+\begin{bmatrix}
+  400 & 1.2 & 0.8 \\\\
+  500 & 1.5 & 0.6 \\\\
+\end{bmatrix}
+$$
+
+- Rows:  
+  - Bull1  
+  - Bull2
+
+- Columns:  
+  - Trait1 = Milk yield (liters/year)  
+  - Trait2 = Growth rate (kg/day)  
+  - Trait3 = Fertility (calving interval adjustment)
+
+You assign economic weights to each trait:
+
+$$
+\text{EconomicWeights} =
+\begin{bmatrix}
+  0.002 \\\\
+  50 \\\\
+  100 \\\\
+\end{bmatrix}
+$$
+
+---
+
+### 🔧 Tasks
+
+1. Compute:
+
+   $$
+   \text{TotalValue} = \text{BullEBVs} \times \text{EconomicWeights}
+   $$
+
+   - What are the resulting values?
+   - Which bull is more valuable economically?
+
+2. Interpret what multiplying by the economic weights means biologically.
+
+3. Create the 3×3 identity matrix I₃ and multiply it with BullEBVs.
+   - What does it return?
+   - What does the identity matrix mean in this case?
+
+4. Subset the BullEBVs matrix to remove Trait1 (milk yield) and recalculate TotalValue.
+   - How does this change the ranking?
+
+---
+
+### 📊 Visualization Tasks
+
+5. Create a bar plot comparing TotalValue for Bull1 and Bull2.
+
+6. Create a heatmap of the EBVs.
+   - Label rows and columns.
+   - Enable clustering.
+
+---
+
+### 🧠 Interpretation Questions
+
+- How do economic weights affect trait importance?
+- Why might you ignore milk yield in some breeding programs?
+- What is the value of heatmaps in visualizing multivariate trait data?
+- Can this method be extended to more bulls and more traits?
+
+### 🌾 Plant Breeding – Trait Contributions from Parental Lines
+
+You are breeding a new rice variety from three parental lines. The key traits are:
+
+- T1 = Drought resistance  
+- T2 = Yield  
+- T3 = Maturation time
+
+The following trait values (normalized 1–10) have been measured:
+
+$$
+\text{ParentTraits} =
+\begin{bmatrix}
+  7 & 5 & 3 \\\\
+  6 & 8 & 4 \\\\
+  5 & 6 & 6 \\\\
+\end{bmatrix}
+$$
+
+- Rows:  
+  - P1 (Parent 1)  
+  - P2 (Parent 2)  
+  - P3 (Parent 3)
+
+- Columns:  
+  - T1 = Drought resistance  
+  - T2 = Yield  
+  - T3 = Maturation time
+
+You design a hybrid with contributions from each parent as follows:
+
+$$
+\text{HybridWeights} =
+\begin{bmatrix}
+  0.5 \\\\
+  0.3 \\\\
+  0.2 \\\\
+\end{bmatrix}
+$$
+
+---
+
+### 🔧 Tasks
+
+1. Compute the HybridTrait vector by:
+
+   $$
+   \text{HybridTraits} = \text{HybridWeights}^T \times \text{ParentTraits}
+   $$
+
+   Show the steps and result.
+
+2. Explain what it means biologically when one parent contributes more to a particular trait.
+
+3. Create an identity matrix I₃ and multiply it with ParentTraits.
+   - What do you observe?
+   - What does I × ParentTraits represent?
+
+4. Subset the ParentTraits matrix to include only T1 and T2. Recalculate the hybrid traits.
+   - Discuss how removing a trait affects your outcome.
+
+---
+
+### 📊 Visualization Tasks
+
+5. Generate a heatmap of the ParentTraits matrix.
+   - Label the rows with parent names and columns with trait names.
+   - Enable row/column clustering.
+
+6. Create a bar plot showing the HybridTraits (T1, T2, T3).
+   - Color code each bar by trait.
+   - What trait contributes most?
+
+---
+
+### 🧠 Interpretation Questions
+
+- How does the weighting of parents affect the hybrid's performance?
+- What does the identity matrix represent here?
+- If you used equal weights (⅓ for each), how would the hybrid traits change?
+- What real-world limitations does this simplified model ignore?
+
+### 🧠 Managing Matrices and Weight Vectors Using Lists in R
+
+Now that you have completed four biological matrix problems — Protein concentration, gene-to-protein mapping, bull breeding value ranking, and plant trait combinations — it’s time to organize your data and weights using R’s list structure.
+
+In this task, you will:
+
+- Group each example’s matrix and its corresponding weight vector inside a named list.
+- Combine these named lists into a larger list called bioList.
+- Use list indexing to repeat your earlier calculations and visualizations.
+- Reflect on the benefits and challenges of using structured data objects.
+
+---
+
+### 📦 Step 1: Create a master list
+
+You should now build a named list called bioList containing the following four elements:
+
+- ProteinConc = list(matrix = ProteinMatrix, weights = WeightVector)
+- ProteinMap = list(matrix = ProteinMapping, weights = TranslationWeights)
+- Plant = list(matrix = ParentTraits, weights = HybridWeights)
+- Animal = list(matrix = BullEBVs, weights = EconomicWeights)
+
+Hint: Each inner list should contain both:  
+- matrix = the main data matrix  
+- weights = the vector used for multiplication
+
+No R code is required here (You have from previous part) — just structure your data like this in your workspace.
+
+---
+
+### 🔧 Tasks
+
+1. List the full names of each component in bioList.  
+   What are the names of the top-level and nested components?
+
+2. Access each matrix and its corresponding weights using list indexing.
+   - How would you extract only the matrix of the Plant entry?
+   - How would you extract the weights for the RNAseq entry?
+
+3. Use the correct matrix and weights to perform:
+   - RNAseq: Weighted gene expression score
+   - ProteinMap: Contribution of transcripts to each protein
+   - Plant: Hybrid trait values
+   - Animal: Bull total economic value
+
+4. Subset one matrix in each sublist (e.g., drop a trait or feature) and repeat the weighted calculation.
+   - What changes in the results?
+   - Which traits/genes have the strongest influence?
+
+---
+
+### 📊 Visualization Tasks
+
+5. Generate one heatmap for any matrix stored in bioList.
+   - Choose one (e.g., ProteinMap or Plant)
+   - Apply clustering to rows and/or columns
+   - Label appropriately
+
+6. Generate two bar plots:
+   - One showing the result of weighted trait aggregation for the Plant hybrid
+   - One showing the total breeding values for each bull
+
+---
+
+### 🧠 Interpretation Questions
+
+- How does structuring your data using a list help with clarity and reproducibility?
+- What risks or challenges might occur when accessing elements from nested lists?
+- Could this structure be scaled for real datasets with many samples or traits?
+- How would you loop over all elements in bioList to apply the same function?
+- How can this list structure be useful for building automated bioinformatics pipelines?
+
   
+📝 Your Rmarkdown file(s) should include:  
+- All matrix calculations (tasks). Also, name the rows and columns of each matrix accordingly.  
+- All interpretation answers  
+- All plots (screenshots or embedded code)  
+- And your commentary blocks for each code chunk.  
+
 ## Factor Variables  
 Important for categorical data  
   
