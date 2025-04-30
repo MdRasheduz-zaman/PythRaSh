@@ -1055,10 +1055,10 @@ No R code is required here (You have them from previous part, use inside same rm
 
 2. Access each matrix and its corresponding weights using list indexing.
    - How would you extract only the matrix of the Plant entry?
-   - How would you extract the weights for the RNAseq entry?
+   - How would you extract the weights for the Protein concentration entry?
 
 3. Use the correct matrix and weights to perform:
-   - RNAseq: Weighted gene expression score
+   - ProteinConc: Weighted gene expression score
    - ProteinMap: Contribution of transcripts to each protein
    - Plant: Hybrid trait values
    - Animal: Bull total economic value
@@ -1091,11 +1091,14 @@ No R code is required here (You have them from previous part, use inside same rm
 - How can this list structure be useful for building automated bioinformatics pipelines?
 
   
-📝 Your Rmarkdown file(s) should include:  
-- All matrix calculations (tasks). Also, name the rows and columns of each matrix accordingly.  
-- All interpretation answers  
-- All plots (screenshots or embedded code)  
-- And your commentary blocks for each code chunk.  
+📝 Your Rmarkdown file(s) should include:
+
+- All matrix calculations (tasks). Also, name the rows and columns of each matrix accordingly.
+- All interpretation answers
+- All plots (output from embedded code)
+- And your commentary blocks for each code chunk
+
+**knit your rmd (or Notebook) file as html/pdf file and push both the rmd (or Notebook) and html/pdf files**
 
 ## Factor Variables  
 Important for categorical data  
