@@ -1,0 +1,249 @@
+---
+title: "HW solutions"
+abstract: "dataframe, matrices, list, factor, vector, etc."
+---
+  
+<style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+
+# L3
+
+## Task 1: Protein Concentration in Samples
+
+We measured the concentration (in µg/µL) of three proteins (P1, P2, P3) in four samples (S1–S4):
+
+```{r}
+ProteinMatrix <- matrix(c(
+  12, 18, 5,
+  9, 15, 8,
+  14, 12, 6,
+  10, 20, 7
+), nrow = 4, byrow = TRUE)
+rownames(ProteinMatrix) <- c("S1", "S2", "S3", "S4")
+colnames(ProteinMatrix) <- c("P1", "P2", "P3")
+ProteinMatrix
+```
+
+### Total Protein per Sample
+
+```{r}
+rowSums(ProteinMatrix)
+```
+
+### Total Protein per Protein Type
+
+```{r}
+colSums(ProteinMatrix)
+```
+
+### Heatmap of Protein Concentrations
+
+```{r}
+heatmap(ProteinMatrix, scale = "none", col = heat.colors(10))
+```
+
+### Interpretation
+
+- Sample S4 has the highest P2.
+- Heatmap reveals P2 is most abundant across all samples.
+
+---
+
+## Task 2: Gene-to-Protein Translation
+
+Gene expression (G1–G3) measured in tissues (Liver, Heart, Brain):
+
+```{r}
+GeneExpression <- matrix(c(
+  8, 5, 7,
+  6, 4, 5,
+  9, 7, 6
+), nrow = 3, byrow = TRUE)
+rownames(GeneExpression) <- c("Liver", "Heart", "Brain")
+colnames(GeneExpression) <- c("G1", "G2", "G3")
+GeneExpression
+```
+
+Translation efficiency:
+
+```{r}
+TranslationEfficiency <- matrix(c(0.8, 0.6, 0.9), ncol = 1)
+rownames(TranslationEfficiency) <- c("G1", "G2", "G3")
+TranslationEfficiency
+```
+
+### Protein Output
+
+```{r}
+ProteinOutput <- GeneExpression %*% TranslationEfficiency
+rownames(ProteinOutput) <- rownames(GeneExpression)
+colnames(ProteinOutput) <- "TotalProtein"
+ProteinOutput
+```
+
+### Barplot of Output
+
+```{r}
+barplot(ProteinOutput[,1], main = "Protein Output per Tissue", col = "steelblue")
+```
+
+### Heatmap of Expression
+
+```{r}
+heatmap(GeneExpression, col = terrain.colors(10), scale = "column")
+```
+
+### Interpretation
+
+- Brain has highest protein output.
+- Heatmap shows relative expression.
+
+---
+
+## Task 3: Animal Breeding – Bull Ranking by Economic Traits
+
+Bull trait scores:
+
+```{r}
+BullTraits <- matrix(c(
+  80, 3.5, 1.2,
+  90, 3.2, 1.5,
+  70, 3.8, 1.1,
+  85, 3.0, 1.4
+), nrow = 4, byrow = TRUE)
+rownames(BullTraits) <- c("B1", "B2", "B3", "B4")
+colnames(BullTraits) <- c("Milk", "Fat%", "Growth")
+BullTraits
+```
+
+Weights:
+
+```{r}
+EconomicWeights <- matrix(c(0.5, 0.3, 0.2), ncol = 1)
+rownames(EconomicWeights) <- c("Milk", "Fat%", "Growth")
+EconomicWeights
+```
+
+### Economic Score
+
+```{r}
+BullScore <- BullTraits %*% EconomicWeights
+colnames(BullScore) <- "EconomicScore"
+BullScore
+```
+
+### Rank Bulls
+
+```{r}
+BullScore[order(-BullScore), , drop=FALSE]
+```
+
+### Barplot
+
+```{r}
+barplot(BullScore[,1], names.arg = rownames(BullScore), col = "darkgreen", main = "Economic Score")
+```
+
+### Interpretation
+
+- B2 ranked highest.
+- Weighted sum allows multi-trait selection.
+
+---
+
+## Task 4: Plant Breeding – Trait Contributions from Parental Lines
+
+Parent trait matrix:
+
+```{r}
+ParentTraits <- matrix(c(
+  7, 5, 3,
+  6, 8, 4,
+  5, 6, 6
+), nrow = 3, byrow = TRUE)
+rownames(ParentTraits) <- c("P1", "P2", "P3")
+colnames(ParentTraits) <- c("T1_Drought", "T2_Yield", "T3_Maturation")
+ParentTraits
+```
+
+Hybrid weights:
+
+```{r}
+HybridWeights <- matrix(c(0.5, 0.3, 0.2), ncol = 1)
+rownames(HybridWeights) <- c("P1", "P2", "P3")
+HybridWeights
+```
+
+### Hybrid Traits
+
+```{r}
+HybridTraits <- t(HybridWeights) %*% ParentTraits
+colnames(HybridTraits) <- colnames(ParentTraits)
+HybridTraits
+```
+
+### Identity Matrix
+
+```{r}
+I3 <- diag(3)
+I3 %*% ParentTraits
+```
+
+### Subset to T1 and T2
+
+```{r}
+HybridTraits_sub <- t(HybridWeights) %*% ParentTraits[, c("T1_Drought", "T2_Yield")]
+HybridTraits_sub
+```
+
+### Interpretation
+
+- Trait values represent weighted parental influence.
+- Identity matrix preserves values.
+- Subsetting traits removes T3 influence.
+
+---
+
+## Task 5: Managing Tasks Using Lists
+
+```{r}
+TaskList <- list(
+  Task1 = list(
+    M = ProteinMatrix
+  ),
+  Task2 = list(
+    M = GeneExpression,
+    W = TranslationEfficiency
+  ),
+  Task3 = list(
+    M = BullTraits,
+    W = EconomicWeights
+  ),
+  Task4 = list(
+    M = ParentTraits,
+    W = HybridWeights
+  )
+)
+```
+
+### Access & Operate
+
+```{r}
+TaskList$Task2$M
+TaskList$Task2$M %*% TaskList$Task2$W
+```
+
+### Interpretation
+
+Using lists helps manage and operate on structured data across tasks.
+
+---

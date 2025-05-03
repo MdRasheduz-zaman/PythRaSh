@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2025-05-03">
+<title>pythrash - HW solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="../../_include/styles.css">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PythRaSh</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">
+<li>
+    <a class="dropdown-item" href="../../ch/rbasics/git.html" rel="" target="">
+ <span class="dropdown-text">git</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/firststeps.html" rel="" target="">
+ <span class="dropdown-text">Basic R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/tidyverse.html" rel="" target="">
+ <span class="dropdown-text">The tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/correlation_regression.html" rel="" target="">
+ <span class="dropdown-text">Advanced R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/baddata.html" rel="" target="">
+ <span class="dropdown-text">Data Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/rbasics/solutions.html" rel="" target="">
+ <span class="dropdown-text">Problem Solutions</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">
+<li>
+    <a class="dropdown-item" href="../../ch/python/basics.html" rel="" target="">
+ <span class="dropdown-text">Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/panda.html" rel="" target="">
+ <span class="dropdown-text">Advanced Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/MLA.html" rel="" target="">
+ <span class="dropdown-text">Machine Learning Algorithms</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/python/AI.html" rel="" target="">
+ <span class="dropdown-text">AI</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linux-and-clt" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Linux and CLT</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linux-and-clt">
+<li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/basics.html" rel="" target="">
+ <span class="dropdown-text">Linux Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/linux-and-ctl/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Command Line</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-probability-and-statistics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Probability and Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-probability-and-statistics">
+<li>
+    <a class="dropdown-item" href="../../ch/prob_stat/prob_basic.html" rel="" target="">
+ <span class="dropdown-text">Probability Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/prob_stat/stat.html" rel="" target="">
+ <span class="dropdown-text">Statistics</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Genomics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomics">
+<li>
+    <a class="dropdown-item" href="../../ch/genomics/basics.html" rel="" target="">
+ <span class="dropdown-text">Genomics Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/advanced.html" rel="" target="">
+ <span class="dropdown-text">Advanced Genomics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/genomics/pipeline.html" rel="" target="">
+ <span class="dropdown-text">Pipelines</span></a>
+  </li>  
+    </ul>
+</li>
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blogs" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Blogs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blogs">
+<li>
+    <a class="dropdown-item" href="../../ch/blogs/en/index.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ch/blogs/bn/index.html" rel="" target="">
+ <span class="dropdown-text">Bangla</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MdRasheduz-zaman/PythRaSh" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#l3" id="toc-l3" class="nav-link active" data-scroll-target="#l3">L3</a>
+  <ul class="collapse">
+<li>
+<a href="#task-1-protein-concentration-in-samples" id="toc-task-1-protein-concentration-in-samples" class="nav-link" data-scroll-target="#task-1-protein-concentration-in-samples">Task 1: Protein Concentration in Samples</a>
+  <ul class="collapse">
+<li><a href="#total-protein-per-sample" id="toc-total-protein-per-sample" class="nav-link" data-scroll-target="#total-protein-per-sample">Total Protein per Sample</a></li>
+  <li><a href="#total-protein-per-protein-type" id="toc-total-protein-per-protein-type" class="nav-link" data-scroll-target="#total-protein-per-protein-type">Total Protein per Protein Type</a></li>
+  <li><a href="#heatmap-of-protein-concentrations" id="toc-heatmap-of-protein-concentrations" class="nav-link" data-scroll-target="#heatmap-of-protein-concentrations">Heatmap of Protein Concentrations</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#task-2-gene-to-protein-translation" id="toc-task-2-gene-to-protein-translation" class="nav-link" data-scroll-target="#task-2-gene-to-protein-translation">Task 2: Gene-to-Protein Translation</a>
+  <ul class="collapse">
+<li><a href="#protein-output" id="toc-protein-output" class="nav-link" data-scroll-target="#protein-output">Protein Output</a></li>
+  <li><a href="#barplot-of-output" id="toc-barplot-of-output" class="nav-link" data-scroll-target="#barplot-of-output">Barplot of Output</a></li>
+  <li><a href="#heatmap-of-expression" id="toc-heatmap-of-expression" class="nav-link" data-scroll-target="#heatmap-of-expression">Heatmap of Expression</a></li>
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1">Interpretation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#task-3-animal-breeding-bull-ranking-by-economic-traits" id="toc-task-3-animal-breeding-bull-ranking-by-economic-traits" class="nav-link" data-scroll-target="#task-3-animal-breeding-bull-ranking-by-economic-traits">Task 3: Animal Breeding – Bull Ranking by Economic Traits</a>
+  <ul class="collapse">
+<li><a href="#economic-score" id="toc-economic-score" class="nav-link" data-scroll-target="#economic-score">Economic Score</a></li>
+  <li><a href="#rank-bulls" id="toc-rank-bulls" class="nav-link" data-scroll-target="#rank-bulls">Rank Bulls</a></li>
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot">Barplot</a></li>
+  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2">Interpretation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#task-4-plant-breeding-trait-contributions-from-parental-lines" id="toc-task-4-plant-breeding-trait-contributions-from-parental-lines" class="nav-link" data-scroll-target="#task-4-plant-breeding-trait-contributions-from-parental-lines">Task 4: Plant Breeding – Trait Contributions from Parental Lines</a>
+  <ul class="collapse">
+<li><a href="#hybrid-traits" id="toc-hybrid-traits" class="nav-link" data-scroll-target="#hybrid-traits">Hybrid Traits</a></li>
+  <li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix">Identity Matrix</a></li>
+  <li><a href="#subset-to-t1-and-t2" id="toc-subset-to-t1-and-t2" class="nav-link" data-scroll-target="#subset-to-t1-and-t2">Subset to T1 and T2</a></li>
+  <li><a href="#interpretation-3" id="toc-interpretation-3" class="nav-link" data-scroll-target="#interpretation-3">Interpretation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#task-5-managing-tasks-using-lists" id="toc-task-5-managing-tasks-using-lists" class="nav-link" data-scroll-target="#task-5-managing-tasks-using-lists">Task 5: Managing Tasks Using Lists</a>
+  <ul class="collapse">
+<li><a href="#access-operate" id="toc-access-operate" class="nav-link" data-scroll-target="#access-operate">Access &amp; Operate</a></li>
+  <li><a href="#interpretation-4" id="toc-interpretation-4" class="nav-link" data-scroll-target="#interpretation-4">Interpretation</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="solutions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">HW solutions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Md Rasheduzzaman </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.fli.de/de/institute/institut-fuer-infektionsmedizin-imed/">
+            FLI Insel Riems
+            </a>
+          </p>
+        <p class="affiliation">
+            <a href="https://github.com/MdRasheduz-zaman">
+            &amp; Freelancer
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 3, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Content summary</div>
+    dataframe, matrices, list, factor, vector, etc.
+  </div>
+</div>
+
+</header><style>
+  .content {
+    text-align: justify !important;
+  }
+  p {
+    text-align: justify !important;
+  }
+  .quarto-body {
+    text-align: justify !important;
+  }
+</style>
+<section id="l3" class="level1"><h1>L3</h1>
+<section id="task-1-protein-concentration-in-samples" class="level2"><h2 class="anchored" data-anchor-id="task-1-protein-concentration-in-samples">Task 1: Protein Concentration in Samples</h2>
+<p>We measured the concentration (in µg/µL) of three proteins (P1, P2, P3) in four samples (S1–S4):</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ProteinMatrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="fl">12</span>, <span class="fl">18</span>, <span class="fl">5</span>,</span>
+<span>  <span class="fl">9</span>, <span class="fl">15</span>, <span class="fl">8</span>,</span>
+<span>  <span class="fl">14</span>, <span class="fl">12</span>, <span class="fl">6</span>,</span>
+<span>  <span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">7</span></span>
+<span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ProteinMatrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"S1"</span>, <span class="st">"S2"</span>, <span class="st">"S3"</span>, <span class="st">"S4"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ProteinMatrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span><span class="op">)</span></span>
+<span><span class="va">ProteinMatrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   P1 P2 P3
+S1 12 18  5
+S2  9 15  8
+S3 14 12  6
+S4 10 20  7</code></pre>
+</div>
+</div>
+<section id="total-protein-per-sample" class="level3"><h3 class="anchored" data-anchor-id="total-protein-per-sample">Total Protein per Sample</h3>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">ProteinMatrix</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>S1 S2 S3 S4 
+35 32 32 37 </code></pre>
+</div>
+</div>
+</section><section id="total-protein-per-protein-type" class="level3"><h3 class="anchored" data-anchor-id="total-protein-per-protein-type">Total Protein per Protein Type</h3>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">ProteinMatrix</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P1 P2 P3 
+45 65 26 </code></pre>
+</div>
+</div>
+</section><section id="heatmap-of-protein-concentrations" class="level3"><h3 class="anchored" data-anchor-id="heatmap-of-protein-concentrations">Heatmap of Protein Concentrations</h3>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/heatmap.html">heatmap</a></span><span class="op">(</span><span class="va">ProteinMatrix</span>, scale <span class="op">=</span> <span class="st">"none"</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">heat.colors</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="solutions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section><section id="interpretation" class="level3"><h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li>Sample S4 has the highest P2.</li>
+<li>Heatmap reveals P2 is most abundant across all samples.</li>
+</ul>
+<hr></section></section><section id="task-2-gene-to-protein-translation" class="level2"><h2 class="anchored" data-anchor-id="task-2-gene-to-protein-translation">Task 2: Gene-to-Protein Translation</h2>
+<p>Gene expression (G1–G3) measured in tissues (Liver, Heart, Brain):</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">GeneExpression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="fl">8</span>, <span class="fl">5</span>, <span class="fl">7</span>,</span>
+<span>  <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">5</span>,</span>
+<span>  <span class="fl">9</span>, <span class="fl">7</span>, <span class="fl">6</span></span>
+<span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">GeneExpression</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Liver"</span>, <span class="st">"Heart"</span>, <span class="st">"Brain"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">GeneExpression</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span><span class="op">)</span></span>
+<span><span class="va">GeneExpression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      G1 G2 G3
+Liver  8  5  7
+Heart  6  4  5
+Brain  9  7  6</code></pre>
+</div>
+</div>
+<p>Translation efficiency:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">TranslationEfficiency</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">TranslationEfficiency</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span><span class="op">)</span></span>
+<span><span class="va">TranslationEfficiency</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [,1]
+G1  0.8
+G2  0.6
+G3  0.9</code></pre>
+</div>
+</div>
+<section id="protein-output" class="level3"><h3 class="anchored" data-anchor-id="protein-output">Protein Output</h3>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ProteinOutput</span> <span class="op">&lt;-</span> <span class="va">GeneExpression</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">TranslationEfficiency</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ProteinOutput</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">GeneExpression</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ProteinOutput</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"TotalProtein"</span></span>
+<span><span class="va">ProteinOutput</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      TotalProtein
+Liver         15.7
+Heart         11.7
+Brain         16.8</code></pre>
+</div>
+</div>
+</section><section id="barplot-of-output" class="level3"><h3 class="anchored" data-anchor-id="barplot-of-output">Barplot of Output</h3>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">ProteinOutput</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, main <span class="op">=</span> <span class="st">"Protein Output per Tissue"</span>, col <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="solutions_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section><section id="heatmap-of-expression" class="level3"><h3 class="anchored" data-anchor-id="heatmap-of-expression">Heatmap of Expression</h3>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/heatmap.html">heatmap</a></span><span class="op">(</span><span class="va">GeneExpression</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, scale <span class="op">=</span> <span class="st">"column"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="solutions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section><section id="interpretation-1" class="level3"><h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
+<ul>
+<li>Brain has highest protein output.</li>
+<li>Heatmap shows relative expression.</li>
+</ul>
+<hr></section></section><section id="task-3-animal-breeding-bull-ranking-by-economic-traits" class="level2"><h2 class="anchored" data-anchor-id="task-3-animal-breeding-bull-ranking-by-economic-traits">Task 3: Animal Breeding – Bull Ranking by Economic Traits</h2>
+<p>Bull trait scores:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BullTraits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="fl">80</span>, <span class="fl">3.5</span>, <span class="fl">1.2</span>,</span>
+<span>  <span class="fl">90</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>,</span>
+<span>  <span class="fl">70</span>, <span class="fl">3.8</span>, <span class="fl">1.1</span>,</span>
+<span>  <span class="fl">85</span>, <span class="fl">3.0</span>, <span class="fl">1.4</span></span>
+<span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">BullTraits</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">BullTraits</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Milk"</span>, <span class="st">"Fat%"</span>, <span class="st">"Growth"</span><span class="op">)</span></span>
+<span><span class="va">BullTraits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Milk Fat% Growth
+B1   80  3.5    1.2
+B2   90  3.2    1.5
+B3   70  3.8    1.1
+B4   85  3.0    1.4</code></pre>
+</div>
+</div>
+<p>Weights:</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">EconomicWeights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">EconomicWeights</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Milk"</span>, <span class="st">"Fat%"</span>, <span class="st">"Growth"</span><span class="op">)</span></span>
+<span><span class="va">EconomicWeights</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       [,1]
+Milk    0.5
+Fat%    0.3
+Growth  0.2</code></pre>
+</div>
+</div>
+<section id="economic-score" class="level3"><h3 class="anchored" data-anchor-id="economic-score">Economic Score</h3>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BullScore</span> <span class="op">&lt;-</span> <span class="va">BullTraits</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">EconomicWeights</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">BullScore</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"EconomicScore"</span></span>
+<span><span class="va">BullScore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   EconomicScore
+B1         41.29
+B2         46.26
+B3         36.36
+B4         43.68</code></pre>
+</div>
+</div>
+</section><section id="rank-bulls" class="level3"><h3 class="anchored" data-anchor-id="rank-bulls">Rank Bulls</h3>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BullScore</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">BullScore</span><span class="op">)</span>, , drop<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   EconomicScore
+B2         46.26
+B4         43.68
+B1         41.29
+B3         36.36</code></pre>
+</div>
+</div>
+</section><section id="barplot" class="level3"><h3 class="anchored" data-anchor-id="barplot">Barplot</h3>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">BullScore</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, names.arg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">BullScore</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"darkgreen"</span>, main <span class="op">=</span> <span class="st">"Economic Score"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="solutions_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section><section id="interpretation-2" class="level3"><h3 class="anchored" data-anchor-id="interpretation-2">Interpretation</h3>
+<ul>
+<li>B2 ranked highest.</li>
+<li>Weighted sum allows multi-trait selection.</li>
+</ul>
+<hr></section></section><section id="task-4-plant-breeding-trait-contributions-from-parental-lines" class="level2"><h2 class="anchored" data-anchor-id="task-4-plant-breeding-trait-contributions-from-parental-lines">Task 4: Plant Breeding – Trait Contributions from Parental Lines</h2>
+<p>Parent trait matrix:</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ParentTraits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">3</span>,</span>
+<span>  <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">4</span>,</span>
+<span>  <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">6</span></span>
+<span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ParentTraits</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ParentTraits</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T1_Drought"</span>, <span class="st">"T2_Yield"</span>, <span class="st">"T3_Maturation"</span><span class="op">)</span></span>
+<span><span class="va">ParentTraits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   T1_Drought T2_Yield T3_Maturation
+P1          7        5             3
+P2          6        8             4
+P3          5        6             6</code></pre>
+</div>
+</div>
+<p>Hybrid weights:</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">HybridWeights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">HybridWeights</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span><span class="op">)</span></span>
+<span><span class="va">HybridWeights</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [,1]
+P1  0.5
+P2  0.3
+P3  0.2</code></pre>
+</div>
+</div>
+<section id="hybrid-traits" class="level3"><h3 class="anchored" data-anchor-id="hybrid-traits">Hybrid Traits</h3>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">HybridTraits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">HybridWeights</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">ParentTraits</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">HybridTraits</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ParentTraits</span><span class="op">)</span></span>
+<span><span class="va">HybridTraits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     T1_Drought T2_Yield T3_Maturation
+[1,]        6.3      6.1           3.9</code></pre>
+</div>
+</div>
+</section><section id="identity-matrix" class="level3"><h3 class="anchored" data-anchor-id="identity-matrix">Identity Matrix</h3>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">I3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">I3</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">ParentTraits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     T1_Drought T2_Yield T3_Maturation
+[1,]          7        5             3
+[2,]          6        8             4
+[3,]          5        6             6</code></pre>
+</div>
+</div>
+</section><section id="subset-to-t1-and-t2" class="level3"><h3 class="anchored" data-anchor-id="subset-to-t1-and-t2">Subset to T1 and T2</h3>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">HybridTraits_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">HybridWeights</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">ParentTraits</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T1_Drought"</span>, <span class="st">"T2_Yield"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">HybridTraits_sub</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     T1_Drought T2_Yield
+[1,]        6.3      6.1</code></pre>
+</div>
+</div>
+</section><section id="interpretation-3" class="level3"><h3 class="anchored" data-anchor-id="interpretation-3">Interpretation</h3>
+<ul>
+<li>Trait values represent weighted parental influence.</li>
+<li>Identity matrix preserves values.</li>
+<li>Subsetting traits removes T3 influence.</li>
+</ul>
+<hr></section></section><section id="task-5-managing-tasks-using-lists" class="level2"><h2 class="anchored" data-anchor-id="task-5-managing-tasks-using-lists">Task 5: Managing Tasks Using Lists</h2>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">TaskList</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  Task1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    M <span class="op">=</span> <span class="va">ProteinMatrix</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  Task2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    M <span class="op">=</span> <span class="va">GeneExpression</span>,</span>
+<span>    W <span class="op">=</span> <span class="va">TranslationEfficiency</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  Task3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    M <span class="op">=</span> <span class="va">BullTraits</span>,</span>
+<span>    W <span class="op">=</span> <span class="va">EconomicWeights</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  Task4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    M <span class="op">=</span> <span class="va">ParentTraits</span>,</span>
+<span>    W <span class="op">=</span> <span class="va">HybridWeights</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="access-operate" class="level3"><h3 class="anchored" data-anchor-id="access-operate">Access &amp; Operate</h3>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">TaskList</span><span class="op">$</span><span class="va">Task2</span><span class="op">$</span><span class="va">M</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      G1 G2 G3
+Liver  8  5  7
+Heart  6  4  5
+Brain  9  7  6</code></pre>
+</div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">TaskList</span><span class="op">$</span><span class="va">Task2</span><span class="op">$</span><span class="va">M</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">TaskList</span><span class="op">$</span><span class="va">Task2</span><span class="op">$</span><span class="va">W</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]
+Liver 15.7
+Heart 11.7
+Brain 16.8</code></pre>
+</div>
+</div>
+</section><section id="interpretation-4" class="level3"><h3 class="anchored" data-anchor-id="interpretation-4">Interpretation</h3>
+<p>Using lists helps manage and operate on structured data across tasks.</p>
+<hr>
+
+
+<!-- -->
+
+</section></section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
+  author = {Md Rasheduzzaman},
+  title = {HW Solutions},
+  date = {2025-05-03},
+  langid = {en},
+  abstract = {dataframe, matrices, list, factor, vector, etc.}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Md Rasheduzzaman. 2025. <span>“HW Solutions.”</span> May 3, 2025.
+</div></div></section></div></main><!-- /main --><hr>
+<div style="margin-top: 2em;">
+  <p style="font-weight: 500; font-size: 1.1em;">
+    💬 Have thoughts or questions? Join the discussion below using your GitHub account!
+  </p>
+  <p style="font-size: 0.95em; color: #666;">
+    You can <strong>edit or delete</strong> your own comments. Reactions like 👍 ❤️ 🚀 are also supported.
+  </p>
+</div>
+
+<div id="giscus_thread" style="margin-top: 1.5em;"></div>
+
+<script src="https://giscus.app/client.js" data-repo="MdRasheduz-zaman/PythRaSh" data-repo-id="R_kgDOOZN9Xw" data-category-id="DIC_kwDOOZN9X84CpE6N" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+</script><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "HW solutions"</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "dataframe, matrices, list, factor, vector, etc."</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;style&gt;</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.content</span> {</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  p {</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.quarto-body</span> {</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/style&gt;</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># L3</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task 1: Protein Concentration in Samples</span></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>We measured the concentration (in µg/µL) of three proteins (P1, P2, P3) in four samples (S1–S4):</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>ProteinMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>  <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">5</span>,</span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9</span>, <span class="dv">15</span>, <span class="dv">8</span>,</span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>  <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">6</span>,</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">7</span></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a>), <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ProteinMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"S1"</span>, <span class="st">"S2"</span>, <span class="st">"S3"</span>, <span class="st">"S4"</span>)</span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ProteinMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span>)</span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a>ProteinMatrix</span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Total Protein per Sample</span></span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(ProteinMatrix)</span>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Total Protein per Protein Type</span></span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(ProteinMatrix)</span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Heatmap of Protein Concentrations</span></span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(ProteinMatrix, <span class="at">scale =</span> <span class="st">"none"</span>, <span class="at">col =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sample S4 has the highest P2.</span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Heatmap reveals P2 is most abundant across all samples.</span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task 2: Gene-to-Protein Translation</span></span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a>Gene expression (G1–G3) measured in tissues (Liver, Heart, Brain):</span>
+<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a>GeneExpression <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a>  <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">7</span>,</span>
+<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a>  <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">5</span>,</span>
+<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">6</span></span>
+<span id="cb40-80"><a href="#cb40-80" aria-hidden="true" tabindex="-1"></a>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-81"><a href="#cb40-81" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(GeneExpression) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Liver"</span>, <span class="st">"Heart"</span>, <span class="st">"Brain"</span>)</span>
+<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(GeneExpression) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span>)</span>
+<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a>GeneExpression</span>
+<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a>Translation efficiency:</span>
+<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a>TranslationEfficiency <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(TranslationEfficiency) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span>)</span>
+<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a>TranslationEfficiency</span>
+<span id="cb40-94"><a href="#cb40-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-95"><a href="#cb40-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-96"><a href="#cb40-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Protein Output</span></span>
+<span id="cb40-97"><a href="#cb40-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-100"><a href="#cb40-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-101"><a href="#cb40-101" aria-hidden="true" tabindex="-1"></a>ProteinOutput <span class="ot">&lt;-</span> GeneExpression <span class="sc">%*%</span> TranslationEfficiency</span>
+<span id="cb40-102"><a href="#cb40-102" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ProteinOutput) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(GeneExpression)</span>
+<span id="cb40-103"><a href="#cb40-103" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ProteinOutput) <span class="ot">&lt;-</span> <span class="st">"TotalProtein"</span></span>
+<span id="cb40-104"><a href="#cb40-104" aria-hidden="true" tabindex="-1"></a>ProteinOutput</span>
+<span id="cb40-105"><a href="#cb40-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-106"><a href="#cb40-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-107"><a href="#cb40-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Barplot of Output</span></span>
+<span id="cb40-108"><a href="#cb40-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-111"><a href="#cb40-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-112"><a href="#cb40-112" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(ProteinOutput[,<span class="dv">1</span>], <span class="at">main =</span> <span class="st">"Protein Output per Tissue"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb40-113"><a href="#cb40-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-114"><a href="#cb40-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-115"><a href="#cb40-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### Heatmap of Expression</span></span>
+<span id="cb40-116"><a href="#cb40-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-119"><a href="#cb40-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-120"><a href="#cb40-120" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(GeneExpression, <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">10</span>), <span class="at">scale =</span> <span class="st">"column"</span>)</span>
+<span id="cb40-121"><a href="#cb40-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-122"><a href="#cb40-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-123"><a href="#cb40-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb40-124"><a href="#cb40-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-125"><a href="#cb40-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Brain has highest protein output.</span>
+<span id="cb40-126"><a href="#cb40-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Heatmap shows relative expression.</span>
+<span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-130"><a href="#cb40-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task 3: Animal Breeding – Bull Ranking by Economic Traits</span></span>
+<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a>Bull trait scores:</span>
+<span id="cb40-133"><a href="#cb40-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-136"><a href="#cb40-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-137"><a href="#cb40-137" aria-hidden="true" tabindex="-1"></a>BullTraits <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb40-138"><a href="#cb40-138" aria-hidden="true" tabindex="-1"></a>  <span class="dv">80</span>, <span class="fl">3.5</span>, <span class="fl">1.2</span>,</span>
+<span id="cb40-139"><a href="#cb40-139" aria-hidden="true" tabindex="-1"></a>  <span class="dv">90</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>,</span>
+<span id="cb40-140"><a href="#cb40-140" aria-hidden="true" tabindex="-1"></a>  <span class="dv">70</span>, <span class="fl">3.8</span>, <span class="fl">1.1</span>,</span>
+<span id="cb40-141"><a href="#cb40-141" aria-hidden="true" tabindex="-1"></a>  <span class="dv">85</span>, <span class="fl">3.0</span>, <span class="fl">1.4</span></span>
+<span id="cb40-142"><a href="#cb40-142" aria-hidden="true" tabindex="-1"></a>), <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-143"><a href="#cb40-143" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(BullTraits) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>)</span>
+<span id="cb40-144"><a href="#cb40-144" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(BullTraits) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Milk"</span>, <span class="st">"Fat%"</span>, <span class="st">"Growth"</span>)</span>
+<span id="cb40-145"><a href="#cb40-145" aria-hidden="true" tabindex="-1"></a>BullTraits</span>
+<span id="cb40-146"><a href="#cb40-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-147"><a href="#cb40-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-148"><a href="#cb40-148" aria-hidden="true" tabindex="-1"></a>Weights:</span>
+<span id="cb40-149"><a href="#cb40-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-152"><a href="#cb40-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-153"><a href="#cb40-153" aria-hidden="true" tabindex="-1"></a>EconomicWeights <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb40-154"><a href="#cb40-154" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(EconomicWeights) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Milk"</span>, <span class="st">"Fat%"</span>, <span class="st">"Growth"</span>)</span>
+<span id="cb40-155"><a href="#cb40-155" aria-hidden="true" tabindex="-1"></a>EconomicWeights</span>
+<span id="cb40-156"><a href="#cb40-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-157"><a href="#cb40-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-158"><a href="#cb40-158" aria-hidden="true" tabindex="-1"></a><span class="fu">### Economic Score</span></span>
+<span id="cb40-159"><a href="#cb40-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-162"><a href="#cb40-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-163"><a href="#cb40-163" aria-hidden="true" tabindex="-1"></a>BullScore <span class="ot">&lt;-</span> BullTraits <span class="sc">%*%</span> EconomicWeights</span>
+<span id="cb40-164"><a href="#cb40-164" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(BullScore) <span class="ot">&lt;-</span> <span class="st">"EconomicScore"</span></span>
+<span id="cb40-165"><a href="#cb40-165" aria-hidden="true" tabindex="-1"></a>BullScore</span>
+<span id="cb40-166"><a href="#cb40-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-167"><a href="#cb40-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-168"><a href="#cb40-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Rank Bulls</span></span>
+<span id="cb40-169"><a href="#cb40-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-172"><a href="#cb40-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-173"><a href="#cb40-173" aria-hidden="true" tabindex="-1"></a>BullScore[<span class="fu">order</span>(<span class="sc">-</span>BullScore), , drop<span class="ot">=</span><span class="cn">FALSE</span>]</span>
+<span id="cb40-174"><a href="#cb40-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-175"><a href="#cb40-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-176"><a href="#cb40-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Barplot</span></span>
+<span id="cb40-177"><a href="#cb40-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-180"><a href="#cb40-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-181"><a href="#cb40-181" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(BullScore[,<span class="dv">1</span>], <span class="at">names.arg =</span> <span class="fu">rownames</span>(BullScore), <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">main =</span> <span class="st">"Economic Score"</span>)</span>
+<span id="cb40-182"><a href="#cb40-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-183"><a href="#cb40-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-184"><a href="#cb40-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb40-185"><a href="#cb40-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-186"><a href="#cb40-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B2 ranked highest.</span>
+<span id="cb40-187"><a href="#cb40-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Weighted sum allows multi-trait selection.</span>
+<span id="cb40-188"><a href="#cb40-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-189"><a href="#cb40-189" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-190"><a href="#cb40-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-191"><a href="#cb40-191" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task 4: Plant Breeding – Trait Contributions from Parental Lines</span></span>
+<span id="cb40-192"><a href="#cb40-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-193"><a href="#cb40-193" aria-hidden="true" tabindex="-1"></a>Parent trait matrix:</span>
+<span id="cb40-194"><a href="#cb40-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a>ParentTraits <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb40-199"><a href="#cb40-199" aria-hidden="true" tabindex="-1"></a>  <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">3</span>,</span>
+<span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a>  <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">4</span>,</span>
+<span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span></span>
+<span id="cb40-202"><a href="#cb40-202" aria-hidden="true" tabindex="-1"></a>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-203"><a href="#cb40-203" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ParentTraits) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span>)</span>
+<span id="cb40-204"><a href="#cb40-204" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ParentTraits) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"T1_Drought"</span>, <span class="st">"T2_Yield"</span>, <span class="st">"T3_Maturation"</span>)</span>
+<span id="cb40-205"><a href="#cb40-205" aria-hidden="true" tabindex="-1"></a>ParentTraits</span>
+<span id="cb40-206"><a href="#cb40-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-207"><a href="#cb40-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-208"><a href="#cb40-208" aria-hidden="true" tabindex="-1"></a>Hybrid weights:</span>
+<span id="cb40-209"><a href="#cb40-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-212"><a href="#cb40-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-213"><a href="#cb40-213" aria-hidden="true" tabindex="-1"></a>HybridWeights <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb40-214"><a href="#cb40-214" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(HybridWeights) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span>)</span>
+<span id="cb40-215"><a href="#cb40-215" aria-hidden="true" tabindex="-1"></a>HybridWeights</span>
+<span id="cb40-216"><a href="#cb40-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-217"><a href="#cb40-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-218"><a href="#cb40-218" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hybrid Traits</span></span>
+<span id="cb40-219"><a href="#cb40-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-222"><a href="#cb40-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-223"><a href="#cb40-223" aria-hidden="true" tabindex="-1"></a>HybridTraits <span class="ot">&lt;-</span> <span class="fu">t</span>(HybridWeights) <span class="sc">%*%</span> ParentTraits</span>
+<span id="cb40-224"><a href="#cb40-224" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(HybridTraits) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(ParentTraits)</span>
+<span id="cb40-225"><a href="#cb40-225" aria-hidden="true" tabindex="-1"></a>HybridTraits</span>
+<span id="cb40-226"><a href="#cb40-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-227"><a href="#cb40-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-228"><a href="#cb40-228" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identity Matrix</span></span>
+<span id="cb40-229"><a href="#cb40-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-232"><a href="#cb40-232" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-233"><a href="#cb40-233" aria-hidden="true" tabindex="-1"></a>I3 <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">3</span>)</span>
+<span id="cb40-234"><a href="#cb40-234" aria-hidden="true" tabindex="-1"></a>I3 <span class="sc">%*%</span> ParentTraits</span>
+<span id="cb40-235"><a href="#cb40-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-236"><a href="#cb40-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-237"><a href="#cb40-237" aria-hidden="true" tabindex="-1"></a><span class="fu">### Subset to T1 and T2</span></span>
+<span id="cb40-238"><a href="#cb40-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-241"><a href="#cb40-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-242"><a href="#cb40-242" aria-hidden="true" tabindex="-1"></a>HybridTraits_sub <span class="ot">&lt;-</span> <span class="fu">t</span>(HybridWeights) <span class="sc">%*%</span> ParentTraits[, <span class="fu">c</span>(<span class="st">"T1_Drought"</span>, <span class="st">"T2_Yield"</span>)]</span>
+<span id="cb40-243"><a href="#cb40-243" aria-hidden="true" tabindex="-1"></a>HybridTraits_sub</span>
+<span id="cb40-244"><a href="#cb40-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-245"><a href="#cb40-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-246"><a href="#cb40-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb40-247"><a href="#cb40-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-248"><a href="#cb40-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Trait values represent weighted parental influence.</span>
+<span id="cb40-249"><a href="#cb40-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identity matrix preserves values.</span>
+<span id="cb40-250"><a href="#cb40-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subsetting traits removes T3 influence.</span>
+<span id="cb40-251"><a href="#cb40-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-252"><a href="#cb40-252" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-253"><a href="#cb40-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-254"><a href="#cb40-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task 5: Managing Tasks Using Lists</span></span>
+<span id="cb40-255"><a href="#cb40-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-258"><a href="#cb40-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-259"><a href="#cb40-259" aria-hidden="true" tabindex="-1"></a>TaskList <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb40-260"><a href="#cb40-260" aria-hidden="true" tabindex="-1"></a>  <span class="at">Task1 =</span> <span class="fu">list</span>(</span>
+<span id="cb40-261"><a href="#cb40-261" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> ProteinMatrix</span>
+<span id="cb40-262"><a href="#cb40-262" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb40-263"><a href="#cb40-263" aria-hidden="true" tabindex="-1"></a>  <span class="at">Task2 =</span> <span class="fu">list</span>(</span>
+<span id="cb40-264"><a href="#cb40-264" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> GeneExpression,</span>
+<span id="cb40-265"><a href="#cb40-265" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> TranslationEfficiency</span>
+<span id="cb40-266"><a href="#cb40-266" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb40-267"><a href="#cb40-267" aria-hidden="true" tabindex="-1"></a>  <span class="at">Task3 =</span> <span class="fu">list</span>(</span>
+<span id="cb40-268"><a href="#cb40-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> BullTraits,</span>
+<span id="cb40-269"><a href="#cb40-269" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> EconomicWeights</span>
+<span id="cb40-270"><a href="#cb40-270" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb40-271"><a href="#cb40-271" aria-hidden="true" tabindex="-1"></a>  <span class="at">Task4 =</span> <span class="fu">list</span>(</span>
+<span id="cb40-272"><a href="#cb40-272" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> ParentTraits,</span>
+<span id="cb40-273"><a href="#cb40-273" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> HybridWeights</span>
+<span id="cb40-274"><a href="#cb40-274" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-275"><a href="#cb40-275" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-276"><a href="#cb40-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-277"><a href="#cb40-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-278"><a href="#cb40-278" aria-hidden="true" tabindex="-1"></a><span class="fu">### Access &amp; Operate</span></span>
+<span id="cb40-279"><a href="#cb40-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-282"><a href="#cb40-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-283"><a href="#cb40-283" aria-hidden="true" tabindex="-1"></a>TaskList<span class="sc">$</span>Task2<span class="sc">$</span>M</span>
+<span id="cb40-284"><a href="#cb40-284" aria-hidden="true" tabindex="-1"></a>TaskList<span class="sc">$</span>Task2<span class="sc">$</span>M <span class="sc">%*%</span> TaskList<span class="sc">$</span>Task2<span class="sc">$</span>W</span>
+<span id="cb40-285"><a href="#cb40-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-286"><a href="#cb40-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-287"><a href="#cb40-287" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb40-288"><a href="#cb40-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-289"><a href="#cb40-289" aria-hidden="true" tabindex="-1"></a>Using lists helps manage and operate on structured data across tasks.</span>
+<span id="cb40-290"><a href="#cb40-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-291"><a href="#cb40-291" aria-hidden="true" tabindex="-1"></a>---</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

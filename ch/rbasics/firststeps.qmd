@@ -476,6 +476,7 @@ print(Cell_Counts_T)
 # 2. Matrix multiplication: Total cell area
 # (2x3) %*% (3x1) => (2x1)
 Total_Cell_Area <- Cell_Counts %*% Cell_Size
+colnames(Total_Cell_Area) <- "Cell_area"
 print("Total Cell Area (Counts × Size) (µm²):")
 print(Total_Cell_Area)
 
@@ -621,7 +622,7 @@ patient_data$P1002 <- list(
   has_mutation = FALSE
 )
 # Access specific patient
-patient_data$P1001$tests
+patient_data$P1001$test
 ```
 For Batch Processing:  
 ```{r}

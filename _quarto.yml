@@ -23,6 +23,8 @@ website:
             href: ch/rbasics/correlation_regression.qmd
           - text: Data Wrangling
             href: ch/rbasics/baddata.qmd
+          - text: Problem Solutions
+            href: ch/rbasics/solutions.qmd
             
       - text: Python
         menu: 
