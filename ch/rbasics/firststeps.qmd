@@ -2,7 +2,8 @@
 title: "Basic R"
 abstract: "Data types, variables, vectors, data frame, functions"
 ---
-  
+
+```{=html}
 <style>
   .content {
     text-align: justify !important;
@@ -14,15 +15,18 @@ abstract: "Data types, variables, vectors, data frame, functions"
     text-align: justify !important;
   }
 </style>
-  
+```
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
-# L2: Data Representation  
-  
-## Using R as a Calculator  
-Let's do some basic calculation.  
+
+# L2: Data Representation
+
+## Using R as a Calculator
+
+Let's do some basic calculation.
+
 ```{r}
 5+3
 3+2
@@ -38,8 +42,10 @@ Let's do some basic calculation.
 1+2; log(1); 1/10 #more multi-line codes
 ```
 
-## Variables  
-Variables are variable. We have freedom to name them as we wish. But make any variable name meaningful and identifiable.  
+## Variables
+
+Variables are variable. We have freedom to name them as we wish. But make any variable name meaningful and identifiable.
+
 ```{r}
 a <- 5 #assign value 5 to a 
 b = 10
@@ -57,16 +63,20 @@ a^3 #a qubed
 `<-` and `=` are used to assign values. It is not mathematical equality. `b <- b + 15` might make better sense than `b = b + 15`.
 :::
 
-### Integer and Modulus division again  
-Do some more practice.  
+### Integer and Modulus division again
+
+Do some more practice.
+
 ```{r}
 7/3
 7%/%3
 7%%3
 ```
 
-## Rounding  
-Some important functions we apply on numerical values  
+## Rounding
+
+Some important functions we apply on numerical values
+
 ```{r}
 x <- 9/4
 floor(x)
@@ -75,8 +85,10 @@ round(x)
 round(x, 2) #round till 2 decimal points
 ```
 
-## Logical Operations  
-Get to know TRUE/FALSE in R.  
+## Logical Operations
+
+Get to know TRUE/FALSE in R.
+
 ```{r}
 a = 5
 b = 7
@@ -94,16 +106,20 @@ a < b & c > d #is a less than b AND a greater than b? It's answer will be TRUE A
 a < b & d > c #is a less than b AND a greater than b? It's answer will be TRUE AND FALSE --> So, FALSE
 ```
 
-## Help and Documentation  
-But how to know more about a function? The package/library developer have written helpful documentation for us.  
+## Help and Documentation
+
+But how to know more about a function? The package/library developer have written helpful documentation for us.
+
 ```{r}
 ?log
 example(log)
 ?log()
 ```
 
-## Working with Vectors  
-What is a vector? See the example and think.  
+## Working with Vectors
+
+What is a vector? See the example and think.
+
 ```{r}
 x <- c(1, 2, 3, 4, 5) #c means concatenate
 z <- 1:5 #consecutively, from 1 through 5. A short-hand notation using :
@@ -118,8 +134,10 @@ dec <- c(10.0, 20.5, 30, 60, 80.9, 90, 100.7, 50, 40, 45, 48, 56, 55) #vector of
 dec[c(1:3, 7:length(dec))] #1st to 3rd and then 7th till the end of vector `dec`. Output as a vector.
 ```
 
-### Vector Operations  
-Notice the element-wise or index-wise mathematical operations (`+`, `/`, `log2()`, `round()`, etc.). Noticed?  
+### Vector Operations
+
+Notice the element-wise or index-wise mathematical operations (`+`, `/`, `log2()`, `round()`, etc.). Noticed?
+
 ```{r}
 x <- 1:10
 y <- 2:11
@@ -130,14 +148,15 @@ log2(x)
 round(log2(x), 1) #log2 of all the values of `x`, 1 digit after decimal to round.
 round(log2(x), 3) #same logic
 ```
-  
+
 ::: callout-note
 Nested functions work inside out. Think again about `round(log2(x), 1)` and you will see it. At first, it is making `log2` of vector `x` and then it is rounding the log2 values to one digit after decimal. Got it?
 :::
-  
 
-## Data Frame  
-Now, it's time to use vectors to make data sets.....   
+## Data Frame
+
+Now, it's time to use vectors to make data sets.....
+
 ```{r}
 names <- c("Mina", "Raju", "Mithu", "Lali")
 gender <- c("Female", "Male", "Female", "Female")
@@ -152,7 +171,7 @@ str(df) #structure of `df`
 
 We made the vectors first, and the used them to make the `cartton` data frame or table. We learned how to export the data frame using write.table function. Also, we learned to import or read back the table using `read.table` function. What are the `sep`, `col.names`, `header` arguments there? Why do we need them? Think. Try thinking of different properties of a data set.
 
-### Gene Expression Table  
+### Gene Expression Table
 
 ```{r}
 gene_expr <- data.frame(
@@ -165,12 +184,12 @@ gene_expr <- data.frame(
 write.table(gene_expr, "gene_expr.csv", sep = ",", col.names = TRUE)
 gene_set <- read.table("gene_expr.csv", header = TRUE, sep = ",")
 ```
-  
+
 ::: callout-note
 Here, we directly used the vectors as different columns while making the data frame. Did you notice that? Also, the syntax is different here. We can't assign the vectors with the assignment operator (means we can't use `<-` sign. We have to use the `=` sign). Try using the `<-` sign. Did you notice the column names?
 :::
 
-## Homeworks  
+## Homeworks
 
 1.  Compute the difference between this year (2025) and the year you started at the university and divide this by the difference between this year and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at the university.\
 2.  Make different kinds of variables and vectors with the data types we learned together.\
@@ -184,14 +203,12 @@ Here, we directly used the vectors as different columns while making the data fr
 
 **Friday, 10pm BD Time.**
 
+# L3: Data Transformation
 
-# L3: Data Transformation  
-  
-Firstly, how did you solve the problems?  
-<br>
-Give me your personal Mindmap. Please, send it in the chat!  
+Firstly, how did you solve the problems?\
+<br> Give me your personal Mindmap. Please, send it in the chat!
 
-## Getting Started  
+## Getting Started
 
 ### Installation of R Markdown
 
@@ -207,14 +224,15 @@ library(dplyr)
 #install.packages("readr")    # Reading CSV files
 library(readr)
 ```
-  
-Remove the hash sign before the `install.packages("rmarkdown")`, `install.packages("dplyr") `, `install.packages("readr")` if the library loading fails. That means the package is not there to be loaded. We need to download/install first.  
 
-:::callout-note  
-[Do you remember this book by Hadley Wickham?](https://r4ds.had.co.nz). Try to follow it to get the hold on the basic R syntax and lexicon   
+Remove the hash sign before the `install.packages("rmarkdown")`, `install.packages("dplyr")`, `install.packages("readr")` if the library loading fails. That means the package is not there to be loaded. We need to download/install first.
+
+::: callout-note
+[Do you remember this book by Hadley Wickham?](https://r4ds.had.co.nz). Try to follow it to get the hold on the basic R syntax and lexicon
 :::
-  
-### Basic Setup for Today's Session  
+
+### Basic Setup for Today's Session
+
 ```{r initial-setup, eval=FALSE}
 # Clear environment
 rm(list = ls())
@@ -225,8 +243,9 @@ getwd()
 # Set working directory if needed
 # setwd("path/to/your/directory")  # Uncomment and modify as needed
 ```
-  
-### Building on Last HW:  
+
+### Building on Last HW:
+
 ```{r}
 cartoon <- data.frame(
   names = c("Mina", "Raju", "Mithu", "Lali"),
@@ -252,29 +271,28 @@ sum(female_age$age) #sum of age of female_age dataset
 sd(cartoon$age) #standard deviation of age of main cartoon dataset
 mean(cartoon$age) #mean of age of main cartoon dataset
 ```
-  
-[Check your colleague's repo for the Q3](https://github.com/atiyashehreen/hw_repo3/blob/main/propertiesofdataframe.txt).  
 
-  
+[Check your colleague's repo for the Q3](https://github.com/atiyashehreen/hw_repo3/blob/main/propertiesofdataframe.txt).
+
 **Logical Operators**
 
-| Operator | Meaning          | Example       |
-|----------|------------------|---------------|
-| `==`     | Equal to         | `x == 5`      |
-| `!=`     | Not equal        | `x != 5`      |
-| `<`      | Less than        | `x < 5`       |
-| `>`      | Greater than     | `x > 5`       |
-| `<=`     | Less or equal    | `x <= 5`      |
-| `>=`     | Greater or equal | `x >= 5`      |
-| `!`      | Not              | `!(x < 5)`    |
+| Operator | Meaning          | Example          |
+|----------|------------------|------------------|
+| `==`     | Equal to         | `x == 5`         |
+| `!=`     | Not equal        | `x != 5`         |
+| `<`      | Less than        | `x < 5`          |
+| `>`      | Greater than     | `x > 5`          |
+| `<=`     | Less or equal    | `x <= 5`         |
+| `>=`     | Greater or equal | `x >= 5`         |
+| `!`      | Not              | `!(x < 5)`       |
 | `|`      | OR               | `x < 5 | x > 10` |
 | `&`      | AND              | `x > 5 & x < 10` |
 
-### Preamble on random variables (RV):  
-RV is so fundamental of an idea to interpret and do better in any kind of data analyses. But what is it? Let's imagine this scenario first. You got 30 mice to do an experiment to check anti-diabetic effect of a plant extract. You randomly assigned them into 3 groups. `control`, `treat1` (meaning insulin receivers), and `treat2` (meaning your plant extract receivers). Then you kept testing and measuring. You have mean glucose level of every mouse and show whether the mean value of `treat1` is equal to `treat2` or not. So, are you done? Not really. Be fastidious about the mice. What if you got some other 30 mice? Are they the same? Will their mean glucose level be the same? No, right. We would end up with different mean value. We call this type of quantities RV. Mean, Standard deviation, median, variance, etc. all are RVs. Do you see the logic? That's why we put this constraint and look for p-value, confidence interval (or CI), etc. by (null) hypothesis testing and sample distribution analyses. We will get into these stuffs later. But let's check what I meant. Also ponder about `sample` vs `population`.  
+### Preamble on random variables (RV):
 
+RV is so fundamental of an idea to interpret and do better in any kind of data analyses. But what is it? Let's imagine this scenario first. You got 30 mice to do an experiment to check anti-diabetic effect of a plant extract. You randomly assigned them into 3 groups. `control`, `treat1` (meaning insulin receivers), and `treat2` (meaning your plant extract receivers). Then you kept testing and measuring. You have mean glucose level of every mouse and show whether the mean value of `treat1` is equal to `treat2` or not. So, are you done? Not really. Be fastidious about the mice. What if you got some other 30 mice? Are they the same? Will their mean glucose level be the same? No, right. We would end up with different mean value. We call this type of quantities RV. Mean, Standard deviation, median, variance, etc. all are RVs. Do you see the logic? That's why we put this constraint and look for p-value, confidence interval (or CI), etc. by (null) hypothesis testing and sample distribution analyses. We will get into these stuffs later. But let's check what I meant. Also ponder about `sample` vs `population`.
 
-Let's download the data first.  
+Let's download the data first.
 
 ```{r RV}
 # Download small example dataset
@@ -284,8 +302,9 @@ download.file("https://raw.githubusercontent.com/genomicsclass/dagdata/master/in
 # Load data
 mice <- read.csv("mice.csv")
 ```
-  
-Let's check now.  
+
+Let's check now.
+
 ```{r rv-check}
 control <- sample(mice$Bodyweight,12)
 mean(control)
@@ -294,24 +313,27 @@ mean(control1)
 control2 <- sample(mice$Bodyweight,12)
 mean(control2)
 ```
-  
-Do you see the difference in the mean value now?  
-  
-### Basic Stuffs: Atomic Vector  
+
+Do you see the difference in the mean value now?
+
+### Basic Stuffs: Atomic Vector
+
 ```{r atomic-vec}
 atomic_vec <- c(Human=0.5, Mouse=0.33)
 ```
-It is fast, but has limited access methods.  
 
-How to access elements here?  
+It is fast, but has limited access methods.
+
+How to access elements here?
+
 ```{r}
 atomic_vec["Human"]
 atomic_vec["Mouse"]
 ```
-  
-### Basic Stuffs: Matrices  
-  
-Matrices are essential for biologists working with expression data, distance matrices, and other numerical data. 
+
+### Basic Stuffs: Matrices
+
+Matrices are essential for biologists working with expression data, distance matrices, and other numerical data.
 
 ```{r matrices}
 # Create a gene expression matrix: rows=genes, columns=samples
@@ -360,8 +382,8 @@ heatmap(expr_matrix,
         col = heat.colors(16),
         main = "Gene Expression Heatmap")
 ```
-  
-#### More Matrix Practice:  
+
+#### More Matrix Practice:
 
 ```{r more-mat-practice}
 #Create a simple Gene Expression matrix (RNA-seq style)
@@ -444,12 +466,10 @@ barplot(Total_Expression_Per_Gene, main="Total Expression per Gene", ylab="TPM",
 # Heatmap: Expression matrix
 heatmap(Gene_Expression, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", main="Gene Expression Heatmap")
 ```
-  
-  
-Another Example:
-You have counts of cells in different organs for two animal species.  
-You also have a matrix with average cell sizes (micrometer, µm²) for each organ.  
-You can then multiply count × size to get total cell area for each species in each organ.  
+
+Another Example: You have counts of cells in different organs for two animal species.\
+You also have a matrix with average cell sizes (micrometer, µm²) for each organ.\
+You can then multiply count × size to get total cell area for each species in each organ.
 
 ```{r mat-prac-2}
 # Create a matrix: Cell counts
@@ -524,20 +544,21 @@ barplot(Total_Cells_Per_Organ, main="Total Cell Counts per Organ", ylab="Number 
 # Heatmap of the original Cell Counts matrix
 heatmap(Cell_Counts, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", main="Heatmap of Cell Counts")
 ```
-  
-| Operation               | Explanation                        | R Function/Example             |
-|:-------------------------|:-----------------------------------|:-------------------------------|
-| Matrix Creation          | Create gene expression matrix     | `matrix()`                     |
-| Transpose                | Flip genes and samples             | `t(Gene_Expression)`            |
-| Matrix Multiplication    | Calculate weighted sums           | `Gene_Expression %*% Gene_Weights` |
-| Matrix Addition          | Adjust counts                     | `Gene_Expression + 1`           |
-| Identity Matrix          | Special neutral matrix            | `diag(3)`                      |
-| Scalar Multiplication    | Simulate overall increase         | `2 * Gene_Expression`           |
-| Row/Column Summation     | Total per sample/gene              | `rowSums()`, `colSums()`        |
-| Plotting                 | Visualize expression patterns     | `barplot()`, `heatmap()`        |
 
-### Basic Stuffs: List  
-Lists are the most flexible data structure in R - they can hold any combination of data types, including other lists! This makes them essential for biological data analysis where we often deal with mixed data types.  
+| Operation             | Explanation                   | R Function/Example                 |
+|:-------------------|:--------------------------|:------------------------|
+| Matrix Creation       | Create gene expression matrix | `matrix()`                         |
+| Transpose             | Flip genes and samples        | `t(Gene_Expression)`               |
+| Matrix Multiplication | Calculate weighted sums       | `Gene_Expression %*% Gene_Weights` |
+| Matrix Addition       | Adjust counts                 | `Gene_Expression + 1`              |
+| Identity Matrix       | Special neutral matrix        | `diag(3)`                          |
+| Scalar Multiplication | Simulate overall increase     | `2 * Gene_Expression`              |
+| Row/Column Summation  | Total per sample/gene         | `rowSums()`, `colSums()`           |
+| Plotting              | Visualize expression patterns | `barplot()`, `heatmap()`           |
+
+### Basic Stuffs: List
+
+Lists are the most flexible data structure in R - they can hold any combination of data types, including other lists! This makes them essential for biological data analysis where we often deal with mixed data types.
 
 ```{r list}
 # A list storing different types of genomic data
@@ -551,8 +572,9 @@ genomics_data <- list(
   )
 )
 ```
-  
-How to Access Elements of a List?  
+
+How to Access Elements of a List?
+
 ```{r access-list}
 # Method 1: Double brackets [[ ]] for single element
 genomics_data[[1]]  # Returns gene_names vector
@@ -564,19 +586,22 @@ genomics_data$expression  # Returns the matrix
 genomics_data[1:2]  # Returns list with first two elements
 ```
 
-Key Difference from Vectors:  
+Key Difference from Vectors:
+
 ```{r vecVSlist}
 # Compare to your prop.table() example:
 atomic_vec["Human"]    # Returns named numeric (vector)
 atomic_vec["Mouse"]
 genomics_data[1] # Returns list containing the vector
 ```
-Why Biologists Need Lists?  
-`lm()`, `prcomp()` functions, RNAseq analysis packages produces list. So, we need to learn how to handle lists.  
 
-See these examples:  
-  
-A. Storing BLAST results  
+Why Biologists Need Lists?\
+`lm()`, `prcomp()` functions, RNAseq analysis packages produces list. So, we need to learn how to handle lists.
+
+See these examples:
+
+A. Storing BLAST results
+
 ```{r list-ex1}
 blast_hits <- list(
   query_id = "GeneX",
@@ -584,8 +609,9 @@ blast_hits <- list(
   e_values = c(1e-50, 3e-12),
   alignment = matrix(c("ATG...", "CTA..."), ncol=1))
 ```
-  
-B. Handling Mixed Data  
+
+B. Handling Mixed Data
+
 ```{r list-ex2}
 patient_data <- list(
   id = "P1001",
@@ -596,9 +622,9 @@ patient_data <- list(
   has_mutation = TRUE
 )
 ```
-  
 
-Common List Operations  
+Common List Operations
+
 ```{r list-op}
 # Add new element
 genomics_data$sequencer <- "Illumina"
@@ -609,8 +635,9 @@ genomics_data$is_cancer_gene <- NULL
 # Check structure (critical for complex lists)
 str(genomics_data)
 ```
-  
-By the way, how would you add more patients?  
+
+By the way, how would you add more patients?
+
 ```{r}
 # Add new patient
 patient_data$P1002 <- list(
@@ -624,7 +651,9 @@ patient_data$P1002 <- list(
 # Access specific patient
 patient_data$P1001$test
 ```
-For Batch Processing:  
+
+For Batch Processing:
+
 ```{r}
 patients <- list(
   list(
@@ -643,28 +672,30 @@ patients <- list(
 patients[[2]]$tests$value[patients[[2]]$tests$test == "WBC"]
 ```
 
-Converting Between Structures  
+Converting Between Structures
+
 ```{r}
 # List → Vector
 unlist(genomics_data[1:3])
 ```
-  
-Visualization  
+
+Visualization
 
 ```{r, eval=FALSE}
 # Base R plot from list data
 barplot(unlist(genomics_data[2]),
         names.arg = genomics_data[[1]])
 ```
-  
-This code won't work if you run. `unlist(genomics_data[2]` creates a vector of length 6 from our 3*2 matrix but `genomics_data[[1]]` has 3 things inside the `gene_names` vector. Debug like this:  
+
+This code won't work if you run. `unlist(genomics_data[2]` creates a vector of length 6 from our 3\*2 matrix but `genomics_data[[1]]` has 3 things inside the `gene_names` vector. Debug like this:
+
 ```{r}
 dim(genomics_data$expression)  # e.g., 2 rows x 2 cols
 length(genomics_data$gene_names) # e.g., 3 genes
 ```
-  
-A. Gene-Centric (Mean Expression)  
-  
+
+A. Gene-Centric (Mean Expression)
+
 ```{r}
 barplot(rowMeans(genomics_data$expression),
         names.arg = genomics_data$gene_names,
@@ -672,8 +703,9 @@ barplot(rowMeans(genomics_data$expression),
         ylab = "Mean Expression",
         main = "Average Gene Expression")
 ```
-  
-B. Sample-Centric (All Measurements) 
+
+B. Sample-Centric (All Measurements)
+
 ```{r}
 barplot(genomics_data$expression,
         beside = TRUE,
@@ -683,19 +715,19 @@ barplot(genomics_data$expression,
         col = c("blue", "red", "green"),
         main = "Expression Across Samples")
 ```
-  
-:::callout-note
+
+::: callout-note
 This matches real-world scenarios:
 
 RNA-seq: Rows=genes, cols=samples
 
 rowMeans() = average expression per gene
 
-beside=TRUE => compare samples within genes
+beside=TRUE =\> compare samples within genes
 
 Proteomics: Rows=proteins, cols=replicates
 
-Same principles apply  
+Same principles apply
 :::
 
 ```{r}
@@ -709,21 +741,21 @@ arrows(bp, gene_means - gene_sds, bp, gene_means + gene_sds,
        angle = 90, code = 3)
 ```
 
-**Task: Create a list containing:**  
+**Task: Create a list containing:**
 
-i) A character vector of 3 gene names
+i)  A character vector of 3 gene names
 
 ii) A numeric matrix of expression values
 
 iii) A logical vector indicating pathway membership
 
 iv) A nested list with lab metadata
-  
-## 📘 Homeworks: Matrix and List Operations    
+
+## 📘 Homeworks: Matrix and List Operations
 
 ### 🧪 Protein Concentration
 
-You are given the following protein concentration matrix:  
+You are given the following protein concentration matrix:
 
 $$
 \text{ProteinMatrix} =
@@ -733,13 +765,13 @@ $$
 \end{bmatrix}
 $$
 
-- Rows represent samples:
-  - Sample1
-  - Sample2
-- Columns represent proteins:
-  - ProteinX
-  - ProteinY
-  - ProteinZ
+-   Rows represent samples:
+    -   Sample1
+    -   Sample2
+-   Columns represent proteins:
+    -   ProteinX
+    -   ProteinY
+    -   ProteinZ
 
 You are also given a weight (importance) matrix for the proteins:
 
@@ -752,42 +784,40 @@ $$
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
 ### 🔧 Tasks
 
-1. Make the matrices (with exact names) and multiply the ProteinMatrix by the WeightVector.
+1.  Make the matrices (with exact names) and multiply the ProteinMatrix by the WeightVector.
 
-   That is:
+    That is:
 
-   $$
-   \text{ProteinMatrix} \times \text{WeightVector}
-   $$
+    $$
+    \text{ProteinMatrix} \times \text{WeightVector}
+    $$
 
-2. Transpose the ProteinMatrix and show what it looks like.
+2.  Transpose the ProteinMatrix and show what it looks like.
 
-3. Create the Identity matrix of compatible size and show what happens when you multiply:
-   $$
-   \text{ProteinMatrix} \times I
-   $$
+3.  Create the Identity matrix of compatible size and show what happens when you multiply: $$
+    \text{ProteinMatrix} \times I
+    $$
 
-4. Do the calculations (rowSums, colSums, etc.) and visualization (barplot, heatmap) as shown in the class.
+4.  Do the calculations (rowSums, colSums, etc.) and visualization (barplot, heatmap) as shown in the class.
 
----
+------------------------------------------------------------------------
 
 ### 🧠 Interpretation Questions
 
-- What does multiplying the protein levels by the weight vector mean biologically?
-- What does the result tell you about total protein burden (or total protein impact) for each sample?
-- What do the identity matrix represent in the context of protein interactions or measurement biases?
-- If you changed the weight of ProteinZ to 3.0, how would the result change?
+-   What does multiplying the protein levels by the weight vector mean biologically?
+-   What does the result tell you about total protein burden (or total protein impact) for each sample?
+-   What do the identity matrix represent in the context of protein interactions or measurement biases?
+-   If you changed the weight of ProteinZ to 3.0, how would the result change?
 
----
+------------------------------------------------------------------------
 
 ### 🧬 Gene-to-Protein Translation
 
-You are given the following matrix representing normalized gene expression levels (e.g., TPM):
-$$
+You are given the following matrix representing normalized gene expression levels (e.g., TPM): $$
 \text{GeneExpression} =
 \begin{bmatrix}
   10 &  8 &  5 \\
@@ -795,14 +825,13 @@ $$
 \end{bmatrix}
 $$
 
-- Rows = Samples:
-  - Sample1
-  - Sample2
-
-- Columns = Genes:
-  - GeneA
-  - GeneB
-  - GeneC
+-   Rows = Samples:
+    -   Sample1
+    -   Sample2
+-   Columns = Genes:
+    -   GeneA
+    -   GeneB
+    -   GeneC
 
 Each gene translates into proteins with a certain efficiency. The efficiency of translation from each gene to its corresponding protein is given by the following diagonal matrix:
 
@@ -817,51 +846,51 @@ $$
 
 This means:
 
-  - GeneA → ProteinA with 1.5× efficiency  
-  - GeneB → ProteinB with 1.2× efficiency  
-  - GeneC → ProteinC with 1.8× efficiency
+-   GeneA → ProteinA with 1.5× efficiency\
+-   GeneB → ProteinB with 1.2× efficiency\
+-   GeneC → ProteinC with 1.8× efficiency
 
----
+------------------------------------------------------------------------
 
 ### 🔧 Tasks
 
-1. Make the matrices and multiply GeneExpression × TranslationMatrix to compute the resulting ProteinMatrix.
-   - Show the result step-by-step.
+1.  Make the matrices and multiply GeneExpression × TranslationMatrix to compute the resulting ProteinMatrix.
 
-2. Transpose the GeneExpression matrix. What does this new matrix represent?
+    -   Show the result step-by-step.
 
-3. Create the Identity matrix I₃ and multiply it with the TranslationMatrix. What happens?
+2.  Transpose the GeneExpression matrix. What does this new matrix represent?
 
-4. Create a new matrix containing only the expression of GeneA and GeneB across both samples. Call this submatrix A.
+3.  Create the Identity matrix I₃ and multiply it with the TranslationMatrix. What happens?
 
-   - Compute the inverse A⁻¹ using `solve()` function.
-   - Then verify:  
-     A × A⁻¹ = I₂
+4.  Create a new matrix containing only the expression of GeneA and GeneB across both samples. Call this submatrix A.
 
----
+    -   Compute the inverse A⁻¹ using `solve()` function.
+    -   Then verify:\
+        A × A⁻¹ = I₂
+
+------------------------------------------------------------------------
 
 ### 📊 Visualization Tasks
 
-5. Plot a MARplot-style scatter plot:
-   - x-axis: Gene expression values (GeneExpression matrix, flattened)
-   - y-axis: Corresponding Protein values (ProteinMatrix, flattened)
-   - Label each point as "Sample-Gene"
+5.  Plot a MARplot-style scatter plot:
+    -   x-axis: Gene expression values (GeneExpression matrix, flattened)
+    -   y-axis: Corresponding Protein values (ProteinMatrix, flattened)
+    -   Label each point as "Sample-Gene"
+6.  Generate a heatmap of the ProteinMatrix using R’s `heatmap()` function.
+    -   Add meaningful row and column labels.
+    -   Enable clustering by rows and columns.
 
-6. Generate a heatmap of the ProteinMatrix using R’s `heatmap()` function.
-   - Add meaningful row and column labels.
-   - Enable clustering by rows and columns.
-
----
+------------------------------------------------------------------------
 
 ### 🧠 Interpretation Questions
 
-- What does matrix multiplication represent biologically in this case?
-- Why does the diagonal TranslationMatrix make sense biologically?
-- What does it mean if Sample2 has higher protein levels even with similar gene expression?
-- How does the MARplot help interpret translation efficiency?
-- How does clustering in the heatmap reveal relationships between samples and proteins?
+-   What does matrix multiplication represent biologically in this case?
+-   Why does the diagonal TranslationMatrix make sense biologically?
+-   What does it mean if Sample2 has higher protein levels even with similar gene expression?
+-   How does the MARplot help interpret translation efficiency?
+-   How does clustering in the heatmap reveal relationships between samples and proteins?
 
----
+------------------------------------------------------------------------
 
 ### 🐄 Animal Breeding – Economic Ranking of Bulls by Traits
 
@@ -875,14 +904,13 @@ $$
 \end{bmatrix}
 $$
 
-- Rows:  
-  - Bull1  
-  - Bull2
-
-- Columns:  
-  - Trait1 = Milk yield (liters/year)  
-  - Trait2 = Growth rate (kg/day)  
-  - Trait3 = Fertility (calving interval adjustment)
+-   Rows:
+    -   Bull1\
+    -   Bull2
+-   Columns:
+    -   Trait1 = Milk yield (liters/year)\
+    -   Trait2 = Growth rate (kg/day)\
+    -   Trait3 = Fertility (calving interval adjustment)
 
 You assign economic weights to each trait:
 
@@ -895,54 +923,57 @@ $$
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
 ### 🔧 Tasks
 
-1. Compute:
+1.  Compute:
 
-   $$
-   \text{TotalValue} = \text{BullEBVs} \times \text{EconomicWeights}
-   $$
+    $$
+    \text{TotalValue} = \text{BullEBVs} \times \text{EconomicWeights}
+    $$
 
-   - What are the resulting values?
-   - Which bull is more valuable economically?
+    -   What are the resulting values?
+    -   Which bull is more valuable economically?
 
-2. Interpret what multiplying by the economic weights means biologically.
+2.  Interpret what multiplying by the economic weights means biologically.
 
-3. Create the 3×3 identity matrix I₃ and multiply it with BullEBVs.
-   - What does it return?
-   - What does the identity matrix mean in this case?
+3.  Create the 3×3 identity matrix I₃ and multiply it with BullEBVs.
 
-4. Subset the BullEBVs matrix to remove Trait1 (milk yield) and recalculate TotalValue.
-   - How does this change the ranking?
+    -   What does it return?
+    -   What does the identity matrix mean in this case?
 
----
+4.  Subset the BullEBVs matrix to remove Trait1 (milk yield) and recalculate TotalValue.
+
+    -   How does this change the ranking?
+
+------------------------------------------------------------------------
 
 ### 📊 Visualization Tasks
 
-5. Create a bar plot comparing TotalValue for Bull1 and Bull2.
+5.  Create a bar plot comparing TotalValue for Bull1 and Bull2.
 
-6. Create a heatmap of the EBVs.
-   - Label rows and columns.
-   - Enable clustering.
+6.  Create a heatmap of the EBVs.
 
----
+    -   Label rows and columns.
+    -   Enable clustering.
+
+------------------------------------------------------------------------
 
 ### 🧠 Interpretation Questions
 
-- How do economic weights affect trait importance?
-- Why might you ignore milk yield in some breeding programs?
-- What is the value of heatmaps in visualizing multivariate trait data?
-- Can this method be extended to more bulls and more traits?
+-   How do economic weights affect trait importance?
+-   Why might you ignore milk yield in some breeding programs?
+-   What is the value of heatmaps in visualizing multivariate trait data?
+-   Can this method be extended to more bulls and more traits?
 
 ### 🌾 Plant Breeding – Trait Contributions from Parental Lines
 
 You are breeding a new rice variety from three parental lines. The key traits are:
 
-- T1 = Drought resistance  
-- T2 = Yield  
-- T3 = Maturation time
+-   T1 = Drought resistance\
+-   T2 = Yield\
+-   T3 = Maturation time
 
 The following trait values (normalized 1–10) have been measured:
 
@@ -955,15 +986,14 @@ $$
 \end{bmatrix}
 $$
 
-- Rows:  
-  - P1 (Parent 1)  
-  - P2 (Parent 2)  
-  - P3 (Parent 3)
-
-- Columns:  
-  - T1 = Drought resistance  
-  - T2 = Yield  
-  - T3 = Maturation time
+-   Rows:
+    -   P1 (Parent 1)\
+    -   P2 (Parent 2)\
+    -   P3 (Parent 3)
+-   Columns:
+    -   T1 = Drought resistance\
+    -   T2 = Yield\
+    -   T3 = Maturation time
 
 You design a hybrid with contributions from each parent as follows:
 
@@ -976,47 +1006,48 @@ $$
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
 ### 🔧 Tasks
 
-1. Compute the HybridTrait vector by:
+1.  Compute the HybridTrait vector by:
 
-   $$
-   \text{HybridTraits} = \text{HybridWeights}^T \times \text{ParentTraits}
-   $$
+    $$
+    \text{HybridTraits} = \text{HybridWeights}^T \times \text{ParentTraits}
+    $$
 
-   Show the steps and result.
+    Show the steps and result.
 
-2. Explain what it means biologically when one parent contributes more to a particular trait.
+2.  Explain what it means biologically when one parent contributes more to a particular trait.
 
-3. Create an identity matrix I₃ and multiply it with ParentTraits.
-   - What do you observe?
-   - What does I × ParentTraits represent?
+3.  Create an identity matrix I₃ and multiply it with ParentTraits.
 
-4. Subset the ParentTraits matrix to include only T1 and T2. Recalculate the hybrid traits.
-   - Discuss how removing a trait affects your outcome.
+    -   What do you observe?
+    -   What does I × ParentTraits represent?
 
----
+4.  Subset the ParentTraits matrix to include only T1 and T2. Recalculate the hybrid traits.
+
+    -   Discuss how removing a trait affects your outcome.
+
+------------------------------------------------------------------------
 
 ### 📊 Visualization Tasks
 
-5. Generate a heatmap of the ParentTraits matrix.
-   - Label the rows with parent names and columns with trait names.
-   - Enable row/column clustering.
+5.  Generate a heatmap of the ParentTraits matrix.
+    -   Label the rows with parent names and columns with trait names.
+    -   Enable row/column clustering.
+6.  Create a bar plot showing the HybridTraits (T1, T2, T3).
+    -   Color code each bar by trait.
+    -   What trait contributes most?
 
-6. Create a bar plot showing the HybridTraits (T1, T2, T3).
-   - Color code each bar by trait.
-   - What trait contributes most?
-
----
+------------------------------------------------------------------------
 
 ### 🧠 Interpretation Questions
 
-- How does the weighting of parents affect the hybrid's performance?
-- What does the identity matrix represent here?
-- If you used equal weights (⅓ for each), how would the hybrid traits change?
-- What real-world limitations does this simplified model ignore?
+-   How does the weighting of parents affect the hybrid's performance?
+-   What does the identity matrix represent here?
+-   If you used equal weights (⅓ for each), how would the hybrid traits change?
+-   What real-world limitations does this simplified model ignore?
 
 ### 🧠 Managing Matrices and Weight Vectors Using Lists in R
 
@@ -1024,89 +1055,91 @@ Now that you have completed four biological matrix problems — Protein concentr
 
 In this task, you will:
 
-- Group each example’s matrix and its corresponding weight vector inside a named list.
-- Combine these named lists into a larger list called bioList.
-- Use list indexing to repeat your earlier calculations and visualizations.
-- Reflect on the benefits and challenges of using structured data objects.
+-   Group each example’s matrix and its corresponding weight vector inside a named list.
+-   Combine these named lists into a larger list called bioList.
+-   Use list indexing to repeat your earlier calculations and visualizations.
+-   Reflect on the benefits and challenges of using structured data objects.
 
----
+------------------------------------------------------------------------
 
 ### 📦 Step 1: Create a master list
 
 You should now build a named list called bioList containing the following four elements:
 
-- ProteinConc = list(matrix = ProteinMatrix, weights = WeightVector)
-- ProteinMap = list(matrix = ProteinMapping, weights = TranslationWeights)
-- Plant = list(matrix = ParentTraits, weights = HybridWeights)
-- Animal = list(matrix = BullEBVs, weights = EconomicWeights)
+-   ProteinConc = list(matrix = ProteinMatrix, weights = WeightVector)
+-   ProteinMap = list(matrix = ProteinMapping, weights = TranslationWeights)
+-   Plant = list(matrix = ParentTraits, weights = HybridWeights)
+-   Animal = list(matrix = BullEBVs, weights = EconomicWeights)
 
 Hint: Each inner list should contain both:
 
-- matrix = the main data matrix
-- weights = the vector used for multiplication
+-   matrix = the main data matrix
+-   weights = the vector used for multiplication
 
 No R code is required here (You have them from previous part, use inside same rmd/notebook file) — just structure your data like this in your workspace.
 
----
+------------------------------------------------------------------------
 
 ### 🔧 Tasks
 
-1. List the full names of each component in bioList.  
-   What are the names of the top-level and nested components?
+1.  List the full names of each component in bioList.\
+    What are the names of the top-level and nested components?
 
-2. Access each matrix and its corresponding weights using list indexing.
-   - How would you extract only the matrix of the Plant entry?
-   - How would you extract the weights for the Protein concentration entry?
+2.  Access each matrix and its corresponding weights using list indexing.
 
-3. Use the correct matrix and weights to perform:
-   - ProteinConc: Weighted gene expression score
-   - ProteinMap: Contribution of transcripts to each protein
-   - Plant: Hybrid trait values
-   - Animal: Bull total economic value
+    -   How would you extract only the matrix of the Plant entry?
+    -   How would you extract the weights for the Protein concentration entry?
 
-4. Subset one matrix in each sublist (e.g., drop a trait or feature) and repeat the weighted calculation.
-   - What changes in the results?
-   - Which traits/genes have the strongest influence?
+3.  Use the correct matrix and weights to perform:
 
----
+    -   ProteinConc: Weighted gene expression score
+    -   ProteinMap: Contribution of transcripts to each protein
+    -   Plant: Hybrid trait values
+    -   Animal: Bull total economic value
+
+4.  Subset one matrix in each sublist (e.g., drop a trait or feature) and repeat the weighted calculation.
+
+    -   What changes in the results?
+    -   Which traits/genes have the strongest influence?
+
+------------------------------------------------------------------------
 
 ### 📊 Visualization Tasks
 
-5. Generate one heatmap for any matrix stored in bioList.
-   - Choose one (e.g., ProteinMap or Plant)
-   - Apply clustering to rows and/or columns
-   - Label appropriately
+5.  Generate one heatmap for any matrix stored in bioList.
+    -   Choose one (e.g., ProteinMap or Plant)
+    -   Apply clustering to rows and/or columns
+    -   Label appropriately
+6.  Generate two bar plots:
+    -   One showing the result of weighted trait aggregation for the Plant hybrid
+    -   One showing the total breeding values for each bull
 
-6. Generate two bar plots:
-   - One showing the result of weighted trait aggregation for the Plant hybrid
-   - One showing the total breeding values for each bull
-
----
+------------------------------------------------------------------------
 
 ### 🧠 Interpretation Questions
 
-- How does structuring your data using a list help with clarity and reproducibility?
-- What risks or challenges might occur when accessing elements from nested lists?
-- Could this structure be scaled for real datasets with many samples or traits?
-- How would you loop over all elements in bioList to apply the same function?
-- How can this list structure be useful for building automated bioinformatics pipelines?
+-   How does structuring your data using a list help with clarity and reproducibility?
+-   What risks or challenges might occur when accessing elements from nested lists?
+-   Could this structure be scaled for real datasets with many samples or traits?
+-   How would you loop over all elements in bioList to apply the same function?
+-   How can this list structure be useful for building automated bioinformatics pipelines?
 
-  
 📝 Your Rmarkdown file(s) should include:
 
-- All matrix calculations (tasks). Also, name the rows and columns of each matrix accordingly.
-- All interpretation answers
-- All plots (output from embedded code)
-- And your commentary blocks for each code chunk
+-   All matrix calculations (tasks). Also, name the rows and columns of each matrix accordingly.
+-   All interpretation answers
+-   All plots (output from embedded code)
+-   And your commentary blocks for each code chunk
 
 **knit your rmd (or Notebook) file as html/pdf file and push both the rmd (or Notebook) and html/pdf files**
 
-## Factor Variables  
-Important for categorical data  
-  
-### Creating Factors  
+## Factor Variables
 
-Factors are used to represent categorical data in R. They are particularly important for biological data like genotypes, phenotypes, and experimental conditions.  
+Important for categorical data
+
+### Creating Factors
+
+Factors are used to represent categorical data in R. They are particularly important for biological data like genotypes, phenotypes, and experimental conditions.
 
 ```{r creating-factors}
 # Simple factor: DNA sample origins
@@ -1132,7 +1165,7 @@ disease_severity
 disease_severity[1] < disease_severity[2]  # Is Mild less severe than Severe?
 ```
 
-### Factor Operations  
+### Factor Operations
 
 ```{r factor-operations}
 # Count frequencies
@@ -1154,8 +1187,8 @@ barplot(table(origins_factor),
         main = "Sample Origins",
         ylab = "Count")
 ```
-  
-More advanced plot with factors:  
+
+More advanced plot with factors:
 
 ```{r}
 gene_expr <- c(5.2, 7.8, 4.5, 12.3, 8.1, 3.7)
@@ -1169,29 +1202,31 @@ boxplot(gene_expr ~ origins,
         ylab = "Expression Level")
 ```
 
-:::callout-note
+::: callout-note
 Keep noticing the output formats. Sometimes the output is just a number, sometimes a vector or table or list, etc. Check `prop.table(table(origins_factor))`. How is it?
 :::
-  
+
 ::: {.callout-note collapse="true"}
 ## Got it?
-`prop <- prop.table(table(origins_factor))` -- is a named numeric vector (atomic vector). `prop$Human` or similar won't work. Check this way:  
-`prop`  
-`prop["Human"]; prop["Mouse"]; prop["Zebrafish"]`  
+
+`prop <- prop.table(table(origins_factor))` -- is a named numeric vector (atomic vector). `prop$Human` or similar won't work. Check this way:\
+`prop`\
+`prop["Human"]; prop["Mouse"]; prop["Zebrafish"]`
 
 Or make it a data frame (df) first, then try to use normal way of handling df.
 :::
-  
-Accessing the Output:  
+
+Accessing the Output:
+
 ```{r}
 prop <- prop.table(table(origins_factor))
 prop #What do you see? A data frame? No difference?
 prop["Human"]; prop["Mouse"]; prop["Zebrafish"]
 ```
 
-## Subsetting Data  
+## Subsetting Data
 
-### Vectors  
+### Vectors
 
 ```{r subsetting-vectors}
 # Create a vector
@@ -1246,31 +1281,33 @@ gene_df[gene_df$mutation == "Yes", ]
 # Multiple conditions
 gene_df[gene_df$expression > 7 & gene_df$mutation == "No", ]
 ```
+
 **Logical Operators**
 
-| Operator | Meaning          | Example       |
-|----------|------------------|---------------|
-| `==`     | Equal to         | `x == 5`      |
-| `!=`     | Not equal        | `x != 5`      |
-| `<`      | Less than        | `x < 5`       |
-| `>`      | Greater than     | `x > 5`       |
-| `<=`     | Less or equal    | `x <= 5`      |
-| `>=`     | Greater or equal | `x >= 5`      |
-| `!`      | Not              | `!(x < 5)`    |
+| Operator | Meaning          | Example          |
+|----------|------------------|------------------|
+| `==`     | Equal to         | `x == 5`         |
+| `!=`     | Not equal        | `x != 5`         |
+| `<`      | Less than        | `x < 5`          |
+| `>`      | Greater than     | `x > 5`          |
+| `<=`     | Less or equal    | `x <= 5`         |
+| `>=`     | Greater or equal | `x >= 5`         |
+| `!`      | Not              | `!(x < 5)`       |
 | `|`      | OR               | `x < 5 | x > 10` |
 | `&`      | AND              | `x > 5 & x < 10` |
 
-### Row Names in Data Frames  
+### Row Names in Data Frames
 
-Row names are particularly important in bioinformatics where genes, proteins, or samples are often used as identifiers.  
+Row names are particularly important in bioinformatics where genes, proteins, or samples are often used as identifiers.
 
 ```{r rownames}
 # Setting row names for gene_df
 rownames(gene_df) <- gene_df$gene_id
 gene_df
 ```
-<br>
-We can now drop the gene_id column, if required.  
+
+<br> We can now drop the gene_id column, if required.
+
 ```{r}
 gene_df_clean <- gene_df[, -1]  # Remove the first column
 gene_df_clean
@@ -1300,10 +1337,10 @@ unique_names  # Show the generated unique names
 rownames(dup_genes) <- unique_names
 dup_genes
 ```
-  
-## Handling Missing/Wrong Values   
 
-### Identifying Issues  
+## Handling Missing/Wrong Values
+
+### Identifying Issues
 
 ```{r missing-values}
 # Create data with missing values
@@ -1480,7 +1517,8 @@ expression_category <- ifelse(expression_levels > 6,
 expression_category
 ```
 
-## Practical Session  
+## Practical Session
+
 Check out this repo: `https://github.com/genomicsclass/dagdata/`
 
 ```{r practical, eval=FALSE}
@@ -1491,78 +1529,80 @@ download.file("https://github.com/genomicsclass/dagdata/raw/master/inst/extdata/
 # Load data
 msleep <- read.csv("msleep_data.csv")
 ```
-  
-**In-class Tasks:** 
 
-1. Convert 'vore' column to factor and plot its distribution.  
-2. Create a matrix of sleep data columns and add row names.  
-3. Find and handle any missing values.  
-4. Calculate mean sleep time by diet category (vore).  
-5. Identify outliers in sleep_total.  
-  
+**In-class Tasks:**
 
-## Summary of Today's Lesson  
+1.  Convert 'vore' column to factor and plot its distribution.\
+2.  Create a matrix of sleep data columns and add row names.\
+3.  Find and handle any missing values.\
+4.  Calculate mean sleep time by diet category (vore).\
+5.  Identify outliers in sleep_total.
+
+## Summary of Today's Lesson
 
 In today's class, we covered:
 
-1. **Factor Variables**: Essential for categorical data in biology (genotypes, treatments, etc.)
-   - Creation, levels, ordering, and visualization
+1.  **Factor Variables**: Essential for categorical data in biology (genotypes, treatments, etc.)
 
-2. **Subsetting Techniques**: Critical for data extraction and analysis
-   - Vector and data frame subsetting with various methods
-   - Using row names effectively for biological identifiers
+    -   Creation, levels, ordering, and visualization
 
-3. **Matrix Operations**: Fundamental for expression data
-   - Creation, manipulation, and biological applications
-   - Calculating fold changes and other common operations
+2.  **Subsetting Techniques**: Critical for data extraction and analysis
 
-4. **Missing Values**: Practical approaches for real-world biological data
-   - Identification and appropriate replacement methods
+    -   Vector and data frame subsetting with various methods
+    -   Using row names effectively for biological identifiers
 
-5. **Data Transformation**: Making data suitable for statistical analysis
-   - Log, square root, and z-score transformations
-   - Outlier identification and handling
+3.  **Matrix Operations**: Fundamental for expression data
 
-6. **Logical Operations**: For data filtering and decision making
-   - Conditions, combinations, and applications
+    -   Creation, manipulation, and biological applications
+    -   Calculating fold changes and other common operations
 
-   These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.  
+4.  **Missing Values**: Practical approaches for real-world biological data
 
-7. We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.  
+    -   Identification and appropriate replacement methods
 
-8. **List**: Fundamental for many biological data and packages' output.  
-   - Properties, accessing, and applications
+5.  **Data Transformation**: Making data suitable for statistical analysis
 
-## Homework  
+    -   Log, square root, and z-score transformations
+    -   Outlier identification and handling
 
-1. **Matrix Operations**:  
-   - Create a gene expression matrix with 8 genes and 4 conditions
-   - Calculate the mean expression for each gene
-   - Calculate fold change between condition 4 and condition 1
-   - Create a heatmap of your matrix
+6.  **Logical Operations**: For data filtering and decision making
 
-2. **Factor Analysis**:  
-   - Using the `iris` dataset, convert Species to an ordered factor
-   - Create boxplots showing Sepal.Length by Species
-   - Calculate mean petal length for each species level
+    -   Conditions, combinations, and applications
 
-3. **Data Cleaning Challenge**:  
-   - In the downloaded `msleep_data.csv`:
-     * Identify all columns with missing values
-     * Replace missing values appropriately
-     * Create a new categorical variable "sleep_duration" with levels "Short", "Medium", "Long"
+    These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.
 
-4. **List challenge**:  
-   - Make your own lists
-   - Replicate all the tasks we did
-   - You may ask AI to give you beginner-level questions but don't ask to solve the questions programmatically. Tell AI not to provide answers. 
+7.  We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.
 
-5. **Complete Documentation**:  
-   - Write all code in R Markdown
-   - Include comments explaining your approach
-   - Push to GitHub
+8.  **List**: Fundamental for many biological data and packages' output.
 
-#### Due date: Friday 10pm BD Time  
+    -   Properties, accessing, and applications
+
+## Homework
+
+1.  **Matrix Operations**:
+    -   Create a gene expression matrix with 8 genes and 4 conditions
+    -   Calculate the mean expression for each gene
+    -   Calculate fold change between condition 4 and condition 1
+    -   Create a heatmap of your matrix
+2.  **Factor Analysis**:
+    -   Using the `iris` dataset, convert Species to an ordered factor
+    -   Create boxplots showing Sepal.Length by Species
+    -   Calculate mean petal length for each species level
+3.  **Data Cleaning Challenge**:
+    -   In the downloaded `msleep_data.csv`:
+        -   Identify all columns with missing values
+        -   Replace missing values appropriately
+        -   Create a new categorical variable "sleep_duration" with levels "Short", "Medium", "Long"
+4.  **List challenge**:
+    -   Make your own lists
+    -   Replicate all the tasks we did
+    -   You may ask AI to give you beginner-level questions but don't ask to solve the questions programmatically. Tell AI not to provide answers.
+5.  **Complete Documentation**:
+    -   Write all code in R Markdown
+    -   Include comments explaining your approach
+    -   Push to GitHub
+
+#### Due date: Friday 10pm BD Time
 
 ```{r save-examples, include=FALSE}
 # Save example data for students who missed class
