@@ -17,7 +17,7 @@ abstract: "dataframe, matrices, list, factor, vector, etc."
 
 # L3: Matrices and Lists
 
-## Task 1: Protein Concentration in Samples
+## Task 1: Protein Quantification in Biological Samples
 
 We measured the concentration (in µg/µL) of three proteins (P1, P2, P3) in four samples (S1–S4):
 
@@ -89,7 +89,7 @@ colSums(ProteinMatrix)
 heatmap(ProteinMatrix, scale = "none", col = heat.colors(10))
 ```
 
-### Interpretation
+### 🧠 Interpretation
 
 - Multiplying the protein levels by the weight vector shows how much each protein contributes in a sample. The result shows total protein concentration per sample.
 - The result shows that sample S2 has the highest protein burden.
@@ -209,250 +209,392 @@ heatmap(Protein_matrix, main= "Heatmap of Protein Level", Rowv = TRUE, Colv = TR
 ```{r}
 heatmap(GeneExpression, col = terrain.colors(10), scale = "column")
 ```
-### Interpretation
+### 🧠 Interpretation
 
-```{r}
-print("1. Matrix multiplication allows each gene in both samples to be multiplied to their respective translation efficiency. So, the product shows how successfully each gene is translated")
+1. Matrix multiplication allows each gene in both samples to be multiplied to their respective translation efficiency. So, the product shows how successfully each gene is translated")
 
-print("2. The diagonal TranslationMatrix make sense biologically because they show translation efficiency of each gene and there is no other interaction between them. Although there could be interaction in real-world scenarios.")
+2. The diagonal TranslationMatrix make sense biologically because they show translation efficiency of each gene and there is no other interaction between them. Although there could be interaction in real-world scenarios.
 
-print("3. If Sample2 has higher protein levels even with similar gene expression, it means that more mRNAs are translated to proteins compared to Sample1")
+3. If Sample2 has higher protein levels even with similar gene expression, it means that more mRNAs are translated to proteins compared to Sample1"
 
-print("4. The upward trend in MARplot may indicate an increase in translation efficacy and downward trend may indicate a decline in translation efficacy")
+4. The upward trend in MARplot may indicate an increase in translation efficacy and downward trend may indicate a decline in translation efficacy"
 
-print("5. Clustering in the heatmap may suggest which samples are most similar to each other based on their prot")
-```
+5. Clustering in the heatmap may suggest which samples are most similar to each other based on their prot.
 
 ---
 
 ## Task 3: Animal Breeding – Bull Ranking by Economic Traits
 
+### Define Data
+
 ```{r}
-# making a matrix of Estimated Breeding Values (EBVs) of 2 bulls
-BullEBVs <- matrix(
-  c(400, 1.2, 0.8,
-    500, 1.5, 0.6), nrow = 2, byrow = TRUE
-)
+# Define Bull EBVs
+BullEBVs <- matrix(c(
+  400, 1.2, 0.8,
+  500, 1.5, 0.6
+), nrow = 2, byrow = TRUE)
 
 rownames(BullEBVs) <- c("Bull1", "Bull2")
-colnames(BullEBVs) = c("Trait1", "Trait2", "Trait3")
+colnames(BullEBVs) <- c("Milk_yield", "Growth_rate", "Fertility")
 
-# making a matrix of economic weights
-EconomicWeights = matrix(
-  c(0.002, 50, 100), nrow=3, byrow=TRUE
-)
-
-TotalValue = BullEBVs %*% EconomicWeights
-print(TotalValue)
+# Define Economic Weights
+EconomicWeights <- matrix(c(0.002, 50, 100), ncol = 1)
 ```
-Total value for bull1 is 140.8 and for bull2 is 136.
+### Compute Total Economic Value
+
+```{r}
+TotalValue <- BullEBVs %*% EconomicWeights
+TotalValue
+```
+
+**Interpretation**
+
+Bull1: (400 × 0.002) + (1.2 × 50) + (0.8 × 100) = 140.8
+
+Bull2: (500 × 0.002) + (1.5 × 50) + (0.6 × 100) = 136.0
+
 Bull1 is more valuable economically.
 
-### What multiplying by the economic weights means biologically
+**Biological Interpretation**
 
-In this case, we multiply the Estimated Breeding Values (EBVs) of each trait by corresponding Economic weights. This gives a value showing the economic relevance of each trait.
+Economic weights convert genetic merit (EBVs) into economic merit. Traits with higher financial importance have a larger impact, regardless of absolute EBV values.
 
-```{r}
-# making 3×3 identity matrix
-I <- diag(3)
-Identityproduct = BullEBVs %*% I
-print(Identityproduct)
-```
-
-Multiplying I and BullEBVs returns a matrix identical to BullEBVs.
+### Multiply with Identity Matrix
 
 ```{r}
-# Subsetting the BullEBVs matrix by removing Trait1 (milk yield)
-Bullsubset = BullEBVs[, 2:3]
-print(Bullsubset)
-Economicweightsub = EconomicWeights[2:3,]
-print(Economicweightsub)
-
-NewTotalValues = Bullsubset %*% Economicweightsub
-print(NewTotalValues)
+I3 <- diag(3)
+BullEBVs_identity <- BullEBVs %*% I3
+BullEBVs_identity
 ```
-The ranking does not change. Bull1 is still more valuable.
 
+**Interpretation**
+
+Multiplying by identity matrix returns the original matrix. It confirms that EBV structure is preserved.
+
+### Remove Milk Yield and Recalculate Total Value
 
 ```{r}
-## Visualization Tasks
+BullEBVs_noMilk <- BullEBVs[, -1]
+EconomicWeights_noMilk <- EconomicWeights[2:3, , drop = FALSE]
 
-# creating a barplot
-TotalvalueT = t(TotalValue)
-barplot(TotalvalueT, main="Total value for each bull", ylab= "weighted values", col=c("lightblue"))
-
-
-# creating a heatmap
-heatmap(BullEBVs, Rowv=TRUE, Colv=TRUE, labRow= rownames(BullEBVs), labCol= colnames(BullEBVs), col=topo.colors(256), scale="none", main="Heatmap of EBVs")
+TotalValue_noMilk <- BullEBVs_noMilk %*% EconomicWeights_noMilk
+TotalValue_noMilk
 ```
 
-### Interpretation Questions
+**Interpretation**
 
+Bull1: (1.2 × 50) + (0.8 × 100) = 140
 
-- 1. Economic weights reflect the economic relevance of each trait, that is, which trait is important economically.
-- 2. Milk yield is ignored in some breeding programs because the main goal of breeding programs is to produce greater number of genetically superior offsprings.
-- 3. Heatmaps help to visualize patterns and clusters in multivariate trait data.
-- 4. This method be extended to more bulls and more traits.
+Bull2: (1.5 × 50) + (0.6 × 100) = 135
+
+Bull1 still ranks higher, but by a smaller margin.
+
+### Bar Plot: Total Economic Value
+
+```{r}
+barplot(
+  TotalValue,
+  beside = TRUE,
+  names.arg = rownames(BullEBVs),
+  col = c("skyblue", "orange"),
+  main = "Total Economic Value of Bulls",
+  ylab = "Total Value"
+)
+```
+
+### Heatmap of EBVs
+
+```{r}
+heatmap(
+  BullEBVs,
+  Rowv = NA,
+  Colv = NA,
+  scale = "none",
+  col = heat.colors(256),
+  main = "Heatmap of Bull EBVs"
+)
+```
+
+### 🧠 Interpretation Questions
+
+- How do economic weights affect trait importance?
+
+Traits with higher weights contribute more to the total economic value. This makes them more influential in ranking and selection.
+
+- Why might you ignore milk yield?
+
+Milk yield may be excluded in systems focusing on fertility, growth, or when it is no longer a limiting factor. Environmental or economic contexts may also shift trait priorities.
+
+- What is the value of heatmaps?
+
+Heatmaps visually compare EBVs across bulls and traits.They help detect patterns, outliers, and clusters easily in multivariate data.
+
+- Can this method be extended to more bulls and traits?
+
+Yes. This method scales to any number of bulls or traits. Just ensure the EBVs matrix and economic weights are dimensionally compatible.
 
 
 ## Task 4: Plant Breeding – Trait Contributions from Parental Lines
 
+### Define Data
+
+**Parent trait values (normalized 1–10)**
 ```{r}
-# making parent traits matrix
-ParentTraits = matrix(
-  c(7, 5, 3,
-    6, 8, 4,
-    5, 6, 6), nrow=3, byrow= TRUE
+ParentTraits <- matrix(c(
+  7, 5, 3,
+  6, 8, 4,
+  5, 6, 6
+), nrow = 3, byrow = TRUE)
+
+rownames(ParentTraits) <- c("P1", "P2", "P3")
+colnames(ParentTraits) <- c("Drought_resistance", "Yield", "Maturation_time")
+
+# Define Hybrid Weights
+HybridWeights <- matrix(c(0.5, 0.3, 0.2), nrow = 1)
+```
+
+### Compute HybridTraits Vector
+
+```{r}
+HybridTraits <- HybridWeights %*% ParentTraits
+HybridTraits
+```
+**Interpretation**
+
+HybridTraits = (0.5 × P1) + (0.3 × P2) + (0.2 × P3)
+
+Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.2
+
+Yield = (0.5 × 5) + (0.3 × 8) + (0.2 × 6) = 6.1
+
+Maturation_time = (0.5 × 3) + (0.3 × 4) + (0.2 × 6) = 3.7
+
+The hybrid is moderately strong in drought resistance and yield, but has a relatively shorter maturation time.
+
+**Biological Meaning of Unequal Contribution**
+
+When one parent contributes more to a trait, it suggests that the trait's heritable strength comes disproportionately from that parent. Breeders can use this knowledge to amplify desirable traits.
+
+### Multiply with Identity Matrix
+
+```{r}
+I3 <- diag(3)
+ParentTraits_identity <- ParentTraits %*% I3
+ParentTraits_identity
+```
+
+**Interpretation**
+
+Multiplying by identity matrix returns the original matrix. This operation verifies structural consistency and dimensionality.
+
+### Remove T3 (Maturation Time) and Recalculate
+
+```{r}
+ParentTraits_T1T2 <- ParentTraits[, 1:2]
+HybridTraits_T1T2 <- HybridWeights %*% ParentTraits_T1T2
+HybridTraits_T1T2
+```
+
+**Interpretation**
+
+Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.2
+
+Yield = (0.5 × 5) + (0.3 × 8) + (0.2 × 6) = 6.1
+
+Removing a trait (T3) changes the trait profile. Hybrid selection may now favor traits that remain.
+
+### Heatmap of ParentTraits
+
+```{r}
+heatmap(
+  ParentTraits,
+  Rowv = NA,
+  Colv = NA,
+  scale = "none",
+  col = heat.colors(256),
+  main = "Heatmap of Parent Traits"
 )
-rownames(ParentTraits) = c("P1", "P2", "P3")
-colnames(ParentTraits) = c("T1 Drought resistance", "T2 Yield", "T3 Maturation time")
-print(ParentTraits)
+```
 
-# making HybridWeights matrix
-HybridWeights = matrix(
-  c(0.5, 0.3, 0.2), nrow=3, byrow= TRUE
+### Bar Plot of Hybrid Traits
+
+```{r}
+barplot(
+  HybridTraits,
+  beside = TRUE,
+  names.arg = colnames(ParentTraits),
+  col = c("#66c2a5", "#fc8d62", "#8da0cb"),
+  main = "Hybrid Trait Profile",
+  ylab = "Trait Value"
 )
-print("HybridWeights:")
-print(HybridWeights)
 ```
 
-```{r}
-# Transpose of HybridWeights
-HybridWeightsTranspose = t(HybridWeights)
-print("HybridWeightsTranspose:")
-print(HybridWeightsTranspose)
-```
+### 🧠 Interpretation Questions
 
-### computing Hybrid traits matrix
-```{r}
-HybridTraits =  HybridWeightsTranspose %*% ParentTraits
-print("The HybridTraits matrix is:")
-print(HybridTraits)
+- How does the weighting of parents affect the hybrid's performance?
 
+  Stronger weights mean more genetic contribution. Traits from highly weighted parents dominate the hybrid profile.
 
-# Explaining what it means biologically when one parent contributes more to a particular trait
-print("A parent contributing more to a particular trait than others makes it more desirable and more likely to be selected for plant breeding")
-```
+- What does the identity matrix represent here?
 
-```{r}
-# making identity matrix and multiplying with ParentTraits 
-I = diag(3)
-print(I)
-Product = I %*% ParentTraits
-print(Product)
+  It represents a neutral transformation. It confirms data integrity when used in matrix multiplication.
 
-print("Observation:")
-print(" I × ParentTraits is identical to ParentTraits matrix")
-print("I × ParentTraits represents the original matrix and therefore no transformation or change")
-```
+- If you used equal weights (⅓ for each), how would the hybrid traits change?
 
-```{r}
-# subsetting
-parentsub = ParentTraits[, 1:2]
-print("Subset matrix of ParentTraits")
-print(parentsub)
-```
+  Traits would reflect an even mix, potentially leading to balanced but less specialized performance.
+
+- What real-world limitations does this simplified model ignore?
+
+  i. Non-additive genetic effects (dominance, epistasis)
+
+  ii. Environmental interactions
+
+  iii. Trait heritability and correlations
+
+  iv. Breeding feasibility and cost
+
+## Task 5: Managing Matrices and Weight Vectors Using Lists in R
+
+Now that we've explored trait-based decisions using matrices, it's time to organize our work using R's list structure. Lists help bundle related objects like matrices and weight vectors, keeping the analysis modular and scalable.
+
+### Create a Master List
 
 ```{r}
-newhybridtraits = HybridWeightsTranspose %*% parentsub
-print("recalculated hybrid traits is")
-print(newhybridtraits)
-```
-Removing maturation trait does not provide insight about the maturation time of the three parent plants. The new matrix has one less column but the values of other two traits is unchanged.
+# Assuming previous matrices and weights are already defined:
 
-
-```{r}
-## Visulaization tasks
-
-# A heatmap of ParentTraits matrix
-heatmap(ParentTraits, Rowv=TRUE, Colv=TRUE, labRow= rownames(ParentTraits), labCol= colnames(ParentTraits), col=heat.colors(256), scale="none", main="Heatmap of Three Traits of Three Parents")
-
-
-# A barplot of HybridTraits
-hybridtraitsvec = c(T1=6.3, T2=6.1, T3=3.9)
-
-
-barplot(hybridtraitsvec, main="Hybrid values of each trait", ylab="weighted Values of each trait", col=c("lightblue", "lightgreen", "lightyellow"))
-
-## Interpretation Questions
-
-print("The parent traits with more weight might affect hybrid’s performance more.")
-print("I think the identity matrix serves as a control which is used to compare the matrix with itself")
-equal_weights = matrix(c(0.3, 0.3, 0.3), nrow=1, byrow=TRUE)
-change_in_hybrid_traits = equal_weights %*% ParentTraits
-print("The change in hybrid weights will be")
-print(change_in_hybrid_traits)
-print("I think this simple model ignores the influence of various abiotic and biotic factors such as environmental condition, diseases etc.")
-```
-
-## Task 5: Lists
-```{r}
 # Making a MasterList
 bioList = list(
-ProteinConc = list(ProteinMatrix, WeightVector),
-ProteinMap = list(GeneExpression, TranslationMatrix),
-Plant = list(ParentTraits, HybridWeights),
-Animal = list(BullEBVs, EconomicWeights)
+  ProteinConc = list(matrix = ProteinMatrix, weights = WeightVector),
+  ProteinMap  = list(matrix = GeneExpression, weights = TranslationMatrix),
+  Animal = list(matrix = BullEBVs, weights = EconomicWeights),
+  Plant = list(matrix = ParentTraits, weights = HybridWeights)
 )
 
 print(bioList)
-
-# Task1
-print("List of top level components:")
-print("1. ProteinConc 2. ProteinMap 3. Plant 4. Animal")
-print("List of nested components:")
-print("1. ProteinMatrix 2. WeightVector 3. GeneExpression 4. TranslationMatrix 5. ParentTraits 6. HybridWeights 7. BullEBVs 8.EconomicWeights")
-
-# Task 2
-bioList[[2]][[1]]
-bioList[[2]][[2]]
-bioList[[4]][[1]]
-bioList[[4]][[2]]
-
-matrix_of_plant_entry = bioList[[3]][[1]]
-print(matrix_of_plant_entry)
-weight_for_protein_conc = bioList[[1]][[2]]
-print(weight_for_protein_conc)
-
-# Task 3
-Weighted_gene_expression_score = bioList[[1]][[1]] %*% bioList[[1]][[2]]
-print(Weighted_gene_expression_score)
-
-Contribution_of_transcripts_to_each_protein = bioList[[2]][[1]] %*% bioList[[2]][[2]]
-print(Contribution_of_transcripts_to_each_protein)
-
-Hybrid_trait_values = t(bioList[[3]][[2]]) %*% bioList[[3]][[1]] 
-print(Hybrid_trait_values)
-
-Bull_total_economic_value = bioList[[4]][[1]] %*% bioList[[4]][[2]]
-print(Bull_total_economic_value)
-
-# Task 4
-
-subset_BullEBVs = bioList[[4]][[1]][, 2:3]
-print(subset_BullEBVs)
-Ecoweightsub = bioList[[4]][[2]][2:3, ]
-print(Ecoweightsub)
-Recalculated_total_value = subset_BullEBVs %*% Ecoweightsub
-print(Recalculated_total_value)
-
-
-## Visualization Tasks
-# Creating barplot showing the result of weighted trait aggregation for the Plant hybrid
-barplot(Hybrid_trait_values, main="weighted trait aggregation for the Plant hybrid", ylab="weighted Values of each trait", col=c("salmon"))
-
-
-# Creating barplot showing the total breeding values for each bull
-barplot(t(Bull_total_economic_value), main="Comparison of Total values of Bulls", ylab="weighted Values of each trait", col=c("lightblue"))
-
-# Creating heatmap
-heatmap(bioList[[4]][[1]], Rowv=TRUE, Colv=TRUE, labRow= rownames(bioList[[4]][[1]]), labCol= colnames(bioList[[4]][[1]]), col=heat.colors(256), scale= "column", main="Heatmap of Bull EBVs")
-
-
-## Interpretation Questions
-print("Structuring data using a list help to logically organise different datatypes such as matrix, vector and list itself. Since each component is differently named, they can be easily accessed.")
-print("Nested lists require multiple levels of indexing where there is a higher chance of making mistakes with the indices such as using the wrong number of brackets or the wrong index number")
-print("Yes, this structure could be scaled for real datasets with many samples or traits")
-print("How would you loop over all elements in bioList to apply the same function? Not sure")
-print("How can this list structure be useful for building automated bioinformatics pipelines? Not sure")
 ```
+
+### List the Structure
+
+```{r}
+names(bioList)               # Top-level list names
+lengths(bioList)             # Number of components in each sublist
+```
+
+**Interpretation**
+
+Each top-level entry (e.g., ProteinConc, Plant) contains two components:
+
+- A matrix (e.g., ProteinMatrix)
+- A corresponding weight vector or matrix
+
+### Indexing Elements from Lists
+
+```{r}
+# Access the trait matrix for Plant
+bioList$Plant[[1]]
+#or
+bioList$Plant$matrix
+
+# Access the weight vector for ProteinConc
+bioList$ProteinConc[[2]]
+#or
+bioList$ProteinConc$weights
+```
+
+**Interpretation**
+
+Use double brackets [[ ]] to extract unnamed list elements by position. But we named our list, so they are easily extractable using the `$` notation.
+
+### Perform Weighted Calculations
+
+```{r}
+# Protein concentration score
+bioList$ProteinConc$matrix %*% bioList$ProteinConc$weights
+
+# Gene → Protein contribution
+bioList$ProteinMap$matrix %*% bioList$ProteinMap$weights
+
+# Bull economic value
+bioList$Animal$matrix %*% bioList$Animal$weights
+
+# Hybrid trait value
+bioList$Plant$weights %*% bioList$Plant$matrix
+```
+
+### Subset and Recalculate
+
+```{r}
+# Remove last trait from ParentTraits
+ParentSubset <- bioList$Plant$matrix[, 1:2]
+NewWeights <- matrix(c(0.6, 0.4), nrow = 2)
+
+# Recalculated hybrid score
+SubsetHybridScore <- ParentSubset %*% NewWeights
+SubsetHybridScore
+```
+
+**Interpretation**
+
+Dropping a trait and reweighting highlights its influence in trait aggregation and selection.
+
+### Visualization Tasks
+
+#### Heatmap: Gene Expression
+
+```{r}
+heatmap(
+  bioList$ProteinMap$matrix,
+  scale = "none",
+  col = heat.colors(256),
+  main = "Gene Expression Heatmap",
+  xlab = "Proteins",
+  ylab = "Genes"
+)
+```
+
+#### Bar Plots
+
+##### Hybrid traits
+
+```{r}
+barplot(
+  bioList$Plant$weights %*% bioList$Plant$matrix,
+  beside = TRUE,
+  main = "Hybrid Trait Contributions",
+  col = "#66c2a5",
+  ylab = "Score"
+)
+```
+
+##### Bull EBV (Economic Breeding Values)
+
+```{r}
+barplot(
+  bioList$Animal$matrix %*% bioList$Animal$weights,
+  beside = TRUE,
+  main = "Bull EBVs (Economic Values)",
+  col = "#fc8d62",
+  ylab = "Score"
+)
+```
+
+### 🧠 Interpretation Questions
+
+- Why use a list structure?
+
+Keeps each dataset and its weights together.
+Facilitates automated workflows and reuse.
+
+- What’s tricky about `[[ ]]` access?
+
+You must remember the order (`[[1]]` = `matrix`, `[[2]]` = `weights`).
+No names means you can't use $matrix, only positional access.
+
+Loop across all list entries
+
+Weighted scores for all entries
+`lapply(bioList, function(x) x[[2]] %*% x[[1]])`
+
+- How does this help in large-scale pipelines?
+
+You can use this format with `lapply()`, `purrr::map()`, or in targets pipelines for reproducibility and modular processing.
