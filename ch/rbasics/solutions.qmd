@@ -142,6 +142,7 @@ nrow = 3, byrow = TRUE
 )
 
 rownames(TranslationMatrix) <- c("GeneA", "GeneB", "GeneC")
+colnames(TranslationMatrix) <- c("protA", "protB", "protC")
 TranslationMatrix
 ```
 
@@ -150,6 +151,7 @@ TranslationMatrix
 ```{r}
 # computing Protein matrix
 Protein_matrix <- GeneExpression %*% TranslationMatrix
+colnames(Protein_matrix) <- c("total_protA", "total_protB", "total_protC")
 print(Protein_matrix)
 ```
 ### 2. Transpose
@@ -221,7 +223,6 @@ heatmap(GeneExpression, col = terrain.colors(10), scale = "column")
 
 5. Clustering in the heatmap may suggest which samples are most similar to each other based on their prot.
 
----
 
 ## Task 3: Animal Breeding – Bull Ranking by Economic Traits
 
@@ -236,14 +237,19 @@ BullEBVs <- matrix(c(
 
 rownames(BullEBVs) <- c("Bull1", "Bull2")
 colnames(BullEBVs) <- c("Milk_yield", "Growth_rate", "Fertility")
+BullEBVs
 
 # Define Economic Weights
 EconomicWeights <- matrix(c(0.002, 50, 100), ncol = 1)
+rownames(EconomicWeights) <- colnames(BullEBVs)
+colnames(EconomicWeights) <- c("Weight")
+EconomicWeights
 ```
 ### Compute Total Economic Value
 
 ```{r}
 TotalValue <- BullEBVs %*% EconomicWeights
+colnames(TotalValue) <- c("Merit")
 TotalValue
 ```
 
@@ -257,12 +263,15 @@ Bull1 is more valuable economically.
 
 **Biological Interpretation**
 
-Economic weights convert genetic merit (EBVs) into economic merit. Traits with higher financial importance have a larger impact, regardless of absolute EBV values.
+Economic weights convert genetic merit (EBVs, Estimated Breeding Values) into economic merit. Traits with higher financial importance have a larger impact, regardless of absolute EBV values.
 
 ### Multiply with Identity Matrix
 
 ```{r}
 I3 <- diag(3)
+rownames(I3) <- colnames(BullEBVs)
+colnames(I3) <- colnames(BullEBVs)
+I3
 BullEBVs_identity <- BullEBVs %*% I3
 BullEBVs_identity
 ```
@@ -278,6 +287,7 @@ BullEBVs_noMilk <- BullEBVs[, -1]
 EconomicWeights_noMilk <- EconomicWeights[2:3, , drop = FALSE]
 
 TotalValue_noMilk <- BullEBVs_noMilk %*% EconomicWeights_noMilk
+colnames(TotalValue_noMilk) <- c("New_Merit")
 TotalValue_noMilk
 ```
 
@@ -348,38 +358,45 @@ ParentTraits <- matrix(c(
 
 rownames(ParentTraits) <- c("P1", "P2", "P3")
 colnames(ParentTraits) <- c("Drought_resistance", "Yield", "Maturation_time")
+ParentTraits
 
 # Define Hybrid Weights
 HybridWeights <- matrix(c(0.5, 0.3, 0.2), nrow = 1)
+colnames(HybridWeights) <- colnames(ParentTraits)
+rownames(HybridWeights) <- c("Weight")
+HybridWeights
 ```
 
 ### Compute HybridTraits Vector
 
 ```{r}
 HybridTraits <- HybridWeights %*% ParentTraits
+rownames(HybridTraits) <- c("Contribution")
+colnames(HybridTraits) <- rownames(ParentTraits)
 HybridTraits
 ```
 **Interpretation**
 
 HybridTraits = (0.5 × P1) + (0.3 × P2) + (0.2 × P3)
 
-Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.2
+Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.3
 
 Yield = (0.5 × 5) + (0.3 × 8) + (0.2 × 6) = 6.1
 
-Maturation_time = (0.5 × 3) + (0.3 × 4) + (0.2 × 6) = 3.7
+Maturation_time = (0.5 × 3) + (0.3 × 4) + (0.2 × 6) = 3.9
 
-The hybrid is moderately strong in drought resistance and yield, but has a relatively shorter maturation time.
+The hybrid is moderately strong in drought resistance and yield, and has a relatively shorter maturation time.
 
 **Biological Meaning of Unequal Contribution**
 
-When one parent contributes more to a trait, it suggests that the trait's heritable strength comes disproportionately from that parent. Breeders can use this knowledge to amplify desirable traits.
+When one parent contributes more to a trait, it suggests that the trait's heritable strength comes disproportionately from that parent. Breeders can use this knowledge to amplify desirable traits using the best parent.
 
 ### Multiply with Identity Matrix
 
 ```{r}
 I3 <- diag(3)
 ParentTraits_identity <- ParentTraits %*% I3
+colnames(ParentTraits_identity) <- colnames(ParentTraits)
 ParentTraits_identity
 ```
 
@@ -391,13 +408,14 @@ Multiplying by identity matrix returns the original matrix. This operation verif
 
 ```{r}
 ParentTraits_T1T2 <- ParentTraits[, 1:2]
+ParentTraits_T1T2
 HybridTraits_T1T2 <- HybridWeights %*% ParentTraits_T1T2
 HybridTraits_T1T2
 ```
 
 **Interpretation**
 
-Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.2
+Drought_resistance = (0.5 × 7) + (0.3 × 6) + (0.2 × 5) = 6.3
 
 Yield = (0.5 × 5) + (0.3 × 8) + (0.2 × 6) = 6.1
 
