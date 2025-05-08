@@ -1322,13 +1322,14 @@ rownames(dup_genes) <- unique_names
 dup_genes
 ```
 ::: callout-note
-Why is unique name important for us? Imagine this meaningful biological scenario: one gene might transcribed into many transcript isoforms and hence many protein isoforms. From RNAseq data, we might get alignment count for each gene. But then we can separate the count for each transcript. One gene has one name or ID, but the transcripts are many for the same gene! So, we can denote 21 isoform of geneA like genA.1, geneA.2, geneA.3,......., geneA21. 
+Why is unique name important for us? Imagine this meaningful biological scenario: one gene might transcribed into many transcript isoforms and hence many protein isoforms. From RNAseq data, we might get alignment count for each gene. But then we can separate the count for each transcript. One gene has one name or ID, but the transcripts are many for the same gene! So, we can denote, for example, 21 isoform of geneA like genA.1, geneA.2, geneA.3,......., geneA.21. 
 See this link for [MBP gene](https://www.ncbi.nlm.nih.gov/gene?Db=gene&Cmd=DetailsSearch&Term=4155). How many transcript isoforms does it have?
 :::
 
 ## 🏡 Homework: Factors, Subsetting, and Biological Insight
 1. **(Factor vs Character)**
 Explain the difference between a character vector and a factor in R. Why would `mutation_status` be a factor and not just a character vector?
+
 2. **(Factor Level Order)**
 You observed the following bacterial species in gut microbiome samples:
 ```{r}
@@ -1336,27 +1337,33 @@ species <- c("Lactobacillus", "Bacteroides", "Escherichia", "Bacteroides", "Lact
 species_factor <- factor(species, levels = c("Bacteroides", "Escherichia", "Lactobacillus"))
 ```
 What will `levels(species_factor)` return? Why?
+
 3. Given the factor:
 ```{r}
 disease_severity <- factor(c("Mild", "Severe", "Moderate"), levels = c("Mild", "Moderate", "Severe", "Critical"), ordered = TRUE)
 ```
 What will be the result of `disease_severity[1] < disease_severity[2]` and why?
+
 4. You computed:
 ```{r}
 prop <- prop.table(table(species_factor))
 ```
 How do you extract the proportion of "Escherichia" samples from prop?
 Is `prop$Escherichia` valid?
+
 5. Interpret what this query returns:
-```{r}
+```{r, eval=FALSE}
 gene_df[gene_df$expression > 7 & gene_df$mutation == "No", ]
 ```
 What type of genes does it select?
+
 6. You have:
 ```{r}
 samples <- c("WT", "KO", "WT", "KO", "WT")
 expression <- c(5.2, 8.1, 4.3, 9.0, 5.7)
 ```
+Make a dataframe using these 2 vectors first. Then,
+
 (a) Create a factor `group_factor` for the samples.
 (b) Use `tapply()` to calculate mean expression per group.
 
@@ -1367,15 +1374,19 @@ Use `?tapply()` to see how to use it.
 :::
 
 (c) Plot a `barplot` of average expression for each group.
+
 7. Use the `gene_df` example. Subset the data to find genes with:
 - expression > 8
 - pathway is either "Cell Cycle" or "Signaling"
+
 8. Create an ordered factor for the disease stages:
 `c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")`. Then plot the number of patients per stage using `barplot()`.
 Confirm that `"Stage III" > "Stage I"` is logical in your factor.
+
 9. Suppose `gene_data` has a column type with values "Oncogene", "Tumor Suppressor", and "Housekeeping".
 - Subset all "Oncogene" rows where expression > 8.
 - Change the reference level of the factor type to "Housekeeping"
+
 10. Simulate expression data for 3 tissues:
 We are going to use `rnorm()` function to generate random values from a normal distribution for this purpose. The example values inside the `rnorm()` function means we want:
 - 30 values in total,
