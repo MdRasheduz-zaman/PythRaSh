@@ -1121,7 +1121,7 @@ Factors are used to represent categorical data in R. They are particularly impor
 ```{r creating-factors}
 # Simple factor: DNA sample origins
 origins <- c("Human", "Mouse", "Human", "Zebrafish", "Mouse", "Human")
-origins_factor <- factor(origins, levels = c("Human", "Mouse", "Zebrafish"))
+origins_factor <- factor(origins, levels = c("Human", "Zebrafish", "Mouse"))
 origins_factor
 
 # Check levels (categories)
@@ -1157,7 +1157,7 @@ origins_factor_relevel <- relevel(origins_factor, ref = "Mouse")
 origins_factor_relevel
 
 # Convert to character
-origins_factor <- as.character(origins_factor)
+origins_char <- as.character(origins_factor)
 
 # Plot factors - Basic barplot
 barplot(table(origins_factor), 
@@ -1165,6 +1165,9 @@ barplot(table(origins_factor),
         main = "Sample Origins",
         ylab = "Count")
 ```
+::: callout-note
+Factor `level`-ing and `relevel`-ing are different. `relevel` redefines what the reference should be. For example, in an experiment, you have `control`, `treatment1`, `treatment2` groups. Your reference might be `control`. So, all of your comparisons/statistics are on the basis of `control`. But you might change the reference (by `relevel` to `treatment1` and all of your comparison will be on the basis of `treatment1` group. Got it?
+:::
 
 More advanced plot with factors:
 
@@ -1179,6 +1182,9 @@ boxplot(gene_expr ~ origins,
         xlab = "Origin", 
         ylab = "Expression Level")
 ```
+::: callout-note
+Did you notice how factor `level`-ing changes the appearance of the categories in the plots? See the `barplot` and the `boxplot` again. Where are Zebrafish and Mouse now in the plots? Why are their positions on the x-axis changed?
+:::
 
 ::: callout-note
 Keep noticing the output formats. Sometimes the output is just a number, sometimes a vector or table or list, etc. Check `prop.table(table(origins_factor))`. How is it?
@@ -1315,6 +1321,84 @@ unique_names  # Show the generated unique names
 rownames(dup_genes) <- unique_names
 dup_genes
 ```
+
+## 🏡 Homework: Factors, Subsetting, and Biological Insight
+1. **(Factor vs Character)**
+Explain the difference between a character vector and a factor in R. Why would `mutation_status` be a factor and not just a character vector?
+2. **(Factor Level Order)**
+You observed the following bacterial species in gut microbiome samples:
+```{r}
+species <- c("Lactobacillus", "Bacteroides", "Escherichia", "Bacteroides", "Lactobacillus")
+species_factor <- factor(species, levels = c("Bacteroides", "Escherichia", "Lactobacillus"))
+```
+What will `levels(species_factor)` return? Why?
+3. Given the factor:
+```{r}
+disease_severity <- factor(c("Mild", "Severe", "Moderate"), levels = c("Mild", "Moderate", "Severe", "Critical"), ordered = TRUE)
+```
+What will be the result of `disease_severity[1] < disease_severity[2]` and why?
+4. You computed:
+```{r}
+prop <- prop.table(table(species_factor))
+```
+How do you extract the proportion of "Escherichia" samples from prop?
+Is `prop$Escherichia` valid?
+5. Interpret what this query returns:
+```{r}
+gene_df[gene_df$expression > 7 & gene_df$mutation == "No", ]
+```
+What type of genes does it select?
+6. You have:
+```{r}
+samples <- c("WT", "KO", "WT", "KO", "WT")
+expression <- c(5.2, 8.1, 4.3, 9.0, 5.7)
+```
+(a) Create a factor `group_factor` for the samples.
+(b) Use `tapply()` to calculate mean expression per group.
+
+::: callout-note
+Use `?tapply()` to see how to use it. 
+
+**Hint:** You need to provide things for `X`, `INDEX`, `FUN`. You have `X`, `INDEX` in this small dataframe. The `FUN` should be applied thinking of what you are trying to do. You are trying to get the mean or average, right?
+:::
+
+(c) Plot a `barplot` of average expression for each group.
+7. Use the `gene_df` example. Subset the data to find genes with:
+- expression > 8
+- pathway is either "Cell Cycle" or "Signaling"
+8. Create an ordered factor for the disease stages:
+`c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")`. Then plot the number of patients per stage using `barplot()`.
+Confirm that `"Stage III" > "Stage I"` is logical in your factor.
+9. Suppose `gene_data` has a column type with values "Oncogene", "Tumor Suppressor", and "Housekeeping".
+- Subset all "Oncogene" rows where expression > 8.
+- Change the reference level of the factor type to "Housekeeping"
+10. Simulate expression data for 3 tissues:
+We are going to use `rnorm()` function to generate random values from a normal distribution for this purpose. The example values inside the `rnorm()` function means we want:
+- 30 values in total,
+- average or mean value = 8,
+- standard deviation of expression is 2.
+
+You can play with the numbers to make your own values.
+
+`rep()` function is to replicate things (many times). In this example, we have `rep(c("brain", "liver", "kidney"), each = 10)`. We will be having 10x "brains", followed by 10x "liver", followed by 10x "kidney". So, if you have changed your values inside the `rnorm()` function, make this value meaningful for you. Now we have 3 things, each=10. So, 3*10=30 is matching with the total value inside `rnorm()` function. Got it?
+
+```{r}
+set.seed(42) #just for reproducibility. Not completely needed
+gene_expr <- rnorm(30, mean = 8, sd = 2)
+tissue <- rep(c("brain", "liver", "kidney"), each = 10)
+tissue_factor <- factor(tissue, levels = c("liver", "brain", "kidney"))
+```
+- Make a boxplot showing expression per tissue.
+- Which tissue shows the most variable gene expression? (Use `tapply()` + `sd()`)
+
+::: callout-note
+**Hint:**
+Variability is expressed in another way (squaring) of measuring standard deviation (`sd`). Now, do you see how to use `sd` inside `tapply()` function?
+:::
+
+Use these questions as a self-check -- reflect on why each step works before moving on to the next level (question).
+
+**Push your `.Rmd` file and share by Friday 10PM BD Time.**
 
 ## Handling Missing/Wrong Values
 
