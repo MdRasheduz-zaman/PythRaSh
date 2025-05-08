@@ -1321,6 +1321,10 @@ unique_names  # Show the generated unique names
 rownames(dup_genes) <- unique_names
 dup_genes
 ```
+::: callout-note
+Why is unique name important for us? Imagine this meaningful biological scenario: one gene might transcribed into many transcript isoforms and hence many protein isoforms. From RNAseq data, we might get alignment count for each gene. But then we can separate the count for each transcript. One gene has one name or ID, but the transcripts are many for the same gene! So, we can denote 21 isoform of geneA like genA.1, geneA.2, geneA.3,......., geneA21. 
+See this link for [MBP gene](https://www.ncbi.nlm.nih.gov/gene?Db=gene&Cmd=DetailsSearch&Term=4155). How many transcript isoforms does it have?
+:::
 
 ## 🏡 Homework: Factors, Subsetting, and Biological Insight
 1. **(Factor vs Character)**

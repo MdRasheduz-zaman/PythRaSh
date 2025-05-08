@@ -965,17 +965,17 @@ Note
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 24.18333</code></pre>
+<pre class="custom-output"><code>[1] 24.46667</code></pre>
 </div>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 24.96167</code></pre>
+<pre class="custom-output"><code>[1] 23.47833</code></pre>
 </div>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 24.5425</code></pre>
+<pre class="custom-output"><code>[1] 22.33083</code></pre>
 </div>
 </div>
 <p>Do you see the difference in the mean value now?</p>
@@ -2465,6 +2465,19 @@ BRCA1          5.2      Yes
 BRCA1.1        6.3       No
 TP53           5.2      Yes
 EGFR           8.1       No</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why is unique name important for us? Imagine this meaningful biological scenario: one gene might transcribed into many transcript isoforms and hence many protein isoforms. From RNAseq data, we might get alignment count for each gene. But then we can separate the count for each transcript. One gene has one name or ID, but the transcripts are many for the same gene! So, we can denote 21 isoform of geneA like genA.1, geneA.2, geneA.3,……., geneA21. See this link for <a href="https://www.ncbi.nlm.nih.gov/gene?Db=gene&amp;Cmd=DetailsSearch&amp;Term=4155">MBP gene</a>. How many transcript isoforms does it have?</p>
 </div>
 </div>
 </section></section><section id="homework-factors-subsetting-and-biological-insight" class="level2"><h2 class="anchored" data-anchor-id="homework-factors-subsetting-and-biological-insight">🏡 Homework: Factors, Subsetting, and Biological Insight</h2>
@@ -4590,357 +4603,361 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb409-1367"><a href="#cb409-1367" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dup_genes) <span class="ot">&lt;-</span> unique_names</span>
 <span id="cb409-1368"><a href="#cb409-1368" aria-hidden="true" tabindex="-1"></a>dup_genes</span>
 <span id="cb409-1369"><a href="#cb409-1369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1370"><a href="#cb409-1370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1371"><a href="#cb409-1371" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🏡 Homework: Factors, Subsetting, and Biological Insight</span></span>
-<span id="cb409-1372"><a href="#cb409-1372" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**(Factor vs Character)**</span>
-<span id="cb409-1373"><a href="#cb409-1373" aria-hidden="true" tabindex="-1"></a>Explain the difference between a character vector and a factor in R. Why would <span class="in">`mutation_status`</span> be a factor and not just a character vector?</span>
-<span id="cb409-1374"><a href="#cb409-1374" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**(Factor Level Order)**</span>
-<span id="cb409-1375"><a href="#cb409-1375" aria-hidden="true" tabindex="-1"></a>You observed the following bacterial species in gut microbiome samples:</span>
-<span id="cb409-1378"><a href="#cb409-1378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1379"><a href="#cb409-1379" aria-hidden="true" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Lactobacillus"</span>, <span class="st">"Bacteroides"</span>, <span class="st">"Escherichia"</span>, <span class="st">"Bacteroides"</span>, <span class="st">"Lactobacillus"</span>)</span>
-<span id="cb409-1380"><a href="#cb409-1380" aria-hidden="true" tabindex="-1"></a>species_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(species, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Bacteroides"</span>, <span class="st">"Escherichia"</span>, <span class="st">"Lactobacillus"</span>))</span>
-<span id="cb409-1381"><a href="#cb409-1381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1382"><a href="#cb409-1382" aria-hidden="true" tabindex="-1"></a>What will <span class="in">`levels(species_factor)`</span> return? Why?</span>
-<span id="cb409-1383"><a href="#cb409-1383" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Given the factor:</span>
-<span id="cb409-1386"><a href="#cb409-1386" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1387"><a href="#cb409-1387" aria-hidden="true" tabindex="-1"></a>disease_severity <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Mild"</span>, <span class="st">"Severe"</span>, <span class="st">"Moderate"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Mild"</span>, <span class="st">"Moderate"</span>, <span class="st">"Severe"</span>, <span class="st">"Critical"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb409-1388"><a href="#cb409-1388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1389"><a href="#cb409-1389" aria-hidden="true" tabindex="-1"></a>What will be the result of <span class="in">`disease_severity[1] &lt; disease_severity[2]`</span> and why?</span>
-<span id="cb409-1390"><a href="#cb409-1390" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>You computed:</span>
-<span id="cb409-1393"><a href="#cb409-1393" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1394"><a href="#cb409-1394" aria-hidden="true" tabindex="-1"></a>prop <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(species_factor))</span>
-<span id="cb409-1395"><a href="#cb409-1395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1396"><a href="#cb409-1396" aria-hidden="true" tabindex="-1"></a>How do you extract the proportion of "Escherichia" samples from prop?</span>
-<span id="cb409-1397"><a href="#cb409-1397" aria-hidden="true" tabindex="-1"></a>Is <span class="in">`prop$Escherichia`</span> valid?</span>
-<span id="cb409-1398"><a href="#cb409-1398" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Interpret what this query returns:</span>
-<span id="cb409-1401"><a href="#cb409-1401" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1402"><a href="#cb409-1402" aria-hidden="true" tabindex="-1"></a>gene_df[gene_df<span class="sc">$</span>expression <span class="sc">&gt;</span> <span class="dv">7</span> <span class="sc">&amp;</span> gene_df<span class="sc">$</span>mutation <span class="sc">==</span> <span class="st">"No"</span>, ]</span>
-<span id="cb409-1403"><a href="#cb409-1403" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1404"><a href="#cb409-1404" aria-hidden="true" tabindex="-1"></a>What type of genes does it select?</span>
-<span id="cb409-1405"><a href="#cb409-1405" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>You have:</span>
-<span id="cb409-1408"><a href="#cb409-1408" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1409"><a href="#cb409-1409" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"WT"</span>, <span class="st">"KO"</span>, <span class="st">"WT"</span>, <span class="st">"KO"</span>, <span class="st">"WT"</span>)</span>
-<span id="cb409-1410"><a href="#cb409-1410" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.2</span>, <span class="fl">8.1</span>, <span class="fl">4.3</span>, <span class="fl">9.0</span>, <span class="fl">5.7</span>)</span>
-<span id="cb409-1411"><a href="#cb409-1411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1412"><a href="#cb409-1412" aria-hidden="true" tabindex="-1"></a>(a) Create a factor <span class="in">`group_factor`</span> for the samples.</span>
-<span id="cb409-1413"><a href="#cb409-1413" aria-hidden="true" tabindex="-1"></a>(b) Use <span class="in">`tapply()`</span> to calculate mean expression per group.</span>
-<span id="cb409-1414"><a href="#cb409-1414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1415"><a href="#cb409-1415" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb409-1416"><a href="#cb409-1416" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`?tapply()`</span> to see how to use it. </span>
-<span id="cb409-1417"><a href="#cb409-1417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1418"><a href="#cb409-1418" aria-hidden="true" tabindex="-1"></a>**Hint:** You need to provide things for <span class="in">`X`</span>, <span class="in">`INDEX`</span>, <span class="in">`FUN`</span>. You have <span class="in">`X`</span>, <span class="in">`INDEX`</span> in this small dataframe. The <span class="in">`FUN`</span> should be applied thinking of what you are trying to do. You are trying to get the mean or average, right?</span>
-<span id="cb409-1419"><a href="#cb409-1419" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb409-1420"><a href="#cb409-1420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1421"><a href="#cb409-1421" aria-hidden="true" tabindex="-1"></a>(c) Plot a <span class="in">`barplot`</span> of average expression for each group.</span>
-<span id="cb409-1422"><a href="#cb409-1422" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Use the <span class="in">`gene_df`</span> example. Subset the data to find genes with:</span>
-<span id="cb409-1423"><a href="#cb409-1423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>expression &gt; 8</span>
-<span id="cb409-1424"><a href="#cb409-1424" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pathway is either "Cell Cycle" or "Signaling"</span>
-<span id="cb409-1425"><a href="#cb409-1425" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Create an ordered factor for the disease stages:</span>
-<span id="cb409-1426"><a href="#cb409-1426" aria-hidden="true" tabindex="-1"></a><span class="in">`c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")`</span>. Then plot the number of patients per stage using <span class="in">`barplot()`</span>.</span>
-<span id="cb409-1427"><a href="#cb409-1427" aria-hidden="true" tabindex="-1"></a>Confirm that <span class="in">`"Stage III" &gt; "Stage I"`</span> is logical in your factor.</span>
-<span id="cb409-1428"><a href="#cb409-1428" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Suppose <span class="in">`gene_data`</span> has a column type with values "Oncogene", "Tumor Suppressor", and "Housekeeping".</span>
-<span id="cb409-1429"><a href="#cb409-1429" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subset all "Oncogene" rows where expression &gt; 8.</span>
-<span id="cb409-1430"><a href="#cb409-1430" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Change the reference level of the factor type to "Housekeeping"</span>
-<span id="cb409-1431"><a href="#cb409-1431" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Simulate expression data for 3 tissues:</span>
-<span id="cb409-1432"><a href="#cb409-1432" aria-hidden="true" tabindex="-1"></a>We are going to use <span class="in">`rnorm()`</span> function to generate random values from a normal distribution for this purpose. The example values inside the <span class="in">`rnorm()`</span> function means we want:</span>
-<span id="cb409-1433"><a href="#cb409-1433" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>30 values in total,</span>
-<span id="cb409-1434"><a href="#cb409-1434" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>average or mean value = 8,</span>
-<span id="cb409-1435"><a href="#cb409-1435" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>standard deviation of expression is 2.</span>
-<span id="cb409-1436"><a href="#cb409-1436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1437"><a href="#cb409-1437" aria-hidden="true" tabindex="-1"></a>You can play with the numbers to make your own values.</span>
-<span id="cb409-1438"><a href="#cb409-1438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1439"><a href="#cb409-1439" aria-hidden="true" tabindex="-1"></a><span class="in">`rep()`</span> function is to replicate things (many times). In this example, we have <span class="in">`rep(c("brain", "liver", "kidney"), each = 10)`</span>. We will be having 10x "brains", followed by 10x "liver", followed by 10x "kidney". So, if you have changed your values inside the <span class="in">`rnorm()`</span> function, make this value meaningful for you. Now we have 3 things, each=10. So, 3*10=30 is matching with the total value inside <span class="in">`rnorm()`</span> function. Got it?</span>
+<span id="cb409-1370"><a href="#cb409-1370" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb409-1371"><a href="#cb409-1371" aria-hidden="true" tabindex="-1"></a>Why is unique name important for us? Imagine this meaningful biological scenario: one gene might transcribed into many transcript isoforms and hence many protein isoforms. From RNAseq data, we might get alignment count for each gene. But then we can separate the count for each transcript. One gene has one name or ID, but the transcripts are many for the same gene! So, we can denote 21 isoform of geneA like genA.1, geneA.2, geneA.3,......., geneA21. </span>
+<span id="cb409-1372"><a href="#cb409-1372" aria-hidden="true" tabindex="-1"></a>See this link for <span class="co">[</span><span class="ot">MBP gene</span><span class="co">](https://www.ncbi.nlm.nih.gov/gene?Db=gene&amp;Cmd=DetailsSearch&amp;Term=4155)</span>. How many transcript isoforms does it have?</span>
+<span id="cb409-1373"><a href="#cb409-1373" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb409-1374"><a href="#cb409-1374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1375"><a href="#cb409-1375" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🏡 Homework: Factors, Subsetting, and Biological Insight</span></span>
+<span id="cb409-1376"><a href="#cb409-1376" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**(Factor vs Character)**</span>
+<span id="cb409-1377"><a href="#cb409-1377" aria-hidden="true" tabindex="-1"></a>Explain the difference between a character vector and a factor in R. Why would <span class="in">`mutation_status`</span> be a factor and not just a character vector?</span>
+<span id="cb409-1378"><a href="#cb409-1378" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**(Factor Level Order)**</span>
+<span id="cb409-1379"><a href="#cb409-1379" aria-hidden="true" tabindex="-1"></a>You observed the following bacterial species in gut microbiome samples:</span>
+<span id="cb409-1382"><a href="#cb409-1382" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1383"><a href="#cb409-1383" aria-hidden="true" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Lactobacillus"</span>, <span class="st">"Bacteroides"</span>, <span class="st">"Escherichia"</span>, <span class="st">"Bacteroides"</span>, <span class="st">"Lactobacillus"</span>)</span>
+<span id="cb409-1384"><a href="#cb409-1384" aria-hidden="true" tabindex="-1"></a>species_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(species, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Bacteroides"</span>, <span class="st">"Escherichia"</span>, <span class="st">"Lactobacillus"</span>))</span>
+<span id="cb409-1385"><a href="#cb409-1385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1386"><a href="#cb409-1386" aria-hidden="true" tabindex="-1"></a>What will <span class="in">`levels(species_factor)`</span> return? Why?</span>
+<span id="cb409-1387"><a href="#cb409-1387" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Given the factor:</span>
+<span id="cb409-1390"><a href="#cb409-1390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1391"><a href="#cb409-1391" aria-hidden="true" tabindex="-1"></a>disease_severity <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Mild"</span>, <span class="st">"Severe"</span>, <span class="st">"Moderate"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Mild"</span>, <span class="st">"Moderate"</span>, <span class="st">"Severe"</span>, <span class="st">"Critical"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1392"><a href="#cb409-1392" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1393"><a href="#cb409-1393" aria-hidden="true" tabindex="-1"></a>What will be the result of <span class="in">`disease_severity[1] &lt; disease_severity[2]`</span> and why?</span>
+<span id="cb409-1394"><a href="#cb409-1394" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>You computed:</span>
+<span id="cb409-1397"><a href="#cb409-1397" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1398"><a href="#cb409-1398" aria-hidden="true" tabindex="-1"></a>prop <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(species_factor))</span>
+<span id="cb409-1399"><a href="#cb409-1399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1400"><a href="#cb409-1400" aria-hidden="true" tabindex="-1"></a>How do you extract the proportion of "Escherichia" samples from prop?</span>
+<span id="cb409-1401"><a href="#cb409-1401" aria-hidden="true" tabindex="-1"></a>Is <span class="in">`prop$Escherichia`</span> valid?</span>
+<span id="cb409-1402"><a href="#cb409-1402" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Interpret what this query returns:</span>
+<span id="cb409-1405"><a href="#cb409-1405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1406"><a href="#cb409-1406" aria-hidden="true" tabindex="-1"></a>gene_df[gene_df<span class="sc">$</span>expression <span class="sc">&gt;</span> <span class="dv">7</span> <span class="sc">&amp;</span> gene_df<span class="sc">$</span>mutation <span class="sc">==</span> <span class="st">"No"</span>, ]</span>
+<span id="cb409-1407"><a href="#cb409-1407" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1408"><a href="#cb409-1408" aria-hidden="true" tabindex="-1"></a>What type of genes does it select?</span>
+<span id="cb409-1409"><a href="#cb409-1409" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>You have:</span>
+<span id="cb409-1412"><a href="#cb409-1412" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1413"><a href="#cb409-1413" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"WT"</span>, <span class="st">"KO"</span>, <span class="st">"WT"</span>, <span class="st">"KO"</span>, <span class="st">"WT"</span>)</span>
+<span id="cb409-1414"><a href="#cb409-1414" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.2</span>, <span class="fl">8.1</span>, <span class="fl">4.3</span>, <span class="fl">9.0</span>, <span class="fl">5.7</span>)</span>
+<span id="cb409-1415"><a href="#cb409-1415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1416"><a href="#cb409-1416" aria-hidden="true" tabindex="-1"></a>(a) Create a factor <span class="in">`group_factor`</span> for the samples.</span>
+<span id="cb409-1417"><a href="#cb409-1417" aria-hidden="true" tabindex="-1"></a>(b) Use <span class="in">`tapply()`</span> to calculate mean expression per group.</span>
+<span id="cb409-1418"><a href="#cb409-1418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1419"><a href="#cb409-1419" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb409-1420"><a href="#cb409-1420" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`?tapply()`</span> to see how to use it. </span>
+<span id="cb409-1421"><a href="#cb409-1421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1422"><a href="#cb409-1422" aria-hidden="true" tabindex="-1"></a>**Hint:** You need to provide things for <span class="in">`X`</span>, <span class="in">`INDEX`</span>, <span class="in">`FUN`</span>. You have <span class="in">`X`</span>, <span class="in">`INDEX`</span> in this small dataframe. The <span class="in">`FUN`</span> should be applied thinking of what you are trying to do. You are trying to get the mean or average, right?</span>
+<span id="cb409-1423"><a href="#cb409-1423" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb409-1424"><a href="#cb409-1424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1425"><a href="#cb409-1425" aria-hidden="true" tabindex="-1"></a>(c) Plot a <span class="in">`barplot`</span> of average expression for each group.</span>
+<span id="cb409-1426"><a href="#cb409-1426" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Use the <span class="in">`gene_df`</span> example. Subset the data to find genes with:</span>
+<span id="cb409-1427"><a href="#cb409-1427" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>expression &gt; 8</span>
+<span id="cb409-1428"><a href="#cb409-1428" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pathway is either "Cell Cycle" or "Signaling"</span>
+<span id="cb409-1429"><a href="#cb409-1429" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Create an ordered factor for the disease stages:</span>
+<span id="cb409-1430"><a href="#cb409-1430" aria-hidden="true" tabindex="-1"></a><span class="in">`c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")`</span>. Then plot the number of patients per stage using <span class="in">`barplot()`</span>.</span>
+<span id="cb409-1431"><a href="#cb409-1431" aria-hidden="true" tabindex="-1"></a>Confirm that <span class="in">`"Stage III" &gt; "Stage I"`</span> is logical in your factor.</span>
+<span id="cb409-1432"><a href="#cb409-1432" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Suppose <span class="in">`gene_data`</span> has a column type with values "Oncogene", "Tumor Suppressor", and "Housekeeping".</span>
+<span id="cb409-1433"><a href="#cb409-1433" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subset all "Oncogene" rows where expression &gt; 8.</span>
+<span id="cb409-1434"><a href="#cb409-1434" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Change the reference level of the factor type to "Housekeeping"</span>
+<span id="cb409-1435"><a href="#cb409-1435" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Simulate expression data for 3 tissues:</span>
+<span id="cb409-1436"><a href="#cb409-1436" aria-hidden="true" tabindex="-1"></a>We are going to use <span class="in">`rnorm()`</span> function to generate random values from a normal distribution for this purpose. The example values inside the <span class="in">`rnorm()`</span> function means we want:</span>
+<span id="cb409-1437"><a href="#cb409-1437" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>30 values in total,</span>
+<span id="cb409-1438"><a href="#cb409-1438" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>average or mean value = 8,</span>
+<span id="cb409-1439"><a href="#cb409-1439" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>standard deviation of expression is 2.</span>
 <span id="cb409-1440"><a href="#cb409-1440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1443"><a href="#cb409-1443" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb409-1444"><a href="#cb409-1444" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co">#just for reproducibility. Not completely needed</span></span>
-<span id="cb409-1445"><a href="#cb409-1445" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb409-1446"><a href="#cb409-1446" aria-hidden="true" tabindex="-1"></a>tissue <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"brain"</span>, <span class="st">"liver"</span>, <span class="st">"kidney"</span>), <span class="at">each =</span> <span class="dv">10</span>)</span>
-<span id="cb409-1447"><a href="#cb409-1447" aria-hidden="true" tabindex="-1"></a>tissue_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(tissue, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"liver"</span>, <span class="st">"brain"</span>, <span class="st">"kidney"</span>))</span>
-<span id="cb409-1448"><a href="#cb409-1448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1449"><a href="#cb409-1449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make a boxplot showing expression per tissue.</span>
-<span id="cb409-1450"><a href="#cb409-1450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which tissue shows the most variable gene expression? (Use <span class="in">`tapply()`</span> + <span class="in">`sd()`</span>)</span>
-<span id="cb409-1451"><a href="#cb409-1451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1452"><a href="#cb409-1452" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb409-1453"><a href="#cb409-1453" aria-hidden="true" tabindex="-1"></a>**Hint:**</span>
-<span id="cb409-1454"><a href="#cb409-1454" aria-hidden="true" tabindex="-1"></a>Variability is expressed in another way (squaring) of measuring standard deviation (<span class="in">`sd`</span>). Now, do you see how to use <span class="in">`sd`</span> inside <span class="in">`tapply()`</span> function?</span>
-<span id="cb409-1455"><a href="#cb409-1455" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb409-1456"><a href="#cb409-1456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1457"><a href="#cb409-1457" aria-hidden="true" tabindex="-1"></a>Use these questions as a self-check -- reflect on why each step works before moving on to the next level (question).</span>
-<span id="cb409-1458"><a href="#cb409-1458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1459"><a href="#cb409-1459" aria-hidden="true" tabindex="-1"></a>**Push your `.Rmd` file and share by Friday 10PM BD Time.**</span>
+<span id="cb409-1441"><a href="#cb409-1441" aria-hidden="true" tabindex="-1"></a>You can play with the numbers to make your own values.</span>
+<span id="cb409-1442"><a href="#cb409-1442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1443"><a href="#cb409-1443" aria-hidden="true" tabindex="-1"></a><span class="in">`rep()`</span> function is to replicate things (many times). In this example, we have <span class="in">`rep(c("brain", "liver", "kidney"), each = 10)`</span>. We will be having 10x "brains", followed by 10x "liver", followed by 10x "kidney". So, if you have changed your values inside the <span class="in">`rnorm()`</span> function, make this value meaningful for you. Now we have 3 things, each=10. So, 3*10=30 is matching with the total value inside <span class="in">`rnorm()`</span> function. Got it?</span>
+<span id="cb409-1444"><a href="#cb409-1444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1447"><a href="#cb409-1447" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb409-1448"><a href="#cb409-1448" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co">#just for reproducibility. Not completely needed</span></span>
+<span id="cb409-1449"><a href="#cb409-1449" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb409-1450"><a href="#cb409-1450" aria-hidden="true" tabindex="-1"></a>tissue <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"brain"</span>, <span class="st">"liver"</span>, <span class="st">"kidney"</span>), <span class="at">each =</span> <span class="dv">10</span>)</span>
+<span id="cb409-1451"><a href="#cb409-1451" aria-hidden="true" tabindex="-1"></a>tissue_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(tissue, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"liver"</span>, <span class="st">"brain"</span>, <span class="st">"kidney"</span>))</span>
+<span id="cb409-1452"><a href="#cb409-1452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1453"><a href="#cb409-1453" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make a boxplot showing expression per tissue.</span>
+<span id="cb409-1454"><a href="#cb409-1454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which tissue shows the most variable gene expression? (Use <span class="in">`tapply()`</span> + <span class="in">`sd()`</span>)</span>
+<span id="cb409-1455"><a href="#cb409-1455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1456"><a href="#cb409-1456" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb409-1457"><a href="#cb409-1457" aria-hidden="true" tabindex="-1"></a>**Hint:**</span>
+<span id="cb409-1458"><a href="#cb409-1458" aria-hidden="true" tabindex="-1"></a>Variability is expressed in another way (squaring) of measuring standard deviation (<span class="in">`sd`</span>). Now, do you see how to use <span class="in">`sd`</span> inside <span class="in">`tapply()`</span> function?</span>
+<span id="cb409-1459"><a href="#cb409-1459" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb409-1460"><a href="#cb409-1460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1461"><a href="#cb409-1461" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Missing/Wrong Values</span></span>
+<span id="cb409-1461"><a href="#cb409-1461" aria-hidden="true" tabindex="-1"></a>Use these questions as a self-check -- reflect on why each step works before moving on to the next level (question).</span>
 <span id="cb409-1462"><a href="#cb409-1462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1463"><a href="#cb409-1463" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identifying Issues</span></span>
+<span id="cb409-1463"><a href="#cb409-1463" aria-hidden="true" tabindex="-1"></a>**Push your `.Rmd` file and share by Friday 10PM BD Time.**</span>
 <span id="cb409-1464"><a href="#cb409-1464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1465"><a href="#cb409-1465" aria-hidden="true" tabindex="-1"></a><span class="in">```{r missing-values}</span></span>
-<span id="cb409-1466"><a href="#cb409-1466" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data with missing values</span></span>
-<span id="cb409-1467"><a href="#cb409-1467" aria-hidden="true" tabindex="-1"></a>clinical_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb409-1468"><a href="#cb409-1468" aria-hidden="true" tabindex="-1"></a>  <span class="at">patient_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb409-1469"><a href="#cb409-1469" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">99</span>, <span class="dv">30</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">40</span>),    <span class="co"># -5 is wrong, 99 is suspect</span></span>
-<span id="cb409-1470"><a href="#cb409-1470" aria-hidden="true" tabindex="-1"></a>  <span class="at">bp =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="cn">NA</span>, <span class="dv">115</span>, <span class="dv">125</span>, <span class="dv">118</span>),  <span class="co"># NA is missing</span></span>
-<span id="cb409-1471"><a href="#cb409-1471" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">70</span>, <span class="cn">NA</span>, <span class="dv">68</span>, <span class="sc">-</span><span class="dv">1</span>)   <span class="co"># -1 is wrong</span></span>
-<span id="cb409-1472"><a href="#cb409-1472" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb409-1473"><a href="#cb409-1473" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
-<span id="cb409-1474"><a href="#cb409-1474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1475"><a href="#cb409-1475" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values</span></span>
-<span id="cb409-1476"><a href="#cb409-1476" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(clinical_data)</span>
-<span id="cb409-1477"><a href="#cb409-1477" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(clinical_data))  <span class="co"># Count NAs by column</span></span>
+<span id="cb409-1465"><a href="#cb409-1465" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Missing/Wrong Values</span></span>
+<span id="cb409-1466"><a href="#cb409-1466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1467"><a href="#cb409-1467" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identifying Issues</span></span>
+<span id="cb409-1468"><a href="#cb409-1468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1469"><a href="#cb409-1469" aria-hidden="true" tabindex="-1"></a><span class="in">```{r missing-values}</span></span>
+<span id="cb409-1470"><a href="#cb409-1470" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data with missing values</span></span>
+<span id="cb409-1471"><a href="#cb409-1471" aria-hidden="true" tabindex="-1"></a>clinical_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb409-1472"><a href="#cb409-1472" aria-hidden="true" tabindex="-1"></a>  <span class="at">patient_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb409-1473"><a href="#cb409-1473" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">99</span>, <span class="dv">30</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">40</span>),    <span class="co"># -5 is wrong, 99 is suspect</span></span>
+<span id="cb409-1474"><a href="#cb409-1474" aria-hidden="true" tabindex="-1"></a>  <span class="at">bp =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="cn">NA</span>, <span class="dv">115</span>, <span class="dv">125</span>, <span class="dv">118</span>),  <span class="co"># NA is missing</span></span>
+<span id="cb409-1475"><a href="#cb409-1475" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">70</span>, <span class="cn">NA</span>, <span class="dv">68</span>, <span class="sc">-</span><span class="dv">1</span>)   <span class="co"># -1 is wrong</span></span>
+<span id="cb409-1476"><a href="#cb409-1476" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb409-1477"><a href="#cb409-1477" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
 <span id="cb409-1478"><a href="#cb409-1478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1479"><a href="#cb409-1479" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for impossible values</span></span>
-<span id="cb409-1480"><a href="#cb409-1480" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span></span>
-<span id="cb409-1481"><a href="#cb409-1481" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">0</span></span>
+<span id="cb409-1479"><a href="#cb409-1479" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values</span></span>
+<span id="cb409-1480"><a href="#cb409-1480" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(clinical_data)</span>
+<span id="cb409-1481"><a href="#cb409-1481" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(clinical_data))  <span class="co"># Count NAs by column</span></span>
 <span id="cb409-1482"><a href="#cb409-1482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1483"><a href="#cb409-1483" aria-hidden="true" tabindex="-1"></a><span class="co"># Find indices of problematic values</span></span>
-<span id="cb409-1484"><a href="#cb409-1484" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> clinical_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">90</span>)</span>
-<span id="cb409-1485"><a href="#cb409-1485" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1483"><a href="#cb409-1483" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for impossible values</span></span>
+<span id="cb409-1484"><a href="#cb409-1484" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span></span>
+<span id="cb409-1485"><a href="#cb409-1485" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">0</span></span>
 <span id="cb409-1486"><a href="#cb409-1486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1487"><a href="#cb409-1487" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fixing Data</span></span>
-<span id="cb409-1488"><a href="#cb409-1488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1489"><a href="#cb409-1489" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fixing-data}</span></span>
-<span id="cb409-1490"><a href="#cb409-1490" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace impossible values with NA</span></span>
-<span id="cb409-1491"><a href="#cb409-1491" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age[clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> clinical_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">90</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb409-1492"><a href="#cb409-1492" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight[clinical_data<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb409-1493"><a href="#cb409-1493" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
-<span id="cb409-1494"><a href="#cb409-1494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1495"><a href="#cb409-1495" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NAs with mean (common in biological data)</span></span>
-<span id="cb409-1496"><a href="#cb409-1496" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>bp[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>bp)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(clinical_data<span class="sc">$</span>bp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb409-1497"><a href="#cb409-1497" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>weight)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(clinical_data<span class="sc">$</span>weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb409-1498"><a href="#cb409-1498" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
-<span id="cb409-1499"><a href="#cb409-1499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1500"><a href="#cb409-1500" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NAs with median (better for skewed data)</span></span>
-<span id="cb409-1501"><a href="#cb409-1501" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>age)] <span class="ot">&lt;-</span> <span class="fu">median</span>(clinical_data<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1487"><a href="#cb409-1487" aria-hidden="true" tabindex="-1"></a><span class="co"># Find indices of problematic values</span></span>
+<span id="cb409-1488"><a href="#cb409-1488" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> clinical_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">90</span>)</span>
+<span id="cb409-1489"><a href="#cb409-1489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1490"><a href="#cb409-1490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1491"><a href="#cb409-1491" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fixing Data</span></span>
+<span id="cb409-1492"><a href="#cb409-1492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1493"><a href="#cb409-1493" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fixing-data}</span></span>
+<span id="cb409-1494"><a href="#cb409-1494" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace impossible values with NA</span></span>
+<span id="cb409-1495"><a href="#cb409-1495" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age[clinical_data<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> clinical_data<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">90</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb409-1496"><a href="#cb409-1496" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight[clinical_data<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb409-1497"><a href="#cb409-1497" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
+<span id="cb409-1498"><a href="#cb409-1498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1499"><a href="#cb409-1499" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NAs with mean (common in biological data)</span></span>
+<span id="cb409-1500"><a href="#cb409-1500" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>bp[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>bp)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(clinical_data<span class="sc">$</span>bp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1501"><a href="#cb409-1501" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>weight[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>weight)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(clinical_data<span class="sc">$</span>weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb409-1502"><a href="#cb409-1502" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
-<span id="cb409-1503"><a href="#cb409-1503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1504"><a href="#cb409-1504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1505"><a href="#cb409-1505" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Transformation</span></span>
-<span id="cb409-1506"><a href="#cb409-1506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1507"><a href="#cb409-1507" aria-hidden="true" tabindex="-1"></a><span class="fu">### Introduction to Outliers</span></span>
+<span id="cb409-1503"><a href="#cb409-1503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1504"><a href="#cb409-1504" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NAs with median (better for skewed data)</span></span>
+<span id="cb409-1505"><a href="#cb409-1505" aria-hidden="true" tabindex="-1"></a>clinical_data<span class="sc">$</span>age[<span class="fu">is.na</span>(clinical_data<span class="sc">$</span>age)] <span class="ot">&lt;-</span> <span class="fu">median</span>(clinical_data<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1506"><a href="#cb409-1506" aria-hidden="true" tabindex="-1"></a>clinical_data</span>
+<span id="cb409-1507"><a href="#cb409-1507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb409-1508"><a href="#cb409-1508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1509"><a href="#cb409-1509" aria-hidden="true" tabindex="-1"></a>Outliers can significantly affect statistical analyses, especially in biological data where sample variation can be high.</span>
+<span id="cb409-1509"><a href="#cb409-1509" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Transformation</span></span>
 <span id="cb409-1510"><a href="#cb409-1510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1511"><a href="#cb409-1511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r outliers}</span></span>
-<span id="cb409-1512"><a href="#cb409-1512" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data with outliers</span></span>
-<span id="cb409-1513"><a href="#cb409-1513" aria-hidden="true" tabindex="-1"></a>expression_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>, <span class="fl">2.9</span>, <span class="fl">2.5</span>, <span class="fl">3.0</span>, <span class="fl">15.2</span>, <span class="fl">2.8</span>)</span>
-<span id="cb409-1514"><a href="#cb409-1514" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(expression_levels, </span>
-<span id="cb409-1515"><a href="#cb409-1515" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Expression Levels with Outlier"</span>,</span>
-<span id="cb409-1516"><a href="#cb409-1516" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Expression"</span>)</span>
-<span id="cb409-1517"><a href="#cb409-1517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1518"><a href="#cb409-1518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1519"><a href="#cb409-1519" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identifying Outliers</span></span>
-<span id="cb409-1520"><a href="#cb409-1520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1521"><a href="#cb409-1521" aria-hidden="true" tabindex="-1"></a><span class="in">```{r identify-outliers}</span></span>
-<span id="cb409-1522"><a href="#cb409-1522" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical approach: Values beyond 1.5*IQR</span></span>
-<span id="cb409-1523"><a href="#cb409-1523" aria-hidden="true" tabindex="-1"></a>data_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(expression_levels)</span>
-<span id="cb409-1524"><a href="#cb409-1524" aria-hidden="true" tabindex="-1"></a>data_summary</span>
-<span id="cb409-1525"><a href="#cb409-1525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1526"><a href="#cb409-1526" aria-hidden="true" tabindex="-1"></a>IQR_value <span class="ot">&lt;-</span> <span class="fu">IQR</span>(expression_levels)</span>
-<span id="cb409-1527"><a href="#cb409-1527" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> data_summary[<span class="st">"3rd Qu."</span>] <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
-<span id="cb409-1528"><a href="#cb409-1528" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> data_summary[<span class="st">"1st Qu."</span>] <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb409-1511"><a href="#cb409-1511" aria-hidden="true" tabindex="-1"></a><span class="fu">### Introduction to Outliers</span></span>
+<span id="cb409-1512"><a href="#cb409-1512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1513"><a href="#cb409-1513" aria-hidden="true" tabindex="-1"></a>Outliers can significantly affect statistical analyses, especially in biological data where sample variation can be high.</span>
+<span id="cb409-1514"><a href="#cb409-1514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1515"><a href="#cb409-1515" aria-hidden="true" tabindex="-1"></a><span class="in">```{r outliers}</span></span>
+<span id="cb409-1516"><a href="#cb409-1516" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data with outliers</span></span>
+<span id="cb409-1517"><a href="#cb409-1517" aria-hidden="true" tabindex="-1"></a>expression_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>, <span class="fl">2.9</span>, <span class="fl">2.5</span>, <span class="fl">3.0</span>, <span class="fl">15.2</span>, <span class="fl">2.8</span>)</span>
+<span id="cb409-1518"><a href="#cb409-1518" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(expression_levels, </span>
+<span id="cb409-1519"><a href="#cb409-1519" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Expression Levels with Outlier"</span>,</span>
+<span id="cb409-1520"><a href="#cb409-1520" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Expression"</span>)</span>
+<span id="cb409-1521"><a href="#cb409-1521" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1522"><a href="#cb409-1522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1523"><a href="#cb409-1523" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identifying Outliers</span></span>
+<span id="cb409-1524"><a href="#cb409-1524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1525"><a href="#cb409-1525" aria-hidden="true" tabindex="-1"></a><span class="in">```{r identify-outliers}</span></span>
+<span id="cb409-1526"><a href="#cb409-1526" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical approach: Values beyond 1.5*IQR</span></span>
+<span id="cb409-1527"><a href="#cb409-1527" aria-hidden="true" tabindex="-1"></a>data_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(expression_levels)</span>
+<span id="cb409-1528"><a href="#cb409-1528" aria-hidden="true" tabindex="-1"></a>data_summary</span>
 <span id="cb409-1529"><a href="#cb409-1529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1530"><a href="#cb409-1530" aria-hidden="true" tabindex="-1"></a><span class="co"># Find outliers</span></span>
-<span id="cb409-1531"><a href="#cb409-1531" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> expression_levels[expression_levels <span class="sc">&gt;</span> upper_bound <span class="sc">|</span> </span>
-<span id="cb409-1532"><a href="#cb409-1532" aria-hidden="true" tabindex="-1"></a>                             expression_levels <span class="sc">&lt;</span> lower_bound]</span>
-<span id="cb409-1533"><a href="#cb409-1533" aria-hidden="true" tabindex="-1"></a>outliers</span>
-<span id="cb409-1534"><a href="#cb409-1534" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1535"><a href="#cb409-1535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1536"><a href="#cb409-1536" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transforming Vectors</span></span>
-<span id="cb409-1537"><a href="#cb409-1537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1538"><a href="#cb409-1538" aria-hidden="true" tabindex="-1"></a>Mathematical transformations can normalize data, reduce outlier effects, and make data more suitable for statistical analyses.</span>
+<span id="cb409-1530"><a href="#cb409-1530" aria-hidden="true" tabindex="-1"></a>IQR_value <span class="ot">&lt;-</span> <span class="fu">IQR</span>(expression_levels)</span>
+<span id="cb409-1531"><a href="#cb409-1531" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> data_summary[<span class="st">"3rd Qu."</span>] <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb409-1532"><a href="#cb409-1532" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> data_summary[<span class="st">"1st Qu."</span>] <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb409-1533"><a href="#cb409-1533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1534"><a href="#cb409-1534" aria-hidden="true" tabindex="-1"></a><span class="co"># Find outliers</span></span>
+<span id="cb409-1535"><a href="#cb409-1535" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> expression_levels[expression_levels <span class="sc">&gt;</span> upper_bound <span class="sc">|</span> </span>
+<span id="cb409-1536"><a href="#cb409-1536" aria-hidden="true" tabindex="-1"></a>                             expression_levels <span class="sc">&lt;</span> lower_bound]</span>
+<span id="cb409-1537"><a href="#cb409-1537" aria-hidden="true" tabindex="-1"></a>outliers</span>
+<span id="cb409-1538"><a href="#cb409-1538" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb409-1539"><a href="#cb409-1539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1540"><a href="#cb409-1540" aria-hidden="true" tabindex="-1"></a><span class="in">```{r transformations}</span></span>
-<span id="cb409-1541"><a href="#cb409-1541" aria-hidden="true" tabindex="-1"></a><span class="co"># Original data</span></span>
-<span id="cb409-1542"><a href="#cb409-1542" aria-hidden="true" tabindex="-1"></a>gene_exp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">42</span>, <span class="dv">87</span>, <span class="dv">115</span>, <span class="dv">320</span>, <span class="dv">560</span>, <span class="dv">1120</span>)</span>
-<span id="cb409-1543"><a href="#cb409-1543" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gene_exp, <span class="at">main =</span> <span class="st">"Original Expression Values"</span>, <span class="at">xlab =</span> <span class="st">"Expression"</span>)</span>
-<span id="cb409-1544"><a href="#cb409-1544" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1545"><a href="#cb409-1545" aria-hidden="true" tabindex="-1"></a><span class="co"># Log transformation (common in gene expression analysis)</span></span>
-<span id="cb409-1546"><a href="#cb409-1546" aria-hidden="true" tabindex="-1"></a>log_exp <span class="ot">&lt;-</span> <span class="fu">log2</span>(gene_exp)</span>
-<span id="cb409-1547"><a href="#cb409-1547" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(log_exp, <span class="at">main =</span> <span class="st">"Log2 Transformed Expression"</span>, <span class="at">xlab =</span> <span class="st">"Log2 Expression"</span>)</span>
+<span id="cb409-1540"><a href="#cb409-1540" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transforming Vectors</span></span>
+<span id="cb409-1541"><a href="#cb409-1541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1542"><a href="#cb409-1542" aria-hidden="true" tabindex="-1"></a>Mathematical transformations can normalize data, reduce outlier effects, and make data more suitable for statistical analyses.</span>
+<span id="cb409-1543"><a href="#cb409-1543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1544"><a href="#cb409-1544" aria-hidden="true" tabindex="-1"></a><span class="in">```{r transformations}</span></span>
+<span id="cb409-1545"><a href="#cb409-1545" aria-hidden="true" tabindex="-1"></a><span class="co"># Original data</span></span>
+<span id="cb409-1546"><a href="#cb409-1546" aria-hidden="true" tabindex="-1"></a>gene_exp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">42</span>, <span class="dv">87</span>, <span class="dv">115</span>, <span class="dv">320</span>, <span class="dv">560</span>, <span class="dv">1120</span>)</span>
+<span id="cb409-1547"><a href="#cb409-1547" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gene_exp, <span class="at">main =</span> <span class="st">"Original Expression Values"</span>, <span class="at">xlab =</span> <span class="st">"Expression"</span>)</span>
 <span id="cb409-1548"><a href="#cb409-1548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1549"><a href="#cb409-1549" aria-hidden="true" tabindex="-1"></a><span class="co"># Square root transformation (less aggressive than log)</span></span>
-<span id="cb409-1550"><a href="#cb409-1550" aria-hidden="true" tabindex="-1"></a>sqrt_exp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(gene_exp)</span>
-<span id="cb409-1551"><a href="#cb409-1551" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sqrt_exp, <span class="at">main =</span> <span class="st">"Square Root Transformed Expression"</span>, <span class="at">xlab =</span> <span class="st">"Sqrt Expression"</span>)</span>
+<span id="cb409-1549"><a href="#cb409-1549" aria-hidden="true" tabindex="-1"></a><span class="co"># Log transformation (common in gene expression analysis)</span></span>
+<span id="cb409-1550"><a href="#cb409-1550" aria-hidden="true" tabindex="-1"></a>log_exp <span class="ot">&lt;-</span> <span class="fu">log2</span>(gene_exp)</span>
+<span id="cb409-1551"><a href="#cb409-1551" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(log_exp, <span class="at">main =</span> <span class="st">"Log2 Transformed Expression"</span>, <span class="at">xlab =</span> <span class="st">"Log2 Expression"</span>)</span>
 <span id="cb409-1552"><a href="#cb409-1552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1553"><a href="#cb409-1553" aria-hidden="true" tabindex="-1"></a><span class="co"># Z-score normalization (standardization)</span></span>
-<span id="cb409-1554"><a href="#cb409-1554" aria-hidden="true" tabindex="-1"></a>z_exp <span class="ot">&lt;-</span> <span class="fu">scale</span>(gene_exp)</span>
-<span id="cb409-1555"><a href="#cb409-1555" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z_exp, <span class="at">main =</span> <span class="st">"Z-score Normalized Expression"</span>, <span class="at">xlab =</span> <span class="st">"Z-score"</span>)</span>
+<span id="cb409-1553"><a href="#cb409-1553" aria-hidden="true" tabindex="-1"></a><span class="co"># Square root transformation (less aggressive than log)</span></span>
+<span id="cb409-1554"><a href="#cb409-1554" aria-hidden="true" tabindex="-1"></a>sqrt_exp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(gene_exp)</span>
+<span id="cb409-1555"><a href="#cb409-1555" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sqrt_exp, <span class="at">main =</span> <span class="st">"Square Root Transformed Expression"</span>, <span class="at">xlab =</span> <span class="st">"Sqrt Expression"</span>)</span>
 <span id="cb409-1556"><a href="#cb409-1556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1557"><a href="#cb409-1557" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare transformations</span></span>
-<span id="cb409-1558"><a href="#cb409-1558" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb409-1559"><a href="#cb409-1559" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gene_exp, <span class="at">main =</span> <span class="st">"Original"</span>)</span>
-<span id="cb409-1560"><a href="#cb409-1560" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(log_exp, <span class="at">main =</span> <span class="st">"Log2"</span>)</span>
-<span id="cb409-1561"><a href="#cb409-1561" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sqrt_exp, <span class="at">main =</span> <span class="st">"Square Root"</span>)</span>
-<span id="cb409-1562"><a href="#cb409-1562" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z_exp, <span class="at">main =</span> <span class="st">"Z-score"</span>)</span>
-<span id="cb409-1563"><a href="#cb409-1563" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># Reset plotting layout</span></span>
-<span id="cb409-1564"><a href="#cb409-1564" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1565"><a href="#cb409-1565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1566"><a href="#cb409-1566" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Expressions</span></span>
-<span id="cb409-1567"><a href="#cb409-1567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1568"><a href="#cb409-1568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-expressions}</span></span>
-<span id="cb409-1569"><a href="#cb409-1569" aria-hidden="true" tabindex="-1"></a><span class="co"># Create gene expression vector</span></span>
-<span id="cb409-1570"><a href="#cb409-1570" aria-hidden="true" tabindex="-1"></a>exp_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.2</span>, <span class="fl">3.8</span>, <span class="fl">7.1</span>, <span class="fl">2.9</span>, <span class="fl">6.5</span>, <span class="fl">8.0</span>, <span class="fl">4.3</span>)</span>
-<span id="cb409-1571"><a href="#cb409-1571" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(exp_data) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Gene_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span>
-<span id="cb409-1572"><a href="#cb409-1572" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1573"><a href="#cb409-1573" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic comparisons</span></span>
-<span id="cb409-1574"><a href="#cb409-1574" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&gt;</span> <span class="dv">5</span>    <span class="co"># Which genes have expression &gt; 5?</span></span>
-<span id="cb409-1575"><a href="#cb409-1575" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&lt;=</span> <span class="dv">4</span>   <span class="co"># Which genes have expression &lt;= 4?</span></span>
+<span id="cb409-1557"><a href="#cb409-1557" aria-hidden="true" tabindex="-1"></a><span class="co"># Z-score normalization (standardization)</span></span>
+<span id="cb409-1558"><a href="#cb409-1558" aria-hidden="true" tabindex="-1"></a>z_exp <span class="ot">&lt;-</span> <span class="fu">scale</span>(gene_exp)</span>
+<span id="cb409-1559"><a href="#cb409-1559" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z_exp, <span class="at">main =</span> <span class="st">"Z-score Normalized Expression"</span>, <span class="at">xlab =</span> <span class="st">"Z-score"</span>)</span>
+<span id="cb409-1560"><a href="#cb409-1560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1561"><a href="#cb409-1561" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare transformations</span></span>
+<span id="cb409-1562"><a href="#cb409-1562" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb409-1563"><a href="#cb409-1563" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gene_exp, <span class="at">main =</span> <span class="st">"Original"</span>)</span>
+<span id="cb409-1564"><a href="#cb409-1564" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(log_exp, <span class="at">main =</span> <span class="st">"Log2"</span>)</span>
+<span id="cb409-1565"><a href="#cb409-1565" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sqrt_exp, <span class="at">main =</span> <span class="st">"Square Root"</span>)</span>
+<span id="cb409-1566"><a href="#cb409-1566" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z_exp, <span class="at">main =</span> <span class="st">"Z-score"</span>)</span>
+<span id="cb409-1567"><a href="#cb409-1567" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># Reset plotting layout</span></span>
+<span id="cb409-1568"><a href="#cb409-1568" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1569"><a href="#cb409-1569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1570"><a href="#cb409-1570" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Expressions</span></span>
+<span id="cb409-1571"><a href="#cb409-1571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1572"><a href="#cb409-1572" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-expressions}</span></span>
+<span id="cb409-1573"><a href="#cb409-1573" aria-hidden="true" tabindex="-1"></a><span class="co"># Create gene expression vector</span></span>
+<span id="cb409-1574"><a href="#cb409-1574" aria-hidden="true" tabindex="-1"></a>exp_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.2</span>, <span class="fl">3.8</span>, <span class="fl">7.1</span>, <span class="fl">2.9</span>, <span class="fl">6.5</span>, <span class="fl">8.0</span>, <span class="fl">4.3</span>)</span>
+<span id="cb409-1575"><a href="#cb409-1575" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(exp_data) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Gene_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span>
 <span id="cb409-1576"><a href="#cb409-1576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1577"><a href="#cb409-1577" aria-hidden="true" tabindex="-1"></a><span class="co"># Store results in logical vector</span></span>
-<span id="cb409-1578"><a href="#cb409-1578" aria-hidden="true" tabindex="-1"></a>high_exp <span class="ot">&lt;-</span> exp_data <span class="sc">&gt;</span> <span class="dv">6</span></span>
-<span id="cb409-1579"><a href="#cb409-1579" aria-hidden="true" tabindex="-1"></a>high_exp</span>
+<span id="cb409-1577"><a href="#cb409-1577" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic comparisons</span></span>
+<span id="cb409-1578"><a href="#cb409-1578" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&gt;</span> <span class="dv">5</span>    <span class="co"># Which genes have expression &gt; 5?</span></span>
+<span id="cb409-1579"><a href="#cb409-1579" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&lt;=</span> <span class="dv">4</span>   <span class="co"># Which genes have expression &lt;= 4?</span></span>
 <span id="cb409-1580"><a href="#cb409-1580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1581"><a href="#cb409-1581" aria-hidden="true" tabindex="-1"></a><span class="co"># Use logical vectors for subsetting</span></span>
-<span id="cb409-1582"><a href="#cb409-1582" aria-hidden="true" tabindex="-1"></a>exp_data[high_exp]  <span class="co"># Get high expression values</span></span>
-<span id="cb409-1583"><a href="#cb409-1583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1581"><a href="#cb409-1581" aria-hidden="true" tabindex="-1"></a><span class="co"># Store results in logical vector</span></span>
+<span id="cb409-1582"><a href="#cb409-1582" aria-hidden="true" tabindex="-1"></a>high_exp <span class="ot">&lt;-</span> exp_data <span class="sc">&gt;</span> <span class="dv">6</span></span>
+<span id="cb409-1583"><a href="#cb409-1583" aria-hidden="true" tabindex="-1"></a>high_exp</span>
 <span id="cb409-1584"><a href="#cb409-1584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1585"><a href="#cb409-1585" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Operators</span></span>
-<span id="cb409-1586"><a href="#cb409-1586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1587"><a href="#cb409-1587" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-operators}</span></span>
-<span id="cb409-1588"><a href="#cb409-1588" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining conditions with AND (&amp;)</span></span>
-<span id="cb409-1589"><a href="#cb409-1589" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> exp_data <span class="sc">&lt;</span> <span class="dv">7</span>  <span class="co"># Expression between 4 and 7</span></span>
+<span id="cb409-1585"><a href="#cb409-1585" aria-hidden="true" tabindex="-1"></a><span class="co"># Use logical vectors for subsetting</span></span>
+<span id="cb409-1586"><a href="#cb409-1586" aria-hidden="true" tabindex="-1"></a>exp_data[high_exp]  <span class="co"># Get high expression values</span></span>
+<span id="cb409-1587"><a href="#cb409-1587" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1588"><a href="#cb409-1588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1589"><a href="#cb409-1589" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Operators</span></span>
 <span id="cb409-1590"><a href="#cb409-1590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1591"><a href="#cb409-1591" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining conditions with OR (|)</span></span>
-<span id="cb409-1592"><a href="#cb409-1592" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&lt;</span> <span class="dv">4</span> <span class="sc">|</span> exp_data <span class="sc">&gt;</span> <span class="dv">7</span>  <span class="co"># Expression less than 4 OR greater than 7</span></span>
-<span id="cb409-1593"><a href="#cb409-1593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1594"><a href="#cb409-1594" aria-hidden="true" tabindex="-1"></a><span class="co"># Using NOT (!)</span></span>
-<span id="cb409-1595"><a href="#cb409-1595" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>high_exp  <span class="co"># Not high expression</span></span>
-<span id="cb409-1596"><a href="#cb409-1596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1597"><a href="#cb409-1597" aria-hidden="true" tabindex="-1"></a><span class="co"># Subsetting with combined conditions</span></span>
-<span id="cb409-1598"><a href="#cb409-1598" aria-hidden="true" tabindex="-1"></a>exp_data[exp_data <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> exp_data <span class="sc">&lt;</span> <span class="dv">7</span>]  <span class="co"># Get values between 4 and 7</span></span>
-<span id="cb409-1599"><a href="#cb409-1599" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1591"><a href="#cb409-1591" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-operators}</span></span>
+<span id="cb409-1592"><a href="#cb409-1592" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining conditions with AND (&amp;)</span></span>
+<span id="cb409-1593"><a href="#cb409-1593" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> exp_data <span class="sc">&lt;</span> <span class="dv">7</span>  <span class="co"># Expression between 4 and 7</span></span>
+<span id="cb409-1594"><a href="#cb409-1594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1595"><a href="#cb409-1595" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining conditions with OR (|)</span></span>
+<span id="cb409-1596"><a href="#cb409-1596" aria-hidden="true" tabindex="-1"></a>exp_data <span class="sc">&lt;</span> <span class="dv">4</span> <span class="sc">|</span> exp_data <span class="sc">&gt;</span> <span class="dv">7</span>  <span class="co"># Expression less than 4 OR greater than 7</span></span>
+<span id="cb409-1597"><a href="#cb409-1597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1598"><a href="#cb409-1598" aria-hidden="true" tabindex="-1"></a><span class="co"># Using NOT (!)</span></span>
+<span id="cb409-1599"><a href="#cb409-1599" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>high_exp  <span class="co"># Not high expression</span></span>
 <span id="cb409-1600"><a href="#cb409-1600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1601"><a href="#cb409-1601" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Functions</span></span>
-<span id="cb409-1602"><a href="#cb409-1602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1603"><a href="#cb409-1603" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-functions}</span></span>
-<span id="cb409-1604"><a href="#cb409-1604" aria-hidden="true" tabindex="-1"></a><span class="co"># all() - Are all values TRUE?</span></span>
-<span id="cb409-1605"><a href="#cb409-1605" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(exp_data <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Are all expressions positive?</span></span>
+<span id="cb409-1601"><a href="#cb409-1601" aria-hidden="true" tabindex="-1"></a><span class="co"># Subsetting with combined conditions</span></span>
+<span id="cb409-1602"><a href="#cb409-1602" aria-hidden="true" tabindex="-1"></a>exp_data[exp_data <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> exp_data <span class="sc">&lt;</span> <span class="dv">7</span>]  <span class="co"># Get values between 4 and 7</span></span>
+<span id="cb409-1603"><a href="#cb409-1603" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1604"><a href="#cb409-1604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1605"><a href="#cb409-1605" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logical Functions</span></span>
 <span id="cb409-1606"><a href="#cb409-1606" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1607"><a href="#cb409-1607" aria-hidden="true" tabindex="-1"></a><span class="co"># any() - Is at least one value TRUE?</span></span>
-<span id="cb409-1608"><a href="#cb409-1608" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(exp_data <span class="sc">&gt;</span> <span class="dv">7</span>)  <span class="co"># Is any expression greater than 7?</span></span>
-<span id="cb409-1609"><a href="#cb409-1609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1610"><a href="#cb409-1610" aria-hidden="true" tabindex="-1"></a><span class="co"># which() - Get indices of TRUE values</span></span>
-<span id="cb409-1611"><a href="#cb409-1611" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(exp_data <span class="sc">&gt;</span> <span class="dv">6</span>)  <span class="co"># Which elements have expressions &gt; 6?</span></span>
-<span id="cb409-1612"><a href="#cb409-1612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1613"><a href="#cb409-1613" aria-hidden="true" tabindex="-1"></a><span class="co"># %in% operator - Test for membership</span></span>
-<span id="cb409-1614"><a href="#cb409-1614" aria-hidden="true" tabindex="-1"></a>test_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gene_1"</span>, <span class="st">"Gene_5"</span>, <span class="st">"Gene_9"</span>)</span>
-<span id="cb409-1615"><a href="#cb409-1615" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(exp_data) <span class="sc">%in%</span> test_genes  <span class="co"># Which names match test_genes?</span></span>
-<span id="cb409-1616"><a href="#cb409-1616" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1617"><a href="#cb409-1617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1618"><a href="#cb409-1618" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conditionals</span></span>
-<span id="cb409-1619"><a href="#cb409-1619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1620"><a href="#cb409-1620" aria-hidden="true" tabindex="-1"></a><span class="in">```{r conditionals}</span></span>
-<span id="cb409-1621"><a href="#cb409-1621" aria-hidden="true" tabindex="-1"></a><span class="co"># if-else statement</span></span>
-<span id="cb409-1622"><a href="#cb409-1622" aria-hidden="true" tabindex="-1"></a>gene_value <span class="ot">&lt;-</span> <span class="fl">6.8</span></span>
+<span id="cb409-1607"><a href="#cb409-1607" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logical-functions}</span></span>
+<span id="cb409-1608"><a href="#cb409-1608" aria-hidden="true" tabindex="-1"></a><span class="co"># all() - Are all values TRUE?</span></span>
+<span id="cb409-1609"><a href="#cb409-1609" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(exp_data <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Are all expressions positive?</span></span>
+<span id="cb409-1610"><a href="#cb409-1610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1611"><a href="#cb409-1611" aria-hidden="true" tabindex="-1"></a><span class="co"># any() - Is at least one value TRUE?</span></span>
+<span id="cb409-1612"><a href="#cb409-1612" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(exp_data <span class="sc">&gt;</span> <span class="dv">7</span>)  <span class="co"># Is any expression greater than 7?</span></span>
+<span id="cb409-1613"><a href="#cb409-1613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1614"><a href="#cb409-1614" aria-hidden="true" tabindex="-1"></a><span class="co"># which() - Get indices of TRUE values</span></span>
+<span id="cb409-1615"><a href="#cb409-1615" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(exp_data <span class="sc">&gt;</span> <span class="dv">6</span>)  <span class="co"># Which elements have expressions &gt; 6?</span></span>
+<span id="cb409-1616"><a href="#cb409-1616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1617"><a href="#cb409-1617" aria-hidden="true" tabindex="-1"></a><span class="co"># %in% operator - Test for membership</span></span>
+<span id="cb409-1618"><a href="#cb409-1618" aria-hidden="true" tabindex="-1"></a>test_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gene_1"</span>, <span class="st">"Gene_5"</span>, <span class="st">"Gene_9"</span>)</span>
+<span id="cb409-1619"><a href="#cb409-1619" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(exp_data) <span class="sc">%in%</span> test_genes  <span class="co"># Which names match test_genes?</span></span>
+<span id="cb409-1620"><a href="#cb409-1620" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1621"><a href="#cb409-1621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1622"><a href="#cb409-1622" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conditionals</span></span>
 <span id="cb409-1623"><a href="#cb409-1623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1624"><a href="#cb409-1624" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(gene_value <span class="sc">&gt;</span> <span class="dv">6</span>) {</span>
-<span id="cb409-1625"><a href="#cb409-1625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"High expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb409-1626"><a href="#cb409-1626" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(gene_value <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
-<span id="cb409-1627"><a href="#cb409-1627" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Medium expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb409-1628"><a href="#cb409-1628" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb409-1629"><a href="#cb409-1629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Low expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb409-1630"><a href="#cb409-1630" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb409-1631"><a href="#cb409-1631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1632"><a href="#cb409-1632" aria-hidden="true" tabindex="-1"></a><span class="co"># ifelse() for vectors</span></span>
-<span id="cb409-1633"><a href="#cb409-1633" aria-hidden="true" tabindex="-1"></a>expression_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">5.8</span>, <span class="fl">7.2</span>, <span class="fl">3.1</span>, <span class="fl">6.9</span>)</span>
-<span id="cb409-1634"><a href="#cb409-1634" aria-hidden="true" tabindex="-1"></a>expression_category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(expression_levels <span class="sc">&gt;</span> <span class="dv">6</span>, </span>
-<span id="cb409-1635"><a href="#cb409-1635" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"High"</span>, </span>
-<span id="cb409-1636"><a href="#cb409-1636" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(expression_levels <span class="sc">&gt;</span> <span class="dv">4</span>, <span class="st">"Medium"</span>, <span class="st">"Low"</span>))</span>
-<span id="cb409-1637"><a href="#cb409-1637" aria-hidden="true" tabindex="-1"></a>expression_category</span>
-<span id="cb409-1638"><a href="#cb409-1638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb409-1639"><a href="#cb409-1639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1640"><a href="#cb409-1640" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Session</span></span>
-<span id="cb409-1641"><a href="#cb409-1641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1642"><a href="#cb409-1642" aria-hidden="true" tabindex="-1"></a>Check out this repo: <span class="in">`https://github.com/genomicsclass/dagdata/`</span></span>
+<span id="cb409-1624"><a href="#cb409-1624" aria-hidden="true" tabindex="-1"></a><span class="in">```{r conditionals}</span></span>
+<span id="cb409-1625"><a href="#cb409-1625" aria-hidden="true" tabindex="-1"></a><span class="co"># if-else statement</span></span>
+<span id="cb409-1626"><a href="#cb409-1626" aria-hidden="true" tabindex="-1"></a>gene_value <span class="ot">&lt;-</span> <span class="fl">6.8</span></span>
+<span id="cb409-1627"><a href="#cb409-1627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1628"><a href="#cb409-1628" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(gene_value <span class="sc">&gt;</span> <span class="dv">6</span>) {</span>
+<span id="cb409-1629"><a href="#cb409-1629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"High expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb409-1630"><a href="#cb409-1630" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(gene_value <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
+<span id="cb409-1631"><a href="#cb409-1631" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Medium expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb409-1632"><a href="#cb409-1632" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb409-1633"><a href="#cb409-1633" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Low expression</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb409-1634"><a href="#cb409-1634" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb409-1635"><a href="#cb409-1635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1636"><a href="#cb409-1636" aria-hidden="true" tabindex="-1"></a><span class="co"># ifelse() for vectors</span></span>
+<span id="cb409-1637"><a href="#cb409-1637" aria-hidden="true" tabindex="-1"></a>expression_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">5.8</span>, <span class="fl">7.2</span>, <span class="fl">3.1</span>, <span class="fl">6.9</span>)</span>
+<span id="cb409-1638"><a href="#cb409-1638" aria-hidden="true" tabindex="-1"></a>expression_category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(expression_levels <span class="sc">&gt;</span> <span class="dv">6</span>, </span>
+<span id="cb409-1639"><a href="#cb409-1639" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"High"</span>, </span>
+<span id="cb409-1640"><a href="#cb409-1640" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(expression_levels <span class="sc">&gt;</span> <span class="dv">4</span>, <span class="st">"Medium"</span>, <span class="st">"Low"</span>))</span>
+<span id="cb409-1641"><a href="#cb409-1641" aria-hidden="true" tabindex="-1"></a>expression_category</span>
+<span id="cb409-1642"><a href="#cb409-1642" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb409-1643"><a href="#cb409-1643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1644"><a href="#cb409-1644" aria-hidden="true" tabindex="-1"></a><span class="in">```{r practical, eval=FALSE}</span></span>
-<span id="cb409-1645"><a href="#cb409-1645" aria-hidden="true" tabindex="-1"></a><span class="co"># Download small example dataset</span></span>
-<span id="cb409-1646"><a href="#cb409-1646" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/genomicsclass/dagdata/raw/master/inst/extdata/msleep_ggplot2.csv"</span>,</span>
-<span id="cb409-1647"><a href="#cb409-1647" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"msleep_data.csv"</span>)</span>
-<span id="cb409-1648"><a href="#cb409-1648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1649"><a href="#cb409-1649" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb409-1650"><a href="#cb409-1650" aria-hidden="true" tabindex="-1"></a>msleep <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"msleep_data.csv"</span>)</span>
-<span id="cb409-1651"><a href="#cb409-1651" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1644"><a href="#cb409-1644" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Session</span></span>
+<span id="cb409-1645"><a href="#cb409-1645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1646"><a href="#cb409-1646" aria-hidden="true" tabindex="-1"></a>Check out this repo: <span class="in">`https://github.com/genomicsclass/dagdata/`</span></span>
+<span id="cb409-1647"><a href="#cb409-1647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1648"><a href="#cb409-1648" aria-hidden="true" tabindex="-1"></a><span class="in">```{r practical, eval=FALSE}</span></span>
+<span id="cb409-1649"><a href="#cb409-1649" aria-hidden="true" tabindex="-1"></a><span class="co"># Download small example dataset</span></span>
+<span id="cb409-1650"><a href="#cb409-1650" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/genomicsclass/dagdata/raw/master/inst/extdata/msleep_ggplot2.csv"</span>,</span>
+<span id="cb409-1651"><a href="#cb409-1651" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"msleep_data.csv"</span>)</span>
 <span id="cb409-1652"><a href="#cb409-1652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1653"><a href="#cb409-1653" aria-hidden="true" tabindex="-1"></a>**In-class Tasks:**</span>
-<span id="cb409-1654"><a href="#cb409-1654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1655"><a href="#cb409-1655" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Convert 'vore' column to factor and plot its distribution.</span>
-<span id="cb409-1656"><a href="#cb409-1656" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create a matrix of sleep data columns and add row names.</span>
-<span id="cb409-1657"><a href="#cb409-1657" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Find and handle any missing values.</span>
-<span id="cb409-1658"><a href="#cb409-1658" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Calculate mean sleep time by diet category (vore).</span>
-<span id="cb409-1659"><a href="#cb409-1659" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Identify outliers in sleep_total.</span>
-<span id="cb409-1660"><a href="#cb409-1660" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1661"><a href="#cb409-1661" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary of Today's Lesson</span></span>
-<span id="cb409-1662"><a href="#cb409-1662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1663"><a href="#cb409-1663" aria-hidden="true" tabindex="-1"></a>In today's class, we covered:</span>
+<span id="cb409-1653"><a href="#cb409-1653" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb409-1654"><a href="#cb409-1654" aria-hidden="true" tabindex="-1"></a>msleep <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"msleep_data.csv"</span>)</span>
+<span id="cb409-1655"><a href="#cb409-1655" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1656"><a href="#cb409-1656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1657"><a href="#cb409-1657" aria-hidden="true" tabindex="-1"></a>**In-class Tasks:**</span>
+<span id="cb409-1658"><a href="#cb409-1658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1659"><a href="#cb409-1659" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Convert 'vore' column to factor and plot its distribution.</span>
+<span id="cb409-1660"><a href="#cb409-1660" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create a matrix of sleep data columns and add row names.</span>
+<span id="cb409-1661"><a href="#cb409-1661" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Find and handle any missing values.</span>
+<span id="cb409-1662"><a href="#cb409-1662" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Calculate mean sleep time by diet category (vore).</span>
+<span id="cb409-1663"><a href="#cb409-1663" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Identify outliers in sleep_total.</span>
 <span id="cb409-1664"><a href="#cb409-1664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1665"><a href="#cb409-1665" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Factor Variables**: Essential for categorical data in biology (genotypes, treatments, etc.)</span>
+<span id="cb409-1665"><a href="#cb409-1665" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary of Today's Lesson</span></span>
 <span id="cb409-1666"><a href="#cb409-1666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1667"><a href="#cb409-1667" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Creation, levels, ordering, and visualization</span>
+<span id="cb409-1667"><a href="#cb409-1667" aria-hidden="true" tabindex="-1"></a>In today's class, we covered:</span>
 <span id="cb409-1668"><a href="#cb409-1668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1669"><a href="#cb409-1669" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Subsetting Techniques**: Critical for data extraction and analysis</span>
+<span id="cb409-1669"><a href="#cb409-1669" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Factor Variables**: Essential for categorical data in biology (genotypes, treatments, etc.)</span>
 <span id="cb409-1670"><a href="#cb409-1670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1671"><a href="#cb409-1671" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Vector and data frame subsetting with various methods</span>
-<span id="cb409-1672"><a href="#cb409-1672" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Using row names effectively for biological identifiers</span>
-<span id="cb409-1673"><a href="#cb409-1673" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1674"><a href="#cb409-1674" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Matrix Operations**: Fundamental for expression data</span>
-<span id="cb409-1675"><a href="#cb409-1675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1676"><a href="#cb409-1676" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Creation, manipulation, and biological applications</span>
-<span id="cb409-1677"><a href="#cb409-1677" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculating fold changes and other common operations</span>
-<span id="cb409-1678"><a href="#cb409-1678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1679"><a href="#cb409-1679" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Missing Values**: </span>
-<span id="cb409-1680"><a href="#cb409-1680" aria-hidden="true" tabindex="-1"></a>Practical approaches for real-world biological data</span>
-<span id="cb409-1681"><a href="#cb409-1681" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1682"><a href="#cb409-1682" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Identification and appropriate replacement methods</span>
-<span id="cb409-1683"><a href="#cb409-1683" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1684"><a href="#cb409-1684" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Data Transformation**: Making data suitable for statistical analysis</span>
+<span id="cb409-1671"><a href="#cb409-1671" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Creation, levels, ordering, and visualization</span>
+<span id="cb409-1672"><a href="#cb409-1672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1673"><a href="#cb409-1673" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Subsetting Techniques**: Critical for data extraction and analysis</span>
+<span id="cb409-1674"><a href="#cb409-1674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1675"><a href="#cb409-1675" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Vector and data frame subsetting with various methods</span>
+<span id="cb409-1676"><a href="#cb409-1676" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Using row names effectively for biological identifiers</span>
+<span id="cb409-1677"><a href="#cb409-1677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1678"><a href="#cb409-1678" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Matrix Operations**: Fundamental for expression data</span>
+<span id="cb409-1679"><a href="#cb409-1679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1680"><a href="#cb409-1680" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Creation, manipulation, and biological applications</span>
+<span id="cb409-1681"><a href="#cb409-1681" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculating fold changes and other common operations</span>
+<span id="cb409-1682"><a href="#cb409-1682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1683"><a href="#cb409-1683" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Missing Values**: </span>
+<span id="cb409-1684"><a href="#cb409-1684" aria-hidden="true" tabindex="-1"></a>Practical approaches for real-world biological data</span>
 <span id="cb409-1685"><a href="#cb409-1685" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1686"><a href="#cb409-1686" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Log, square root, and z-score transformations</span>
-<span id="cb409-1687"><a href="#cb409-1687" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Outlier identification and handling</span>
-<span id="cb409-1688"><a href="#cb409-1688" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1689"><a href="#cb409-1689" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Logical Operations**: For data filtering and decision making</span>
-<span id="cb409-1690"><a href="#cb409-1690" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1691"><a href="#cb409-1691" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Conditions, combinations, and applications</span>
+<span id="cb409-1686"><a href="#cb409-1686" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Identification and appropriate replacement methods</span>
+<span id="cb409-1687"><a href="#cb409-1687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1688"><a href="#cb409-1688" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Data Transformation**: Making data suitable for statistical analysis</span>
+<span id="cb409-1689"><a href="#cb409-1689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1690"><a href="#cb409-1690" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Log, square root, and z-score transformations</span>
+<span id="cb409-1691"><a href="#cb409-1691" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Outlier identification and handling</span>
 <span id="cb409-1692"><a href="#cb409-1692" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1693"><a href="#cb409-1693" aria-hidden="true" tabindex="-1"></a>  These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.</span>
+<span id="cb409-1693"><a href="#cb409-1693" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Logical Operations**: For data filtering and decision making</span>
 <span id="cb409-1694"><a href="#cb409-1694" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1695"><a href="#cb409-1695" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.</span>
+<span id="cb409-1695"><a href="#cb409-1695" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Conditions, combinations, and applications</span>
 <span id="cb409-1696"><a href="#cb409-1696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1697"><a href="#cb409-1697" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>**List**: Fundamental for many biological data and packages' output.</span>
+<span id="cb409-1697"><a href="#cb409-1697" aria-hidden="true" tabindex="-1"></a>  These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.</span>
 <span id="cb409-1698"><a href="#cb409-1698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1699"><a href="#cb409-1699" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Properties, accessing, and applications</span>
+<span id="cb409-1699"><a href="#cb409-1699" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.</span>
 <span id="cb409-1700"><a href="#cb409-1700" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1701"><a href="#cb409-1701" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homework</span></span>
+<span id="cb409-1701"><a href="#cb409-1701" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>**List**: Fundamental for many biological data and packages' output.</span>
 <span id="cb409-1702"><a href="#cb409-1702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1703"><a href="#cb409-1703" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Matrix Operations**:</span>
-<span id="cb409-1704"><a href="#cb409-1704" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a gene expression matrix with 8 genes and 4 conditions</span>
-<span id="cb409-1705"><a href="#cb409-1705" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate the mean expression for each gene</span>
-<span id="cb409-1706"><a href="#cb409-1706" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate fold change between condition 4 and condition 1</span>
-<span id="cb409-1707"><a href="#cb409-1707" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a heatmap of your matrix</span>
-<span id="cb409-1708"><a href="#cb409-1708" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Factor Analysis**:</span>
-<span id="cb409-1709"><a href="#cb409-1709" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Using the <span class="in">`iris`</span> dataset, convert Species to an ordered factor</span>
-<span id="cb409-1710"><a href="#cb409-1710" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create boxplots showing Sepal.Length by Species</span>
-<span id="cb409-1711"><a href="#cb409-1711" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate mean petal length for each species level</span>
-<span id="cb409-1712"><a href="#cb409-1712" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Data Cleaning Challenge**:</span>
-<span id="cb409-1713"><a href="#cb409-1713" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>In the downloaded <span class="in">`msleep_data.csv`</span>:</span>
-<span id="cb409-1714"><a href="#cb409-1714" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Identify all columns with missing values</span>
-<span id="cb409-1715"><a href="#cb409-1715" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Replace missing values appropriately</span>
-<span id="cb409-1716"><a href="#cb409-1716" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a new categorical variable "sleep_duration" with levels "Short", "Medium", "Long"</span>
-<span id="cb409-1717"><a href="#cb409-1717" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**List challenge**:</span>
-<span id="cb409-1718"><a href="#cb409-1718" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Make your own lists</span>
-<span id="cb409-1719"><a href="#cb409-1719" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Replicate all the tasks we did</span>
-<span id="cb409-1720"><a href="#cb409-1720" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You may ask AI to give you beginner-level questions but don't ask to solve the questions programmatically. Tell AI not to provide answers.</span>
-<span id="cb409-1721"><a href="#cb409-1721" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Complete Documentation**:</span>
-<span id="cb409-1722"><a href="#cb409-1722" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Write all code in R Markdown</span>
-<span id="cb409-1723"><a href="#cb409-1723" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include comments explaining your approach</span>
-<span id="cb409-1724"><a href="#cb409-1724" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Push to GitHub</span>
-<span id="cb409-1725"><a href="#cb409-1725" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1726"><a href="#cb409-1726" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Due date: Friday 10pm BD Time</span></span>
-<span id="cb409-1727"><a href="#cb409-1727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-1728"><a href="#cb409-1728" aria-hidden="true" tabindex="-1"></a><span class="in">```{r save-examples, include=FALSE}</span></span>
-<span id="cb409-1729"><a href="#cb409-1729" aria-hidden="true" tabindex="-1"></a><span class="co"># Save example data for students who missed class</span></span>
-<span id="cb409-1730"><a href="#cb409-1730" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(expr_matrix, <span class="st">"example_expression_matrix.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb409-1731"><a href="#cb409-1731" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(gene_df, <span class="st">"example_gene_data.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb409-1732"><a href="#cb409-1732" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb409-1703"><a href="#cb409-1703" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Properties, accessing, and applications</span>
+<span id="cb409-1704"><a href="#cb409-1704" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1705"><a href="#cb409-1705" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homework</span></span>
+<span id="cb409-1706"><a href="#cb409-1706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1707"><a href="#cb409-1707" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Matrix Operations**:</span>
+<span id="cb409-1708"><a href="#cb409-1708" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a gene expression matrix with 8 genes and 4 conditions</span>
+<span id="cb409-1709"><a href="#cb409-1709" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate the mean expression for each gene</span>
+<span id="cb409-1710"><a href="#cb409-1710" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate fold change between condition 4 and condition 1</span>
+<span id="cb409-1711"><a href="#cb409-1711" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a heatmap of your matrix</span>
+<span id="cb409-1712"><a href="#cb409-1712" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Factor Analysis**:</span>
+<span id="cb409-1713"><a href="#cb409-1713" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Using the <span class="in">`iris`</span> dataset, convert Species to an ordered factor</span>
+<span id="cb409-1714"><a href="#cb409-1714" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create boxplots showing Sepal.Length by Species</span>
+<span id="cb409-1715"><a href="#cb409-1715" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calculate mean petal length for each species level</span>
+<span id="cb409-1716"><a href="#cb409-1716" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Data Cleaning Challenge**:</span>
+<span id="cb409-1717"><a href="#cb409-1717" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>In the downloaded <span class="in">`msleep_data.csv`</span>:</span>
+<span id="cb409-1718"><a href="#cb409-1718" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Identify all columns with missing values</span>
+<span id="cb409-1719"><a href="#cb409-1719" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Replace missing values appropriately</span>
+<span id="cb409-1720"><a href="#cb409-1720" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Create a new categorical variable "sleep_duration" with levels "Short", "Medium", "Long"</span>
+<span id="cb409-1721"><a href="#cb409-1721" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**List challenge**:</span>
+<span id="cb409-1722"><a href="#cb409-1722" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Make your own lists</span>
+<span id="cb409-1723"><a href="#cb409-1723" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Replicate all the tasks we did</span>
+<span id="cb409-1724"><a href="#cb409-1724" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You may ask AI to give you beginner-level questions but don't ask to solve the questions programmatically. Tell AI not to provide answers.</span>
+<span id="cb409-1725"><a href="#cb409-1725" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Complete Documentation**:</span>
+<span id="cb409-1726"><a href="#cb409-1726" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Write all code in R Markdown</span>
+<span id="cb409-1727"><a href="#cb409-1727" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include comments explaining your approach</span>
+<span id="cb409-1728"><a href="#cb409-1728" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Push to GitHub</span>
+<span id="cb409-1729"><a href="#cb409-1729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1730"><a href="#cb409-1730" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Due date: Friday 10pm BD Time</span></span>
+<span id="cb409-1731"><a href="#cb409-1731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-1732"><a href="#cb409-1732" aria-hidden="true" tabindex="-1"></a><span class="in">```{r save-examples, include=FALSE}</span></span>
+<span id="cb409-1733"><a href="#cb409-1733" aria-hidden="true" tabindex="-1"></a><span class="co"># Save example data for students who missed class</span></span>
+<span id="cb409-1734"><a href="#cb409-1734" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(expr_matrix, <span class="st">"example_expression_matrix.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1735"><a href="#cb409-1735" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(gene_df, <span class="st">"example_gene_data.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb409-1736"><a href="#cb409-1736" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
