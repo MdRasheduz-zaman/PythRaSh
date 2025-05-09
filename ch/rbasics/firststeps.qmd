@@ -1572,20 +1572,47 @@ test_genes <- c("Gene_1", "Gene_5", "Gene_9")
 names(exp_data) %in% test_genes  # Which names match test_genes?
 ```
 
-### Conditionals
+## Conditionals
+
+### `if-else` statement
 
 ```{r conditionals}
 # if-else statement
 gene_value <- 6.8
 
-if(gene_value > 6) {
-  cat("High expression\n")
-} else if(gene_value > 4) {
-  cat("Medium expression\n")
+if(gene_value > 10) {
+  print("High expression")
+} else if(gene_value > 5) {
+  print("Medium expression")
 } else {
-  cat("Low expression\n")
+  print("Low expression")
 }
+```
+Visualize it using the image below.
 
+::: text-center
+![](img/if_else.png){width="80%"}
+:::
+
+### `elseif` statement for vectors
+
+`elseif` is binary in nature. So, we can categorize only 2 things using `elseif`. See this example:
+```{r}
+expression_values <- c(12.5, 4.3, 8.1, 2.2)
+labels <- ifelse(expression_values > 5, "Upregulated", "Downregulated")
+labels
+```
+::: text-center
+![](img/elseif.png){width="80%"}
+:::
+
+::: callout-note
+`elseif` has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).
+:::
+
+If we still want to categorize more than 2 categories using `elseif`, we need to use it in a nested way. See this example:
+
+```{r}
 # ifelse() for vectors
 expression_levels <- c(2.5, 5.8, 7.2, 3.1, 6.9)
 expression_category <- ifelse(expression_levels > 6, 
@@ -1593,8 +1620,142 @@ expression_category <- ifelse(expression_levels > 6,
                              ifelse(expression_levels > 4, "Medium", "Low"))
 expression_category
 ```
+::: text-center
+![](img/nested_elseif.png){width="80%"}
+:::
+::: callout-note
+You remember the general structure of `elseif` loop, right? the second thing after the first `,` is the assigned category if the condition is met. So, we assigned it as `High` here in this example. But then after the second `,` there is a second `elseif` loop instead of a category. The second loop makes 2 more binary categories `Medium` and `Low`, and our task of assigning 3 categories is achieved.
+:::
 
-## Practical Session
+`dplyr` package has a function named `case-when()` to help us use as many categories we want. The same task would be achieved like this:
+
+```{r}
+# Requires dplyr package
+#install.packages("dplyr") #decomment if you need to install the package
+library(dplyr)
+expression_levels <- c(2.5, 5.8, 7.2, 3.1, 6.9)
+labels <- case_when(
+  expression_levels > 6 ~ "High",
+  expression_levels > 4 ~ "Medium",
+  TRUE ~ "Low"  # Default case
+)
+labels
+```
+::: callout-note
+Do you see the point how you would use the `elseif` loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. 
+But anyway, categorizing more than 2 is better using `if else` statement
+:::
+
+### `for` loop
+
+```{r}
+genes <- c("BRCA1", "TP53", "MYC", "CDC2", "MBP")
+expr <- c(8.2, 5.4, 11.0, 5.4, 13.0)
+
+for (i in 1:length(genes)) {
+  status <- if (expr[i] > 10) "High" else if (expr[i] > 6) "Moderate" else "Low"
+  cat(genes[i], "has", status, "expression\n")
+}
+```
+In-class Task:
+
+- Make a data frame using `genes` and `expr`.
+- Add/flag the categories `High`, `Moderate` and `Low` you get using the `for` loop in a new column named `expression_level` or similar.
+
+```{r}
+# Step 1: Vectors
+genes <- c("BRCA1", "TP53", "MYC", "CDC2", "MBP")
+expr <- c(8.2, 5.4, 11.0, 5.4, 13.0)
+
+# Step 2: Create a data frame
+gene_df <- data.frame(gene = genes, expression = expr)
+
+# Step 3: Add an empty column for expression level
+gene_df$expression_level <- NA
+
+# Step 4: Use for loop to fill in the expression_level column
+for (i in 1:nrow(gene_df)) {
+  gene_df$expression_level[i] <- if (gene_df$expression[i] > 10) {
+    "High"
+  } else if (gene_df$expression[i] > 6) {
+    "Moderate"
+  } else {
+    "Low"
+  }
+}
+
+# View the final data frame
+print(gene_df)
+```
+### `while` loop
+Context:
+You are preparing biological samples (e.g., blood, DNA extracts) for analysis. You have a set of samples labeled `Sample 1` to `Sample 5`. You want to check each one in order and confirm that it's ready for analysis. Use a while loop to process the samples sequentially.
+```{r}
+i <- 1
+while (i <= 5) {
+  cat("Sample", i, "is ready for analysis\n")
+  i <- i + 1
+}
+```
+### `next` and `break`
+Context:
+You are screening biological samples (e.g., tissue or blood) in a quality control process. Some samples are good, some are suboptimal (not contaminated but poor quality), and some are contaminated (must be flagged and stop further processing). Use `next` to skip suboptimal samples and `break` to immediately stop when a contaminated sample is found.
+
+```{r}
+samples <- c("good", "bad", "good", "contaminated")
+
+for (s in samples) {
+  if (s == "contaminated") {
+    print("Stop! Contaminated sample.")
+    break
+  }
+  if (s == "bad") next
+  print(paste("Processing", s))
+}
+```
+## Writing Functions in R
+### Flag gene expression
+
+```{r}
+flag_expression <- function(value) {
+  if (value > 10) {
+    return("High")
+  } else if (value > 5) {
+    return("Moderate")
+  } else {
+    return("Low")
+  }
+}
+
+flag_expression(8.3)
+
+```
+**Apply to a vector**
+
+```{r}
+expr_values <- c(12.2, 4.4, 7.5)
+sapply(expr_values, flag_expression)
+```
+### Function with multiple arguments
+```{r}
+gene_status <- function(gene, expression, threshold = 6) {
+  label <- ifelse(expression > threshold, "Up", "Down")
+  return(paste(gene, "is", label, "regulated"))
+}
+
+gene_status("TP53", 8.1)
+```
+### Return a list
+```{r}
+calc_stats <- function(values) {
+  return(list(mean = mean(values), sd = sd(values)))
+}
+
+calc_stats(c(4.2, 5.5, 7.8))
+
+```
+
+### Practical Session
 
 Check out this repo: `https://github.com/genomicsclass/dagdata/`
 
@@ -1607,17 +1768,15 @@ download.file("https://github.com/genomicsclass/dagdata/raw/master/inst/extdata/
 msleep <- read.csv("msleep_data.csv")
 ```
 
-**In-class Tasks:**
-
 1.  Convert 'vore' column to factor and plot its distribution.
 2.  Create a matrix of sleep data columns and add row names.
 3.  Find and handle any missing values.
 4.  Calculate mean sleep time by diet category (vore).
 5.  Identify outliers in sleep_total.
 
-## Summary of Today's Lesson
+## Summary of the Lesson
 
-In today's class, we covered:
+In this lesson, we covered:
 
 1. **Factor Variables**: Essential for categorical data in biology (genotypes, treatments, etc.)
 
@@ -1647,13 +1806,13 @@ Practical approaches for real-world biological data
 
   - Conditions, combinations, and applications
 
-  These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.
+    These skills form the foundation for the more advanced visualization techniques we'll cover in future lessons.
 
-7. We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.
-
-8. **List**: Fundamental for many biological data and packages' output.
+7. **List**: Fundamental for many biological data and packages' output.
 
   - Properties, accessing, and applications
+
+8. We will know more about conditionals, R packages to handle data and visualization in a better and efficient way.
 
 ## Homework
 
