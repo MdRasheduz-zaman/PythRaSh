@@ -616,3 +616,140 @@ Weighted scores for all entries
 - How does this help in large-scale pipelines?
 
 You can use this format with `lapply()`, `purrr::map()`, or in targets pipelines for reproducibility and modular processing.
+
+
+## 🧩 Homework solutions: Factors, Subsetting, and Biological Insight
+
+1. **Character vs Factor**  
+   A character vector simply holds string values, but a factor is a categorical variable with fixed levels, used especially in modeling.  
+   For `mutation_status`, a factor ensures consistent categories (e.g., `"Yes"` or `"No"`) and helps control level order and statistical reference groups.
+
+2. **Factor Levels**  
+
+```{r}
+species <- c("Lactobacillus", "Bacteroides", "Escherichia", "Bacteroides", "Lactobacillus")
+species_factor <- factor(species, levels = c("Bacteroides", "Escherichia", "Lactobacillus"))
+levels(species_factor)
+```
+Because we defined the level order explicitly, R maintains that order regardless of data input.
+
+3. Ordered Factor Comparison
+```{r}
+disease_severity <- factor(c("Mild", "Severe", "Moderate"), levels = c("Mild", "Moderate", "Severe", "Critical"), ordered = TRUE)
+disease_severity[1] < disease_severity[2]
+# TRUE
+```
+"Mild" is less severe than "Severe" based on the defined order.
+
+4. Proportion Extraction
+```{r}
+prop <- prop.table(table(species_factor))
+prop["Escherichia"]
+```
+`prop$Escherichia` won't work — named numeric vectors require bracket-based access.
+
+5. Subsetting by Conditions
+```{r}
+gene_df <- data.frame(
+  gene_id = c("BRCA1", "TP53", "MYC", "EGFR", "GAPDH"),
+  expression = c(8.2, 6.1, 9.5, 7.0, 10.0),
+  mutation = factor(c("Yes", "No", "Yes", "No", "No")),
+  pathway = c("DNA Repair", "Apoptosis", "Cell Cycle", "Signaling", "Metabolism")
+)
+rownames(gene_df) <- gene_df$gene_id #name the rows by the gene IDs
+gene_df <- gene_df[, -1] #remove the first column which is not needed anymore
+#gene_df
+gene_df[gene_df$expression > 7 & gene_df$mutation == "No", ]
+```
+Returns genes with **high expression (>7)** `and` **no mutation** — potentially highly active but wild-type genes.
+
+6. Group-wise Expression Summary
+
+The given vectors are:
+```{r}
+samples <- c("WT", "KO", "WT", "KO", "WT")
+expression <- c(5.2, 8.1, 4.3, 9.0, 5.7)
+```
+The solution would be:
+
+```{r}
+group_factor <- factor(samples)
+
+# Mean expression
+tapply(expression, group_factor, mean) ## KO: 8.55, WT: 5.07
+
+# Plot
+barplot(tapply(expression, group_factor, mean), 
+        col = c("skyblue", "salmon"),
+        ylab = "Mean Expression",
+        main = "Group-wise Expression")
+```
+7. Gene Subsetting
+```{r gene_df_subset}
+gene_df[gene_df$expression > 8 & 
+        gene_df$pathway %in% c("Cell Cycle", "Signaling"), ]
+```
+It filters for genes highly expressed and involved in key biological pathways.
+
+8. Disease Stage Visualization
+```{r}
+stages <- c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")
+disease_stage <- factor(stages, 
+                        levels = c("Stage I", "Stage II", "Stage III", "Stage IV"), 
+                        ordered = TRUE)
+
+barplot(table(disease_stage), 
+        col = "lightgreen", 
+        main = "Patient Count by Disease Stage",
+        ylab = "Count")
+```
+Let's do the severity order check:
+```{r}
+# Comparison
+disease_stage[2] > disease_stage[1]  # TRUE
+```
+So, "Stage III" is more sever than "Stage I".
+
+9. Oncogene Subsetting and Releveling
+```{r}
+# Define a small gene dataset
+gene_data <- data.frame(
+  gene = c("TP53", "BRCA1", "MYC", "GAPDH", "EGFR"),
+  expression = c(9.1, 7.3, 10.5, 5.2, 8.6),
+  type = factor(c("Tumor Suppressor", "Oncogene", "Oncogene", "Housekeeping", "Oncogene"))
+)
+
+# Subset: Oncogene rows with expression > 8
+gene_data[gene_data$type == "Oncogene" & gene_data$expression > 8, ]
+```
+Let's relevel now, "Housekeeping" is the reference:
+```{r}
+# Relevel: make "Housekeeping" the reference level
+gene_data$type <- relevel(gene_data$type, ref = "Housekeeping")
+
+# Check the new levels
+levels(gene_data$type)
+```
+
+10. Simulated Expression by Tissue
+```{r}
+set.seed(42)
+gene_expr <- rnorm(45, mean = 8, sd = 2)
+tissue <- rep(c("brain", "liver", "kidney"), each = 15)
+tissue_factor <- factor(tissue, levels = c("liver", "brain", "kidney"))
+
+boxplot(gene_expr ~ tissue_factor, 
+        col = c("orange", "skyblue", "lightgreen"), 
+        main = "Expression by Tissue",
+        ylab = "Expression Level")
+```
+Let's calculate variability per tissue type now:
+```{r}
+# Variability
+tapply(gene_expr, tissue_factor, sd)
+# Returns standard deviation per tissue group
+```
+
+
+
+

@@ -1326,7 +1326,7 @@ Why is unique name important for us? Imagine this meaningful biological scenario
 See this link for [MBP gene](https://www.ncbi.nlm.nih.gov/gene?Db=gene&Cmd=DetailsSearch&Term=4155). How many transcript isoforms does it have?
 :::
 
-## 🏡 Homework: Factors, Subsetting, and Biological Insight
+## 🏡 Homeworks: Factors, Subsetting, and Biological Insight
 1. **(Factor vs Character)**
 Explain the difference between a character vector and a factor in R. Why would `mutation_status` be a factor and not just a character vector?
 
@@ -1387,7 +1387,7 @@ Confirm that `"Stage III" > "Stage I"` is logical in your factor.
 - Subset all "Oncogene" rows where expression > 8.
 - Change the reference level of the factor type to "Housekeeping"
 
-10. Simulate expression data for 3 tissues:
+10. Simulate expression data for 3 tissues (see the code chunk below):
 We are going to use `rnorm()` function to generate random values from a normal distribution for this purpose. The example values inside the `rnorm()` function means we want:
 - 30 values in total,
 - average or mean value = 8,
@@ -1408,169 +1408,12 @@ tissue_factor <- factor(tissue, levels = c("liver", "brain", "kidney"))
 
 ::: callout-note
 **Hint:**
-Variability is expressed in another way (squaring) of measuring standard deviation (`sd`). Now, do you see how to use `sd` inside `tapply()` function?
+Variability is an expression of measuring standard deviation (`sd`) just by squaring it. So, `var` = `sd^2`. Well, do you see how to use `sd` inside `tapply()` function? Use `?tapply()` to know how to use it.
 :::
 
 Use these questions as a self-check -- reflect on why each step works before moving on to the next level (question).
 
 **Push your `.Rmd` file and share by Friday 10PM BD Time.**
-
-## Handling Missing/Wrong Values
-
-### Identifying Issues
-
-```{r missing-values}
-# Create data with missing values
-clinical_data <- data.frame(
-  patient_id = 1:5,
-  age = c(25, 99, 30, -5, 40),    # -5 is wrong, 99 is suspect
-  bp = c(120, NA, 115, 125, 118),  # NA is missing
-  weight = c(65, 70, NA, 68, -1)   # -1 is wrong
-)
-clinical_data
-
-# Check for missing values
-is.na(clinical_data)
-colSums(is.na(clinical_data))  # Count NAs by column
-
-# Check for impossible values
-clinical_data$age < 0
-clinical_data$weight < 0
-
-# Find indices of problematic values
-which(clinical_data$age < 0 | clinical_data$age > 90)
-```
-
-### Fixing Data
-
-```{r fixing-data}
-# Replace impossible values with NA
-clinical_data$age[clinical_data$age < 0 | clinical_data$age > 90] <- NA
-clinical_data$weight[clinical_data$weight < 0] <- NA
-clinical_data
-
-# Replace NAs with mean (common in biological data)
-clinical_data$bp[is.na(clinical_data$bp)] <- mean(clinical_data$bp, na.rm = TRUE)
-clinical_data$weight[is.na(clinical_data$weight)] <- mean(clinical_data$weight, na.rm = TRUE)
-clinical_data
-
-# Replace NAs with median (better for skewed data)
-clinical_data$age[is.na(clinical_data$age)] <- median(clinical_data$age, na.rm = TRUE)
-clinical_data
-```
-
-## Data Transformation
-
-### Introduction to Outliers
-
-Outliers can significantly affect statistical analyses, especially in biological data where sample variation can be high.
-
-```{r outliers}
-# Create data with outliers
-expression_levels <- c(2.3, 2.7, 3.1, 2.9, 2.5, 3.0, 15.2, 2.8)
-boxplot(expression_levels, 
-        main = "Expression Levels with Outlier",
-        ylab = "Expression")
-```
-
-### Identifying Outliers
-
-```{r identify-outliers}
-# Statistical approach: Values beyond 1.5*IQR
-data_summary <- summary(expression_levels)
-data_summary
-
-IQR_value <- IQR(expression_levels)
-upper_bound <- data_summary["3rd Qu."] + 1.5 * IQR_value
-lower_bound <- data_summary["1st Qu."] - 1.5 * IQR_value
-
-# Find outliers
-outliers <- expression_levels[expression_levels > upper_bound | 
-                             expression_levels < lower_bound]
-outliers
-```
-
-### Transforming Vectors
-
-Mathematical transformations can normalize data, reduce outlier effects, and make data more suitable for statistical analyses.
-
-```{r transformations}
-# Original data
-gene_exp <- c(15, 42, 87, 115, 320, 560, 1120)
-hist(gene_exp, main = "Original Expression Values", xlab = "Expression")
-
-# Log transformation (common in gene expression analysis)
-log_exp <- log2(gene_exp)
-hist(log_exp, main = "Log2 Transformed Expression", xlab = "Log2 Expression")
-
-# Square root transformation (less aggressive than log)
-sqrt_exp <- sqrt(gene_exp)
-hist(sqrt_exp, main = "Square Root Transformed Expression", xlab = "Sqrt Expression")
-
-# Z-score normalization (standardization)
-z_exp <- scale(gene_exp)
-hist(z_exp, main = "Z-score Normalized Expression", xlab = "Z-score")
-
-# Compare transformations
-par(mfrow = c(2, 2))
-hist(gene_exp, main = "Original")
-hist(log_exp, main = "Log2")
-hist(sqrt_exp, main = "Square Root")
-hist(z_exp, main = "Z-score")
-par(mfrow = c(1, 1))  # Reset plotting layout
-```
-
-### Logical Expressions
-
-```{r logical-expressions}
-# Create gene expression vector
-exp_data <- c(5.2, 3.8, 7.1, 2.9, 6.5, 8.0, 4.3)
-names(exp_data) <- paste0("Gene_", 1:7)
-
-# Basic comparisons
-exp_data > 5    # Which genes have expression > 5?
-exp_data <= 4   # Which genes have expression <= 4?
-
-# Store results in logical vector
-high_exp <- exp_data > 6
-high_exp
-
-# Use logical vectors for subsetting
-exp_data[high_exp]  # Get high expression values
-```
-
-### Logical Operators
-
-```{r logical-operators}
-# Combining conditions with AND (&)
-exp_data > 4 & exp_data < 7  # Expression between 4 and 7
-
-# Combining conditions with OR (|)
-exp_data < 4 | exp_data > 7  # Expression less than 4 OR greater than 7
-
-# Using NOT (!)
-!high_exp  # Not high expression
-
-# Subsetting with combined conditions
-exp_data[exp_data > 4 & exp_data < 7]  # Get values between 4 and 7
-```
-
-### Logical Functions
-
-```{r logical-functions}
-# all() - Are all values TRUE?
-all(exp_data > 0)  # Are all expressions positive?
-
-# any() - Is at least one value TRUE?
-any(exp_data > 7)  # Is any expression greater than 7?
-
-# which() - Get indices of TRUE values
-which(exp_data > 6)  # Which elements have expressions > 6?
-
-# %in% operator - Test for membership
-test_genes <- c("Gene_1", "Gene_5", "Gene_9")
-names(exp_data) %in% test_genes  # Which names match test_genes?
-```
 
 ## Conditionals
 
@@ -1753,6 +1596,162 @@ calc_stats <- function(values) {
 
 calc_stats(c(4.2, 5.5, 7.8))
 
+```
+## Handling Missing/Wrong Values
+
+### Identifying Issues
+
+```{r missing-values}
+# Create data with missing values
+clinical_data <- data.frame(
+  patient_id = 1:5,
+  age = c(25, 99, 30, -5, 40),    # -5 is wrong, 99 is suspect
+  bp = c(120, NA, 115, 125, 118),  # NA is missing
+  weight = c(65, 70, NA, 68, -1)   # -1 is wrong
+)
+clinical_data
+
+# Check for missing values
+is.na(clinical_data)
+colSums(is.na(clinical_data))  # Count NAs by column
+
+# Check for impossible values
+clinical_data$age < 0
+clinical_data$weight < 0
+
+# Find indices of problematic values
+which(clinical_data$age < 0 | clinical_data$age > 90)
+```
+
+### Fixing Data
+
+```{r fixing-data}
+# Replace impossible values with NA
+clinical_data$age[clinical_data$age < 0 | clinical_data$age > 90] <- NA
+clinical_data$weight[clinical_data$weight < 0] <- NA
+clinical_data
+
+# Replace NAs with mean (common in biological data)
+clinical_data$bp[is.na(clinical_data$bp)] <- mean(clinical_data$bp, na.rm = TRUE)
+clinical_data$weight[is.na(clinical_data$weight)] <- mean(clinical_data$weight, na.rm = TRUE)
+clinical_data
+
+# Replace NAs with median (better for skewed data)
+clinical_data$age[is.na(clinical_data$age)] <- median(clinical_data$age, na.rm = TRUE)
+clinical_data
+```
+
+## Data Transformation
+
+### Introduction to Outliers
+
+Outliers can significantly affect statistical analyses, especially in biological data where sample variation can be high.
+
+```{r outliers}
+# Create data with outliers
+expression_levels <- c(2.3, 2.7, 3.1, 2.9, 2.5, 3.0, 15.2, 2.8)
+boxplot(expression_levels, 
+        main = "Expression Levels with Outlier",
+        ylab = "Expression")
+```
+
+### Identifying Outliers
+
+```{r identify-outliers}
+# Statistical approach: Values beyond 1.5*IQR
+data_summary <- summary(expression_levels)
+data_summary
+
+IQR_value <- IQR(expression_levels)
+upper_bound <- data_summary["3rd Qu."] + 1.5 * IQR_value
+lower_bound <- data_summary["1st Qu."] - 1.5 * IQR_value
+
+# Find outliers
+outliers <- expression_levels[expression_levels > upper_bound | 
+                             expression_levels < lower_bound]
+outliers
+```
+
+### Transforming Vectors
+
+Mathematical transformations can normalize data, reduce outlier effects, and make data more suitable for statistical analyses.
+
+```{r transformations}
+# Original data
+gene_exp <- c(15, 42, 87, 115, 320, 560, 1120)
+hist(gene_exp, main = "Original Expression Values", xlab = "Expression")
+
+# Log transformation (common in gene expression analysis)
+log_exp <- log2(gene_exp)
+hist(log_exp, main = "Log2 Transformed Expression", xlab = "Log2 Expression")
+
+# Square root transformation (less aggressive than log)
+sqrt_exp <- sqrt(gene_exp)
+hist(sqrt_exp, main = "Square Root Transformed Expression", xlab = "Sqrt Expression")
+
+# Z-score normalization (standardization)
+z_exp <- scale(gene_exp)
+hist(z_exp, main = "Z-score Normalized Expression", xlab = "Z-score")
+
+# Compare transformations
+par(mfrow = c(2, 2))
+hist(gene_exp, main = "Original")
+hist(log_exp, main = "Log2")
+hist(sqrt_exp, main = "Square Root")
+hist(z_exp, main = "Z-score")
+par(mfrow = c(1, 1))  # Reset plotting layout
+```
+
+### Logical Expressions
+
+```{r logical-expressions}
+# Create gene expression vector
+exp_data <- c(5.2, 3.8, 7.1, 2.9, 6.5, 8.0, 4.3)
+names(exp_data) <- paste0("Gene_", 1:7)
+
+# Basic comparisons
+exp_data > 5    # Which genes have expression > 5?
+exp_data <= 4   # Which genes have expression <= 4?
+
+# Store results in logical vector
+high_exp <- exp_data > 6
+high_exp
+
+# Use logical vectors for subsetting
+exp_data[high_exp]  # Get high expression values
+```
+
+### Logical Operators
+
+```{r logical-operators}
+# Combining conditions with AND (&)
+exp_data > 4 & exp_data < 7  # Expression between 4 and 7
+
+# Combining conditions with OR (|)
+exp_data < 4 | exp_data > 7  # Expression less than 4 OR greater than 7
+
+# Using NOT (!)
+!high_exp  # Not high expression
+
+# Subsetting with combined conditions
+exp_data[exp_data > 4 & exp_data < 7]  # Get values between 4 and 7
+```
+
+### Logical Functions
+
+```{r logical-functions}
+# all() - Are all values TRUE?
+all(exp_data > 0)  # Are all expressions positive?
+
+# any() - Is at least one value TRUE?
+any(exp_data > 7)  # Is any expression greater than 7?
+
+# which() - Get indices of TRUE values
+which(exp_data > 6)  # Which elements have expressions > 6?
+
+# %in% operator - Test for membership
+test_genes <- c("Gene_1", "Gene_5", "Gene_9")
+names(exp_data) %in% test_genes  # Which names match test_genes?
 ```
 
 ### Practical Session
