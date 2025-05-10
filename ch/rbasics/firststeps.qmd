@@ -1437,9 +1437,9 @@ Visualize it using the image below.
 ![](img/if_else.png){width="80%"}
 :::
 
-### `elseif` statement for vectors
+### `ifelse` statement for vectors
 
-`elseif` is binary in nature. So, we can categorize only 2 things using `elseif`. See this example:
+`ifelse` is binary in nature. So, we can categorize only 2 things using `ifelse`. See this example:
 ```{r}
 expression_values <- c(12.5, 4.3, 8.1, 2.2)
 labels <- ifelse(expression_values > 5, "Upregulated", "Downregulated")
@@ -1450,10 +1450,10 @@ labels
 :::
 
 ::: callout-note
-`elseif` has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).
+`ifelse` has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).
 :::
 
-If we still want to categorize more than 2 categories using `elseif`, we need to use it in a nested way. See this example:
+If we still want to categorize more than 2 categories using `ifelse`, we need to use it in a nested way. See this example:
 
 ```{r}
 # ifelse() for vectors
@@ -1467,7 +1467,7 @@ expression_category
 ![](img/nested_elseif.png){width="80%"}
 :::
 ::: callout-note
-You remember the general structure of `elseif` loop, right? the second thing after the first `,` is the assigned category if the condition is met. So, we assigned it as `High` here in this example. But then after the second `,` there is a second `elseif` loop instead of a category. The second loop makes 2 more binary categories `Medium` and `Low`, and our task of assigning 3 categories is achieved.
+You remember the general structure of `ifelse` loop, right? the second thing after the first `,` is the assigned category if the condition is met. So, we assigned it as `High` here in this example. But then after the second `,` there is a second `ifelse` loop instead of a category. The second loop makes 2 more binary categories `Medium` and `Low`, and our task of assigning 3 categories is achieved.
 :::
 
 `dplyr` package has a function named `case-when()` to help us use as many categories we want. The same task would be achieved like this:
@@ -1485,8 +1485,8 @@ labels <- case_when(
 labels
 ```
 ::: callout-note
-Do you see the point how you would use the `elseif` loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. 
-But anyway, categorizing more than 2 is better using `if else` statement
+Do you see the point how you would use the `ifelse` loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. 
+But anyway, categorizing more than 2 is better using `if-else` statement
 :::
 
 ### `for` loop

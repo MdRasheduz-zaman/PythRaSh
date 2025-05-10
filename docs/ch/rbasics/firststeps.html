@@ -343,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals">Conditionals</a>
   <ul class="collapse">
 <li><a href="#if-else-statement" id="toc-if-else-statement" class="nav-link" data-scroll-target="#if-else-statement"><code>if-else</code> statement</a></li>
-  <li><a href="#elseif-statement-for-vectors" id="toc-elseif-statement-for-vectors" class="nav-link" data-scroll-target="#elseif-statement-for-vectors"><code>elseif</code> statement for vectors</a></li>
+  <li><a href="#ifelse-statement-for-vectors" id="toc-ifelse-statement-for-vectors" class="nav-link" data-scroll-target="#ifelse-statement-for-vectors"><code>ifelse</code> statement for vectors</a></li>
   <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><code>for</code> loop</a></li>
   <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><code>while</code> loop</a></li>
   <li><a href="#next-and-break" id="toc-next-and-break" class="nav-link" data-scroll-target="#next-and-break"><code>next</code> and <code>break</code></a></li>
@@ -982,17 +982,17 @@ Note
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 24.6725</code></pre>
+<pre class="custom-output"><code>[1] 23.64417</code></pre>
 </div>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 24.73417</code></pre>
+<pre class="custom-output"><code>[1] 23.06</code></pre>
 </div>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">control2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">mice</span><span class="op">$</span><span class="va">Bodyweight</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">control2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>[1] 26.68917</code></pre>
+<pre class="custom-output"><code>[1] 23.005</code></pre>
 </div>
 </div>
 <p>Do you see the difference in the mean value now?</p>
@@ -2629,9 +2629,9 @@ Note
 <div class="text-center">
 <p><img src="img/if_else.png" class="img-fluid" style="width:80.0%"></p>
 </div>
-</section><section id="elseif-statement-for-vectors" class="level3"><h3 class="anchored" data-anchor-id="elseif-statement-for-vectors">
-<code>elseif</code> statement for vectors</h3>
-<p><code>elseif</code> is binary in nature. So, we can categorize only 2 things using <code>elseif</code>. See this example:</p>
+</section><section id="ifelse-statement-for-vectors" class="level3"><h3 class="anchored" data-anchor-id="ifelse-statement-for-vectors">
+<code>ifelse</code> statement for vectors</h3>
+<p><code>ifelse</code> is binary in nature. So, we can categorize only 2 things using <code>ifelse</code>. See this example:</p>
 <div class="cell">
 <div class="sourceCode" id="cb352"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">expression_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12.5</span>, <span class="fl">4.3</span>, <span class="fl">8.1</span>, <span class="fl">2.2</span><span class="op">)</span></span>
 <span><span class="va">labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">expression_values</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="st">"Upregulated"</span>, <span class="st">"Downregulated"</span><span class="op">)</span></span>
@@ -2653,10 +2653,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>elseif</code> has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it’s usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).</p>
+<p><code>ifelse</code> has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it’s usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).</p>
 </div>
 </div>
-<p>If we still want to categorize more than 2 categories using <code>elseif</code>, we need to use it in a nested way. See this example:</p>
+<p>If we still want to categorize more than 2 categories using <code>ifelse</code>, we need to use it in a nested way. See this example:</p>
 <div class="cell">
 <div class="sourceCode" id="cb354"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ifelse() for vectors</span></span>
 <span><span class="va">expression_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">5.8</span>, <span class="fl">7.2</span>, <span class="fl">3.1</span>, <span class="fl">6.9</span><span class="op">)</span></span>
@@ -2681,7 +2681,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You remember the general structure of <code>elseif</code> loop, right? the second thing after the first <code>,</code> is the assigned category if the condition is met. So, we assigned it as <code>High</code> here in this example. But then after the second <code>,</code> there is a second <code>elseif</code> loop instead of a category. The second loop makes 2 more binary categories <code>Medium</code> and <code>Low</code>, and our task of assigning 3 categories is achieved.</p>
+<p>You remember the general structure of <code>ifelse</code> loop, right? the second thing after the first <code>,</code> is the assigned category if the condition is met. So, we assigned it as <code>High</code> here in this example. But then after the second <code>,</code> there is a second <code>ifelse</code> loop instead of a category. The second loop makes 2 more binary categories <code>Medium</code> and <code>Low</code>, and our task of assigning 3 categories is achieved.</p>
 </div>
 </div>
 <p><code>dplyr</code> package has a function named <code>case-when()</code> to help us use as many categories we want. The same task would be achieved like this:</p>
@@ -2710,7 +2710,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Do you see the point how you would use the <code>elseif</code> loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. But anyway, categorizing more than 2 is better using <code>if else</code> statement</p>
+<p>Do you see the point how you would use the <code>ifelse</code> loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. But anyway, categorizing more than 2 is better using <code>if-else</code> statement</p>
 </div>
 </div>
 </section><section id="for-loop" class="level3"><h3 class="anchored" data-anchor-id="for-loop">
@@ -4975,9 +4975,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb428-1493"><a href="#cb428-1493" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/if_else.png)</span>{width="80%"}</span>
 <span id="cb428-1494"><a href="#cb428-1494" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1495"><a href="#cb428-1495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb428-1496"><a href="#cb428-1496" aria-hidden="true" tabindex="-1"></a><span class="fu">### `elseif` statement for vectors</span></span>
+<span id="cb428-1496"><a href="#cb428-1496" aria-hidden="true" tabindex="-1"></a><span class="fu">### `ifelse` statement for vectors</span></span>
 <span id="cb428-1497"><a href="#cb428-1497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb428-1498"><a href="#cb428-1498" aria-hidden="true" tabindex="-1"></a><span class="in">`elseif`</span> is binary in nature. So, we can categorize only 2 things using <span class="in">`elseif`</span>. See this example:</span>
+<span id="cb428-1498"><a href="#cb428-1498" aria-hidden="true" tabindex="-1"></a><span class="in">`ifelse`</span> is binary in nature. So, we can categorize only 2 things using <span class="in">`ifelse`</span>. See this example:</span>
 <span id="cb428-1501"><a href="#cb428-1501" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb428-1502"><a href="#cb428-1502" aria-hidden="true" tabindex="-1"></a>expression_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">12.5</span>, <span class="fl">4.3</span>, <span class="fl">8.1</span>, <span class="fl">2.2</span>)</span>
 <span id="cb428-1503"><a href="#cb428-1503" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(expression_values <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">"Upregulated"</span>, <span class="st">"Downregulated"</span>)</span>
@@ -4988,10 +4988,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb428-1508"><a href="#cb428-1508" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1509"><a href="#cb428-1509" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb428-1510"><a href="#cb428-1510" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb428-1511"><a href="#cb428-1511" aria-hidden="true" tabindex="-1"></a><span class="in">`elseif`</span> has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).</span>
+<span id="cb428-1511"><a href="#cb428-1511" aria-hidden="true" tabindex="-1"></a><span class="in">`ifelse`</span> has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).</span>
 <span id="cb428-1512"><a href="#cb428-1512" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1513"><a href="#cb428-1513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb428-1514"><a href="#cb428-1514" aria-hidden="true" tabindex="-1"></a>If we still want to categorize more than 2 categories using <span class="in">`elseif`</span>, we need to use it in a nested way. See this example:</span>
+<span id="cb428-1514"><a href="#cb428-1514" aria-hidden="true" tabindex="-1"></a>If we still want to categorize more than 2 categories using <span class="in">`ifelse`</span>, we need to use it in a nested way. See this example:</span>
 <span id="cb428-1515"><a href="#cb428-1515" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb428-1518"><a href="#cb428-1518" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb428-1519"><a href="#cb428-1519" aria-hidden="true" tabindex="-1"></a><span class="co"># ifelse() for vectors</span></span>
@@ -5005,7 +5005,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb428-1527"><a href="#cb428-1527" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/nested_elseif.png)</span>{width="80%"}</span>
 <span id="cb428-1528"><a href="#cb428-1528" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1529"><a href="#cb428-1529" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb428-1530"><a href="#cb428-1530" aria-hidden="true" tabindex="-1"></a>You remember the general structure of <span class="in">`elseif`</span> loop, right? the second thing after the first <span class="in">`,`</span> is the assigned category if the condition is met. So, we assigned it as <span class="in">`High`</span> here in this example. But then after the second <span class="in">`,`</span> there is a second <span class="in">`elseif`</span> loop instead of a category. The second loop makes 2 more binary categories <span class="in">`Medium`</span> and <span class="in">`Low`</span>, and our task of assigning 3 categories is achieved.</span>
+<span id="cb428-1530"><a href="#cb428-1530" aria-hidden="true" tabindex="-1"></a>You remember the general structure of <span class="in">`ifelse`</span> loop, right? the second thing after the first <span class="in">`,`</span> is the assigned category if the condition is met. So, we assigned it as <span class="in">`High`</span> here in this example. But then after the second <span class="in">`,`</span> there is a second <span class="in">`ifelse`</span> loop instead of a category. The second loop makes 2 more binary categories <span class="in">`Medium`</span> and <span class="in">`Low`</span>, and our task of assigning 3 categories is achieved.</span>
 <span id="cb428-1531"><a href="#cb428-1531" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1532"><a href="#cb428-1532" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb428-1533"><a href="#cb428-1533" aria-hidden="true" tabindex="-1"></a><span class="in">`dplyr`</span> package has a function named <span class="in">`case-when()`</span> to help us use as many categories we want. The same task would be achieved like this:</span>
@@ -5023,8 +5023,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb428-1547"><a href="#cb428-1547" aria-hidden="true" tabindex="-1"></a>labels</span>
 <span id="cb428-1548"><a href="#cb428-1548" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb428-1549"><a href="#cb428-1549" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb428-1550"><a href="#cb428-1550" aria-hidden="true" tabindex="-1"></a>Do you see the point how you would use the <span class="in">`elseif`</span> loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. </span>
-<span id="cb428-1551"><a href="#cb428-1551" aria-hidden="true" tabindex="-1"></a>But anyway, categorizing more than 2 is better using <span class="in">`if else`</span> statement</span>
+<span id="cb428-1550"><a href="#cb428-1550" aria-hidden="true" tabindex="-1"></a>Do you see the point how you would use the <span class="in">`ifelse`</span> loop if you wanted to write a function to make 4 or 5 categories? If not, pause and re-think. You need to see the point. </span>
+<span id="cb428-1551"><a href="#cb428-1551" aria-hidden="true" tabindex="-1"></a>But anyway, categorizing more than 2 is better using <span class="in">`if-else`</span> statement</span>
 <span id="cb428-1552"><a href="#cb428-1552" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb428-1553"><a href="#cb428-1553" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb428-1554"><a href="#cb428-1554" aria-hidden="true" tabindex="-1"></a><span class="fu">### `for` loop</span></span>
