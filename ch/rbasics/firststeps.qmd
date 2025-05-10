@@ -1419,6 +1419,18 @@ Use these questions as a self-check -- reflect on why each step works before mov
 
 ### `if-else` statement
 
+General structure of `if-else` statement:
+```{r, eval=FALSE}
+if (condition1) {
+  # Code executed when condition1 is TRUE
+} else if (condition2) {
+  # Code executed when condition1 is FALSE but condition2 is TRUE
+} else {
+  # Code executed when all conditions above are FALSE
+}
+```
+Let's use it now.
+
 ```{r conditionals}
 # if-else statement
 gene_value <- 6.8
@@ -1439,7 +1451,13 @@ Visualize it using the image below.
 
 ### `ifelse` statement for vectors
 
-`ifelse` is binary in nature. So, we can categorize only 2 things using `ifelse`. See this example:
+`ifelse` is binary in nature. So, we can categorize only 2 things using `ifelse`. The structure is:
+
+```{r, eval=FALSE}
+ifelse(test_or_condition, "value_if_condition_is_TRUE", "value_if_condition_is_FALSE")
+```
+
+See this example:
 ```{r}
 expression_values <- c(12.5, 4.3, 8.1, 2.2)
 labels <- ifelse(expression_values > 5, "Upregulated", "Downregulated")
@@ -1453,7 +1471,14 @@ labels
 `ifelse` has 3 things inside the parentheses, right? The first one is the condition, the second one is the category we define if the condition is met, and the third thing is the other remaining category we want to assign if the condition is not met. So, it's usage is perfect to say if a gene/transcript is upregulated or downregulated (binary classification).
 :::
 
-If we still want to categorize more than 2 categories using `ifelse`, we need to use it in a nested way. See this example:
+If we still want to categorize more than 2 categories using `ifelse`, we need to use it in a nested way. The structure will be like this:
+```{r, eval=FALSE}
+ifelse(test1, value1,
+       ifelse(test2, value2, 
+              value3))
+```
+
+See this example:
 
 ```{r}
 # ifelse() for vectors
@@ -1855,4 +1880,43 @@ Practical approaches for real-world biological data
 # Save example data for students who missed class
 write.csv(expr_matrix, "example_expression_matrix.csv", row.names = TRUE)
 write.csv(gene_df, "example_gene_data.csv", row.names = TRUE)
+```
+```{r}
+set.seed(42) # For reproducibility
+gene_expr <- rnorm(30, mean = 8, sd = 2)
+tissue <- rep(c("brain", "liver", "kidney"), each = 10)
+tissue_factor <- factor(tissue, levels = c("liver", "brain", "kidney"))
+
+tissue_factor
+```
+```{r}
+expr_data <- data.frame(
+  tissue = tissue_factor,
+  expression = gene_expr
+)
+
+#expr_data
+head(expr_data)
+
+```
+
+
+```{r}
+boxplot(expression ~ tissue, 
+        data = expr_data,
+        main = "Gene Expression by Tissue",
+        xlab = "Tissue",
+        ylab = "Expression",
+        col = c("lightblue", "lightgreen", "lightpink"))
+
+```
+```{r}
+sd_expression <- tapply(expr_data$expression, expr_data$tissue, sd)
+sd_expression
+
+```
+```{r}
+max_sd_tissue <- names(sd_expression)[which.max(sd_expression)]
+max_sd_value <- sd_expression[which.max(sd_expression)]
+cat("The tissue with the highest sd is:", max_sd_tissue,", with SD =", round(max_sd_value, 2), "\n")
 ```
