@@ -1496,7 +1496,9 @@ genes <- c("BRCA1", "TP53", "MYC", "CDC2", "MBP")
 expr <- c(8.2, 5.4, 11.0, 5.4, 13.0)
 
 for (i in 1:length(genes)) {
-  status <- if (expr[i] > 10) "High" else if (expr[i] > 6) "Moderate" else "Low"
+  status <- if (expr[i] > 10) "High" 
+  else if (expr[i] > 6) "Moderate" 
+  else "Low"
   cat(genes[i], "has", status, "expression\n")
 }
 ```
@@ -1532,6 +1534,7 @@ print(gene_df)
 ```
 ### `while` loop
 Context:
+
 You are preparing biological samples (e.g., blood, DNA extracts) for analysis. You have a set of samples labeled `Sample 1` to `Sample 5`. You want to check each one in order and confirm that it's ready for analysis. Use a while loop to process the samples sequentially.
 ```{r}
 i <- 1
@@ -1542,6 +1545,7 @@ while (i <= 5) {
 ```
 ### `next` and `break`
 Context:
+
 You are screening biological samples (e.g., tissue or blood) in a quality control process. Some samples are good, some are suboptimal (not contaminated but poor quality), and some are contaminated (must be flagged and stop further processing). Use `next` to skip suboptimal samples and `break` to immediately stop when a contaminated sample is found.
 
 ```{r}
@@ -1557,6 +1561,13 @@ for (s in samples) {
 }
 ```
 ## Writing Functions in R
+The syntax to write an R function is:
+```{r, eval=FALSE}
+function_name <- function() {
+}
+```
+Let's use it.
+
 ### Flag gene expression
 
 ```{r}
