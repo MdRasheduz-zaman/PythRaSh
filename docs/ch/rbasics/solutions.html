@@ -1291,6 +1291,7 @@ MYC        9.5      Yes Cell Cycle</code></pre>
 <pre><code>[1] "Housekeeping"     "Oncogene"         "Tumor Suppressor"</code></pre>
 </div>
 </div>
+<p>But the “Housekeeping” was already a reference by default (using alphabetic ordering by R). Making something else the reference would make more sense. Our code above work, but nothing new is done.</p>
 <ol start="10" type="1">
 <li>Simulated Expression by Tissue</li>
 </ol>
@@ -2360,28 +2361,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb117-826"><a href="#cb117-826" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the new levels</span></span>
 <span id="cb117-827"><a href="#cb117-827" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gene_data<span class="sc">$</span>type)</span>
 <span id="cb117-828"><a href="#cb117-828" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-829"><a href="#cb117-829" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-830"><a href="#cb117-830" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Simulated Expression by Tissue</span>
-<span id="cb117-833"><a href="#cb117-833" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb117-834"><a href="#cb117-834" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb117-835"><a href="#cb117-835" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">45</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb117-836"><a href="#cb117-836" aria-hidden="true" tabindex="-1"></a>tissue <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"brain"</span>, <span class="st">"liver"</span>, <span class="st">"kidney"</span>), <span class="at">each =</span> <span class="dv">15</span>)</span>
-<span id="cb117-837"><a href="#cb117-837" aria-hidden="true" tabindex="-1"></a>tissue_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(tissue, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"liver"</span>, <span class="st">"brain"</span>, <span class="st">"kidney"</span>))</span>
-<span id="cb117-838"><a href="#cb117-838" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-839"><a href="#cb117-839" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(gene_expr <span class="sc">~</span> tissue_factor, </span>
-<span id="cb117-840"><a href="#cb117-840" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>), </span>
-<span id="cb117-841"><a href="#cb117-841" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Expression by Tissue"</span>,</span>
-<span id="cb117-842"><a href="#cb117-842" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Expression Level"</span>)</span>
-<span id="cb117-843"><a href="#cb117-843" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-844"><a href="#cb117-844" aria-hidden="true" tabindex="-1"></a>Let's calculate variability per tissue type now:</span>
-<span id="cb117-847"><a href="#cb117-847" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb117-848"><a href="#cb117-848" aria-hidden="true" tabindex="-1"></a><span class="co"># Variability</span></span>
-<span id="cb117-849"><a href="#cb117-849" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(gene_expr, tissue_factor, sd)</span>
-<span id="cb117-850"><a href="#cb117-850" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns standard deviation per tissue group</span></span>
-<span id="cb117-851"><a href="#cb117-851" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-852"><a href="#cb117-852" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-829"><a href="#cb117-829" aria-hidden="true" tabindex="-1"></a>But the "Housekeeping" was already a reference by default (using alphabetic ordering by R). Making something else the reference would make more sense. Our code above work, but nothing new is done. </span>
+<span id="cb117-830"><a href="#cb117-830" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-831"><a href="#cb117-831" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Simulated Expression by Tissue</span>
+<span id="cb117-834"><a href="#cb117-834" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb117-835"><a href="#cb117-835" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb117-836"><a href="#cb117-836" aria-hidden="true" tabindex="-1"></a>gene_expr <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">45</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb117-837"><a href="#cb117-837" aria-hidden="true" tabindex="-1"></a>tissue <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"brain"</span>, <span class="st">"liver"</span>, <span class="st">"kidney"</span>), <span class="at">each =</span> <span class="dv">15</span>)</span>
+<span id="cb117-838"><a href="#cb117-838" aria-hidden="true" tabindex="-1"></a>tissue_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(tissue, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"liver"</span>, <span class="st">"brain"</span>, <span class="st">"kidney"</span>))</span>
+<span id="cb117-839"><a href="#cb117-839" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-840"><a href="#cb117-840" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(gene_expr <span class="sc">~</span> tissue_factor, </span>
+<span id="cb117-841"><a href="#cb117-841" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>), </span>
+<span id="cb117-842"><a href="#cb117-842" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Expression by Tissue"</span>,</span>
+<span id="cb117-843"><a href="#cb117-843" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Expression Level"</span>)</span>
+<span id="cb117-844"><a href="#cb117-844" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb117-845"><a href="#cb117-845" aria-hidden="true" tabindex="-1"></a>Let's calculate variability per tissue type now:</span>
+<span id="cb117-848"><a href="#cb117-848" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb117-849"><a href="#cb117-849" aria-hidden="true" tabindex="-1"></a><span class="co"># Variability</span></span>
+<span id="cb117-850"><a href="#cb117-850" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(gene_expr, tissue_factor, sd)</span>
+<span id="cb117-851"><a href="#cb117-851" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns standard deviation per tissue group</span></span>
+<span id="cb117-852"><a href="#cb117-852" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb117-853"><a href="#cb117-853" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-854"><a href="#cb117-854" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-855"><a href="#cb117-855" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

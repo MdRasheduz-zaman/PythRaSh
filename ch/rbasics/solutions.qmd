@@ -730,6 +730,7 @@ gene_data$type <- relevel(gene_data$type, ref = "Housekeeping")
 # Check the new levels
 levels(gene_data$type)
 ```
+But the "Housekeeping" was already a reference by default (using alphabetic ordering by R). Making something else the reference would make more sense. Our code above work, but nothing new is done. 
 
 10. Simulated Expression by Tissue
 ```{r}
