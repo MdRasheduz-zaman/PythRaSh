@@ -760,7 +760,7 @@ iii) A logical vector indicating pathway membership
 
 iv) A nested list with lab metadata
 
-## 📘 Homeworks: Matrix and List Operations
+## 🏡 Homeworks: Matrix and List Operations
 
 ### 🧪 Protein Quantification in Biological Samples
 
@@ -1576,13 +1576,13 @@ You are screening biological samples (e.g., tissue or blood) in a quality contro
 ```{r}
 samples <- c("good", "bad", "good", "contaminated")
 
-for (s in samples) {
-  if (s == "contaminated") {
+for (i in samples) {
+  if (i == "contaminated") {
     print("Stop! Contaminated sample.")
     break
   }
-  if (s == "bad") next
-  print(paste("Processing", s))
+  if (i == "bad") next
+  print(paste("Processing", i))
 }
 ```
 ## Writing Functions in R
@@ -1607,22 +1607,21 @@ flag_expression <- function(value) {
 }
 
 flag_expression(8.3)
-
 ```
 **Apply to a vector**
 
 ```{r}
 expr_values <- c(12.2, 4.4, 7.5)
-sapply(expr_values, flag_expression)
+sapply(X=expr_values, FUN=flag_expression)
 ```
 ### Function with multiple arguments
 ```{r}
-gene_status <- function(gene, expression, threshold = 6) {
+gene_status <- function(gene, expression, threshold = 6) { #gene = "string", expression = value
   label <- ifelse(expression > threshold, "Up", "Down")
   return(paste(gene, "is", label, "regulated"))
 }
 
-gene_status("TP53", 8.1)
+gene_status("TP53", 8.1, threshold = 9)
 ```
 ### Return a list
 ```{r}
@@ -1631,8 +1630,125 @@ calc_stats <- function(values) {
 }
 
 calc_stats(c(4.2, 5.5, 7.8))
-
 ```
+## 🏡 Homeworks: Control Structures and Functions
+
+1. `for` Loop + Conditional: Gene Expression Classifier
+
+You have:
+```{r}
+genes <- c("TP53", "EGFR", "MYC", "BRCA2")
+expr <- c(4.8, 6.3, 11.7, 9.5)
+```
+**Task:**
+
+Loop over the gene names and print:
+`<Gene> has <Low/Moderate/High> expression`
+
+Based on:
+
+- High: >10
+- Moderate: 6–10
+- Low: ≤6
+
+2. `next`: Sample Screening Skips Bad Samples
+
+```{r}
+samples <- c("good", "bad", "good", "contaminated", "good", "bad")
+```
+**Context:**
+
+Bad samples should be skipped, only good and contaminated should be reported.
+
+**Task:**
+
+Use a `for` loop with `next` to skip `bad` samples and print a message for others:
+`Sample X is flagged for analysis`
+
+3. `break`: Stop at Contaminated Sample
+Use the same samples vector above.
+
+**Task:**
+
+Print `Analyzing sample X` for each sample.
+But if a `contaminated` sample is found, stop processing immediately and print `Contamination detected! Halting...`
+
+4. `while` Loop: Sample Prep Countdown
+
+**Context:**
+
+You’re preparing 5 samples.
+
+**Task:**
+
+Use a while loop to print:
+`Sample <i> is ready for analysis`
+from 1 to 5.
+
+5. `while` + Condition: Until Threshold
+You’re measuring a protein level that starts at 2.
+With each measurement, it increases randomly between 0.5 and 1.5 units.
+
+**Task:**
+Use a while loop to simulate the increase until the protein level exceeds 10.
+Print each step.
+```{r}
+level <- 2
+#your code goes here
+```
+
+6. Custom Function: Classify BMI
+
+Write a function `bmi_category(weight, height)` that:
+
+- Takes weight (kg) and height (m)
+
+- Calculates BMI: weight/height²
+
+Returns `Underweight` if `<18.5`, `Normal` if `18.5–24.9`, `Overweight` if `25–29.9`, `Obese` if `≥30`.
+
+Test it:
+
+`bmi_category(65, 1.70)`
+
+7. Function: Gene Risk Calculator
+
+Write a function `gene_risk(expr, mut_status)`:
+
+`High` if `expression > 9` and `mutation = Yes`.
+
+`Moderate` if `expression > 6`.
+
+`Low` otherwise.
+
+Test on vectors:
+```{r}
+expr <- c(5.5, 10.1, 7.3)
+mut_status <- c("No", "Yes", "No")
+```
+Hint: Use `mapply()`.
+
+8. `for` Loop + Data Frame
+Make a data frame of 4 genes and expression values.
+Add a new column category using a for loop that assigns `High`, `Moderate`, `Low` based on expression.
+
+9. Function + Error Checking
+Write a function `get_expression_level(gene, df)` that:
+
+    Takes a gene name and a data frame with `gene` and `expr` columns
+  
+    If the gene is present, returns `Low`, `Moderate` or `High`.
+  
+    If missing, returns `Gene not found`
+  
+    Test it with:
+
+```{r, eval=FALSE}
+df <- data.frame(gene = c("TP53", "BRCA1"), expr = c(5.5, 10.5))
+get_expression_level("BRCA1", df)
+get_expression_level("EGFR", df)
+```
+
 ## Handling Missing/Wrong Values
 
 ### Identifying Issues
