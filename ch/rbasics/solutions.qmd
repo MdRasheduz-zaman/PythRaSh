@@ -1,19 +1,7 @@
 ---
 title: "HW solutions"
-abstract: "dataframe, matrices, list, factor, vector, etc."
+abstract: "dataframe, matrices, list, factor, vector, tidyverse, etc."
 ---
-  
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
 
 # L3: Matrices and Lists
 
@@ -34,6 +22,7 @@ rownames(ProteinMatrix) = c("Sample1", "Sample2")
 colnames(ProteinMatrix) = c("ProteinX", "ProteinY", "ProteinZ")
 ProteinMatrix
 ```
+
 Now goes the weight matrix
 
 ```{r}
@@ -62,6 +51,7 @@ print(TotalConc)
 ProteinMatTranspose = t(ProteinMatrix)
 ProteinMatTranspose
 ```
+
 ### 3. Identity Matrix
 
 ```{r}
@@ -91,10 +81,10 @@ heatmap(ProteinMatrix, scale = "none", col = heat.colors(10))
 
 ### 🧠 Interpretation
 
-- Multiplying the protein levels by the weight vector shows how much each protein contributes in a sample. The result shows total protein concentration per sample.
-- The result shows that sample S2 has the highest protein burden.
-- The identity matrix represents no protein interactions or measurement biases. It is a simple matrix calculation.
-- New calculation:
+-   Multiplying the protein levels by the weight vector shows how much each protein contributes in a sample. The result shows total protein concentration per sample.
+-   The result shows that sample S2 has the highest protein burden.
+-   The identity matrix represents no protein interactions or measurement biases. It is a simple matrix calculation.
+-   New calculation:
 
 ```{r}
 # changing the weight of ProteinZ to 3.0
@@ -108,13 +98,12 @@ newTotalconc = ProteinMatrix %*% newweightvector
 colnames(newTotalconc) <- "Total_Protein_Conc"
 newTotalconc
 ```
+
 Still, S2 has more protein burden.
 
 Bonus:
 
-- Heatmap reveals PX is most abundant across all samples.
-
----
+-   Heatmap reveals PX is most abundant across all samples.  
 
 ## Task 2: Gene-to-Protein Translation
 
@@ -154,28 +143,36 @@ Protein_matrix <- GeneExpression %*% TranslationMatrix
 colnames(Protein_matrix) <- c("total_protA", "total_protB", "total_protC")
 print(Protein_matrix)
 ```
+
 ### 2. Transpose
+
 ```{r}
 # Transpose of GeneExpression matrix
 GeneExpression_Transpose <- t(GeneExpression)
 GeneExpression_Transpose
 ```
+
 The new matrix represnts a matrix where the rows and columns of GeneExpression matrix have been interchanged.
 
 ### 3. Identity matrix and multipliccation
+
 ```{r}
 # Creating Identity matrix
 I <- diag(3)
 I
 ```
+
 Now, multiply:
+
 ```{r}
 Product_matrix = TranslationMatrix %*%  I 
 Product_matrix
 ```
+
 The product is identical to TranslationMatrix
 
 ### 4. Sub-matrix:
+
 ```{r}
 # making submatrix A
 A = matrix(
@@ -191,12 +188,15 @@ A
 #inv_A <- solve(A)
 #inv_A
 ```
-The inverse matrix could not be calculated since A is a singular matrix.
-So, A * A^-1 is also not possible.
+
+The inverse matrix could not be calculated since A is a singular matrix. So, A \* A\^-1 is also not possible.
 
 ### Visualization tasks:
 
-- 1. MARplot
+-   
+
+    1.  MARplot
+
 ```{r}
 # generating MARplot-style scatter plot
 plot(GeneExpression, Protein_matrix, type="p", main="Protein level vs. Gene Expression level")
@@ -206,23 +206,25 @@ text(GeneExpression, Protein_matrix, labels = labels, pos=3)
 heatmap(Protein_matrix, main= "Heatmap of Protein Level", Rowv = TRUE, Colv = TRUE, labRow= rownames(Protein_matrix), labCol= c("ProteinA", "ProteinB", "ProteinC"), col=topo.colors(256) )
 ```
 
-- 2. Heatmap of Expression:
+-   
+
+    2.  Heatmap of Expression:
 
 ```{r}
 heatmap(GeneExpression, col = terrain.colors(10), scale = "column")
 ```
+
 ### 🧠 Interpretation
 
-1. Matrix multiplication allows each gene in both samples to be multiplied to their respective translation efficiency. So, the product shows how successfully each gene is translated")
+1.  Matrix multiplication allows each gene in both samples to be multiplied to their respective translation efficiency. So, the product shows how successfully each gene is translated")
 
-2. The diagonal TranslationMatrix make sense biologically because they show translation efficiency of each gene and there is no other interaction between them. Although there could be interaction in real-world scenarios.
+2.  The diagonal TranslationMatrix make sense biologically because they show translation efficiency of each gene and there is no other interaction between them. Although there could be interaction in real-world scenarios.
 
-3. If Sample2 has higher protein levels even with similar gene expression, it means that more mRNAs are translated to proteins compared to Sample1"
+3.  If Sample2 has higher protein levels even with similar gene expression, it means that more mRNAs are translated to proteins compared to Sample1"
 
-4. The upward trend in MARplot may indicate an increase in translation efficacy and downward trend may indicate a decline in translation efficacy"
+4.  The upward trend in MARplot may indicate an increase in translation efficacy and downward trend may indicate a decline in translation efficacy"
 
-5. Clustering in the heatmap may suggest which samples are most similar to each other based on their prot.
-
+5.  Clustering in the heatmap may suggest which samples are most similar to each other based on their prot.
 
 ## Task 3: Animal Breeding – Bull Ranking by Economic Traits
 
@@ -245,6 +247,7 @@ rownames(EconomicWeights) <- colnames(BullEBVs)
 colnames(EconomicWeights) <- c("Weight")
 EconomicWeights
 ```
+
 ### Compute Total Economic Value
 
 ```{r}
@@ -327,28 +330,28 @@ heatmap(
 
 ### 🧠 Interpretation Questions
 
-- How do economic weights affect trait importance?
+-   How do economic weights affect trait importance?
 
 Traits with higher weights contribute more to the total economic value. This makes them more influential in ranking and selection.
 
-- Why might you ignore milk yield?
+-   Why might you ignore milk yield?
 
 Milk yield may be excluded in systems focusing on fertility, growth, or when it is no longer a limiting factor. Environmental or economic contexts may also shift trait priorities.
 
-- What is the value of heatmaps?
+-   What is the value of heatmaps?
 
 Heatmaps visually compare EBVs across bulls and traits.They help detect patterns, outliers, and clusters easily in multivariate data.
 
-- Can this method be extended to more bulls and traits?
+-   Can this method be extended to more bulls and traits?
 
 Yes. This method scales to any number of bulls or traits. Just ensure the EBVs matrix and economic weights are dimensionally compatible.
-
 
 ## Task 4: Plant Breeding – Trait Contributions from Parental Lines
 
 ### Define Data
 
 **Parent trait values (normalized 1–10)**
+
 ```{r}
 ParentTraits <- matrix(c(
   7, 5, 3,
@@ -375,6 +378,7 @@ rownames(HybridTraits) <- c("Contribution")
 colnames(HybridTraits) <- rownames(ParentTraits)
 HybridTraits
 ```
+
 **Interpretation**
 
 HybridTraits = (0.5 × P1) + (0.3 × P2) + (0.2 × P3)
@@ -449,27 +453,27 @@ barplot(
 
 ### 🧠 Interpretation Questions
 
-- How does the weighting of parents affect the hybrid's performance?
+-   How does the weighting of parents affect the hybrid's performance?
 
-  Stronger weights mean more genetic contribution. Traits from highly weighted parents dominate the hybrid profile.
+    Stronger weights mean more genetic contribution. Traits from highly weighted parents dominate the hybrid profile.
 
-- What does the identity matrix represent here?
+-   What does the identity matrix represent here?
 
-  It represents a neutral transformation. It confirms data integrity when used in matrix multiplication.
+    It represents a neutral transformation. It confirms data integrity when used in matrix multiplication.
 
-- If you used equal weights (⅓ for each), how would the hybrid traits change?
+-   If you used equal weights (⅓ for each), how would the hybrid traits change?
 
-  Traits would reflect an even mix, potentially leading to balanced but less specialized performance.
+    Traits would reflect an even mix, potentially leading to balanced but less specialized performance.
 
-- What real-world limitations does this simplified model ignore?
+-   What real-world limitations does this simplified model ignore?
 
-  i. Non-additive genetic effects (dominance, epistasis)
+    i.  Non-additive genetic effects (dominance, epistasis)
 
-  ii. Environmental interactions
+    ii. Environmental interactions
 
-  iii. Trait heritability and correlations
+    iii. Trait heritability and correlations
 
-  iv. Breeding feasibility and cost
+    iv. Breeding feasibility and cost
 
 ## Task 5: Managing Matrices and Weight Vectors Using Lists in R
 
@@ -502,8 +506,8 @@ lengths(bioList)             # Number of components in each sublist
 
 Each top-level entry (e.g., ProteinConc, Plant) contains two components:
 
-- A matrix (e.g., ProteinMatrix)
-- A corresponding weight vector or matrix
+-   A matrix (e.g., ProteinMatrix)
+-   A corresponding weight vector or matrix
 
 ### Indexing Elements from Lists
 
@@ -521,7 +525,7 @@ bioList$ProteinConc$weights
 
 **Interpretation**
 
-Use double brackets [[ ]] to extract unnamed list elements by position. But we named our list, so they are easily extractable using the `$` notation.
+Use double brackets `[[ ]]` to extract unnamed list elements by position. But we named our list, so they are easily extractable using the `$` notation.
 
 ### Perform Weighted Calculations
 
@@ -598,57 +602,59 @@ barplot(
 
 ### 🧠 Interpretation Questions
 
-- Why use a list structure?
+-   Why use a list structure?
 
-Keeps each dataset and its weights together.
-Facilitates automated workflows and reuse.
+Keeps each dataset and its weights together. Facilitates automated workflows and reuse.
 
-- What’s tricky about `[[ ]]` access?
+-   What’s tricky about `[[ ]]` access?
 
-You must remember the order (`[[1]]` = `matrix`, `[[2]]` = `weights`).
-No names means you can't use $matrix, only positional access.
+You must remember the order (`[[1]]` = `matrix`, `[[2]]` = `weights`). No names means you can't use `$matrix`, only positional access.
 
 Loop across all list entries
 
-Weighted scores for all entries
-`lapply(bioList, function(x) x[[2]] %*% x[[1]])`
+Weighted scores for all entries `lapply(bioList, function(x) x[[2]] %*% x[[1]])`
 
-- How does this help in large-scale pipelines?
+-   How does this help in large-scale pipelines?
 
 You can use this format with `lapply()`, `purrr::map()`, or in targets pipelines for reproducibility and modular processing.
 
-
 ## 🧩 Homework solutions: Factors, Subsetting, and Biological Insight
 
-1. **Character vs Factor**  
-   A character vector simply holds string values, but a factor is a categorical variable with fixed levels, used especially in modeling.  
-   For `mutation_status`, a factor ensures consistent categories (e.g., `"Yes"` or `"No"`) and helps control level order and statistical reference groups.
+1.  **Character vs Factor**
+    A character vector simply holds string values, but a factor is a categorical variable with fixed levels, used especially in modeling.  
+    For `mutation_status`, a factor ensures consistent categories (e.g., `"Yes"` or `"No"`) and helps control level order and statistical reference groups.  
 
-2. **Factor Levels**  
+2.  **Factor Levels**
 
 ```{r}
 species <- c("Lactobacillus", "Bacteroides", "Escherichia", "Bacteroides", "Lactobacillus")
 species_factor <- factor(species, levels = c("Bacteroides", "Escherichia", "Lactobacillus"))
 levels(species_factor)
 ```
+
 Because we defined the level order explicitly, R maintains that order regardless of data input.
 
-3. Ordered Factor Comparison
+3.  Ordered Factor Comparison
+
 ```{r}
 disease_severity <- factor(c("Mild", "Severe", "Moderate"), levels = c("Mild", "Moderate", "Severe", "Critical"), ordered = TRUE)
 disease_severity[1] < disease_severity[2]
 # TRUE
 ```
+
 "Mild" is less severe than "Severe" based on the defined order.
 
-4. Proportion Extraction
+4.  Proportion Extraction
+
 ```{r}
 prop <- prop.table(table(species_factor))
 prop["Escherichia"]
 ```
+
 `prop$Escherichia` won't work — named numeric vectors require bracket-based access.
 
-5. Subsetting by Conditions
+5.  Subsetting by Conditions
+
 ```{r}
 gene_df <- data.frame(
   gene_id = c("BRCA1", "TP53", "MYC", "EGFR", "GAPDH"),
@@ -661,15 +667,18 @@ gene_df <- gene_df[, -1] #remove the first column which is not needed anymore
 #gene_df
 gene_df[gene_df$expression > 7 & gene_df$mutation == "No", ]
 ```
-Returns genes with **high expression (>7)** `and` **no mutation** — potentially highly active but wild-type genes.
 
-6. Group-wise Expression Summary
+Returns genes with **high expression (\>7)** `and` **no mutation** — potentially highly active but wild-type genes.
+
+6.  Group-wise Expression Summary
 
 The given vectors are:
+
 ```{r}
 samples <- c("WT", "KO", "WT", "KO", "WT")
 expression <- c(5.2, 8.1, 4.3, 9.0, 5.7)
 ```
+
 The solution would be:
 
 ```{r}
@@ -684,14 +693,18 @@ barplot(tapply(expression, group_factor, mean),
         ylab = "Mean Expression",
         main = "Group-wise Expression")
 ```
-7. Gene Subsetting
+
+7.  Gene Subsetting
+
 ```{r gene_df_subset}
 gene_df[gene_df$expression > 8 & 
         gene_df$pathway %in% c("Cell Cycle", "Signaling"), ]
 ```
+
 It filters for genes highly expressed and involved in key biological pathways.
 
-8. Disease Stage Visualization
+8.  Disease Stage Visualization
+
 ```{r}
 stages <- c("Stage I", "Stage III", "Stage II", "Stage IV", "Stage I")
 disease_stage <- factor(stages, 
@@ -703,14 +716,18 @@ barplot(table(disease_stage),
         main = "Patient Count by Disease Stage",
         ylab = "Count")
 ```
+
 Let's do the severity order check:
+
 ```{r}
 # Comparison
 disease_stage[2] > disease_stage[1]  # TRUE
 ```
+
 So, "Stage III" is more sever than "Stage I".
 
-9. Oncogene Subsetting and Releveling
+9.  Oncogene Subsetting and Releveling
+
 ```{r}
 # Define a small gene dataset
 gene_data <- data.frame(
@@ -722,7 +739,9 @@ gene_data <- data.frame(
 # Subset: Oncogene rows with expression > 8
 gene_data[gene_data$type == "Oncogene" & gene_data$expression > 8, ]
 ```
+
 Let's relevel now, "Housekeeping" is the reference:
+
 ```{r}
 # Relevel: make "Housekeeping" the reference level
 gene_data$type <- relevel(gene_data$type, ref = "Housekeeping")
@@ -730,9 +749,11 @@ gene_data$type <- relevel(gene_data$type, ref = "Housekeeping")
 # Check the new levels
 levels(gene_data$type)
 ```
-But the "Housekeeping" was already a reference by default (using alphabetic ordering by R). Making something else the reference would make more sense. Our code above work, but nothing new is done. 
+
+But the "Housekeeping" was already a reference by default (using alphabetic ordering by R). Making something else the reference would make more sense. Our code above work, but nothing new is done.
 
 10. Simulated Expression by Tissue
+
 ```{r}
 set.seed(42)
 gene_expr <- rnorm(45, mean = 8, sd = 2)
@@ -744,13 +765,49 @@ boxplot(gene_expr ~ tissue_factor,
         main = "Expression by Tissue",
         ylab = "Expression Level")
 ```
+
 Let's calculate variability per tissue type now:
+
 ```{r}
 # Variability
 tapply(gene_expr, tissue_factor, sd)
 # Returns standard deviation per tissue group
 ```
 
+## 🧩 Homework Solution tidyverse
 
+```{r}
+# Load necessary package
+library(ggplot2)
 
+# Use the built-in iris dataset
+data(iris)
 
+# Create the plot
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point(size = 2) +  # scatter plot points
+  geom_smooth(method = "lm", se = FALSE) +  # linear regression lines
+  labs(
+    title = "Relationship between Petal Length and Width by Species",
+    x = "Petal Length (cm)",
+    y = "Petal Width (cm)",
+    color = "Iris Species"
+  ) +
+  theme_minimal()  # apply a clean minimal theme
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 2) +  # color points by Species
+  geom_smooth(method = "lm", se = FALSE, color = "black") +  # single regression line
+  labs(
+    title = "Overall Regression: Petal Length vs Width (Iris Dataset)",
+    x = "Petal Length (cm)",
+    y = "Petal Width (cm)",
+    color = "Iris Species"
+  ) +
+  theme_minimal()
+
+```

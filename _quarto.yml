@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  #exclude:
+  #  - ch/python2/**
 
 website:
   title: "pythrash"
@@ -94,7 +96,6 @@ format:
     #  left: |
     #    {{< include _footer-nav.qmd >}}
     include-after-body: _include/footer.html
-    
   pdf:
     exclude-from:
       - ch/phd_org/organization.qmd
@@ -102,6 +103,19 @@ format:
     number-sections: true
     toc: true
 
+execute:
+   warning: false
+   message: false
+   freeze: auto
+   engine: knitr
+   daemon: false
+   env:
+     RETICULATE_PYTHON: "/Users/md.rasheduzzaman/.virtualenvs/py-torch/bin/python"
+     QUARTO_PYTHON: "/Users/md.rasheduzzaman/.virtualenvs/py-torch/bin/python"
+
+engines:
+  jupyter:
+    python: "/Users/md.rasheduzzaman/.virtualenvs/py-torch/bin/python"
 #metadata-files: [ch/blogs/_metadata.yml]
 # remove this once lightbox no longer needs an extension    
 #filters:
@@ -129,13 +143,6 @@ abstract-title: "Content summary"
 bibliography: references.bib
 date: last-modified
 published-title: "Last updated"
-
-execute:
-  warning: false
-  message: false
-  freeze: auto
-  #eval: false  # prevent ANY code execution unless overridden
-  engine: knitr # explicitly use knitr and not jupyter
 
 fig-dpi: 300
 fig-width: 5.5

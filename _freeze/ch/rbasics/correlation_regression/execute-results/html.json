@@ -1,8 +1,10 @@
 {
-  "hash": "e54f06f7d56f333c49eac9614d5cb9cc",
+  "hash": "dca9f74215356e6dfec9cfe8ba3b65df",
   "result": {
-    "markdown": "---\ntitle: \"Correlation & Regression\"\nabstract: \"Correlation and simple linear regression (with and without intercept).\"\n---\n\n  \n<style>\n  .content {\n    text-align: justify !important;\n  }\n  p {\n    text-align: justify !important;\n  }\n  .quarto-body {\n    text-align: justify !important;\n  }\n</style>\n  \n\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Correlation & Regression\"\nabstract: \"Correlation and simple linear regression (with and without intercept).\"\n---\n\n\n",
+    "supporting": [
+      "correlation_regression_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

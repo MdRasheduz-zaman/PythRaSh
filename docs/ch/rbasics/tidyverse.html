@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2025-04-24">
+<meta name="dcterms.date" content="2025-09-09">
 <title>pythrash - The tidyverse</title>
 <style>
 code{white-space: pre-wrap;}
@@ -247,8 +247,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="tidyverse.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse">What is the Tidyverse?</a>
+  <ul class="collapse">
+<li><a href="#installing-tidyverse" id="toc-installing-tidyverse" class="nav-link" data-scroll-target="#installing-tidyverse">Installing Tidyverse</a></li>
+  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages">Core Tidyverse Packages</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#understanding-data-tables-base-r-vs-tidyverse" id="toc-understanding-data-tables-base-r-vs-tidyverse" class="nav-link" data-scroll-target="#understanding-data-tables-base-r-vs-tidyverse">Understanding Data Tables: Base R vs Tidyverse</a>
+  <ul class="collapse">
+<li>
+<a href="#base-r-data.frame" id="toc-base-r-data.frame" class="nav-link" data-scroll-target="#base-r-data.frame">Base R: data.frame</a>
+  <ul class="collapse">
+<li><a href="#accessing-columns-in-base-r" id="toc-accessing-columns-in-base-r" class="nav-link" data-scroll-target="#accessing-columns-in-base-r">Accessing columns in Base R:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#tidyverse-tibble" id="toc-tidyverse-tibble" class="nav-link" data-scroll-target="#tidyverse-tibble">Tidyverse: tibble</a>
+  <ul class="collapse">
+<li><a href="#key-differences-with-tibbles" id="toc-key-differences-with-tibbles" class="nav-link" data-scroll-target="#key-differences-with-tibbles">Key differences with tibbles:</a></li>
+  <li><a href="#accessing-columns-in-tidyverse" id="toc-accessing-columns-in-tidyverse" class="nav-link" data-scroll-target="#accessing-columns-in-tidyverse">Accessing columns in tidyverse:</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#creating-plots-base-r-vs-ggplot2" id="toc-creating-plots-base-r-vs-ggplot2" class="nav-link" data-scroll-target="#creating-plots-base-r-vs-ggplot2">Creating Plots: Base R vs ggplot2</a>
+  <ul class="collapse">
+<li><a href="#base-r-plotting" id="toc-base-r-plotting" class="nav-link" data-scroll-target="#base-r-plotting">Base R Plotting</a></li>
+  <li>
+<a href="#ggplot2-tidyverse" id="toc-ggplot2-tidyverse" class="nav-link" data-scroll-target="#ggplot2-tidyverse">ggplot2 (Tidyverse)</a>
+  <ul class="collapse">
+<li><a href="#understanding-ggplot2-basics" id="toc-understanding-ggplot2-basics" class="nav-link" data-scroll-target="#understanding-ggplot2-basics">Understanding ggplot2 basics:</a></li>
+  <li><a href="#breaking-down-the-code" id="toc-breaking-down-the-code" class="nav-link" data-scroll-target="#breaking-down-the-code">Breaking down the code:</a></li>
+  <li><a href="#think-of-it-like-a-recipe" id="toc-think-of-it-like-a-recipe" class="nav-link" data-scroll-target="#think-of-it-like-a-recipe">Think of it like a recipe:</a></li>
+  <li><a href="#common-geom_-functions-and-how-to-explore-more" id="toc-common-geom_-functions-and-how-to-explore-more" class="nav-link" data-scroll-target="#common-geom_-functions-and-how-to-explore-more">Common geom_ functions and how to explore more:</a></li>
+  <li><a href="#quick-examples" id="toc-quick-examples" class="nav-link" data-scroll-target="#quick-examples">Quick examples:</a></li>
+  <li><a href="#how-to-discover-more-geom_-functions" id="toc-how-to-discover-more-geom_-functions" class="nav-link" data-scroll-target="#how-to-discover-more-geom_-functions">How to discover more geom_ functions:</a></li>
+  <li><a href="#pro-tip-layer-multiple-geoms" id="toc-pro-tip-layer-multiple-geoms" class="nav-link" data-scroll-target="#pro-tip-layer-multiple-geoms">Pro tip: Layer multiple geoms!</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#the-magic-of-the-pipe-operator" id="toc-the-magic-of-the-pipe-operator" class="nav-link" data-scroll-target="#the-magic-of-the-pipe-operator">The Magic of the Pipe (<code>%&gt;%</code>) Operator</a>
+  <ul class="collapse">
+<li><a href="#without-pipes-base-r-approach" id="toc-without-pipes-base-r-approach" class="nav-link" data-scroll-target="#without-pipes-base-r-approach">Without pipes (Base R approach):</a></li>
+  <li><a href="#with-pipes-tidyverse-approach" id="toc-with-pipes-tidyverse-approach" class="nav-link" data-scroll-target="#with-pipes-tidyverse-approach">With pipes (Tidyverse approach):</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#essential-dplyr-functions" id="toc-essential-dplyr-functions" class="nav-link" data-scroll-target="#essential-dplyr-functions">Essential dplyr Functions</a>
+  <ul class="collapse">
+<li>
+<a href="#mutate---add-or-modify-columns" id="toc-mutate---add-or-modify-columns" class="nav-link" data-scroll-target="#mutate---add-or-modify-columns">1. <code>mutate()</code> - Add or modify columns</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach" id="toc-base-r-approach" class="nav-link" data-scroll-target="#base-r-approach">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach" id="toc-tidyverse-approach" class="nav-link" data-scroll-target="#tidyverse-approach">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#select---choose-columns" id="toc-select---choose-columns" class="nav-link" data-scroll-target="#select---choose-columns">2. <code>select()</code> - Choose columns</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach-1" id="toc-base-r-approach-1" class="nav-link" data-scroll-target="#base-r-approach-1">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach-1" id="toc-tidyverse-approach-1" class="nav-link" data-scroll-target="#tidyverse-approach-1">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#filter---choose-rows" id="toc-filter---choose-rows" class="nav-link" data-scroll-target="#filter---choose-rows">3. <code>filter()</code> - Choose rows</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach-2" id="toc-base-r-approach-2" class="nav-link" data-scroll-target="#base-r-approach-2">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach-2" id="toc-tidyverse-approach-2" class="nav-link" data-scroll-target="#tidyverse-approach-2">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#arrange---sort-rows" id="toc-arrange---sort-rows" class="nav-link" data-scroll-target="#arrange---sort-rows">4. <code>arrange()</code> - Sort rows</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach-3" id="toc-base-r-approach-3" class="nav-link" data-scroll-target="#base-r-approach-3">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach-3" id="toc-tidyverse-approach-3" class="nav-link" data-scroll-target="#tidyverse-approach-3">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#summarise-with-group_by---calculate-summaries" id="toc-summarise-with-group_by---calculate-summaries" class="nav-link" data-scroll-target="#summarise-with-group_by---calculate-summaries">5. <code>summarise()</code> with <code>group_by()</code> - Calculate summaries</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach-4" id="toc-base-r-approach-4" class="nav-link" data-scroll-target="#base-r-approach-4">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach-4" id="toc-tidyverse-approach-4" class="nav-link" data-scroll-target="#tidyverse-approach-4">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-data-formats-long-vs-wide" id="toc-working-with-data-formats-long-vs-wide" class="nav-link" data-scroll-target="#working-with-data-formats-long-vs-wide">Working with Data Formats: Long vs Wide</a>
+  <ul class="collapse">
+<li><a href="#creating-example-data" id="toc-creating-example-data" class="nav-link" data-scroll-target="#creating-example-data">Creating example data:</a></li>
+  <li>
+<a href="#convert-to-wide-format" id="toc-convert-to-wide-format" class="nav-link" data-scroll-target="#convert-to-wide-format">Convert to wide format:</a>
+  <ul class="collapse">
+<li><a href="#base-r-approach-5" id="toc-base-r-approach-5" class="nav-link" data-scroll-target="#base-r-approach-5">Base R approach:</a></li>
+  <li><a href="#tidyverse-approach-5" id="toc-tidyverse-approach-5" class="nav-link" data-scroll-target="#tidyverse-approach-5">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#convert-back-to-long-format" id="toc-convert-back-to-long-format" class="nav-link" data-scroll-target="#convert-back-to-long-format">Convert back to long format:</a>
+  <ul class="collapse">
+<li><a href="#tidyverse-approach-6" id="toc-tidyverse-approach-6" class="nav-link" data-scroll-target="#tidyverse-approach-6">Tidyverse approach:</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-factors-forcats" id="toc-working-with-factors-forcats" class="nav-link" data-scroll-target="#working-with-factors-forcats">Working with Factors (forcats)</a>
+  <ul class="collapse">
+<li><a href="#reordering-factors" id="toc-reordering-factors" class="nav-link" data-scroll-target="#reordering-factors">Reordering factors:</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-strings-stringr" id="toc-working-with-strings-stringr" class="nav-link" data-scroll-target="#working-with-strings-stringr">Working with Strings (stringr)</a>
+  <ul class="collapse">
+<li><a href="#common-string-operations" id="toc-common-string-operations" class="nav-link" data-scroll-target="#common-string-operations">Common string operations:</a></li>
+  </ul>
+</li>
+  <li><a href="#practical-example-complete-analysis" id="toc-practical-example-complete-analysis" class="nav-link" data-scroll-target="#practical-example-complete-analysis">Practical Example: Complete Analysis</a></li>
+  <li><a href="#summary-base-r-vs-tidyverse" id="toc-summary-base-r-vs-tidyverse" class="nav-link" data-scroll-target="#summary-base-r-vs-tidyverse">Summary: Base R vs Tidyverse</a></li>
+  <li>
+<a href="#homework-assignment" id="toc-homework-assignment" class="nav-link" data-scroll-target="#homework-assignment">Homework Assignment</a>
+  <ul class="collapse">
+<li><a href="#part-1-basic-operations" id="toc-part-1-basic-operations" class="nav-link" data-scroll-target="#part-1-basic-operations">Part 1: Basic Operations</a></li>
+  <li><a href="#plotting-challenge" id="toc-plotting-challenge" class="nav-link" data-scroll-target="#plotting-challenge">Plotting Challenge:</a></li>
+  <li><a href="#problem-1-data-manipulation" id="toc-problem-1-data-manipulation" class="nav-link" data-scroll-target="#problem-1-data-manipulation">Problem 1: Data Manipulation</a></li>
+  <li><a href="#problem-2-grouping-and-summarizing" id="toc-problem-2-grouping-and-summarizing" class="nav-link" data-scroll-target="#problem-2-grouping-and-summarizing">Problem 2: Grouping and Summarizing</a></li>
+  <li><a href="#problem-3-data-reshaping" id="toc-problem-3-data-reshaping" class="nav-link" data-scroll-target="#problem-3-data-reshaping">Problem 3: Data Reshaping</a></li>
+  <li><a href="#submission-instructions" id="toc-submission-instructions" class="nav-link" data-scroll-target="#submission-instructions">Submission Instructions:</a></li>
+  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric:</a></li>
+  </ul>
+</li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="tidyverse.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">The tidyverse</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -282,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 24, 2025</p>
+      <p class="date">September 9, 2025</p>
     </div>
   </div>
   
@@ -296,32 +434,951 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 
-</header><style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
+</header><section id="what-is-the-tidyverse" class="level1"><h1>What is the Tidyverse?</h1>
+<p>The tidyverse is a collection of R packages designed to make data science easier and more intuitive. Think of it as a toolkit where all the tools work well together and share a similar design philosophy. The packages help you:</p>
+<ul>
+<li>Import data</li>
+<li>Clean and organize data</li>
+<li>Transform and manipulate data</li>
+<li>Visualize data</li>
+<li>Model data</li>
+</ul>
+<section id="installing-tidyverse" class="level2"><h2 class="anchored" data-anchor-id="installing-tidyverse">Installing Tidyverse</h2>
+<p>Before we can use the tidyverse, we need to install it. First, let’s install a helpful package manager called <code>pacman</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Install pacman if you haven't already</span></span>
+<span><span class="co">#install.packages("pacman")</span></span>
+<span></span>
+<span><span class="co"># Load pacman</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/trinker/pacman">pacman</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Now use pacman to install and load tidyverse</span></span>
+<span><span class="co">#pacman::p_load(tidyverse)</span></span>
+<span><span class="co"># (install &amp;) load packages</span></span>
+<span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span></span>
+<span>  <span class="va">broom</span>,</span>
+<span>  <span class="va">conflicted</span>,</span>
+<span>  <span class="va">here</span>,</span>
+<span>  <span class="va">janitor</span>,</span>
+<span>  <span class="va">naniar</span>,</span>
+<span>  <span class="va">readxl</span>,</span>
+<span>  <span class="va">tibble</span>,</span>
+<span>  <span class="va">tidyverse</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Alternative: traditional installation</span></span>
+<span><span class="co"># install.packages("tidyverse")</span></span>
+<span><span class="co"># library(tidyverse)</span></span>
+<span><span class="fu">conflicts_prefer</span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">)</span> </span>
+<span><span class="fu">conflicts_prefer</span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">)</span></span>
+<span><span class="co">#dplyr::select()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="core-tidyverse-packages" class="level2"><h2 class="anchored" data-anchor-id="core-tidyverse-packages">Core Tidyverse Packages</h2>
+<p>Here are the main packages you’ll use most often:</p>
+<table class="table">
+<thead><tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Purpose</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">
+<a href="https://ggplot2.tidyverse.org/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" width="30"></a> <strong>ggplot2</strong>
+</td>
+<td style="text-align: left;">Creating beautiful graphs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+<a href="https://dplyr.tidyverse.org/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png" width="30"></a> <strong>dplyr</strong>
+</td>
+<td style="text-align: left;">Data manipulation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+<a href="https://tibble.tidyverse.org/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tibble.png" width="30"></a> <strong>tibble</strong>
+</td>
+<td style="text-align: left;">Modern data frames</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+<a href="https://tidyr.tidyverse.org/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyr.png" width="30"></a> <strong>tidyr</strong>
+</td>
+<td style="text-align: left;">Tidying data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+<a href="https://readr.tidyverse.org/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readr.png" width="30"></a> <strong>readr</strong>
+</td>
+<td style="text-align: left;">Reading data files</td>
+</tr>
+</tbody>
+</table></section></section><section id="understanding-data-tables-base-r-vs-tidyverse" class="level1"><h1>Understanding Data Tables: Base R vs Tidyverse</h1>
+<section id="base-r-data.frame" class="level2"><h2 class="anchored" data-anchor-id="base-r-data.frame">Base R: data.frame</h2>
+<p>In base R, we work with <code>data.frame</code> objects. Let’s look at a built-in dataset:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Base R approach</span></span>
+<span><span class="co"># Load the built-in PlantGrowth dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">PlantGrowth</span><span class="op">)</span></span>
+<span><span class="co">#data(iris)</span></span>
+<span></span>
+<span><span class="co"># Create a copy to work with</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">PlantGrowth</span></span>
+<span></span>
+<span><span class="co"># View the first few rows</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  weight group
+1   4.17  ctrl
+2   5.58  ctrl
+3   5.18  ctrl
+4   6.11  ctrl
+5   4.50  ctrl
+6   4.61  ctrl</code></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Check the structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>'data.frame':   30 obs. of  2 variables:
+ $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
+ $ group : Factor w/ 3 levels "ctrl","trt1",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get summary statistics</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>     weight       group   
+ Min.   :3.590   ctrl:10  
+ 1st Qu.:4.550   trt1:10  
+ Median :5.155   trt2:10  
+ Mean   :5.073            
+ 3rd Qu.:5.530            
+ Max.   :6.310            </code></pre>
+</div>
+</div>
+<section id="accessing-columns-in-base-r" class="level3"><h3 class="anchored" data-anchor-id="accessing-columns-in-base-r">Accessing columns in Base R:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Method 1: Using $ notation</span></span>
+<span><span class="va">df</span><span class="op">$</span><span class="va">weight</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
+[16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26</code></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Method 2: Using brackets with column name</span></span>
+<span><span class="va">df</span><span class="op">[</span>, <span class="st">"weight"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
+[16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Method 3: Using brackets with column number</span></span>
+<span><span class="va">df</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
+[16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26</code></pre>
+</div>
+</div>
+</section></section><section id="tidyverse-tibble" class="level2"><h2 class="anchored" data-anchor-id="tidyverse-tibble">Tidyverse: tibble</h2>
+<p>Now let’s see how tidyverse handles the same data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Convert to tibble</span></span>
+<span><span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu">as_tibble</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View the tibble</span></span>
+<span><span class="va">tbl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 30 × 2
+   weight group
+    &lt;dbl&gt; &lt;fct&gt;
+ 1   4.17 ctrl 
+ 2   5.58 ctrl 
+ 3   5.18 ctrl 
+ 4   6.11 ctrl 
+ 5   4.5  ctrl 
+ 6   4.61 ctrl 
+ 7   5.17 ctrl 
+ 8   4.53 ctrl 
+ 9   5.33 ctrl 
+10   5.14 ctrl 
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+<section id="key-differences-with-tibbles" class="level3"><h3 class="anchored" data-anchor-id="key-differences-with-tibbles">Key differences with tibbles:</h3>
+<ol type="1">
+<li>
+<strong>Better printing</strong>: Only shows what fits on screen</li>
+<li>
+<strong>Type information</strong>: Shows data types under column names</li>
+<li>
+<strong>No partial matching</strong>: More predictable behavior</li>
+<li>
+<strong>Preserves data types</strong>: Doesn’t automatically convert strings to factors</li>
+</ol></section><section id="accessing-columns-in-tidyverse" class="level3"><h3 class="anchored" data-anchor-id="accessing-columns-in-tidyverse">Accessing columns in tidyverse:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Still can use $ notation</span></span>
+<span><span class="va">tbl</span><span class="op">$</span><span class="va">weight</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
+[16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Or use select() function (we'll learn more about this)</span></span>
+<span><span class="va">tbl</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 30 × 1
+   weight
+    &lt;dbl&gt;
+ 1   4.17
+ 2   5.58
+ 3   5.18
+ 4   6.11
+ 5   4.5 
+ 6   4.61
+ 7   5.17
+ 8   4.53
+ 9   5.33
+10   5.14
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+</section></section></section><section id="creating-plots-base-r-vs-ggplot2" class="level1"><h1>Creating Plots: Base R vs ggplot2</h1>
+<section id="base-r-plotting" class="level2"><h2 class="anchored" data-anchor-id="base-r-plotting">Base R Plotting</h2>
+<p>Base R has simple plotting functions that are quick but limited:</p>
+<div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Scatter plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">weight</span>, main <span class="op">=</span> <span class="st">"Weight Values"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Index"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span></span>
+<span><span class="co"># Bar plot with better labels</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">group</span>, </span>
+<span>     main <span class="op">=</span> <span class="st">"Group Frequencies"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Treatment Group"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Frequency"</span>,</span>
+<span>     names.arg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Control"</span>, <span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="1500"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="ggplot2-tidyverse" class="level2"><h2 class="anchored" data-anchor-id="ggplot2-tidyverse">ggplot2 (Tidyverse)</h2>
+<p>ggplot2 builds plots in layers, like creating a painting. Let’s break it down:</p>
+<section id="understanding-ggplot2-basics" class="level3"><h3 class="anchored" data-anchor-id="understanding-ggplot2-basics">Understanding ggplot2 basics:</h3>
+<ol type="1">
+<li>
+<strong>ggplot()</strong> - Creates the canvas</li>
+<li>
+<strong>aes()</strong> - Stands for “aesthetics” - tells ggplot which data to use</li>
+<li>
+<strong>+</strong> - Adds layers to your plot (like adding paint to canvas)</li>
+<li>**geom_*()** - Geometric objects (the actual marks on the plot)</li>
+</ol>
+<p>Let’s build our plots step by step:</p>
+<div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Scatter plot with index</span></span>
+<span><span class="co"># Step 1: Create the canvas and specify the data</span></span>
+<span><span class="co"># aes(x = ..., y = ...) maps data to x and y axes</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">tbl</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">tbl</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">weight</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Step 2: Add points to the plot</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Step 3: Add labels</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Weight Values"</span>, </span>
+<span>       x <span class="op">=</span> <span class="st">"Index"</span>, </span>
+<span>       y <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Bar plot</span></span>
+<span><span class="co"># Step 1: Create canvas with data mapping</span></span>
+<span><span class="co"># When we only specify x, ggplot counts occurrences</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">tbl</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Step 2: Add bars (geom_bar counts automatically)</span></span>
+<span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Step 3: Add descriptive labels</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Group Frequencies"</span>, </span>
+<span>       x <span class="op">=</span> <span class="st">"Group"</span>, </span>
+<span>       y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1500"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="breaking-down-the-code" class="level3"><h3 class="anchored" data-anchor-id="breaking-down-the-code">Breaking down the code:</h3>
+<p><strong>For the scatter plot:</strong><br>
+- <code>ggplot(data = tbl, ...)</code> - Use the ‘tbl’ dataset<br>
+- <code>aes(x = 1:nrow(tbl), y = weight)</code> - Put row numbers on x-axis, weight values on y-axis<br>
+- <code>geom_point()</code> - Draw points at each (x,y) coordinate<br>
+- The <code>+</code> sign connects these layers together</p>
+<p><strong>For the bar plot:</strong><br>
+- <code>aes(x = group)</code> - Put group categories on x-axis<br>
+- <code>geom_bar()</code> - Count how many times each group appears and draw bars<br>
+- ggplot automatically counts for us!</p>
+</section><section id="think-of-it-like-a-recipe" class="level3"><h3 class="anchored" data-anchor-id="think-of-it-like-a-recipe">Think of it like a recipe:</h3>
+<ol type="1">
+<li>Start with your data (ggplot + data)<br>
+</li>
+<li>Decide what goes where (aes)<br>
+</li>
+<li>Choose how to show it (geom_point, geom_bar, etc.)<br>
+</li>
+<li>Add finishing touches (labs, themes, colors)</li>
+</ol></section><section id="common-geom_-functions-and-how-to-explore-more" class="level3"><h3 class="anchored" data-anchor-id="common-geom_-functions-and-how-to-explore-more">Common geom_ functions and how to explore more:</h3>
+<p>Here are the most common geometric layers you’ll use:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create sample data for demonstrations</span></span>
+<span><span class="va">demo_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,</span>
+<span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">9</span>, <span class="fl">7</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Essential geom_ functions:</strong></p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">geom_ function</th>
+<th style="text-align: left;">What it draws</th>
+<th style="text-align: left;">When to use</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_point()</code></td>
+<td style="text-align: left;">Points/dots</td>
+<td style="text-align: left;">Scatter plots, showing individual values</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_line()</code></td>
+<td style="text-align: left;">Lines connecting points</td>
+<td style="text-align: left;">Time series, trends</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_bar()</code></td>
+<td style="text-align: left;">Bars (counts data)</td>
+<td style="text-align: left;">Frequency of categories</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_col()</code></td>
+<td style="text-align: left;">Bars (uses y values)</td>
+<td style="text-align: left;">When you already have heights</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_histogram()</code></td>
+<td style="text-align: left;">Histogram</td>
+<td style="text-align: left;">Distribution of continuous data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_boxplot()</code></td>
+<td style="text-align: left;">Box plots</td>
+<td style="text-align: left;">Comparing distributions between groups</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_smooth()</code></td>
+<td style="text-align: left;">Trend lines</td>
+<td style="text-align: left;">Adding regression/smooth lines</td>
+</tr>
+</tbody>
+</table></section><section id="quick-examples" class="level3"><h3 class="anchored" data-anchor-id="quick-examples">Quick examples:</h3>
+<div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Line plot</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">demo_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_line()"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"X"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Points + smooth line</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">demo_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_point() + geom_smooth()"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Box plot by group</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">demo_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_summary</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">mean</span>, </span>
+<span>               geom <span class="op">=</span> <span class="st">"point"</span>, </span>
+<span>               shape <span class="op">=</span> <span class="fl">23</span>, </span>
+<span>               size <span class="op">=</span> <span class="fl">3</span>, </span>
+<span>               fill <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_boxplot()"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="1200"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="1200"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid" width="1200"></p>
+</div>
+</div>
+</div>
+</div>
+<p>Use <code><a href="https://rdrr.io/r/graphics/points.html">?pch</a></code> or <code>?shape</code> to know more about shapes.</p>
+</section><section id="how-to-discover-more-geom_-functions" class="level3"><h3 class="anchored" data-anchor-id="how-to-discover-more-geom_-functions">How to discover more geom_ functions:</h3>
+<ol type="1">
+<li>
+<p><strong>In RStudio</strong>: Type <code>geom_</code> and press TAB to see all available options</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Try this in your console:</span></span>
+<span><span class="co"># ggplot(data, aes(x, y)) + geom_[TAB]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</li>
+<li>
+<p><strong>Get help on any function</strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Learn about a specific geom</span></span>
+<span><span class="op">?</span><span class="va">geom_violin</span></span>
+<span></span>
+<span><span class="co"># See examples</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/example.html">example</a></span><span class="op">(</span><span class="va">geom_violin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</li>
+<li>
+<p><strong>Useful resources</strong>:</p>
+<ul>
+<li>
+<a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">ggplot2 cheatsheet</a> - Visual guide to all geoms</li>
+<li>
+<a href="https://r-graph-gallery.com/">R Graph Gallery</a> - Examples of every plot type</li>
+<li>
+<a href="https://ggplot2.tidyverse.org/reference/#geoms">ggplot2 documentation</a> - Official reference</li>
+<li>
+<a href="https://www.data-to-viz.com">from Data to Viz</a> - Has robust way to show plotting options</li>
+</ul>
+</li>
+<li>
+<p><strong>Experiment!</strong> Try different geoms with your data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Start with basic plot</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">tbl</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">weight</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Try different visualizations</span></span>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span>    <span class="co"># Box plot</span></span>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span>     <span class="co"># Violin plot</span></span>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu">geom_jitter</span><span class="op">(</span><span class="op">)</span>     <span class="co"># Scattered points</span></span>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu">geom_dotplot</span><span class="op">(</span>binaxis <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span>  <span class="co"># Dot plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</li>
+</ol></section><section id="pro-tip-layer-multiple-geoms" class="level3"><h3 class="anchored" data-anchor-id="pro-tip-layer-multiple-geoms">Pro tip: Layer multiple geoms!</h3>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># You can combine multiple geoms for rich visualizations</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">tbl</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">weight</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>      <span class="co"># Semi-transparent box plot</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>        <span class="co"># Add individual points</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Combining geom_boxplot() + geom_jitter()"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section></section></section><section id="the-magic-of-the-pipe-operator" class="level1"><h1>The Magic of the Pipe (<code>%&gt;%</code>) Operator</h1>
+<p>The pipe operator is one of the most powerful features in tidyverse. It makes your code readable by allowing you to chain operations together. It takes the output of the expression on its left and passes it as the first argument to the function on its right</p>
+<section id="without-pipes-base-r-approach" class="level2"><h2 class="anchored" data-anchor-id="without-pipes-base-r-approach">Without pipes (Base R approach):</h2>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Step 1: Get ctrl group only</span></span>
+<span><span class="va">ctrl_only</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="va">df</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="st">"ctrl"</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Step 2: Extract weight values</span></span>
+<span><span class="va">weights</span> <span class="op">&lt;-</span> <span class="va">ctrl_only</span><span class="op">$</span><span class="va">weight</span></span>
+<span></span>
+<span><span class="co"># Step 3: Calculate square root</span></span>
+<span><span class="va">sqrt_weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">weights</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Step 4: Round to 1 decimal</span></span>
+<span><span class="va">rounded</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">sqrt_weights</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Step 5: Sort</span></span>
+<span><span class="va">sorted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">rounded</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">sorted</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 2.47 2.36 2.31 2.28 2.27 2.27 2.15 2.13 2.12 2.04</code></pre>
+</div>
+</div>
+</section><section id="with-pipes-tidyverse-approach" class="level2"><h2 class="anchored" data-anchor-id="with-pipes-tidyverse-approach">With pipes (Tidyverse approach):</h2>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"ctrl"</span><span class="op">)</span> <span class="op">%&gt;%</span>   <span class="co"># Step 1: Get ctrl group</span></span>
+<span>  <span class="fu">pull</span><span class="op">(</span><span class="va">weight</span><span class="op">)</span> <span class="op">%&gt;%</span>              <span class="co"># Step 2: Extract weights</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>                    <span class="co"># Step 3: Square root</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>                  <span class="co"># Step 4: Round</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span>decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>                        <span class="co"># Step 5: Sort</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code> [1] 2.5 2.4 2.3 2.3 2.3 2.3 2.1 2.1 2.1 2.0</code></pre>
+</div>
+</div>
+<p><strong>Tip</strong>: To type <code>%&gt;%</code> quickly in RStudio, use <code>Ctrl+Shift+M</code> (Windows/Linux) or <code>Cmd+Shift+M</code> (Mac)</p>
+</section></section><section id="essential-dplyr-functions" class="level1"><h1>Essential dplyr Functions</h1>
+<section id="mutate---add-or-modify-columns" class="level2"><h2 class="anchored" data-anchor-id="mutate---add-or-modify-columns">1. <code>mutate()</code> - Add or modify columns</h2>
+<section id="base-r-approach" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add a new column</span></span>
+<span><span class="va">df_copy</span> <span class="op">&lt;-</span> <span class="va">df</span></span>
+<span><span class="va">df_copy</span><span class="op">$</span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="va">df_copy</span><span class="op">$</span><span class="va">weight</span> <span class="op">/</span> <span class="fl">1000</span></span>
+<span></span>
+<span><span class="co"># Modify existing column</span></span>
+<span><span class="va">df_copy</span><span class="op">$</span><span class="va">weight</span> <span class="op">&lt;-</span> <span class="va">df_copy</span><span class="op">$</span><span class="va">weight</span> <span class="op">*</span> <span class="fl">2</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df_copy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  weight group weight_kg
+1   8.34  ctrl   0.00417
+2  11.16  ctrl   0.00558
+3  10.36  ctrl   0.00518
+4  12.22  ctrl   0.00611
+5   9.00  ctrl   0.00450
+6   9.22  ctrl   0.00461</code></pre>
+</div>
+</div>
+</section><section id="tidyverse-approach" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
+<span>    weight_kg <span class="op">=</span> <span class="va">weight</span><span class="op">/</span><span class="fl">1000</span>,  <span class="co"># Add new column</span></span>
+<span>    weight <span class="op">=</span> <span class="va">weight</span><span class="op">*</span><span class="fl">2</span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 6 × 3
+  weight group weight_kg
+   &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt;
+1   8.34 ctrl    0.00417
+2  11.2  ctrl    0.00558
+3  10.4  ctrl    0.00518
+4  12.2  ctrl    0.00611
+5   9    ctrl    0.0045 
+6   9.22 ctrl    0.00461</code></pre>
+</div>
+</div>
+<p><em>N.B. We could make the doubling operation on the same <code>weight</code> column as well. It would make in-place modification. You have to think when to do that operation then.</em></p>
+</section></section><section id="select---choose-columns" class="level2"><h2 class="anchored" data-anchor-id="select---choose-columns">2. <code>select()</code> - Choose columns</h2>
+<section id="base-r-approach-1" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach-1">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select specific columns</span></span>
+<span><span class="va">df_subset</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="fl">0</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group"</span>, <span class="st">"weight"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df_subset</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  group weight
+1  ctrl   4.17
+2  ctrl   5.58
+3  ctrl   5.18
+4  ctrl   6.11
+5  ctrl   4.50
+6  ctrl   4.61</code></pre>
+</div>
+</div>
+</section><section id="tidyverse-approach-1" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-1">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">&lt;-</span> <span class="va">tbl</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">group</span>, <span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>N.B. <code>select()</code> helps to rearrange columns as well.</em></p>
+</section></section><section id="filter---choose-rows" class="level2"><h2 class="anchored" data-anchor-id="filter---choose-rows">3. <code>filter()</code> - Choose rows</h2>
+<section id="base-r-approach-2" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach-2">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter for weight &gt; 5</span></span>
+<span><span class="va">df_filtered</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="va">df</span><span class="op">$</span><span class="va">weight</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="op">]</span></span>
+<span><span class="va">df_filtered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>   weight group
+2    5.58  ctrl
+3    5.18  ctrl
+4    6.11  ctrl
+7    5.17  ctrl
+9    5.33  ctrl
+10   5.14  ctrl
+15   5.87  trt1
+17   6.03  trt1
+21   6.31  trt2
+22   5.12  trt2
+23   5.54  trt2
+24   5.50  trt2
+25   5.37  trt2
+26   5.29  trt2
+28   6.15  trt2
+29   5.80  trt2
+30   5.26  trt2</code></pre>
+</div>
+</div>
+</section><section id="tidyverse-approach-2" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-2">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 17 × 2
+   group weight
+   &lt;fct&gt;  &lt;dbl&gt;
+ 1 ctrl    5.58
+ 2 ctrl    5.18
+ 3 ctrl    6.11
+ 4 ctrl    5.17
+ 5 ctrl    5.33
+ 6 ctrl    5.14
+ 7 trt1    5.87
+ 8 trt1    6.03
+ 9 trt2    6.31
+10 trt2    5.12
+11 trt2    5.54
+12 trt2    5.5 
+13 trt2    5.37
+14 trt2    5.29
+15 trt2    6.15
+16 trt2    5.8 
+17 trt2    5.26</code></pre>
+</div>
+</div>
+</section></section><section id="arrange---sort-rows" class="level2"><h2 class="anchored" data-anchor-id="arrange---sort-rows">4. <code>arrange()</code> - Sort rows</h2>
+<section id="base-r-approach-3" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach-3">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Sort by weight</span></span>
+<span><span class="va">df_sorted</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df_sorted</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>   weight group
+14   3.59  trt1
+16   3.83  trt1
+1    4.17  ctrl
+12   4.17  trt1
+19   4.32  trt1
+13   4.41  trt1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sorted</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">weight</span>, decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="tidyverse-approach-3" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-3">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 30 × 2
+   group weight
+   &lt;fct&gt;  &lt;dbl&gt;
+ 1 trt1    3.59
+ 2 trt1    3.83
+ 3 ctrl    4.17
+ 4 trt1    4.17
+ 5 trt1    4.32
+ 6 trt1    4.41
+ 7 ctrl    4.5 
+ 8 ctrl    4.53
+ 9 ctrl    4.61
+10 trt1    4.69
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+</section></section><section id="summarise-with-group_by---calculate-summaries" class="level2"><h2 class="anchored" data-anchor-id="summarise-with-group_by---calculate-summaries">5. <code>summarise()</code> with <code>group_by()</code> - Calculate summaries</h2>
+<section id="base-r-approach-4" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach-4">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate mean by group</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">df</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  group weight
+1  ctrl  5.032
+2  trt1  4.661
+3  trt2  5.526</code></pre>
+</div>
+</div>
+</section><section id="tidyverse-approach-4" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-4">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span></span>
+<span>    mean_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span>,</span>
+<span>    sd_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span>,</span>
+<span>    n <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 3 × 4
+  group mean_weight sd_weight     n
+  &lt;fct&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;
+1 ctrl         5.03     0.583    10
+2 trt1         4.66     0.794    10
+3 trt2         5.53     0.443    10</code></pre>
+</div>
+</div>
+</section></section></section><section id="working-with-data-formats-long-vs-wide" class="level1"><h1>Working with Data Formats: Long vs Wide</h1>
+<p>Sometimes you need to reshape your data. Here’s how:</p>
+<section id="creating-example-data" class="level2"><h2 class="anchored" data-anchor-id="creating-example-data">Creating example data:</h2>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a small dataset</span></span>
+<span><span class="va">long_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  student <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Alice"</span>, <span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Bob"</span>, <span class="st">"Bob"</span><span class="op">)</span>,</span>
+<span>  test <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Math"</span>, <span class="st">"English"</span>, <span class="st">"Chemistry"</span>, <span class="st">"Math"</span>, <span class="st">"English"</span>, <span class="st">"Chemistry"</span><span class="op">)</span>,</span>
+<span>  score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">78</span>, <span class="fl">82</span>, <span class="fl">78</span>, <span class="fl">90</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">long_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  student      test score
+1   Alice      Math    85
+2   Alice   English    90
+3   Alice Chemistry    78
+4     Bob      Math    82
+5     Bob   English    78
+6     Bob Chemistry    90</code></pre>
+</div>
+</div>
+</section><section id="convert-to-wide-format" class="level2"><h2 class="anchored" data-anchor-id="convert-to-wide-format">Convert to wide format:</h2>
+<section id="base-r-approach-5" class="level3"><h3 class="anchored" data-anchor-id="base-r-approach-5">Base R approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using reshape function</span></span>
+<span><span class="va">wide_base</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html">reshape</a></span><span class="op">(</span><span class="va">long_data</span>, </span>
+<span>                     idvar <span class="op">=</span> <span class="st">"student"</span>, </span>
+<span>                     timevar <span class="op">=</span> <span class="st">"test"</span>, </span>
+<span>                     direction <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span>
+<span><span class="va">wide_base</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>  student score.Math score.English score.Chemistry
+1   Alice         85            90              78
+4     Bob         82            78              90</code></pre>
+</div>
+</div>
+</section><section id="tidyverse-approach-5" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-5">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wide_data</span> <span class="op">&lt;-</span> <span class="va">long_data</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">test</span>, </span>
+<span>              values_from <span class="op">=</span> <span class="va">score</span><span class="op">)</span></span>
+<span><span class="va">wide_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 2 × 4
+  student  Math English Chemistry
+  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Alice      85      90        78
+2 Bob        82      78        90</code></pre>
+</div>
+</div>
+</section></section><section id="convert-back-to-long-format" class="level2"><h2 class="anchored" data-anchor-id="convert-back-to-long-format">Convert back to long format:</h2>
+<section id="tidyverse-approach-6" class="level3"><h3 class="anchored" data-anchor-id="tidyverse-approach-6">Tidyverse approach:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wide_data</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">student</span>,</span>
+<span>               names_to <span class="op">=</span> <span class="st">"test"</span>,</span>
+<span>               values_to <span class="op">=</span> <span class="st">"score"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 6 × 3
+  student test      score
+  &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
+1 Alice   Math         85
+2 Alice   English      90
+3 Alice   Chemistry    78
+4 Bob     Math         82
+5 Bob     English      78
+6 Bob     Chemistry    90</code></pre>
+</div>
+</div>
+</section></section></section><section id="working-with-factors-forcats" class="level1"><h1>Working with Factors (forcats)</h1>
+<p>Factors are categorical variables. The order matters for plotting:</p>
+<div class="cell">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create example data</span></span>
+<span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
+<span>  category <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>, <span class="st">"High"</span><span class="op">)</span>,</span>
+<span>  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">15</span>, <span class="fl">35</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Default alphabetical order</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">plot_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">category</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Default Order (Alphabetical)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+<section id="reordering-factors" class="level2"><h2 class="anchored" data-anchor-id="reordering-factors">Reordering factors:</h2>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Specify custom order</span></span>
+<span><span class="va">plot_data</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>category <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">category</span>, <span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">category</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Custom Order"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="1650"></p>
+</div>
+</div>
+</section></section><section id="working-with-strings-stringr" class="level1"><h1>Working with Strings (stringr)</h1>
+<section id="common-string-operations" class="level2"><h2 class="anchored" data-anchor-id="common-string-operations">Common string operations:</h2>
+<div class="cell">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Example strings</span></span>
+<span><span class="va">messy_string</span> <span class="op">&lt;-</span> <span class="st">"  Hello   World!  "</span></span>
+<span><span class="va">names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"John Smith"</span>, <span class="st">"Jane Doe"</span>, <span class="st">"Bob Johnson"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove extra spaces</span></span>
+<span><span class="fu">str_trim</span><span class="op">(</span><span class="va">messy_string</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "Hello   World!"</code></pre>
+</div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">str_squish</span><span class="op">(</span><span class="va">messy_string</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "Hello World!"</code></pre>
+</div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Replace text</span></span>
+<span><span class="fu">str_replace</span><span class="op">(</span><span class="va">names</span>, <span class="st">"John"</span>, <span class="st">"Jonathan"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "Jonathan Smith"  "Jane Doe"        "Bob Jonathanson"</code></pre>
+</div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Detect pattern</span></span>
+<span><span class="fu">str_detect</span><span class="op">(</span><span class="va">names</span>, <span class="st">"John"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1]  TRUE FALSE  TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract substring</span></span>
+<span><span class="fu">str_sub</span><span class="op">(</span><span class="va">names</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code>[1] "John" "Jane" "Bob "</code></pre>
+</div>
+</div>
+</section></section><section id="practical-example-complete-analysis" class="level1"><h1>Practical Example: Complete Analysis</h1>
+<p>Let’s combine everything we learned:</p>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load and prepare data</span></span>
+<span><span class="va">mtcars</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Add car names as a column</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>car <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Select relevant columns</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">car</span>, <span class="va">mpg</span>, <span class="va">cyl</span>, <span class="va">hp</span>, <span class="va">wt</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Filter for efficient cars</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">&gt;</span> <span class="fl">20</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Add categorical variable</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>efficiency <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span></span>
+<span>    <span class="va">mpg</span> <span class="op">&gt;</span> <span class="fl">30</span> <span class="op">~</span> <span class="st">"High"</span>,</span>
+<span>    <span class="va">mpg</span> <span class="op">&gt;</span> <span class="fl">25</span> <span class="op">~</span> <span class="st">"Medium"</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Low"</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Sort by mpg</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Show top 5</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="custom-output"><code># A tibble: 5 × 6
+  car              mpg   cyl    hp    wt efficiency
+  &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Toyota Corolla  33.9     4    65  1.84 High      
+2 Fiat 128        32.4     4    66  2.2  High      
+3 Honda Civic     30.4     4    52  1.62 High      
+4 Lotus Europa    30.4     4   113  1.51 High      
+5 Fiat X1-9       27.3     4    66  1.94 Medium    </code></pre>
+</div>
+</div>
+</section><section id="summary-base-r-vs-tidyverse" class="level1"><h1>Summary: Base R vs Tidyverse</h1>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 31%">
+<col style="width: 43%">
+</colgroup>
+<thead><tr class="header">
+<th>Task</th>
+<th>Base R</th>
+<th>Tidyverse</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Select columns</td>
+<td><code>df[, c("col1", "col2")]</code></td>
+<td><code>df %&gt;% select(col1, col2)</code></td>
+</tr>
+<tr class="even">
+<td>Filter rows</td>
+<td><code>df[df$col &gt; 5, ]</code></td>
+<td><code>df %&gt;% filter(col &gt; 5)</code></td>
+</tr>
+<tr class="odd">
+<td>Add column</td>
+<td><code>df$new &lt;- df$old * 2</code></td>
+<td><code>df %&gt;% mutate(new = old * 2)</code></td>
+</tr>
+<tr class="even">
+<td>Sort</td>
+<td><code>df[order(df$col), ]</code></td>
+<td><code>df %&gt;% arrange(col)</code></td>
+</tr>
+<tr class="odd">
+<td>Group summary</td>
+<td><code><a href="https://rdrr.io/r/stats/aggregate.html">aggregate()</a></code></td>
+<td><code>df %&gt;% group_by() %&gt;% summarise()</code></td>
+</tr>
+</tbody>
+</table></section><section id="homework-assignment" class="level1"><h1>Homework Assignment</h1>
+<section id="part-1-basic-operations" class="level2"><h2 class="anchored" data-anchor-id="part-1-basic-operations">Part 1: Basic Operations</h2>
+<p>Using the built-in <code>iris</code> dataset:</p>
+</section><section id="plotting-challenge" class="level2"><h2 class="anchored" data-anchor-id="plotting-challenge">Plotting Challenge:</h2>
+<p>Create a visualization that shows the relationship between Petal.Length and Petal.Width, colored by Species, with: - Proper labels and title - A theme of your choice - Regression lines for each species</p>
+<p>And try more plotting as you wish!</p>
+</section><section id="problem-1-data-manipulation" class="level2"><h2 class="anchored" data-anchor-id="problem-1-data-manipulation">Problem 1: Data Manipulation</h2>
+<p>Using the built-in <code>iris</code> dataset:<br>
+1. Convert it to a tibble<br>
+2. Create a new column called <code>Petal.Ratio</code> that is <code>Petal.Length / Petal.Width</code><br>
+3. Filter for only “setosa” species with Sepal.Length &gt; 5<br>
+4. Select only the Species, Sepal.Length, and your new Petal.Ratio columns<br>
+5. Arrange the results by Petal.Ratio in descending order</p>
+</section><section id="problem-2-grouping-and-summarizing" class="level2"><h2 class="anchored" data-anchor-id="problem-2-grouping-and-summarizing">Problem 2: Grouping and Summarizing</h2>
+<p>Using the full <code>iris</code> dataset:</p>
+<ol type="1">
+<li>Group by Species<br>
+</li>
+<li>Calculate the following for each species:
+<ul>
+<li>Mean Sepal.Length</li>
+<li>Standard deviation of Sepal.Width</li>
+<li>Minimum and maximum Petal.Length</li>
+<li>Count of observations</li>
+</ul>
+</li>
+<li>Create a bar plot showing the mean Sepal.Length by Species</li>
+</ol></section><section id="problem-3-data-reshaping" class="level2"><h2 class="anchored" data-anchor-id="problem-3-data-reshaping">Problem 3: Data Reshaping</h2>
+<ol type="1">
+<li>Create a subset of iris with the first 3 rows of each species</li>
+<li>Add a row number within each species (call it “plant_id”)</li>
+<li>Convert this to wide format where:
+<ul>
+<li>Each row represents one plant_id</li>
+<li>Columns show the Sepal.Length for each species</li>
+</ul>
+</li>
+</ol></section><section id="submission-instructions" class="level2"><h2 class="anchored" data-anchor-id="submission-instructions">Submission Instructions:</h2>
+<ul>
+<li>Submit your R Markdown file</li>
+<li>Include comments explaining your code, discuss with your peer and improve</li>
+<li>Make sure your code runs without errors</li>
+<li>Due date: Friday 10PM BD Time</li>
+</ul></section><section id="grading-rubric" class="level2"><h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric:</h2>
+<ul>
+<li>Code correctness: 70%</li>
+<li>Code style and comments: 20%</li>
+<li>Output interpretation: 10%</li>
+</ul>
+<p>Good luck! Remember to use the pipe operator <code>%&gt;%</code> to make your code readable!</p>
 
 
 <!-- -->
 
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
   author = {Md Rasheduzzaman},
   title = {The Tidyverse},
-  date = {2025-04-24},
+  date = {2025-09-09},
   langid = {en},
   abstract = {Pipe (\%\textgreater\%), Tibbles, dplyr-verbs, long/wide
     format and more.}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Md Rasheduzzaman. 2025. <span>“The Tidyverse.”</span> April 24, 2025.
+Md Rasheduzzaman. 2025. <span>“The Tidyverse.”</span> September 9, 2025.
 </div></div></section></div></main><!-- /main --><hr>
 <div style="margin-top: 2em;">
   <p style="font-weight: 500; font-size: 1.1em;">
@@ -619,27 +1676,683 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The tidyverse"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Pipe (%&gt;%), Tibbles, dplyr-verbs, long/wide format and more."</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;style&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.content</span> {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  p {</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.quarto-body</span> {</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">justify</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/style&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb74" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The tidyverse"</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Pipe (%&gt;%), Tibbles, dplyr-verbs, long/wide format and more."</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is the Tidyverse?</span></span>
+<span id="cb74-14"><a href="#cb74-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-15"><a href="#cb74-15" aria-hidden="true" tabindex="-1"></a>The tidyverse is a collection of R packages designed to make data science easier and more intuitive. Think of it as a toolkit where all the tools work well together and share a similar design philosophy. The packages help you:</span>
+<span id="cb74-16"><a href="#cb74-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-17"><a href="#cb74-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Import data</span>
+<span id="cb74-18"><a href="#cb74-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Clean and organize data</span>
+<span id="cb74-19"><a href="#cb74-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Transform and manipulate data</span>
+<span id="cb74-20"><a href="#cb74-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Visualize data</span>
+<span id="cb74-21"><a href="#cb74-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Model data</span>
+<span id="cb74-22"><a href="#cb74-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-23"><a href="#cb74-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installing Tidyverse</span></span>
+<span id="cb74-24"><a href="#cb74-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-25"><a href="#cb74-25" aria-hidden="true" tabindex="-1"></a>Before we can use the tidyverse, we need to install it. First, let's install a helpful package manager called <span class="in">`pacman`</span>:</span>
+<span id="cb74-26"><a href="#cb74-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-29"><a href="#cb74-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-30"><a href="#cb74-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pacman if you haven't already</span></span>
+<span id="cb74-31"><a href="#cb74-31" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("pacman")</span></span>
+<span id="cb74-32"><a href="#cb74-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-33"><a href="#cb74-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pacman</span></span>
+<span id="cb74-34"><a href="#cb74-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb74-35"><a href="#cb74-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-36"><a href="#cb74-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Now use pacman to install and load tidyverse</span></span>
+<span id="cb74-37"><a href="#cb74-37" aria-hidden="true" tabindex="-1"></a><span class="co">#pacman::p_load(tidyverse)</span></span>
+<span id="cb74-38"><a href="#cb74-38" aria-hidden="true" tabindex="-1"></a><span class="co"># (install &amp;) load packages</span></span>
+<span id="cb74-39"><a href="#cb74-39" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb74-40"><a href="#cb74-40" aria-hidden="true" tabindex="-1"></a>  broom,</span>
+<span id="cb74-41"><a href="#cb74-41" aria-hidden="true" tabindex="-1"></a>  conflicted,</span>
+<span id="cb74-42"><a href="#cb74-42" aria-hidden="true" tabindex="-1"></a>  here,</span>
+<span id="cb74-43"><a href="#cb74-43" aria-hidden="true" tabindex="-1"></a>  janitor,</span>
+<span id="cb74-44"><a href="#cb74-44" aria-hidden="true" tabindex="-1"></a>  naniar,</span>
+<span id="cb74-45"><a href="#cb74-45" aria-hidden="true" tabindex="-1"></a>  readxl,</span>
+<span id="cb74-46"><a href="#cb74-46" aria-hidden="true" tabindex="-1"></a>  tibble,</span>
+<span id="cb74-47"><a href="#cb74-47" aria-hidden="true" tabindex="-1"></a>  tidyverse</span>
+<span id="cb74-48"><a href="#cb74-48" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb74-49"><a href="#cb74-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-50"><a href="#cb74-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative: traditional installation</span></span>
+<span id="cb74-51"><a href="#cb74-51" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb74-52"><a href="#cb74-52" aria-hidden="true" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb74-53"><a href="#cb74-53" aria-hidden="true" tabindex="-1"></a><span class="fu">conflicts_prefer</span>(dplyr<span class="sc">::</span>filter) </span>
+<span id="cb74-54"><a href="#cb74-54" aria-hidden="true" tabindex="-1"></a><span class="fu">conflicts_prefer</span>(dplyr<span class="sc">::</span>select)</span>
+<span id="cb74-55"><a href="#cb74-55" aria-hidden="true" tabindex="-1"></a><span class="co">#dplyr::select()</span></span>
+<span id="cb74-56"><a href="#cb74-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-57"><a href="#cb74-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-58"><a href="#cb74-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core Tidyverse Packages</span></span>
+<span id="cb74-59"><a href="#cb74-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-60"><a href="#cb74-60" aria-hidden="true" tabindex="-1"></a>Here are the main packages you'll use most often:</span>
+<span id="cb74-61"><a href="#cb74-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-62"><a href="#cb74-62" aria-hidden="true" tabindex="-1"></a>| Package                                                                                                                                             | Purpose                   |</span>
+<span id="cb74-63"><a href="#cb74-63" aria-hidden="true" tabindex="-1"></a>|:-----------------------------------|:-----------------------------------|</span>
+<span id="cb74-64"><a href="#cb74-64" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" width="30"/&gt;</span><span class="co">](https://ggplot2.tidyverse.org/)</span> **ggplot2** | Creating beautiful graphs |</span>
+<span id="cb74-65"><a href="#cb74-65" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png" width="30"/&gt;</span><span class="co">](https://dplyr.tidyverse.org/)</span> **dplyr**       | Data manipulation         |</span>
+<span id="cb74-66"><a href="#cb74-66" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tibble.png" width="30"/&gt;</span><span class="co">](https://tibble.tidyverse.org/)</span> **tibble**    | Modern data frames        |</span>
+<span id="cb74-67"><a href="#cb74-67" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyr.png" width="30"/&gt;</span><span class="co">](https://tidyr.tidyverse.org/)</span> **tidyr**       | Tidying data              |</span>
+<span id="cb74-68"><a href="#cb74-68" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readr.png" width="30"/&gt;</span><span class="co">](https://readr.tidyverse.org/)</span> **readr**       | Reading data files        |</span>
+<span id="cb74-69"><a href="#cb74-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-70"><a href="#cb74-70" aria-hidden="true" tabindex="-1"></a><span class="fu"># Understanding Data Tables: Base R vs Tidyverse</span></span>
+<span id="cb74-71"><a href="#cb74-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-72"><a href="#cb74-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Base R: data.frame</span></span>
+<span id="cb74-73"><a href="#cb74-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-74"><a href="#cb74-74" aria-hidden="true" tabindex="-1"></a>In base R, we work with <span class="in">`data.frame`</span> objects. Let's look at a built-in dataset:</span>
+<span id="cb74-75"><a href="#cb74-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-78"><a href="#cb74-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-79"><a href="#cb74-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R approach</span></span>
+<span id="cb74-80"><a href="#cb74-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the built-in PlantGrowth dataset</span></span>
+<span id="cb74-81"><a href="#cb74-81" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
+<span id="cb74-82"><a href="#cb74-82" aria-hidden="true" tabindex="-1"></a><span class="co">#data(iris)</span></span>
+<span id="cb74-83"><a href="#cb74-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-84"><a href="#cb74-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a copy to work with</span></span>
+<span id="cb74-85"><a href="#cb74-85" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> PlantGrowth</span>
+<span id="cb74-86"><a href="#cb74-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-87"><a href="#cb74-87" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows</span></span>
+<span id="cb74-88"><a href="#cb74-88" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb74-89"><a href="#cb74-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-90"><a href="#cb74-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure</span></span>
+<span id="cb74-91"><a href="#cb74-91" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb74-92"><a href="#cb74-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-93"><a href="#cb74-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Get summary statistics</span></span>
+<span id="cb74-94"><a href="#cb74-94" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span>
+<span id="cb74-95"><a href="#cb74-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-96"><a href="#cb74-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-97"><a href="#cb74-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Accessing columns in Base R:</span></span>
+<span id="cb74-98"><a href="#cb74-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-101"><a href="#cb74-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-102"><a href="#cb74-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: Using $ notation</span></span>
+<span id="cb74-103"><a href="#cb74-103" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>weight</span>
+<span id="cb74-104"><a href="#cb74-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-105"><a href="#cb74-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 2: Using brackets with column name</span></span>
+<span id="cb74-106"><a href="#cb74-106" aria-hidden="true" tabindex="-1"></a>df[, <span class="st">"weight"</span>]</span>
+<span id="cb74-107"><a href="#cb74-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-108"><a href="#cb74-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 3: Using brackets with column number</span></span>
+<span id="cb74-109"><a href="#cb74-109" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]</span>
+<span id="cb74-110"><a href="#cb74-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-111"><a href="#cb74-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-112"><a href="#cb74-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tidyverse: tibble</span></span>
+<span id="cb74-113"><a href="#cb74-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-114"><a href="#cb74-114" aria-hidden="true" tabindex="-1"></a>Now let's see how tidyverse handles the same data:</span>
+<span id="cb74-115"><a href="#cb74-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-118"><a href="#cb74-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-119"><a href="#cb74-119" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to tibble</span></span>
+<span id="cb74-120"><a href="#cb74-120" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(df)</span>
+<span id="cb74-121"><a href="#cb74-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-122"><a href="#cb74-122" aria-hidden="true" tabindex="-1"></a><span class="co"># View the tibble</span></span>
+<span id="cb74-123"><a href="#cb74-123" aria-hidden="true" tabindex="-1"></a>tbl</span>
+<span id="cb74-124"><a href="#cb74-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-125"><a href="#cb74-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-126"><a href="#cb74-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key differences with tibbles:</span></span>
+<span id="cb74-127"><a href="#cb74-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-128"><a href="#cb74-128" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Better printing**: Only shows what fits on screen</span>
+<span id="cb74-129"><a href="#cb74-129" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Type information**: Shows data types under column names</span>
+<span id="cb74-130"><a href="#cb74-130" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**No partial matching**: More predictable behavior</span>
+<span id="cb74-131"><a href="#cb74-131" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Preserves data types**: Doesn't automatically convert strings to factors</span>
+<span id="cb74-132"><a href="#cb74-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-133"><a href="#cb74-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Accessing columns in tidyverse:</span></span>
+<span id="cb74-134"><a href="#cb74-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-137"><a href="#cb74-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-138"><a href="#cb74-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Still can use $ notation</span></span>
+<span id="cb74-139"><a href="#cb74-139" aria-hidden="true" tabindex="-1"></a>tbl<span class="sc">$</span>weight</span>
+<span id="cb74-140"><a href="#cb74-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-141"><a href="#cb74-141" aria-hidden="true" tabindex="-1"></a><span class="co"># Or use select() function (we'll learn more about this)</span></span>
+<span id="cb74-142"><a href="#cb74-142" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(weight)</span>
+<span id="cb74-143"><a href="#cb74-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-144"><a href="#cb74-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-145"><a href="#cb74-145" aria-hidden="true" tabindex="-1"></a><span class="fu"># Creating Plots: Base R vs ggplot2</span></span>
+<span id="cb74-146"><a href="#cb74-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-147"><a href="#cb74-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Base R Plotting</span></span>
+<span id="cb74-148"><a href="#cb74-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-149"><a href="#cb74-149" aria-hidden="true" tabindex="-1"></a>Base R has simple plotting functions that are quick but limited:</span>
+<span id="cb74-150"><a href="#cb74-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-153"><a href="#cb74-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-154"><a href="#cb74-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb74-155"><a href="#cb74-155" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb74-156"><a href="#cb74-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb74-157"><a href="#cb74-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-158"><a href="#cb74-158" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot</span></span>
+<span id="cb74-159"><a href="#cb74-159" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df<span class="sc">$</span>weight, <span class="at">main =</span> <span class="st">"Weight Values"</span>,</span>
+<span id="cb74-160"><a href="#cb74-160" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>,</span>
+<span id="cb74-161"><a href="#cb74-161" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Weight"</span>)</span>
+<span id="cb74-162"><a href="#cb74-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-163"><a href="#cb74-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot with better labels</span></span>
+<span id="cb74-164"><a href="#cb74-164" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df<span class="sc">$</span>group, </span>
+<span id="cb74-165"><a href="#cb74-165" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Group Frequencies"</span>,</span>
+<span id="cb74-166"><a href="#cb74-166" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Treatment Group"</span>,</span>
+<span id="cb74-167"><a href="#cb74-167" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb74-168"><a href="#cb74-168" aria-hidden="true" tabindex="-1"></a>     <span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>))</span>
+<span id="cb74-169"><a href="#cb74-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-170"><a href="#cb74-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-171"><a href="#cb74-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggplot2 (Tidyverse)</span></span>
+<span id="cb74-172"><a href="#cb74-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-173"><a href="#cb74-173" aria-hidden="true" tabindex="-1"></a>ggplot2 builds plots in layers, like creating a painting. Let's break it down:</span>
+<span id="cb74-174"><a href="#cb74-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-175"><a href="#cb74-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### Understanding ggplot2 basics:</span></span>
+<span id="cb74-176"><a href="#cb74-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-177"><a href="#cb74-177" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**ggplot()** - Creates the canvas</span>
+<span id="cb74-178"><a href="#cb74-178" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**aes()** - Stands for "aesthetics" - tells ggplot which data to use</span>
+<span id="cb74-179"><a href="#cb74-179" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**+** - Adds layers to your plot (like adding paint to canvas)</span>
+<span id="cb74-180"><a href="#cb74-180" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="sc">\*\*</span>geom<span class="sc">\_\*</span>()<span class="sc">\*\*</span> - Geometric objects (the actual marks on the plot)</span>
+<span id="cb74-181"><a href="#cb74-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-182"><a href="#cb74-182" aria-hidden="true" tabindex="-1"></a>Let's build our plots step by step:</span>
+<span id="cb74-183"><a href="#cb74-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-186"><a href="#cb74-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-187"><a href="#cb74-187" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb74-188"><a href="#cb74-188" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb74-189"><a href="#cb74-189" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb74-190"><a href="#cb74-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-191"><a href="#cb74-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with index</span></span>
+<span id="cb74-192"><a href="#cb74-192" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Create the canvas and specify the data</span></span>
+<span id="cb74-193"><a href="#cb74-193" aria-hidden="true" tabindex="-1"></a><span class="co"># aes(x = ..., y = ...) maps data to x and y axes</span></span>
+<span id="cb74-194"><a href="#cb74-194" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> tbl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(tbl), <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb74-195"><a href="#cb74-195" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Add points to the plot</span></span>
+<span id="cb74-196"><a href="#cb74-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb74-197"><a href="#cb74-197" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Add labels</span></span>
+<span id="cb74-198"><a href="#cb74-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Weight Values"</span>, </span>
+<span id="cb74-199"><a href="#cb74-199" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Index"</span>, </span>
+<span id="cb74-200"><a href="#cb74-200" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Weight"</span>) <span class="sc">+</span></span>
+<span id="cb74-201"><a href="#cb74-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-202"><a href="#cb74-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-203"><a href="#cb74-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot</span></span>
+<span id="cb74-204"><a href="#cb74-204" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Create canvas with data mapping</span></span>
+<span id="cb74-205"><a href="#cb74-205" aria-hidden="true" tabindex="-1"></a><span class="co"># When we only specify x, ggplot counts occurrences</span></span>
+<span id="cb74-206"><a href="#cb74-206" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> tbl, <span class="fu">aes</span>(<span class="at">x =</span> group)) <span class="sc">+</span></span>
+<span id="cb74-207"><a href="#cb74-207" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Add bars (geom_bar counts automatically)</span></span>
+<span id="cb74-208"><a href="#cb74-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb74-209"><a href="#cb74-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Add descriptive labels</span></span>
+<span id="cb74-210"><a href="#cb74-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Group Frequencies"</span>, </span>
+<span id="cb74-211"><a href="#cb74-211" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Group"</span>, </span>
+<span id="cb74-212"><a href="#cb74-212" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb74-213"><a href="#cb74-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-214"><a href="#cb74-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-215"><a href="#cb74-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-216"><a href="#cb74-216" aria-hidden="true" tabindex="-1"></a><span class="fu">### Breaking down the code:</span></span>
+<span id="cb74-217"><a href="#cb74-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-218"><a href="#cb74-218" aria-hidden="true" tabindex="-1"></a>**For the scatter plot:**\</span>
+<span id="cb74-219"><a href="#cb74-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ggplot(data = tbl, ...)`</span> - Use the 'tbl' dataset\</span>
+<span id="cb74-220"><a href="#cb74-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`aes(x = 1:nrow(tbl), y = weight)`</span> - Put row numbers on x-axis, weight values on y-axis\</span>
+<span id="cb74-221"><a href="#cb74-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_point()`</span> - Draw points at each (x,y) coordinate\</span>
+<span id="cb74-222"><a href="#cb74-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="in">`+`</span> sign connects these layers together</span>
+<span id="cb74-223"><a href="#cb74-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-224"><a href="#cb74-224" aria-hidden="true" tabindex="-1"></a>**For the bar plot:**\</span>
+<span id="cb74-225"><a href="#cb74-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`aes(x = group)`</span> - Put group categories on x-axis\</span>
+<span id="cb74-226"><a href="#cb74-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_bar()`</span> - Count how many times each group appears and draw bars\</span>
+<span id="cb74-227"><a href="#cb74-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ggplot automatically counts for us!</span>
+<span id="cb74-228"><a href="#cb74-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-229"><a href="#cb74-229" aria-hidden="true" tabindex="-1"></a><span class="fu">### Think of it like a recipe:</span></span>
+<span id="cb74-230"><a href="#cb74-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-231"><a href="#cb74-231" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Start with your data (ggplot + data)\</span>
+<span id="cb74-232"><a href="#cb74-232" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Decide what goes where (aes)\</span>
+<span id="cb74-233"><a href="#cb74-233" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Choose how to show it (geom_point, geom_bar, etc.)\</span>
+<span id="cb74-234"><a href="#cb74-234" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Add finishing touches (labs, themes, colors)</span>
+<span id="cb74-235"><a href="#cb74-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-236"><a href="#cb74-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### Common geom\_ functions and how to explore more:</span></span>
+<span id="cb74-237"><a href="#cb74-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-238"><a href="#cb74-238" aria-hidden="true" tabindex="-1"></a>Here are the most common geometric layers you'll use:</span>
+<span id="cb74-239"><a href="#cb74-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-242"><a href="#cb74-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-243"><a href="#cb74-243" aria-hidden="true" tabindex="-1"></a><span class="co"># Create sample data for demonstrations</span></span>
+<span id="cb74-244"><a href="#cb74-244" aria-hidden="true" tabindex="-1"></a>demo_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb74-245"><a href="#cb74-245" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb74-246"><a href="#cb74-246" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">10</span>),</span>
+<span id="cb74-247"><a href="#cb74-247" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="dv">5</span>)</span>
+<span id="cb74-248"><a href="#cb74-248" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb74-249"><a href="#cb74-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-250"><a href="#cb74-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-251"><a href="#cb74-251" aria-hidden="true" tabindex="-1"></a>**Essential geom\_ functions:**</span>
+<span id="cb74-252"><a href="#cb74-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-253"><a href="#cb74-253" aria-hidden="true" tabindex="-1"></a>| geom<span class="sc">\_</span> function    | What it draws           | When to use                              |</span>
+<span id="cb74-254"><a href="#cb74-254" aria-hidden="true" tabindex="-1"></a>|:-----------------------|:-----------------------|:-----------------------|</span>
+<span id="cb74-255"><a href="#cb74-255" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_point()`</span>     | Points/dots             | Scatter plots, showing individual values |</span>
+<span id="cb74-256"><a href="#cb74-256" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_line()`</span>      | Lines connecting points | Time series, trends                      |</span>
+<span id="cb74-257"><a href="#cb74-257" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_bar()`</span>       | Bars (counts data)      | Frequency of categories                  |</span>
+<span id="cb74-258"><a href="#cb74-258" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_col()`</span>       | Bars (uses y values)    | When you already have heights            |</span>
+<span id="cb74-259"><a href="#cb74-259" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_histogram()`</span> | Histogram               | Distribution of continuous data          |</span>
+<span id="cb74-260"><a href="#cb74-260" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_boxplot()`</span>   | Box plots               | Comparing distributions between groups   |</span>
+<span id="cb74-261"><a href="#cb74-261" aria-hidden="true" tabindex="-1"></a>| <span class="in">`geom_smooth()`</span>    | Trend lines             | Adding regression/smooth lines           |</span>
+<span id="cb74-262"><a href="#cb74-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-263"><a href="#cb74-263" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quick examples:</span></span>
+<span id="cb74-264"><a href="#cb74-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-267"><a href="#cb74-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-268"><a href="#cb74-268" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 3</span></span>
+<span id="cb74-269"><a href="#cb74-269" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 4</span></span>
+<span id="cb74-270"><a href="#cb74-270" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb74-271"><a href="#cb74-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-272"><a href="#cb74-272" aria-hidden="true" tabindex="-1"></a><span class="co"># Line plot</span></span>
+<span id="cb74-273"><a href="#cb74-273" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(demo_data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb74-274"><a href="#cb74-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb74-275"><a href="#cb74-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_line()"</span>,</span>
+<span id="cb74-276"><a href="#cb74-276" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"X"</span>,</span>
+<span id="cb74-277"><a href="#cb74-277" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Y"</span>) <span class="sc">+</span></span>
+<span id="cb74-278"><a href="#cb74-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-279"><a href="#cb74-279" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb74-280"><a href="#cb74-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-281"><a href="#cb74-281" aria-hidden="true" tabindex="-1"></a><span class="co"># Points + smooth line</span></span>
+<span id="cb74-282"><a href="#cb74-282" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> demo_data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb74-283"><a href="#cb74-283" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb74-284"><a href="#cb74-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb74-285"><a href="#cb74-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_point() + geom_smooth()"</span>) <span class="sc">+</span></span>
+<span id="cb74-286"><a href="#cb74-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-287"><a href="#cb74-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-288"><a href="#cb74-288" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot by group</span></span>
+<span id="cb74-289"><a href="#cb74-289" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(demo_data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb74-290"><a href="#cb74-290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb74-291"><a href="#cb74-291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, </span>
+<span id="cb74-292"><a href="#cb74-292" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"point"</span>, </span>
+<span id="cb74-293"><a href="#cb74-293" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span> <span class="dv">23</span>, </span>
+<span id="cb74-294"><a href="#cb74-294" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb74-295"><a href="#cb74-295" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb74-296"><a href="#cb74-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb74-297"><a href="#cb74-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_boxplot()"</span>) <span class="sc">+</span></span>
+<span id="cb74-298"><a href="#cb74-298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-299"><a href="#cb74-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-300"><a href="#cb74-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-301"><a href="#cb74-301" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`?pch`</span> or <span class="in">`?shape`</span> to know more about shapes.</span>
+<span id="cb74-302"><a href="#cb74-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-303"><a href="#cb74-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### How to discover more geom\_ functions:</span></span>
+<span id="cb74-304"><a href="#cb74-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-305"><a href="#cb74-305" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**In RStudio**: Type <span class="in">`geom_`</span> and press TAB to see all available options</span>
+<span id="cb74-306"><a href="#cb74-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-307"><a href="#cb74-307" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
+<span id="cb74-308"><a href="#cb74-308" aria-hidden="true" tabindex="-1"></a>    <span class="co">#| eval: false</span></span>
+<span id="cb74-309"><a href="#cb74-309" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Try this in your console:</span></span>
+<span id="cb74-310"><a href="#cb74-310" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ggplot(data, aes(x, y)) + geom_[TAB]</span></span>
+<span id="cb74-311"><a href="#cb74-311" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
+<span id="cb74-312"><a href="#cb74-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-313"><a href="#cb74-313" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Get help on any function**:</span>
+<span id="cb74-314"><a href="#cb74-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-315"><a href="#cb74-315" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
+<span id="cb74-316"><a href="#cb74-316" aria-hidden="true" tabindex="-1"></a>    <span class="co">#| eval: false</span></span>
+<span id="cb74-317"><a href="#cb74-317" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Learn about a specific geom</span></span>
+<span id="cb74-318"><a href="#cb74-318" aria-hidden="true" tabindex="-1"></a>    ?geom_violin</span>
+<span id="cb74-319"><a href="#cb74-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-320"><a href="#cb74-320" aria-hidden="true" tabindex="-1"></a>    <span class="co"># See examples</span></span>
+<span id="cb74-321"><a href="#cb74-321" aria-hidden="true" tabindex="-1"></a>    <span class="fu">example</span>(geom_violin)</span>
+<span id="cb74-322"><a href="#cb74-322" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
+<span id="cb74-323"><a href="#cb74-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-324"><a href="#cb74-324" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Useful resources**:</span>
+<span id="cb74-325"><a href="#cb74-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-326"><a href="#cb74-326" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">ggplot2 cheatsheet</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)</span> - Visual guide to all geoms</span>
+<span id="cb74-327"><a href="#cb74-327" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">R Graph Gallery</span><span class="co">](https://r-graph-gallery.com/)</span> - Examples of every plot type</span>
+<span id="cb74-328"><a href="#cb74-328" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">ggplot2 documentation</span><span class="co">](https://ggplot2.tidyverse.org/reference/#geoms)</span> - Official reference</span>
+<span id="cb74-329"><a href="#cb74-329" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">from Data to Viz</span><span class="co">](https://www.data-to-viz.com)</span> - Has robust way to show plotting options</span>
+<span id="cb74-330"><a href="#cb74-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-331"><a href="#cb74-331" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Experiment!** Try different geoms with your data:</span>
+<span id="cb74-332"><a href="#cb74-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-333"><a href="#cb74-333" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
+<span id="cb74-334"><a href="#cb74-334" aria-hidden="true" tabindex="-1"></a>    <span class="co">#| eval: false</span></span>
+<span id="cb74-335"><a href="#cb74-335" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Start with basic plot</span></span>
+<span id="cb74-336"><a href="#cb74-336" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tbl, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> weight))</span>
+<span id="cb74-337"><a href="#cb74-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-338"><a href="#cb74-338" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Try different visualizations</span></span>
+<span id="cb74-339"><a href="#cb74-339" aria-hidden="true" tabindex="-1"></a>    p <span class="sc">+</span> <span class="fu">geom_boxplot</span>()    <span class="co"># Box plot</span></span>
+<span id="cb74-340"><a href="#cb74-340" aria-hidden="true" tabindex="-1"></a>    p <span class="sc">+</span> <span class="fu">geom_violin</span>()     <span class="co"># Violin plot</span></span>
+<span id="cb74-341"><a href="#cb74-341" aria-hidden="true" tabindex="-1"></a>    p <span class="sc">+</span> <span class="fu">geom_jitter</span>()     <span class="co"># Scattered points</span></span>
+<span id="cb74-342"><a href="#cb74-342" aria-hidden="true" tabindex="-1"></a>    p <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">"y"</span>)  <span class="co"># Dot plot</span></span>
+<span id="cb74-343"><a href="#cb74-343" aria-hidden="true" tabindex="-1"></a>    <span class="in">```</span></span>
+<span id="cb74-344"><a href="#cb74-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-345"><a href="#cb74-345" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pro tip: Layer multiple geoms!</span></span>
+<span id="cb74-346"><a href="#cb74-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-349"><a href="#cb74-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-350"><a href="#cb74-350" aria-hidden="true" tabindex="-1"></a><span class="co"># You can combine multiple geoms for rich visualizations</span></span>
+<span id="cb74-351"><a href="#cb74-351" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tbl, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb74-352"><a href="#cb74-352" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>      <span class="co"># Semi-transparent box plot</span></span>
+<span id="cb74-353"><a href="#cb74-353" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>        <span class="co"># Add individual points</span></span>
+<span id="cb74-354"><a href="#cb74-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Combining geom_boxplot() + geom_jitter()"</span>) <span class="sc">+</span></span>
+<span id="cb74-355"><a href="#cb74-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-356"><a href="#cb74-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-357"><a href="#cb74-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-358"><a href="#cb74-358" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Magic of the Pipe (`%&gt;%`) Operator</span></span>
+<span id="cb74-359"><a href="#cb74-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-360"><a href="#cb74-360" aria-hidden="true" tabindex="-1"></a>The pipe operator is one of the most powerful features in tidyverse. It makes your code readable by allowing you to chain operations together. It takes the output of the expression on its left and passes it as the first argument to the function on its right</span>
+<span id="cb74-361"><a href="#cb74-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-362"><a href="#cb74-362" aria-hidden="true" tabindex="-1"></a><span class="fu">## Without pipes (Base R approach):</span></span>
+<span id="cb74-363"><a href="#cb74-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-366"><a href="#cb74-366" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-367"><a href="#cb74-367" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Get ctrl group only</span></span>
+<span id="cb74-368"><a href="#cb74-368" aria-hidden="true" tabindex="-1"></a>ctrl_only <span class="ot">&lt;-</span> df[df<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"ctrl"</span>, ]</span>
+<span id="cb74-369"><a href="#cb74-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-370"><a href="#cb74-370" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Extract weight values</span></span>
+<span id="cb74-371"><a href="#cb74-371" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> ctrl_only<span class="sc">$</span>weight</span>
+<span id="cb74-372"><a href="#cb74-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-373"><a href="#cb74-373" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Calculate square root</span></span>
+<span id="cb74-374"><a href="#cb74-374" aria-hidden="true" tabindex="-1"></a>sqrt_weights <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(weights)</span>
+<span id="cb74-375"><a href="#cb74-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-376"><a href="#cb74-376" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Round to 1 decimal</span></span>
+<span id="cb74-377"><a href="#cb74-377" aria-hidden="true" tabindex="-1"></a>rounded <span class="ot">&lt;-</span> <span class="fu">round</span>(sqrt_weights, <span class="dv">2</span>)</span>
+<span id="cb74-378"><a href="#cb74-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-379"><a href="#cb74-379" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Sort</span></span>
+<span id="cb74-380"><a href="#cb74-380" aria-hidden="true" tabindex="-1"></a>sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(rounded, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb74-381"><a href="#cb74-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-382"><a href="#cb74-382" aria-hidden="true" tabindex="-1"></a>sorted</span>
+<span id="cb74-383"><a href="#cb74-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-384"><a href="#cb74-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-385"><a href="#cb74-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## With pipes (Tidyverse approach):</span></span>
+<span id="cb74-386"><a href="#cb74-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-389"><a href="#cb74-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-390"><a href="#cb74-390" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb74-391"><a href="#cb74-391" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"ctrl"</span>) <span class="sc">%&gt;%</span>   <span class="co"># Step 1: Get ctrl group</span></span>
+<span id="cb74-392"><a href="#cb74-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(weight) <span class="sc">%&gt;%</span>              <span class="co"># Step 2: Extract weights</span></span>
+<span id="cb74-393"><a href="#cb74-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>                    <span class="co"># Step 3: Square root</span></span>
+<span id="cb74-394"><a href="#cb74-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span>                  <span class="co"># Step 4: Round</span></span>
+<span id="cb74-395"><a href="#cb74-395" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(<span class="at">decreasing =</span> <span class="cn">TRUE</span>)                        <span class="co"># Step 5: Sort</span></span>
+<span id="cb74-396"><a href="#cb74-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-397"><a href="#cb74-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-398"><a href="#cb74-398" aria-hidden="true" tabindex="-1"></a>**Tip**: To type <span class="in">`%&gt;%`</span> quickly in RStudio, use <span class="in">`Ctrl+Shift+M`</span> (Windows/Linux) or <span class="in">`Cmd+Shift+M`</span> (Mac)</span>
+<span id="cb74-399"><a href="#cb74-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-400"><a href="#cb74-400" aria-hidden="true" tabindex="-1"></a><span class="fu"># Essential dplyr Functions</span></span>
+<span id="cb74-401"><a href="#cb74-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-402"><a href="#cb74-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. `mutate()` - Add or modify columns</span></span>
+<span id="cb74-403"><a href="#cb74-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-404"><a href="#cb74-404" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-405"><a href="#cb74-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-408"><a href="#cb74-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-409"><a href="#cb74-409" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new column</span></span>
+<span id="cb74-410"><a href="#cb74-410" aria-hidden="true" tabindex="-1"></a>df_copy <span class="ot">&lt;-</span> df</span>
+<span id="cb74-411"><a href="#cb74-411" aria-hidden="true" tabindex="-1"></a>df_copy<span class="sc">$</span>weight_kg <span class="ot">&lt;-</span> df_copy<span class="sc">$</span>weight <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb74-412"><a href="#cb74-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-413"><a href="#cb74-413" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify existing column</span></span>
+<span id="cb74-414"><a href="#cb74-414" aria-hidden="true" tabindex="-1"></a>df_copy<span class="sc">$</span>weight <span class="ot">&lt;-</span> df_copy<span class="sc">$</span>weight <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb74-415"><a href="#cb74-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-416"><a href="#cb74-416" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_copy)</span>
+<span id="cb74-417"><a href="#cb74-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-418"><a href="#cb74-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-419"><a href="#cb74-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-420"><a href="#cb74-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-423"><a href="#cb74-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-424"><a href="#cb74-424" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb74-425"><a href="#cb74-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb74-426"><a href="#cb74-426" aria-hidden="true" tabindex="-1"></a>    <span class="at">weight_kg =</span> weight<span class="sc">/</span><span class="dv">1000</span>,  <span class="co"># Add new column</span></span>
+<span id="cb74-427"><a href="#cb74-427" aria-hidden="true" tabindex="-1"></a>    <span class="at">weight =</span> weight<span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb74-428"><a href="#cb74-428" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-429"><a href="#cb74-429" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb74-430"><a href="#cb74-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-431"><a href="#cb74-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-432"><a href="#cb74-432" aria-hidden="true" tabindex="-1"></a>*N.B. We could make the doubling operation on the same `weight` column as well. It would make in-place modification. You have to think when to do that operation then.*</span>
+<span id="cb74-433"><a href="#cb74-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-434"><a href="#cb74-434" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. `select()` - Choose columns</span></span>
+<span id="cb74-435"><a href="#cb74-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-436"><a href="#cb74-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-437"><a href="#cb74-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-440"><a href="#cb74-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-441"><a href="#cb74-441" aria-hidden="true" tabindex="-1"></a><span class="co"># Select specific columns</span></span>
+<span id="cb74-442"><a href="#cb74-442" aria-hidden="true" tabindex="-1"></a>df_subset <span class="ot">&lt;-</span> df[<span class="dv">0</span><span class="sc">:</span><span class="fu">nrow</span>(df), <span class="fu">c</span>(<span class="st">"group"</span>, <span class="st">"weight"</span>)]</span>
+<span id="cb74-443"><a href="#cb74-443" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_subset)</span>
+<span id="cb74-444"><a href="#cb74-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-445"><a href="#cb74-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-446"><a href="#cb74-446" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-447"><a href="#cb74-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-450"><a href="#cb74-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-451"><a href="#cb74-451" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb74-452"><a href="#cb74-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, weight)</span>
+<span id="cb74-453"><a href="#cb74-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-454"><a href="#cb74-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-455"><a href="#cb74-455" aria-hidden="true" tabindex="-1"></a>*N.B. `select()` helps to rearrange columns as well.*</span>
+<span id="cb74-456"><a href="#cb74-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-457"><a href="#cb74-457" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. `filter()` - Choose rows</span></span>
+<span id="cb74-458"><a href="#cb74-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-459"><a href="#cb74-459" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-460"><a href="#cb74-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-463"><a href="#cb74-463" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-464"><a href="#cb74-464" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for weight &gt; 5</span></span>
+<span id="cb74-465"><a href="#cb74-465" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> df[df<span class="sc">$</span>weight <span class="sc">&gt;</span> <span class="dv">5</span>, ]</span>
+<span id="cb74-466"><a href="#cb74-466" aria-hidden="true" tabindex="-1"></a>df_filtered</span>
+<span id="cb74-467"><a href="#cb74-467" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-468"><a href="#cb74-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-469"><a href="#cb74-469" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-470"><a href="#cb74-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-473"><a href="#cb74-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-474"><a href="#cb74-474" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb74-475"><a href="#cb74-475" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(weight <span class="sc">&gt;</span> <span class="dv">5</span>)</span>
+<span id="cb74-476"><a href="#cb74-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-477"><a href="#cb74-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-478"><a href="#cb74-478" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. `arrange()` - Sort rows</span></span>
+<span id="cb74-479"><a href="#cb74-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-480"><a href="#cb74-480" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-481"><a href="#cb74-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-484"><a href="#cb74-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-485"><a href="#cb74-485" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by weight</span></span>
+<span id="cb74-486"><a href="#cb74-486" aria-hidden="true" tabindex="-1"></a>df_sorted <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df<span class="sc">$</span>weight), ]</span>
+<span id="cb74-487"><a href="#cb74-487" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_sorted)</span>
+<span id="cb74-488"><a href="#cb74-488" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-489"><a href="#cb74-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-492"><a href="#cb74-492" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-493"><a href="#cb74-493" aria-hidden="true" tabindex="-1"></a>df_sorted <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df<span class="sc">$</span>weight, <span class="at">decreasing=</span><span class="cn">TRUE</span>), ]</span>
+<span id="cb74-494"><a href="#cb74-494" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-495"><a href="#cb74-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-496"><a href="#cb74-496" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-497"><a href="#cb74-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-500"><a href="#cb74-500" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-501"><a href="#cb74-501" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb74-502"><a href="#cb74-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(weight)</span>
+<span id="cb74-503"><a href="#cb74-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-504"><a href="#cb74-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-505"><a href="#cb74-505" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. `summarise()` with `group_by()` - Calculate summaries</span></span>
+<span id="cb74-506"><a href="#cb74-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-507"><a href="#cb74-507" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-508"><a href="#cb74-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-511"><a href="#cb74-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-512"><a href="#cb74-512" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean by group</span></span>
+<span id="cb74-513"><a href="#cb74-513" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> df, <span class="at">FUN =</span> mean)</span>
+<span id="cb74-514"><a href="#cb74-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-515"><a href="#cb74-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-516"><a href="#cb74-516" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-517"><a href="#cb74-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-520"><a href="#cb74-520" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-521"><a href="#cb74-521" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb74-522"><a href="#cb74-522" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-523"><a href="#cb74-523" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb74-524"><a href="#cb74-524" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_weight =</span> <span class="fu">mean</span>(weight),</span>
+<span id="cb74-525"><a href="#cb74-525" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_weight =</span> <span class="fu">sd</span>(weight),</span>
+<span id="cb74-526"><a href="#cb74-526" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb74-527"><a href="#cb74-527" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb74-528"><a href="#cb74-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-529"><a href="#cb74-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-530"><a href="#cb74-530" aria-hidden="true" tabindex="-1"></a><span class="fu"># Working with Data Formats: Long vs Wide</span></span>
+<span id="cb74-531"><a href="#cb74-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-532"><a href="#cb74-532" aria-hidden="true" tabindex="-1"></a>Sometimes you need to reshape your data. Here's how:</span>
+<span id="cb74-533"><a href="#cb74-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-534"><a href="#cb74-534" aria-hidden="true" tabindex="-1"></a><span class="fu">## Creating example data:</span></span>
+<span id="cb74-535"><a href="#cb74-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-538"><a href="#cb74-538" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-539"><a href="#cb74-539" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a small dataset</span></span>
+<span id="cb74-540"><a href="#cb74-540" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb74-541"><a href="#cb74-541" aria-hidden="true" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Alice"</span>, <span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Bob"</span>, <span class="st">"Bob"</span>),</span>
+<span id="cb74-542"><a href="#cb74-542" aria-hidden="true" tabindex="-1"></a>  <span class="at">test =</span> <span class="fu">c</span>(<span class="st">"Math"</span>, <span class="st">"English"</span>, <span class="st">"Chemistry"</span>, <span class="st">"Math"</span>, <span class="st">"English"</span>, <span class="st">"Chemistry"</span>),</span>
+<span id="cb74-543"><a href="#cb74-543" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">78</span>, <span class="dv">90</span>)</span>
+<span id="cb74-544"><a href="#cb74-544" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb74-545"><a href="#cb74-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-546"><a href="#cb74-546" aria-hidden="true" tabindex="-1"></a>long_data</span>
+<span id="cb74-547"><a href="#cb74-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-548"><a href="#cb74-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-549"><a href="#cb74-549" aria-hidden="true" tabindex="-1"></a><span class="fu">## Convert to wide format:</span></span>
+<span id="cb74-550"><a href="#cb74-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-551"><a href="#cb74-551" aria-hidden="true" tabindex="-1"></a><span class="fu">### Base R approach:</span></span>
+<span id="cb74-552"><a href="#cb74-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-555"><a href="#cb74-555" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-556"><a href="#cb74-556" aria-hidden="true" tabindex="-1"></a><span class="co"># Using reshape function</span></span>
+<span id="cb74-557"><a href="#cb74-557" aria-hidden="true" tabindex="-1"></a>wide_base <span class="ot">&lt;-</span> <span class="fu">reshape</span>(long_data, </span>
+<span id="cb74-558"><a href="#cb74-558" aria-hidden="true" tabindex="-1"></a>                     <span class="at">idvar =</span> <span class="st">"student"</span>, </span>
+<span id="cb74-559"><a href="#cb74-559" aria-hidden="true" tabindex="-1"></a>                     <span class="at">timevar =</span> <span class="st">"test"</span>, </span>
+<span id="cb74-560"><a href="#cb74-560" aria-hidden="true" tabindex="-1"></a>                     <span class="at">direction =</span> <span class="st">"wide"</span>)</span>
+<span id="cb74-561"><a href="#cb74-561" aria-hidden="true" tabindex="-1"></a>wide_base</span>
+<span id="cb74-562"><a href="#cb74-562" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-563"><a href="#cb74-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-564"><a href="#cb74-564" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-565"><a href="#cb74-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-568"><a href="#cb74-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-569"><a href="#cb74-569" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> long_data <span class="sc">%&gt;%</span> </span>
+<span id="cb74-570"><a href="#cb74-570" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> test, </span>
+<span id="cb74-571"><a href="#cb74-571" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> score)</span>
+<span id="cb74-572"><a href="#cb74-572" aria-hidden="true" tabindex="-1"></a>wide_data</span>
+<span id="cb74-573"><a href="#cb74-573" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-574"><a href="#cb74-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-575"><a href="#cb74-575" aria-hidden="true" tabindex="-1"></a><span class="fu">## Convert back to long format:</span></span>
+<span id="cb74-576"><a href="#cb74-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-577"><a href="#cb74-577" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidyverse approach:</span></span>
+<span id="cb74-578"><a href="#cb74-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-581"><a href="#cb74-581" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-582"><a href="#cb74-582" aria-hidden="true" tabindex="-1"></a>wide_data <span class="sc">%&gt;%</span> </span>
+<span id="cb74-583"><a href="#cb74-583" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>student,</span>
+<span id="cb74-584"><a href="#cb74-584" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"test"</span>,</span>
+<span id="cb74-585"><a href="#cb74-585" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"score"</span>)</span>
+<span id="cb74-586"><a href="#cb74-586" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-587"><a href="#cb74-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-588"><a href="#cb74-588" aria-hidden="true" tabindex="-1"></a><span class="fu"># Working with Factors (forcats)</span></span>
+<span id="cb74-589"><a href="#cb74-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-590"><a href="#cb74-590" aria-hidden="true" tabindex="-1"></a>Factors are categorical variables. The order matters for plotting:</span>
+<span id="cb74-591"><a href="#cb74-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-594"><a href="#cb74-594" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-595"><a href="#cb74-595" aria-hidden="true" tabindex="-1"></a><span class="co"># Create example data</span></span>
+<span id="cb74-596"><a href="#cb74-596" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb74-597"><a href="#cb74-597" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>, <span class="st">"High"</span>),</span>
+<span id="cb74-598"><a href="#cb74-598" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">15</span>, <span class="dv">35</span>)</span>
+<span id="cb74-599"><a href="#cb74-599" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb74-600"><a href="#cb74-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-601"><a href="#cb74-601" aria-hidden="true" tabindex="-1"></a><span class="co"># Default alphabetical order</span></span>
+<span id="cb74-602"><a href="#cb74-602" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb74-603"><a href="#cb74-603" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb74-604"><a href="#cb74-604" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Default Order (Alphabetical)"</span>)</span>
+<span id="cb74-605"><a href="#cb74-605" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-606"><a href="#cb74-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-607"><a href="#cb74-607" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reordering factors:</span></span>
+<span id="cb74-608"><a href="#cb74-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-611"><a href="#cb74-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-612"><a href="#cb74-612" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify custom order</span></span>
+<span id="cb74-613"><a href="#cb74-613" aria-hidden="true" tabindex="-1"></a>plot_data <span class="sc">%&gt;%</span> </span>
+<span id="cb74-614"><a href="#cb74-614" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">category =</span> <span class="fu">fct_relevel</span>(category, <span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-615"><a href="#cb74-615" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb74-616"><a href="#cb74-616" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb74-617"><a href="#cb74-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Custom Order"</span>) <span class="sc">+</span></span>
+<span id="cb74-618"><a href="#cb74-618" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb74-619"><a href="#cb74-619" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-620"><a href="#cb74-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-621"><a href="#cb74-621" aria-hidden="true" tabindex="-1"></a><span class="fu"># Working with Strings (stringr)</span></span>
+<span id="cb74-622"><a href="#cb74-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-623"><a href="#cb74-623" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common string operations:</span></span>
+<span id="cb74-624"><a href="#cb74-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-627"><a href="#cb74-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-628"><a href="#cb74-628" aria-hidden="true" tabindex="-1"></a><span class="co"># Example strings</span></span>
+<span id="cb74-629"><a href="#cb74-629" aria-hidden="true" tabindex="-1"></a>messy_string <span class="ot">&lt;-</span> <span class="st">"  Hello   World!  "</span></span>
+<span id="cb74-630"><a href="#cb74-630" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"John Smith"</span>, <span class="st">"Jane Doe"</span>, <span class="st">"Bob Johnson"</span>)</span>
+<span id="cb74-631"><a href="#cb74-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-632"><a href="#cb74-632" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove extra spaces</span></span>
+<span id="cb74-633"><a href="#cb74-633" aria-hidden="true" tabindex="-1"></a><span class="fu">str_trim</span>(messy_string)</span>
+<span id="cb74-634"><a href="#cb74-634" aria-hidden="true" tabindex="-1"></a><span class="fu">str_squish</span>(messy_string)</span>
+<span id="cb74-635"><a href="#cb74-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-636"><a href="#cb74-636" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace text</span></span>
+<span id="cb74-637"><a href="#cb74-637" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(names, <span class="st">"John"</span>, <span class="st">"Jonathan"</span>)</span>
+<span id="cb74-638"><a href="#cb74-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-639"><a href="#cb74-639" aria-hidden="true" tabindex="-1"></a><span class="co"># Detect pattern</span></span>
+<span id="cb74-640"><a href="#cb74-640" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(names, <span class="st">"John"</span>)</span>
+<span id="cb74-641"><a href="#cb74-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-642"><a href="#cb74-642" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract substring</span></span>
+<span id="cb74-643"><a href="#cb74-643" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(names, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb74-644"><a href="#cb74-644" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-645"><a href="#cb74-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-646"><a href="#cb74-646" aria-hidden="true" tabindex="-1"></a><span class="fu"># Practical Example: Complete Analysis</span></span>
+<span id="cb74-647"><a href="#cb74-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-648"><a href="#cb74-648" aria-hidden="true" tabindex="-1"></a>Let's combine everything we learned:</span>
+<span id="cb74-649"><a href="#cb74-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-652"><a href="#cb74-652" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-653"><a href="#cb74-653" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and prepare data</span></span>
+<span id="cb74-654"><a href="#cb74-654" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb74-655"><a href="#cb74-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb74-656"><a href="#cb74-656" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add car names as a column</span></span>
+<span id="cb74-657"><a href="#cb74-657" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">car =</span> <span class="fu">rownames</span>(mtcars)) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-658"><a href="#cb74-658" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select relevant columns</span></span>
+<span id="cb74-659"><a href="#cb74-659" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(car, mpg, cyl, hp, wt) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-660"><a href="#cb74-660" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter for efficient cars</span></span>
+<span id="cb74-661"><a href="#cb74-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-662"><a href="#cb74-662" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add categorical variable</span></span>
+<span id="cb74-663"><a href="#cb74-663" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">efficiency =</span> <span class="fu">case_when</span>(</span>
+<span id="cb74-664"><a href="#cb74-664" aria-hidden="true" tabindex="-1"></a>    mpg <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"High"</span>,</span>
+<span id="cb74-665"><a href="#cb74-665" aria-hidden="true" tabindex="-1"></a>    mpg <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb74-666"><a href="#cb74-666" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Low"</span></span>
+<span id="cb74-667"><a href="#cb74-667" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-668"><a href="#cb74-668" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sort by mpg</span></span>
+<span id="cb74-669"><a href="#cb74-669" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg)) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-670"><a href="#cb74-670" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show top 5</span></span>
+<span id="cb74-671"><a href="#cb74-671" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb74-672"><a href="#cb74-672" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-673"><a href="#cb74-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-674"><a href="#cb74-674" aria-hidden="true" tabindex="-1"></a><span class="fu"># Summary: Base R vs Tidyverse</span></span>
+<span id="cb74-675"><a href="#cb74-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-676"><a href="#cb74-676" aria-hidden="true" tabindex="-1"></a>| Task           | Base R                    | Tidyverse                           |</span>
+<span id="cb74-677"><a href="#cb74-677" aria-hidden="true" tabindex="-1"></a>|------------------|-----------------------|-------------------------------|</span>
+<span id="cb74-678"><a href="#cb74-678" aria-hidden="true" tabindex="-1"></a>| Select columns | <span class="in">`df[, c("col1", "col2")]`</span> | <span class="in">`df %&gt;% select(col1, col2)`</span>         |</span>
+<span id="cb74-679"><a href="#cb74-679" aria-hidden="true" tabindex="-1"></a>| Filter rows    | <span class="in">`df[df$col &gt; 5, ]`</span>        | <span class="in">`df %&gt;% filter(col &gt; 5)`</span>            |</span>
+<span id="cb74-680"><a href="#cb74-680" aria-hidden="true" tabindex="-1"></a>| Add column     | <span class="in">`df$new &lt;- df$old * 2`</span>    | <span class="in">`df %&gt;% mutate(new = old * 2)`</span>      |</span>
+<span id="cb74-681"><a href="#cb74-681" aria-hidden="true" tabindex="-1"></a>| Sort           | <span class="in">`df[order(df$col), ]`</span>     | <span class="in">`df %&gt;% arrange(col)`</span>               |</span>
+<span id="cb74-682"><a href="#cb74-682" aria-hidden="true" tabindex="-1"></a>| Group summary  | <span class="in">`aggregate()`</span>             | <span class="in">`df %&gt;% group_by() %&gt;% summarise()`</span> |</span>
+<span id="cb74-683"><a href="#cb74-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-684"><a href="#cb74-684" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework Assignment</span></span>
+<span id="cb74-685"><a href="#cb74-685" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-686"><a href="#cb74-686" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1: Basic Operations</span></span>
+<span id="cb74-687"><a href="#cb74-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-688"><a href="#cb74-688" aria-hidden="true" tabindex="-1"></a>Using the built-in <span class="in">`iris`</span> dataset:</span>
+<span id="cb74-689"><a href="#cb74-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-690"><a href="#cb74-690" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plotting Challenge:</span></span>
+<span id="cb74-691"><a href="#cb74-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-692"><a href="#cb74-692" aria-hidden="true" tabindex="-1"></a>Create a visualization that shows the relationship between Petal.Length and Petal.Width, colored by Species, with:</span>
+<span id="cb74-693"><a href="#cb74-693" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Proper labels and title</span>
+<span id="cb74-694"><a href="#cb74-694" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A theme of your choice</span>
+<span id="cb74-695"><a href="#cb74-695" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regression lines for each species</span>
+<span id="cb74-696"><a href="#cb74-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-697"><a href="#cb74-697" aria-hidden="true" tabindex="-1"></a>And try more plotting as you wish!</span>
+<span id="cb74-698"><a href="#cb74-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-699"><a href="#cb74-699" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 1: Data Manipulation</span></span>
+<span id="cb74-700"><a href="#cb74-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-701"><a href="#cb74-701" aria-hidden="true" tabindex="-1"></a>Using the built-in <span class="in">`iris`</span> dataset:  </span>
+<span id="cb74-702"><a href="#cb74-702" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Convert it to a tibble  </span>
+<span id="cb74-703"><a href="#cb74-703" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create a new column called <span class="in">`Petal.Ratio`</span> that is <span class="in">`Petal.Length / Petal.Width`</span>  </span>
+<span id="cb74-704"><a href="#cb74-704" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Filter for only "setosa" species with Sepal.Length &gt; 5  </span>
+<span id="cb74-705"><a href="#cb74-705" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Select only the Species, Sepal.Length, and your new Petal.Ratio columns  </span>
+<span id="cb74-706"><a href="#cb74-706" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Arrange the results by Petal.Ratio in descending order  </span>
+<span id="cb74-707"><a href="#cb74-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-708"><a href="#cb74-708" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 2: Grouping and Summarizing</span></span>
+<span id="cb74-709"><a href="#cb74-709" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-710"><a href="#cb74-710" aria-hidden="true" tabindex="-1"></a>Using the full <span class="in">`iris`</span> dataset:  </span>
+<span id="cb74-711"><a href="#cb74-711" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-712"><a href="#cb74-712" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Group by Species  </span>
+<span id="cb74-713"><a href="#cb74-713" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calculate the following for each species:  </span>
+<span id="cb74-714"><a href="#cb74-714" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Mean Sepal.Length</span>
+<span id="cb74-715"><a href="#cb74-715" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Standard deviation of Sepal.Width</span>
+<span id="cb74-716"><a href="#cb74-716" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Minimum and maximum Petal.Length</span>
+<span id="cb74-717"><a href="#cb74-717" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Count of observations</span>
+<span id="cb74-718"><a href="#cb74-718" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Create a bar plot showing the mean Sepal.Length by Species</span>
+<span id="cb74-719"><a href="#cb74-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-720"><a href="#cb74-720" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 3: Data Reshaping</span></span>
+<span id="cb74-721"><a href="#cb74-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-722"><a href="#cb74-722" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create a subset of iris with the first 3 rows of each species</span>
+<span id="cb74-723"><a href="#cb74-723" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Add a row number within each species (call it "plant_id")</span>
+<span id="cb74-724"><a href="#cb74-724" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Convert this to wide format where:</span>
+<span id="cb74-725"><a href="#cb74-725" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Each row represents one plant_id</span>
+<span id="cb74-726"><a href="#cb74-726" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Columns show the Sepal.Length for each species</span>
+<span id="cb74-727"><a href="#cb74-727" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-728"><a href="#cb74-728" aria-hidden="true" tabindex="-1"></a><span class="fu">## Submission Instructions:</span></span>
+<span id="cb74-729"><a href="#cb74-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-730"><a href="#cb74-730" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Submit your R Markdown file</span>
+<span id="cb74-731"><a href="#cb74-731" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Include comments explaining your code, discuss with your peer and improve</span>
+<span id="cb74-732"><a href="#cb74-732" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make sure your code runs without errors</span>
+<span id="cb74-733"><a href="#cb74-733" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Due date: Friday 10PM BD Time</span>
+<span id="cb74-734"><a href="#cb74-734" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-735"><a href="#cb74-735" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grading Rubric:</span></span>
+<span id="cb74-736"><a href="#cb74-736" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-737"><a href="#cb74-737" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Code correctness: 70%</span>
+<span id="cb74-738"><a href="#cb74-738" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Code style and comments: 20%</span>
+<span id="cb74-739"><a href="#cb74-739" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Output interpretation: 10%</span>
+<span id="cb74-740"><a href="#cb74-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-741"><a href="#cb74-741" aria-hidden="true" tabindex="-1"></a>Good luck! Remember to use the pipe operator <span class="in">`%&gt;%`</span> to make your code readable!</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

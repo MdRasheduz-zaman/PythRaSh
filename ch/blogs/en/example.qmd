@@ -4,17 +4,6 @@ format: html
 lang: en
 ---
   
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
   
 bla bla bla.......
 

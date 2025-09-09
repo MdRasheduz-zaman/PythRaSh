@@ -2,20 +2,677 @@
 title: "The tidyverse"
 abstract: "Pipe (%>%), Tibbles, dplyr-verbs, long/wide format and more."
 ---
-  
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
-  
+
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
+
+# What is the Tidyverse?
+
+The tidyverse is a collection of R packages designed to make data science easier and more intuitive. Think of it as a toolkit where all the tools work well together and share a similar design philosophy. The packages help you:
+
+-   Import data
+-   Clean and organize data
+-   Transform and manipulate data
+-   Visualize data
+-   Model data
+
+## Installing Tidyverse
+
+Before we can use the tidyverse, we need to install it. First, let's install a helpful package manager called `pacman`:
+
+```{r}
+
+# Install pacman if you haven't already
+#install.packages("pacman")
+
+# Load pacman
+library(pacman)
+
+# Now use pacman to install and load tidyverse
+#pacman::p_load(tidyverse)
+# (install &) load packages
+pacman::p_load(
+  broom,
+  conflicted,
+  here,
+  janitor,
+  naniar,
+  readxl,
+  tibble,
+  tidyverse
+)
+
+# Alternative: traditional installation
+# install.packages("tidyverse")
+# library(tidyverse)
+conflicts_prefer(dplyr::filter) 
+conflicts_prefer(dplyr::select)
+#dplyr::select()
+```
+
+## Core Tidyverse Packages
+
+Here are the main packages you'll use most often:
+
+| Package                                                                                                                                             | Purpose                   |
+|:-----------------------------------|:-----------------------------------|
+| [<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" width="30"/>](https://ggplot2.tidyverse.org/) **ggplot2** | Creating beautiful graphs |
+| [<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png" width="30"/>](https://dplyr.tidyverse.org/) **dplyr**       | Data manipulation         |
+| [<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tibble.png" width="30"/>](https://tibble.tidyverse.org/) **tibble**    | Modern data frames        |
+| [<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyr.png" width="30"/>](https://tidyr.tidyverse.org/) **tidyr**       | Tidying data              |
+| [<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readr.png" width="30"/>](https://readr.tidyverse.org/) **readr**       | Reading data files        |
+
+# Understanding Data Tables: Base R vs Tidyverse
+
+## Base R: data.frame
+
+In base R, we work with `data.frame` objects. Let's look at a built-in dataset:
+
+```{r}
+# Base R approach
+# Load the built-in PlantGrowth dataset
+data(PlantGrowth)
+#data(iris)
+
+# Create a copy to work with
+df <- PlantGrowth
+
+# View the first few rows
+head(df)
+
+# Check the structure
+str(df)
+
+# Get summary statistics
+summary(df)
+```
+
+### Accessing columns in Base R:
+
+```{r}
+# Method 1: Using $ notation
+df$weight
+
+# Method 2: Using brackets with column name
+df[, "weight"]
+
+# Method 3: Using brackets with column number
+df[, 1]
+```
+
+## Tidyverse: tibble
+
+Now let's see how tidyverse handles the same data:
+
+```{r}
+# Convert to tibble
+tbl <- as_tibble(df)
+
+# View the tibble
+tbl
+```
+
+### Key differences with tibbles:
+
+1.  **Better printing**: Only shows what fits on screen
+2.  **Type information**: Shows data types under column names
+3.  **No partial matching**: More predictable behavior
+4.  **Preserves data types**: Doesn't automatically convert strings to factors
+
+### Accessing columns in tidyverse:
+
+```{r}
+# Still can use $ notation
+tbl$weight
+
+# Or use select() function (we'll learn more about this)
+tbl %>% select(weight)
+```
+
+# Creating Plots: Base R vs ggplot2
+
+## Base R Plotting
+
+Base R has simple plotting functions that are quick but limited:
+
+```{r}
+#| layout-ncol: 2
+#| fig-width: 5
+#| fig-height: 4
+
+# Scatter plot
+plot(df$weight, main = "Weight Values",
+     xlab = "Index",
+     ylab = "Weight")
+
+# Bar plot with better labels
+plot(df$group, 
+     main = "Group Frequencies",
+     xlab = "Treatment Group",
+     ylab = "Frequency",
+     names.arg = c("Control", "Treatment 1", "Treatment 2"))
+```
+
+## ggplot2 (Tidyverse)
+
+ggplot2 builds plots in layers, like creating a painting. Let's break it down:
+
+### Understanding ggplot2 basics:
+
+1.  **ggplot()** - Creates the canvas
+2.  **aes()** - Stands for "aesthetics" - tells ggplot which data to use
+3.  **+** - Adds layers to your plot (like adding paint to canvas)
+4.  \*\*geom\_\*()\*\* - Geometric objects (the actual marks on the plot)
+
+Let's build our plots step by step:
+
+```{r}
+#| layout-ncol: 2
+#| fig-width: 5
+#| fig-height: 4
+
+# Scatter plot with index
+# Step 1: Create the canvas and specify the data
+# aes(x = ..., y = ...) maps data to x and y axes
+ggplot(data = tbl, aes(x = 1:nrow(tbl), y = weight)) +
+  # Step 2: Add points to the plot
+  geom_point() +
+  # Step 3: Add labels
+  labs(title = "Weight Values", 
+       x = "Index", 
+       y = "Weight") +
+  theme_classic()
+
+# Bar plot
+# Step 1: Create canvas with data mapping
+# When we only specify x, ggplot counts occurrences
+ggplot(data = tbl, aes(x = group)) +
+  # Step 2: Add bars (geom_bar counts automatically)
+  geom_bar() +
+  # Step 3: Add descriptive labels
+  labs(title = "Group Frequencies", 
+       x = "Group", 
+       y = "Count") +
+  theme_classic()
+```
+
+### Breaking down the code:
+
+**For the scatter plot:**\
+- `ggplot(data = tbl, ...)` - Use the 'tbl' dataset\
+- `aes(x = 1:nrow(tbl), y = weight)` - Put row numbers on x-axis, weight values on y-axis\
+- `geom_point()` - Draw points at each (x,y) coordinate\
+- The `+` sign connects these layers together
+
+**For the bar plot:**\
+- `aes(x = group)` - Put group categories on x-axis\
+- `geom_bar()` - Count how many times each group appears and draw bars\
+- ggplot automatically counts for us!
+
+### Think of it like a recipe:
+
+1.  Start with your data (ggplot + data)\
+2.  Decide what goes where (aes)\
+3.  Choose how to show it (geom_point, geom_bar, etc.)\
+4.  Add finishing touches (labs, themes, colors)
+
+### Common geom\_ functions and how to explore more:
+
+Here are the most common geometric layers you'll use:
+
+```{r}
+# Create sample data for demonstrations
+demo_data <- tibble(
+  x = 1:10,
+  y = c(2, 4, 3, 7, 5, 8, 6, 9, 7, 10),
+  group = rep(c("A", "B"), 5)
+)
+```
+
+**Essential geom\_ functions:**
+
+| geom\_ function    | What it draws           | When to use                              |
+|:-----------------------|:-----------------------|:-----------------------|
+| `geom_point()`     | Points/dots             | Scatter plots, showing individual values |
+| `geom_line()`      | Lines connecting points | Time series, trends                      |
+| `geom_bar()`       | Bars (counts data)      | Frequency of categories                  |
+| `geom_col()`       | Bars (uses y values)    | When you already have heights            |
+| `geom_histogram()` | Histogram               | Distribution of continuous data          |
+| `geom_boxplot()`   | Box plots               | Comparing distributions between groups   |
+| `geom_smooth()`    | Trend lines             | Adding regression/smooth lines           |
+
+### Quick examples:
+
+```{r}
+#| layout-ncol: 3
+#| fig-width: 4
+#| fig-height: 3
+
+# Line plot
+ggplot(demo_data, aes(x = x, y = y)) +
+  geom_line() +
+  labs(title = "geom_line()",
+       x = "X",
+       y = "Y") +
+  theme_classic()
+  
+
+# Points + smooth line
+ggplot(data = demo_data, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "geom_point() + geom_smooth()") +
+  theme_classic()
+
+# Box plot by group
+ggplot(demo_data, aes(x = group, y = y)) +
+  geom_boxplot() +
+  stat_summary(fun = mean, 
+               geom = "point", 
+               shape = 23, 
+               size = 3, 
+               fill = "orange") +
+  geom_jitter(width=0.2) +
+  labs(title = "geom_boxplot()") +
+  theme_classic()
+```
+
+Use `?pch` or `?shape` to know more about shapes.
+
+### How to discover more geom\_ functions:
+
+1.  **In RStudio**: Type `geom_` and press TAB to see all available options
+
+    ```{r}
+    #| eval: false
+    # Try this in your console:
+    # ggplot(data, aes(x, y)) + geom_[TAB]
+    ```
+
+2.  **Get help on any function**:
+
+    ```{r}
+    #| eval: false
+    # Learn about a specific geom
+    ?geom_violin
+
+    # See examples
+    example(geom_violin)
+    ```
+
+3.  **Useful resources**:
+
+    -   [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf) - Visual guide to all geoms
+    -   [R Graph Gallery](https://r-graph-gallery.com/) - Examples of every plot type
+    -   [ggplot2 documentation](https://ggplot2.tidyverse.org/reference/#geoms) - Official reference
+    -   [from Data to Viz](https://www.data-to-viz.com) - Has robust way to show plotting options
+
+4.  **Experiment!** Try different geoms with your data:
+
+    ```{r}
+    #| eval: false
+    # Start with basic plot
+    p <- ggplot(tbl, aes(x = group, y = weight))
+
+    # Try different visualizations
+    p + geom_boxplot()    # Box plot
+    p + geom_violin()     # Violin plot
+    p + geom_jitter()     # Scattered points
+    p + geom_dotplot(binaxis = "y")  # Dot plot
+    ```
+
+### Pro tip: Layer multiple geoms!
+
+```{r}
+# You can combine multiple geoms for rich visualizations
+ggplot(tbl, aes(x = group, y = weight)) +
+  geom_boxplot(alpha = 0.5) +      # Semi-transparent box plot
+  geom_jitter(width = 0.2) +        # Add individual points
+  labs(title = "Combining geom_boxplot() + geom_jitter()") +
+  theme_classic()
+```
+
+# The Magic of the Pipe (`%>%`) Operator
+
+The pipe operator is one of the most powerful features in tidyverse. It makes your code readable by allowing you to chain operations together. It takes the output of the expression on its left and passes it as the first argument to the function on its right
+
+## Without pipes (Base R approach):
+
+```{r}
+# Step 1: Get ctrl group only
+ctrl_only <- df[df$group == "ctrl", ]
+
+# Step 2: Extract weight values
+weights <- ctrl_only$weight
+
+# Step 3: Calculate square root
+sqrt_weights <- sqrt(weights)
+
+# Step 4: Round to 1 decimal
+rounded <- round(sqrt_weights, 2)
+
+# Step 5: Sort
+sorted <- sort(rounded, decreasing = TRUE)
+
+sorted
+```
+
+## With pipes (Tidyverse approach):
+
+```{r}
+df %>% 
+  filter(group == "ctrl") %>%   # Step 1: Get ctrl group
+  pull(weight) %>%              # Step 2: Extract weights
+  sqrt() %>%                    # Step 3: Square root
+  round(1) %>%                  # Step 4: Round
+  sort(decreasing = TRUE)                        # Step 5: Sort
+```
+
+**Tip**: To type `%>%` quickly in RStudio, use `Ctrl+Shift+M` (Windows/Linux) or `Cmd+Shift+M` (Mac)
+
+# Essential dplyr Functions
+
+## 1. `mutate()` - Add or modify columns
+
+### Base R approach:
+
+```{r}
+# Add a new column
+df_copy <- df
+df_copy$weight_kg <- df_copy$weight / 1000
+
+# Modify existing column
+df_copy$weight <- df_copy$weight * 2
+
+head(df_copy)
+```
+
+### Tidyverse approach:
+
+```{r}
+tbl %>% 
+  mutate(
+    weight_kg = weight/1000,  # Add new column
+    weight = weight*2
+  ) %>% 
+  head()
+```
+
+*N.B. We could make the doubling operation on the same `weight` column as well. It would make in-place modification. You have to think when to do that operation then.*
+
+## 2. `select()` - Choose columns
+
+### Base R approach:
+
+```{r}
+# Select specific columns
+df_subset <- df[0:nrow(df), c("group", "weight")]
+head(df_subset)
+```
+
+### Tidyverse approach:
+
+```{r}
+tbl <- tbl %>% 
+  select(group, weight)
+```
+
+*N.B. `select()` helps to rearrange columns as well.*
+
+## 3. `filter()` - Choose rows
+
+### Base R approach:
+
+```{r}
+# Filter for weight > 5
+df_filtered <- df[df$weight > 5, ]
+df_filtered
+```
+
+### Tidyverse approach:
+
+```{r}
+tbl %>% 
+  filter(weight > 5)
+```
+
+## 4. `arrange()` - Sort rows
+
+### Base R approach:
+
+```{r}
+# Sort by weight
+df_sorted <- df[order(df$weight), ]
+head(df_sorted)
+```
+
+```{r}
+df_sorted <- df[order(df$weight, decreasing=TRUE), ]
+```
+
+### Tidyverse approach:
+
+```{r}
+tbl %>% 
+  arrange(weight)
+```
+
+## 5. `summarise()` with `group_by()` - Calculate summaries
+
+### Base R approach:
+
+```{r}
+# Calculate mean by group
+aggregate(weight ~ group, data = df, FUN = mean)
+```
+
+### Tidyverse approach:
+
+```{r}
+tbl %>% 
+  group_by(group) %>% 
+  summarise(
+    mean_weight = mean(weight),
+    sd_weight = sd(weight),
+    n = n()
+  )
+```
+
+# Working with Data Formats: Long vs Wide
+
+Sometimes you need to reshape your data. Here's how:
+
+## Creating example data:
+
+```{r}
+# Create a small dataset
+long_data <- data.frame(
+  student = c("Alice", "Alice", "Alice", "Bob", "Bob", "Bob"),
+  test = c("Math", "English", "Chemistry", "Math", "English", "Chemistry"),
+  score = c(85, 90, 78, 82, 78, 90)
+)
+
+long_data
+```
+
+## Convert to wide format:
+
+### Base R approach:
+
+```{r}
+# Using reshape function
+wide_base <- reshape(long_data, 
+                     idvar = "student", 
+                     timevar = "test", 
+                     direction = "wide")
+wide_base
+```
+
+### Tidyverse approach:
+
+```{r}
+wide_data <- long_data %>% 
+  pivot_wider(names_from = test, 
+              values_from = score)
+wide_data
+```
+
+## Convert back to long format:
+
+### Tidyverse approach:
+
+```{r}
+wide_data %>% 
+  pivot_longer(cols = -student,
+               names_to = "test",
+               values_to = "score")
+```
+
+# Working with Factors (forcats)
+
+Factors are categorical variables. The order matters for plotting:
+
+```{r}
+# Create example data
+plot_data <- tibble(
+  category = c("Low", "Medium", "High", "Low", "High"),
+  value = c(10, 20, 30, 15, 35)
+)
+
+# Default alphabetical order
+ggplot(plot_data, aes(x = category, y = value)) +
+  geom_col() +
+  labs(title = "Default Order (Alphabetical)")
+```
+
+## Reordering factors:
+
+```{r}
+# Specify custom order
+plot_data %>% 
+  mutate(category = fct_relevel(category, "Low", "Medium", "High")) %>% 
+  ggplot(aes(x = category, y = value)) +
+  geom_col() +
+  labs(title = "Custom Order") +
+  theme_classic()
+```
+
+# Working with Strings (stringr)
+
+## Common string operations:
+
+```{r}
+# Example strings
+messy_string <- "  Hello   World!  "
+names <- c("John Smith", "Jane Doe", "Bob Johnson")
+
+# Remove extra spaces
+str_trim(messy_string)
+str_squish(messy_string)
+
+# Replace text
+str_replace(names, "John", "Jonathan")
+
+# Detect pattern
+str_detect(names, "John")
+
+# Extract substring
+str_sub(names, 1, 4)
+```
+
+# Practical Example: Complete Analysis
+
+Let's combine everything we learned:
+
+```{r}
+# Load and prepare data
+mtcars %>% 
+  as_tibble() %>% 
+  # Add car names as a column
+  mutate(car = rownames(mtcars)) %>% 
+  # Select relevant columns
+  select(car, mpg, cyl, hp, wt) %>% 
+  # Filter for efficient cars
+  filter(mpg > 20) %>% 
+  # Add categorical variable
+  mutate(efficiency = case_when(
+    mpg > 30 ~ "High",
+    mpg > 25 ~ "Medium",
+    TRUE ~ "Low"
+  )) %>% 
+  # Sort by mpg
+  arrange(desc(mpg)) %>% 
+  # Show top 5
+  head(5)
+```
+
+# Summary: Base R vs Tidyverse
+
+| Task           | Base R                    | Tidyverse                           |
+|------------------|-----------------------|-------------------------------|
+| Select columns | `df[, c("col1", "col2")]` | `df %>% select(col1, col2)`         |
+| Filter rows    | `df[df$col > 5, ]`        | `df %>% filter(col > 5)`            |
+| Add column     | `df$new <- df$old * 2`    | `df %>% mutate(new = old * 2)`      |
+| Sort           | `df[order(df$col), ]`     | `df %>% arrange(col)`               |
+| Group summary  | `aggregate()`             | `df %>% group_by() %>% summarise()` |
+
+# Homework Assignment
+
+## Part 1: Basic Operations
+
+Using the built-in `iris` dataset:
+
+## Plotting Challenge:
+
+Create a visualization that shows the relationship between Petal.Length and Petal.Width, colored by Species, with:
+- Proper labels and title
+- A theme of your choice
+- Regression lines for each species
+
+And try more plotting as you wish!
+
+## Problem 1: Data Manipulation
+
+Using the built-in `iris` dataset:  
+1. Convert it to a tibble  
+2. Create a new column called `Petal.Ratio` that is `Petal.Length / Petal.Width`  
+3. Filter for only "setosa" species with Sepal.Length > 5  
+4. Select only the Species, Sepal.Length, and your new Petal.Ratio columns  
+5. Arrange the results by Petal.Ratio in descending order  
+
+## Problem 2: Grouping and Summarizing
+
+Using the full `iris` dataset:  
+
+1. Group by Species  
+2. Calculate the following for each species:  
+    - Mean Sepal.Length
+    - Standard deviation of Sepal.Width
+    - Minimum and maximum Petal.Length
+    - Count of observations
+3. Create a bar plot showing the mean Sepal.Length by Species
+
+## Problem 3: Data Reshaping
+
+1. Create a subset of iris with the first 3 rows of each species
+2. Add a row number within each species (call it "plant_id")
+3. Convert this to wide format where:
+    - Each row represents one plant_id
+    - Columns show the Sepal.Length for each species
+
+## Submission Instructions:
+
+- Submit your R Markdown file
+- Include comments explaining your code, discuss with your peer and improve
+- Make sure your code runs without errors
+- Due date: Friday 10PM BD Time
+
+## Grading Rubric:
+
+- Code correctness: 70%
+- Code style and comments: 20%
+- Output interpretation: 10%
+
+Good luck! Remember to use the pipe operator `%>%` to make your code readable!

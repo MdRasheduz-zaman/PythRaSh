@@ -8,16 +8,5 @@ listing:
 page-layout: full
 ---
   
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
   
 স্বাগতম বাংলা ব্লগ আর্কাইভে! ✍️📚

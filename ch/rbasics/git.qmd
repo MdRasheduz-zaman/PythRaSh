@@ -7,19 +7,6 @@ execute:
   eval: false  # disables code execution globally
 ---
 
-```{=html}
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
-```
 ```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
@@ -41,7 +28,7 @@ source(here::here("src/helpersrc.R"))
 
 1.  Go to your GitHub account → Find the `+` sign and click on it → Click on `New Repository`.
 2.  Clone it in your computer (inside your preferred folder) running `git clone git@github.com:yourusername/test1.git`. Don't forget to replace `git@github.com:yourusername/test1.git` with the SSH link you copied for your repo.
-3.  Make change in your folder adding or creating files/folders. You can optionally check status of your folder running `git status`.
+3.  Make changes in your folder by adding or creating files/folders. You can optionally check status of your folder running `git status`.
 4.  Stage/prepare/add them all to git running `git add .`.\
 5.  Commit/decorate it with a meaningful message running `git commit -m "your meaningful message"`.
 6.  Now push it to your remote (GitHub) repo running `git push origin main`.
@@ -64,7 +51,7 @@ You can push the codes/scripts from the classes or your own practice codes. You 
 
 GitHub is just like Google Drive, Dropbox or similar where you can `upload` (or `push`) files and folders of your project/package. What is special about the GitHub repositories then? Well, they are tracked for changes. How so? Well, `git` does that. `git` is the version control system (or tool) to track changes you make in a specific directory/repository (directory means folder as well). So you can have snapshot of your changes and fall back and forth if needed.
 
-**Imagine this situation:** You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don't know what is wrong! You closed the file many times and you can't just `undo` and `redo` things. What would you do now except cursing (or other similar behavior of frustration)? Here comes `git` in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (`clone`/`download`/`pull` it in your machine again). Maybe, the terms "upload" and "download" make a bit more sense, rather than `push` and `pull`/`clone`! But you got the idea (equivalent), right?
+**Imagine this situation:** You made a working version of whatever you are doing/making. But then you were trying to polish it more. And alas, your so-called polishing is messing you up! You don't know what is wrong! You closed the file many times and you can't just `undo` and `redo` things. What would you do now except cursing (or other similar behavior of frustration)? Here comes `git` in your rescue. It kept the snapshot of your previous working version(s) in GitHub (if pushed) and you can easily fall back and forth (`clone`/`download`/`pull` it in your machine again). Maybe, the terms "upload" and "download" make a bit more sense, rather than `push` and `pull`/`clone`! But you got the (equivalent) idea, right?
 
 # Set git and GitHub
 
@@ -109,7 +96,7 @@ Provide your password if prompted. You are all set!
 -   Now go to <https://github.com> → Sign up with your email
 -   Choose a username and password. Make the username easy to remember (for example, with your names, maybe), password should be as difficult as possible.
 
-Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like "\@", "!", "?", etc.
+Hint, it can be different than your email password. Use combination of capital and small letters, numbers and special characters like "@", "!", "?", etc.
 
 -   Verify email (with the OTP) and you are set.
 
@@ -129,7 +116,7 @@ It is a multi-line code chunk (2 lines). Run the first one first, then the secon
 ::: callout-warning
 ## Stop!
 
-Here, `Your Name` and `your_email@example.com` means your user name (the one you set up just a bit ago. You don't remember? Explore your GitHub account, you will see it there.) and the email address you used for GitHub. Use them correctly. Space, punctuation marks, capital or small letters should exactly match (Don't be a "Murad takla").
+Here, `Your Name` and `your_email@example.com` means your user name (the one you set up just a bit ago. You don't remember? Explore your GitHub account, you will see it there.) and the email address you used for GitHub. Use them correctly. Space, punctuation marks, capital or small letters should exactly match (Don't be a "Murad Takla").
 :::
 
 You can check your config:
@@ -542,3 +529,284 @@ Ahha.... Wondering why do we have `/` after the folder names? Well, that is the 
 # Final Thought
 
 You might not know how powerful you are getting! But trust me, you are too strong.......
+
+# Advance Tasks
+
+## What if your cloned repo is out of date (new changes happened)?
+Run this to pull the up to date repo.
+```{bash, eval=FALSE}
+git pull origin main
+```
+(Use `master` if that's your primary branch name.)  
+
+Git will then download any new commits and files from GitHub and integrate them into your local branch. If there are no new changes, it will simply tell you "Already up to date."
+
+**Important:** It's a good habit to `git pull` before you start working on a project each day, or before you begin a new set of changes, to ensure you're always working with the most current version. This helps avoid potential merge conflicts later on.
+
+## How to make changes directly on GitHub and then pull them
+
+**N.B. After this discussion, we'll get into the exciting world of branches and collaboration!**
+
+**Do these**  
+1. Navigate to your repository on `GitHub.com`
+2. Edit the file  
+3. Commit the changes  
+4. Pull the changes to your local machine  
+
+- Open your terminal or Git Bash.
+- Navigate to your local repository folder using `cd your-repo-name`.
+
+Run the git pull command:
+```{bash, eval=FALSE}
+git pull origin main
+```
+(Again, use `master` if that's your primary branch name.) 
+
+## Collaborating with Others: Branches and Pull Requests
+
+Now for some really powerful stuff! So far, we've been working on a single line of development (the `main` or `master` branch). But what if you're working with a team, or you want to experiment with new features without breaking the main, working version of your project? This is where branches come in.
+
+### 1. Understanding Branches
+
+Think of a branch as an independent line of development. When you create a branch, you're essentially making a copy of your project at a specific point in time. You can then make changes on this new branch without affecting the original (`main`) branch.
+
+- `main` (or `master`) branch: This is typically considered the stable, production-ready version of your project.
+- Feature branches: You create these for new features, bug fixes, or experiments. You work on them in isolation.
+Once you're done with your work on a feature branch and it's stable, you can merge it back into the `main` branch.
+
+**Why use branches?**
+
+- Isolation: Work on new features without impacting the stable code.
+- Collaboration: Multiple developers can work on different features simultaneously without stepping on each others toes.
+- Experimentation: Try out new ideas without fear of breaking the main project.
+
+### 2. Creating and Switching Branches Locally
+
+Let's practice creating a new branch.
+
+**Scenario:** You want to add a new "Contact Us" page to your well set website (code), but you don't want to touch the live code until it's ready.
+
+Steps:
+
+1. Ensure you're on the main branch and up to date:
+```{bash, eval=FALSE}
+git checkout main
+git pull origin main
+```
+`git checkout main` ensures you're on the `main` branch. `git pull` ensures your `main` branch has all the latest changes from GitHub.
+
+2. Create a new branch:
+```{bash, eval=FALSE}
+git branch feature/contact-page
+```
+It's common to name branches descriptively, often starting with `feature/`, `bugfix/`, `hotfix/`, etc. Name them meaningfully as you need them for.
+
+This command creates the branch but doesn't switch you to it yet.
+
+3. Switch to your new branch:
+```{bash, eval=FALSE}
+git checkout feature/contact-page
+```
+You'll see a message like "Switched to branch 'feature/contact-page'".
+
+**Pro Tip:** You can combine steps 2 and 3 into one command:
+```{bash, eval=FALSE}
+git checkout -b feature/contact-page
+```
+4. Verify your current branch:
+```{bash, eval=FALSE}
+git branch
+```
+The branch you're currently on will have an asterisk (*) next to its name.
+
+Now you are on your `feature/contact-page` branch. Any changes you make, commit, and push will be on this branch, completely separate from `main`.
+```{bash, eval=FALSE}
+git status
+git add .
+git commit -m "created contatc.txt file in the feature branch"
+git push origin feature/contact-page
+```
+Once you've finished your work on a branch and thoroughly tested it, the next step is to merge it back into the `main` branch.
+
+### 3. Merging a Branch (Bringing Your Changes Back)
+Merging is the process of integrating the changes from one branch (like your `feature/contact-page` branch) into another branch (typically `main`).
+
+**Scenario:** You've added your "Contact Us" page, it's working perfectly, and you're ready to make it part of the main website (main branch).
+
+Steps:  
+1. Ensure you're on the `main` branch and up to date:
+
+```{bash, eval=FALSE}
+git checkout main
+git pull origin main
+```
+This is crucial! You want to merge your changes into the latest version of `main`.
+
+2. Merge your feature branch into `main`:
+```{bash, eval=FALSE}
+git merge feature/contact-page
+```
+This command tells Git to take all the changes from the `feature/contact-page` branch and apply them to the `main` branch.
+
+**Automatic Merging:** If Git can figure out how to combine the changes without any conflicts, it will do so automatically. You might see a message like "Successfully merged."
+
+**Merge Conflicts:** Sometimes, if both branches have changed the same lines in the same file, Git won't know how to proceed. This results in a merge conflict. We'll cover how to resolve these in a moment.
+
+3. (If the merge was successful) Push the merged `main` branch to GitHub:
+```{bash, eval=FALSE}
+git push origin main
+```
+This uploads the merged changes to the remote `main` branch on GitHub.
+
+### 4. Deleting the Feature Branch (Optional but Recommended)
+Delete the branch locally:
+First, ensure you're **not** on the branch you want to delete. Switch back to `main`:
+```{bash, eval=FALSE}
+git checkout main
+```
+Then, delete the local branch:
+```{bash, eval=FALSE}
+git branch -d feature/contact-page
+```
+- The `-d` flag is for "delete." Git will prevent deletion if the branch has unmerged changes.
+- If you really want to delete a branch with unmerged changes, for whatever reason, (use with caution!), you can use the force delete flag: `git branch -D feature/contact-page` (capital D).
+
+Dealing with Merge Conflicts
+Merge conflicts happen when Git can't automatically reconcile changes between branches. It's not a disaster! It just means you need to manually tell Git how to combine the changes.
+
+**Scenario:** You and a collaborator both edited the same section of a file on different branches.
+
+What you'll see:
+
+- Git will add special markers to the conflicting file, showing the changes from both branches. It will look something like this:
+```{bash, eval=FALSE}
+<<<<<<< HEAD
+// Your changes on the main branch
+=======
+// Your collaborator's changes on the feature branch
+>>>>>>> feature/contact-page
+```
+- `<<<<<<< HEAD`: Marks the beginning of the changes on your current branch (main).
+- `=======`: Separates your changes from the changes on the other branch.
+- `>>>>>>> feature/contact-page`: Marks the end of the changes on the `feature/contact-page` branch.
+
+**How to resolve a conflict:**
+
+1. Open the conflicting file in a text editor: You'll see the conflict markers.
+
+2. Manually edit the file: Decide how you want to combine the changes. You might:
+
+  - Keep only your changes.
+  - Keep only the other branch's changes.
+  - Combine parts of both.
+  - Rewrite the section entirely.
+  - Remove the conflict markers: Delete the `<<<<<<< HEAD`, `=======`, and `>>>>>>> feature/contact-page` lines.
+
+3. Save the file.
+
+4. Stage the resolved file:
+```{bash, eval=FALSE}
+git add your-conflicting-file.txt
+```
+
+5. Commit the merge:
+```{bash, eval=FALSE}
+git commit -m "Resolve merge conflict in your-conflicting-file.txt"
+```
+6. Push the merged branch:
+```{bash, eval=FALSE}
+git push origin main
+```
+Now the conflict is resolved, and your changes are safely merged!
+
+### 5. Pull Requests (PRs): The Heart of Collaboration
+
+While you can merge branches locally, in a collaborative environment, the most common way to integrate changes is through a Pull Request (PR) on GitHub. A Pull Request is essentially a formal proposal to merge your changes from a feature branch into another branch (usually `main`).
+
+**Why use Pull Requests?**
+
+- Code Review: It allows other team members to review your code, provide feedback, and suggest improvements before the changes are merged into the main codebase. This catches bugs and ensures code quality.
+- Discussion: PRs provide a dedicated space for discussion about the changes.
+- Automated Checks: GitHub can be configured to run automated tests or checks on PRs, ensuring the new code doesn't break existing functionality.
+- Record Keeping: PRs create a clear history of how and why changes were integrated.
+
+**Scenario:** You've completed your tasks for `feature/contact-page` and pushed it to GitHub. Now you want your team to review it and eventually merge it into main.
+
+Steps to create a Pull Request:  
+1. At first, pull the repo to your local machine and make changes:
+```{bash, eval=FALSE}
+git clone git@github.com:yourusername/repoLink.git
+git checkout main
+git checkout -b feature/contact-page
+#you can name your branch with something else depending on your task 
+#Now make changes (files) or do whatever you want to do with coding
+#Then push the changes
+git status
+git add .
+git commit -m "My contribution"
+git push origin feature/contact-page
+```
+Before you can create a PR, your branch needs to exist on GitHub. If you just created it locally and committed changes, you'll need to push it up. 
+
+The first time you push a new branch, Git might give you a hint like:
+`git push --set-upstream origin feature/contact-page`
+Just copy and paste that command if you see it.  
+2. Go to your repository on `GitHub.com`:
+Once your branch is pushed, GitHub will often display a banner at the top of your repository page, suggesting you **"Compare & pull request"** for your newly pushed branch. If not, click on the **"Pull requests"** tab.  
+3. Click **"New pull request"**:
+If the banner isn't there, click the green **"New pull request"** button.  
+4.Select your branches:  
+
+  - Base branch: This is the branch you want to merge into (e.g., main).
+  - Compare branch: This is your feature branch that contains the changes (e.g., `feature/contact-page`).  
+
+GitHub will show you a comparison of the changes between the two branches. Review them to ensure they're what you expect.  
+5. Create the Pull Request:  
+
+  - Provide a clear and concise title for your PR (e.g., "Add Contact Us Page").  
+  - Write a detailed description explaining what changes you made, why you made them, any potential issues, or how to test them. This is crucial for reviewers!  
+  
+  - You can also:  
+    - Assign reviewers: Choose team members who need to review your code.  
+    - Link issues: Connect your PR to any relevant GitHub issues.  
+    - Add labels: Categorize your PR (e.g., feature, bug).  
+
+Click the green **"Create pull request"** button.  
+
+6. Reviewing and Merging a Pull Request  
+
+Once a Pull Request is created, the collaborative process begins!  
+
+**As a Reviewer:**
+
+- Review Changes: Look at the "Files changed" tab to see the code modifications.
+- Leave Comments: You can click on specific lines of code to add comments, ask questions, or suggest alternative solutions.
+- Approve/Request Changes: Once you've reviewed, you can either **"Approve"** the PR, **"Request changes"** (if modifications are needed), or simply **"Comment"** without a formal decision.
+
+**As the Author (or team lead):**
+
+- Address Feedback: Respond to comments and make any necessary changes to your code. If you make new commits on your feature branch locally and `git push origin feature/contact-page`, those new commits will automatically appear in your open Pull Request on GitHub.
+- Merge the Pull Request: Once all feedback is addressed, required checks pass, and the PR is approved, anyone with merge permissions can click the **"Merge pull request"** button on GitHub.
+  - GitHub offers different merge strategies:
+    - **Merge commit:** Creates a new commit that records the merge.
+    - **Squash and merge:** Combines all your feature branch commits into a single new commit on `main`. Great for keeping main's history clean.
+    - **Rebase and merge:** Reapplies your feature branch commits on top of main, creating a linear history.
+
+7. Deleting the Feature Branch (Optional but Recommended)
+
+  After your feature branch has been successfully merged into `main` and pushed to GitHub, you typically don't need the feature branch anymore. Deleting it keeps your repository tidy.
+
+  1. Delete the branch on GitHub:
+After merging a PR, GitHub usually gives you an option to "Delete branch." Click that.
+
+  2. Delete the branch locally:
+First, ensure you're not on the branch you want to delete. Switch back to `main`:
+```{bash, eval=FALSE}
+git checkout main
+```
+  Then, delete the local branch:
+```{bash, eval=FALSE}
+git branch -d feature/contact-page
+```
+We are all set to be a full stack developer!  
+

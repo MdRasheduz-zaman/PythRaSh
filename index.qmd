@@ -5,19 +5,7 @@ format:
     toc: false
     code-tools: false
 ---
-  
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
-  
+
 PythRaSh starts out as a step-by-step introduction to R, Python, Linux and Command-line Tools, Probability and Statistics, etc. while its later parts are more of a cookbook with analyses of typical examples in life sciences with focus on (Molecular) Biology, Breeding and Genetics, (Gen)-omics, Medical Sciences, Agriculture, Ecology and other related fields.
 
 ::: text-center
@@ -30,6 +18,8 @@ This website is currently under construction. I am trying to organize everything
 
 ## Workshops
 
-Moreover, the chapters published here serve as the basis for my YouTube teaching. Also, these are the primers for my upcoming workshops. Email me at **md.rasheduzzaman.ugoe\[at\]gmail.com** if you are interested in one of my upcoming workshops. Provide me with your details, what you want to learn, motivation behind that, what you are expert in, etc.
+Moreover, the chapters published here serve as the basis for my YouTube teaching. Also, these are the primers for my upcoming workshops. Email me at `md.rasheduzzaman.ugoe[at]gmail.com` if you are interested in one of my upcoming workshops. Provide me with your details, what you want to learn, motivation behind that, what you are expert in, etc.  
 
-**I am teaching `Data Analysis with R` now.** Here, I teach R, basic git and GitHub, Linux and CLTs. These are the first step of taking you towards your (Gen)-omics journey.
+**`Data Analysis with R` course is done.** I taught basic R, git and GitHub. These are the first step of taking you towards your (Gen)-omics journey. The next part, Statistics, modeling, -omics, RNAseq, and command-line bioinformatics will resume in October.  
+
+**Consider emailing if you would like to take Python course with me.** 

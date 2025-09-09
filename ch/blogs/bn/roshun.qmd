@@ -4,17 +4,6 @@ format: html
 lang: bn
 ---
   
-<style>
-  .content {
-    text-align: justify !important;
-  }
-  p {
-    text-align: justify !important;
-  }
-  .quarto-body {
-    text-align: justify !important;
-  }
-</style>
   
 নাম তার *Alium sativum*। খালাত বোন *Alium cepa*-র সাথে তার অনেক মিল। তাই তারা একই ফ্যামিলিতে আছে। অবশ্য অমিলও আছে অনেক। *Alium sativum* এর গায়ে সেই আজন্ম বাল্যবৈধব্যের সাজ, আর *Alium cepa*-র লাল টুকটুকে বিয়ের সাজ আজও ঘোচে নি।
 
