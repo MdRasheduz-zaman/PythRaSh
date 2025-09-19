@@ -18,8 +18,8 @@ This website is currently under construction. I am trying to organize everything
 
 ## Workshops
 
-Moreover, the chapters published here serve as the basis for my YouTube teaching. Also, these are the primers for my upcoming workshops. Email me at `md.rasheduzzaman.ugoe[at]gmail.com` if you are interested in one of my upcoming workshops. Provide me with your details, what you want to learn, motivation behind that, what you are expert in, etc.  
+Moreover, the chapters published here serve as the basis for my YouTube teaching. Also, these are the primers for my upcoming workshops. Email me at `md.rasheduzzaman.ugoe[at]gmail.com` if you are interested in one of my upcoming workshops. Provide me with your details, what you want to learn, motivation behind that, what you are expert in, etc.
 
-**`Data Analysis with R` course is done.** I taught basic R, git and GitHub. These are the first step of taking you towards your (Gen)-omics journey. The next part, Statistics, modeling, -omics, RNAseq, and command-line bioinformatics will resume in October.  
+**`Data Analysis with R` course is done.** I taught basic R, git and GitHub. These are the first step of taking you towards your (Gen)-omics journey. The next part, Statistics, modeling, -omics, RNAseq, and command-line bioinformatics will resume in October.
 
-**Consider emailing if you would like to take Python course with me.** 
+**Consider emailing if you would like to take Python course with me.**

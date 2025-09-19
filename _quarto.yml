@@ -61,6 +61,10 @@ website:
             href: ch/genomics/advanced.qmd
           - text: Pipelines
             href: ch/genomics/pipeline.qmd
+      - text: Newsletter
+        menu:
+          - text: "All issues"
+            href: ch/newsletter/index.qmd
         
     right:
       - text: "Blogs"

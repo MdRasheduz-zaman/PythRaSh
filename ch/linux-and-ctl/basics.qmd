@@ -31,8 +31,9 @@ The problem here is, I am not using Windows. So, I might not be able to help you
 echo "Hello from Bash!" 
 ls -l
 ```
+
 Learn a lot from https://github.com/hbctraining
+
 ```{bash}
 
 ```
-

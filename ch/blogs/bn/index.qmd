@@ -7,6 +7,5 @@ listing:
   fields: [title, author, date, description]
 page-layout: full
 ---
-  
-  
+
 স্বাগতম বাংলা ব্লগ আর্কাইভে! ✍️📚
