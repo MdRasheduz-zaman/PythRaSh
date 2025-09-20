@@ -4,17 +4,13 @@ abstract: "Linux, WSL2, Navigation, simple commands"
 ---
 
 ```{r}
-```
-
-```{r}
-```
-
-```{r}
 #| include: false
 source(here::here("src/helpersrc.R"))
 ```
 
-## Linux and WSL(2)
+# Linux and WSL2
+
+If you have Linux already, stay calm. Scrol down to learn things instead of installing WSL2. 
 
 Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this [step-by-step guide](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) to install Ubuntu (a Linux distribution).
 
@@ -22,18 +18,750 @@ Follow this pages to install `Windows Subsystem for Linux` if you are using Wind
 
 Follow [link1](https://learn.microsoft.com/en-us/windows/wsl/about) & [link2](https://learn.microsoft.com/en-us/windows/wsl/install) to get step-by-step guideline to do it.
 
-The problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be **update your kernel first and then try**.
+A pro tip will be **update your kernel first and then try**. But here goes something. 
 
-## Intro
+# Basic Linux Commands
 
-```{bash}
+Now that you have Linux/WSL2 set up, let's learn the essential commands. These are the building blocks of working with Linux.
+
+## Navigation Commands
+
+### `pwd` - Print Working Directory
+Shows your current location in the file system.
+
+```{bash, eval=FALSE}
+# Show current directory
+pwd
+```
+
+### `ls` - List Directory Contents
+Lists files and folders in the current directory.
+
+```{bash, eval=FALSE}
+# Basic listing
+ls
+
+# Detailed listing with permissions, size, date
+ls -l
+
+# List all files including hidden ones (starting with .)
+ls -la
+
+# List with human-readable file sizes
+ls -lh
+```
+
+```{bash, eval=FALSE}
+# List files in a specific directory
+ls /home/username
+```
+
+### `cd` - Change Directory
+Navigate between directories.
+
+```{bash, eval=FALSE}
+# Go to home directory
+cd ~
+# or simply
+cd
+
+# Go to parent directory
+cd ..
+
+# Go to root directory
+cd /
+
+# Go back to previous directory
+cd -
+#or 
+cd .
+```
+
+```{bash, eval=FALSE}
+# Go to a specific directory
+cd /home/username/Documents
+```
+
+## File and Directory Operations
+
+### `mkdir` - Make Directory
+Create new directories.
+
+```{bash, eval=FALSE}
+# Create a single directory
+mkdir my_folder
+
+# Create multiple directories
+mkdir folder1 folder2 folder3
+
+# Create nested directories
+mkdir -p project/data/raw
+
+# Create directory with specific permissions
+mkdir -m 755 public_folder
+```
+
+### `touch` - Create Empty Files
+Create empty files or update file timestamps.
+
+```{bash, eval=FALSE}
+# Create an empty file
+touch my_file.txt
+
+# Create multiple files
+touch file1.txt file2.txt file3.txt
+
+# Update file timestamp (useful for makefiles)
+touch existing_file.txt
+```
+
+### `cp` - Copy Files and Directories
+Copy files and directories.
+
+```{bash, eval=FALSE}
+# Copy a file
+cp source.txt destination.txt
+```
+
+```{bash, eval=FALSE}
+# Copy file to a directory
+cp file.txt /path/to/directory/
+
+# Copy directory recursively
+cp -r source_directory/ destination_directory/
+
+# Copy with preservation of attributes
+cp -p file.txt backup/
+
+# Copy multiple files
+cp file1.txt file2.txt destination_folder/
+```
+
+### `mv` - Move/Rename Files and Directories
+Move or rename files and directories.
+
+```{bash, eval=FALSE}
+# Rename a file
+mv old_name.txt new_name.txt
+```
+
+```{bash, eval=FALSE}
+# Move file to directory
+mv file.txt /path/to/directory/
+
+# Move directory
+mv source_directory/ destination_directory/
+
+# Move and rename in one step
+mv file.txt /new/location/renamed_file.txt
+```
+
+### `rm` - Remove Files and Directories
+Delete files and directories.
+
+```{bash, eval=FALSE}
+# Remove a file
+rm file.txt
+
+# Remove multiple files
+rm file1.txt file2.txt file3.txt
+
+# Remove directory and all contents (BE CAREFUL!)
+rm -r directory_name/
+
+# Remove directory with confirmation
+rm -ri directory_name/
+
+# Remove empty directory only
+rmdir empty_directory/
+
+# Remove files with confirmation
+rm -i *.txt
+```
+
+## File Permissions
+
+Understanding file permissions is crucial for Linux security.
+
+### Viewing Permissions
+```{bash, eval=FALSE}
+# List files with permissions
+ls -l
+
+# Example output:
+# -rw-r--r-- 1 username group 1234 Dec 15 10:30 file.txt
+# drwxr-xr-x 2 username group 4096 Dec 15 10:30 folder/
+```
+
+The permission string has 10 characters:
+- **Position 1**: File type (`-` for file, `d` for directory)
+- **Positions 2-4**: Owner permissions (read, write, execute)
+- **Positions 5-7**: Group permissions (read, write, execute)
+- **Positions 8-10**: Other permissions (read, write, execute)
+
+### `chmod` - Change File Permissions
+```{bash, eval=FALSE}
+# Give owner read, write, execute; group and others read, execute
+chmod 755 script.sh
+
+# Give owner read, write; group and others read only
+chmod 644 file.txt
+
+# Add execute permission for owner
+chmod +x script.sh
+
+# Remove write permission for group and others
+chmod go-w file.txt
+
+# Make file readable by everyone
+chmod a+r file.txt
+```
+
+### `chown` - Change File Ownership
+```{bash, eval=FALSE}
+# Change owner
+chown newowner file.txt
+
+# Change owner and group
+chown newowner:newgroup file.txt
+
+# Change ownership recursively
+chown -R newowner:newgroup directory/
+```
+
+## Text Editing
+
+### `nano` - Simple Text Editor
+Great for beginners.
+
+```{bash, eval=FALSE}
+# Open file in nano
+nano filename.txt
+
+# Create new file
+nano new_file.txt
+```
+
+**Nano shortcuts:**
+- `Ctrl + X`: Exit
+- `Ctrl + O`: Save
+- `Ctrl + W`: Search
+- `Ctrl + K`: Cut line
+- `Ctrl + U`: Paste
+
+### `vim` - Advanced Text Editor
+More powerful but steeper learning curve.
+
+```{bash, eval=FALSE}
+# Open file in vim
+vim filename.txt
+
+# Create new file
+vim new_file.txt
+```
+So, creating and opening command is basically the same. Just write the file name.
+After opening the file, you have toenter into editing/inserting mode. Press `i` on your keyboard to be able to insert/write (or copy-paste) contents. After finishing editing, press `Esc` key to come out of the editing mode. Then write `:wq` to save.
+
+**Basic vim commands:**
+- `i`: Enter insert mode
+- `Esc`: Exit insert mode
+- `:w`: Save
+- `:q`: Quit
+- `:wq`: Save and quit
+- `:q!`: Quit without saving
+
+## Viewing File Contents
+
+### `cat` - Display File Contents
+```{bash, eval=FALSE}
+# Display entire file
+cat file.txt
+
+# Display multiple files
+cat file1.txt file2.txt
+
+# Display with line numbers
+cat -n file.txt
+```
+
+### `less` - View File Page by Page
+```{bash, eval=FALSE}
+# View file with pagination
+less file.txt
+
+# Search in less: type `/search_term` and press Enter
+# Navigate: Space (next page), b (previous page), q (quit)
+```
+
+### `head` and `tail` - View Beginning/End of Files
+```{bash, eval=FALSE}
+# Show first 10 lines
+head file.txt
+
+# Show first 20 lines
+head -n 20 file.txt
+
+# Show last 10 lines
+tail file.txt
+
+# Show last 20 lines
+tail -n 20 file.txt
+
+# Follow file changes in real-time
+tail -f log_file.txt
+```
+
+## Basic Text Processing
+
+### `grep` - Search Text
+```{bash, eval=FALSE}
+# Search for text in file
+grep "search_term" file.txt
+
+# Search case-insensitive
+grep -i "search_term" file.txt
+
+# Search in multiple files
+grep "search_term" *.txt
+
+# Search recursively in directories
+grep -r "search_term" directory/
+
+# Show line numbers
+grep -n "search_term" file.txt
+```
+
+### `wc` - Word Count
+```{bash, eval=FALSE}
+# Count lines, words, characters
+wc file.txt
+
+# Count only lines
+wc -l file.txt
+
+# Count only words
+wc -w file.txt
+
+# Count only characters
+wc -c file.txt
+```
+
+## Environment and System Information
+
+### `whoami` - Current User
+```{bash, eval=FALSE}
+# Show current username
+whoami
+```
+
+### `uname` - System Information
+```{bash, eval=FALSE}
+# Show system information
+uname -a
+
+# Show operating system
+uname -s
+
+# Show machine architecture
+uname -m
+```
+
+### `df` - Disk Space Usage
+```{bash, eval=FALSE}
+# Show disk space usage
+df -h
+```
+
+### `free` - Memory Usage
+```{bash, eval=FALSE}
+# Show memory usage
+free -h
+```
+
+## Process Management
+
+### `ps` - List Processes
+```{bash, eval=FALSE}
+# List running processes
+ps
+
+# List all processes
+ps aux
+
+# List processes for current user
+ps u
+```
+
+### `top` - Monitor Processes
+```{bash, eval=FALSE}
+# Show running processes interactively
+top
+
+# Press 'q' to quit
+```
+
+## Getting Help
+
+### `man` - Manual Pages
+```{bash, eval=FALSE}
+# Get help for a command
+man ls
+
+# Get help for a command (alternative)
+ls --help
+```
+
+### `which` - Find Command Location
+```{bash, eval=FALSE}
+# Find where a command is located
+which python3
+
+# Find all locations
+which -a python3
+```
+
+## Example Workflow
+
+Let's practice with a complete example:
+
+```{bash, eval=FALSE}
+# Create a project directory
+mkdir -p my_project/data
+cd my_project
+
+# Create some files
+touch data/sample1.txt data/sample2.txt
+echo "Hello World" > data/sample1.txt
+echo "Linux is awesome" > data/sample2.txt
+
+# List files
+ls -la data/
+
+# View file contents
+cat data/sample1.txt
+
+# Search for text
+grep "Hello" data/*.txt
+
+# Copy files
+cp data/sample1.txt backup_sample1.txt
+
+# Check permissions
+ls -l data/
+
+# Change permissions
+chmod 644 data/sample1.txt
+
+# View file with line numbers
+cat -n data/sample1.txt
+```
+
+## Example shell command
+
+```{bash, eval=FALSE}
 # Your Linux/Bash code here 
 echo "Hello from Bash!" 
 ls -l
 ```
 
-Learn a lot from https://github.com/hbctraining
+# WSL2 Installation Guide for Windows Users
 
-```{bash}
+This guide will help you install Windows Subsystem for Linux 2 (WSL2) and set up a Python development environment for running the IELTS AI Coach application.
 
+## Prerequisites
+
+- Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11
+- Administrator access to your computer
+- Stable internet connection
+
+## Step 1: Check Your Windows Version
+
+First, verify you have a compatible Windows version:
+
+```{bash, eval=FALSE}
+# Open Command Prompt and run:
+winver
 ```
+
+You should see Windows 10 Build 19041+ or Windows 11.
+
+## Step 2: Enable WSL Feature
+
+Open **Command Prompt as Administrator** (Right-click → "Run as administrator"):
+
+```{bash, eval=FALSE}
+# Enable WSL feature
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+# Enable Virtual Machine Platform
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+**Important:** Restart your computer after running these commands.
+
+## Step 3: Install WSL2 (Modern Method)
+
+After restarting, open **Command Prompt as Administrator** again:
+
+```{bash, eval=FALSE}
+# Install WSL2 with Ubuntu (this is the easiest method)
+wsl --install
+```
+
+Do "OK" or "Yes" to agree if pop-ups appear. If this command doesn't work, use the manual method below.
+
+## Step 4: Manual Installation (If Step 3 Failed)
+
+### Download and Install WSL2 Kernel Update
+
+1. Download the WSL2 Linux kernel update package from Microsoft:
+   - [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+
+2. Run the downloaded `.msi` file and follow the installation wizard.
+
+### Set WSL2 as Default Version
+
+```{bash, eval=FALSE}
+# Set WSL2 as the default version
+wsl --set-default-version 2
+```
+
+### Install Ubuntu Distribution
+
+```{bash, eval=FALSE}
+# List available distributions
+wsl --list --online
+#it will show all the availabe Linux distributions. Choose one of Ubuntus.
+
+# Install Ubuntu
+wsl --install -d Ubuntu
+```
+
+## Step 5: Alternative - Install via Microsoft Store
+
+If command line installation fails:
+
+1. Open **Microsoft Store**
+2. Search for "**Ubuntu 22.04.3 LTS**" or just "**Ubuntu**"
+3. Click "**Get**" or "**Install**"
+4. Wait for download and installation
+5. Click "**Launch**" when ready
+
+## Step 6: First-Time Ubuntu Setup
+
+When you launch Ubuntu for the first time:
+
+1. **Wait for installation to complete** (this may take several minutes)
+2. **Create a username** when prompted (can be different from your Windows username)
+3. **Create a password** (you won't see characters as you type - this is normal)
+4. **Confirm your password**
+
+```{bash, eval=FALSE}
+# Example setup (replace 'yourusername' with your preferred username)
+Enter new UNIX username: yourusername
+New password: [type your password]
+Retype new password: [type your password again]
+```
+
+## Step 7: Verify Installation
+
+```{bash, eval=FALSE}
+# Check WSL version and status
+wsl --list --verbose
+```
+
+You should see output like:
+```
+  NAME      STATE           VERSION
+* Ubuntu    Running         2
+```
+
+## Step 8: Update Ubuntu System
+
+In your Ubuntu terminal, run these commands one by one:
+
+```{bash, eval=FALSE}
+# Update package list
+sudo apt update
+
+# Upgrade installed packages (this may take a while)
+sudo apt upgrade
+```
+
+**Note:** When prompted, type `Y` and press Enter to confirm upgrades.
+
+## Step 9: Install Python Development Environment
+This is required for latter use, not exactly now. You might choose not to do it right now. We will see things together.
+
+### Option A: Using Python Virtual Environment (Recommended)
+
+```{bash, eval=FALSE}
+# Install Python and essential tools
+sudo apt install python3 python3-pip python3-venv curl wget git
+
+# Verify Python installation
+python3 --version
+pip3 --version
+```
+
+### Option B: Using Miniconda (Alternative)
+
+```{bash, eval=FALSE}
+# Download Miniconda installer
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# Install Miniconda
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# Follow the installation prompts:
+# - Press ENTER to review the license
+# - Type 'yes' to accept the license
+# - Press ENTER to confirm the installation location
+# - Type 'yes' to initialize conda
+
+# Reload your shell configuration
+source ~/.bashrc
+
+# Verify conda installation
+conda --version
+```
+
+## Step 10: Access Your Windows Files
+
+Your Windows files are accessible from Ubuntu at these locations:
+
+```{bash, eval=FALSE}
+# Your Windows C: drive
+cd /mnt/c/
+
+cd /mnt/c/Users/YourWindowsUsername/
+
+# Your Downloads folder
+cd /mnt/c/Users/YourWindowsUsername/Downloads/
+```
+`mnt` is to denote mounting. Your linux/ubuntu functionalities are actually mounted on Windows. Makes sense?
+
+# Your Windows user folder
+## Step 11: Copy Project Files
+
+To copy your project from Windows to Ubuntu:
+
+```{bash, eval=FALSE}
+# Navigate to your home directory in Ubuntu
+cd ~
+
+# Copy project from Windows Downloads (adjust path as needed)
+cp -r /mnt/c/Users/YourWindowsUsername/Downloads/folderName ./
+
+# Navigate to the project
+cd folderName
+
+# List files to verify
+ls -la
+```
+
+## Common Troubleshooting
+
+### Issue: "WSL has no installed distributions"
+
+**Solution:** You need to install a Linux distribution first.
+
+```{bash, eval=FALSE}
+# List available distributions
+wsl --list --online
+
+# Install Ubuntu
+wsl --install Ubuntu
+```
+
+### Issue: Command not found errors
+
+**Solution:** Make sure you're running commands in the correct environment:
+- WSL commands (`wsl --install`) should be run in **Windows Command Prompt as Administrator**
+- Linux commands (`sudo apt update`) should be run in **Ubuntu terminal**
+
+### Issue: Network/download problems
+
+**Solutions:**
+
+1. **Try different download mirrors:**
+```{bash, eval=FALSE}
+# For Miniconda, try this mirror:
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+2. **Download via Windows browser and copy:**
+   - Download files using your Windows browser
+   - Copy to Ubuntu using `/mnt/c/` path
+
+### Issue: Permission denied
+
+**Solution:** Use `sudo` for system commands:
+
+```{bash, eval=FALSE}
+# Wrong:
+apt update
+
+# Correct:
+sudo apt update
+```
+
+### Issue: Ubuntu terminal closes immediately
+
+**Solutions:**
+1. Make sure WSL2 is properly installed
+2. Restart your computer
+3. Try reinstalling Ubuntu from Microsoft Store
+
+## Useful WSL Commands
+
+```{bash, eval=FALSE}
+# List all installed distributions
+wsl --list --verbose
+
+# Stop a distribution
+wsl --terminate Ubuntu
+
+# Start a specific distribution
+wsl -d Ubuntu
+
+# Uninstall a distribution
+wsl --unregister Ubuntu
+
+# Check WSL version
+wsl --version
+```
+
+## Opening Multiple Terminals
+
+### Method 1: Windows Terminal (Recommended)
+1. Install **Windows Terminal** from Microsoft Store
+2. Open Windows Terminal
+3. Click the dropdown arrow next to the `+` tab
+4. Select "Ubuntu"
+5. Use `Ctrl + Shift + T` for new tabs
+
+### Method 2: Direct Launch
+- Search "Ubuntu" in Start Menu
+- Click to open new instances
+
+## Next Steps
+
+Once WSL2 and Ubuntu are properly installed:
+
+1. **Set up your development environment** (Python virtual environment or Conda)
+2. **Copy your project files** from Windows to Ubuntu
+3. **Install project dependencies**
+4. **Run your IELTS AI Coach application**
+
+## Additional Resources
+
+- [Official WSL Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
+- [WSL2 Installation Guide](https://docs.microsoft.com/en-us/windows/wsl/install)
+- [Ubuntu WSL Documentation](https://ubuntu.com/wsl)
+
+
+**Need Help?** If you encounter issues not covered in this guide, please:
+1. Take a screenshot of the error message
+2. Note which step you were on
+3. Contact me

@@ -23,9 +23,9 @@
   {
     "objectID": "ch/linux-and-ctl/advanced.html",
     "href": "ch/linux-and-ctl/advanced.html",
-    "title": "Advanced Linux and CTL",
+    "title": "Advanced Linux and Command Line Tools",
     "section": "",
-    "text": "I have many files inside a folder. I want to move them into to sub-folders named f1 and f2 (I made them using mkdir -p f1 f2). How to do that?\nThis is the way:\n\ni=0\nfor file in $(ls *.fastq.gz | sort -V); do\n  if [ $i -le 400 ]; then\n    mv \"$file\" f1/\n  else\n    mv \"$file\" f2/\n  fi\n  i=$((i + 1))\ndone\n\nHere, I am sending files having 0-400 in there name to f1 folder and remaining ones to f2. You just need to use your file naming pattern, and you are all set.\nHow to execute/run this file now?\nRun these:\n\nchmod +x move_files.sh\n./move_files.sh\n\nchmod +x is making the file executable. Then we are running it using ./move_files.sh.\n\nI am going to connect to Uni-Greifswald’s Brain cluster.\n\nssh username@brain.uni-greifswald.de\n\nYou need to give your real username and password. Now, let’s get an interactive session to the gpu compute node (it is named “vision” for uni-greifswald’s gpu node).\n\nsrun --pty --gres=gpu:1 --partition=vision --mem=16g -t 12:00:00 bash -i\n\nLet’s install conda for our environment management.\n\n# Download the Miniconda installer for Linux\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\n\n# Run the installer, specifying the installation path\nbash Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda_install/\n\nNow, let’s initialize conda:\n\n# Source the conda shell script to make the 'conda' command available\nsource ~/miniconda_install/bin/activate\n\n# Initialize conda for the current shell session.\nconda init bash\n\nSince we’re using an interactive session, we won’t need to manually source anything after this. The conda init command makes it so we can use conda and conda activate as we normally would.\nN.B. We could make some aliases for conda commands to write conda codes in shorter format, but we can do/see it later.\nLet’s make an environment and install our required tools there. Well, our goal is to make a system where we will use some images/characters and make short videos using them to teach Italian. We need to process photos, images, text, and sync lips (video) with audio/speech. We need MuseTalk for this. Let’s configure our environment accordingly.\nStep 1 – Create conda environment\n\n# Create new environment for MuseTalk\nconda create -n musetalk python=3.10\nconda activate musetalk\n\nStep 2 – Install Dependencies\n\n# Create new environment for MuseTalk\n# Install PyTorch (adapt cuda version to your cluster, here CUDA 11.8 example)\npip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --extra-index-url https://download.pytorch.org/whl/cu118\n\n# HuggingFace core libs\npip install transformers accelerate diffusers safetensors\n\n# MuseTalk repo (clone)\ngit clone https://github.com/TMElyralab/MuseTalk.git\ncd MuseTalk\n\n# Install requirements\npip install -r requirements.txt\n\n# Install whisper encoder\npip install --editable ./musetalk/whisper\n\n# Extra: ffmpeg for video processing\nconda install -c conda-forge ffmpeg -y\n\nStep 3 – Download MuseTalk Models MuseTalk Hugging Face repo: https://huggingface.co/TMElyralab/MuseTalk\nWe need:\n- musetalk.pth (main model) - gfpgan (optional face enhancer)\nRun inside MuseTalk:\n\nmkdir checkpoints\ncd checkpoints\n\n# Download core model\nwget https://huggingface.co/TMElyralab/MuseTalk/resolve/main/musetalk.pth\n\n# Optional face enhancer\ngit clone https://github.com/TencentARC/GFPGAN.git\ncd ..\n\n\n\nexport CUDA_HOME=/usr/local/cuda-11.7\nexport PATH=$CUDA_HOME/bin:$PATH\nexport LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH\n\nIn my HPC Cluster, it is cuda 11.7. I am configuring for that. We could add these lines in my ~/.bashrc file as well. We might see it later.\nLet’s load our cuda module first to get things done smoothly.\n\nmodule load cuda/12.0.0\n\nNow, make the yml file to make the environment with all the tools required.\n\nname: musetalk3\nchannels:\n  - pytorch\n  - nvidia\n  - defaults\ndependencies:\n  - python=3.10\n  - pip\n  - ffmpeg\n  - pip:\n      # PyTorch + CUDA 11.8 compatible with 11.7 system\n      - torch==2.1.0+cu118\n      - torchvision==0.16.0+cu118\n      - torchaudio==2.1.0+cu118\n      - --extra-index-url https://download.pytorch.org/whl/cu118\n\n      # OpenMMLab dependencies\n      - mmcv==2.0.1 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1.0/index.html\n      - mmdet==3.1.0\n      - gradio\n      - opencv-python\n      - numpy\n      - scipy\n      - matplotlib\n      - tqdm\n      - pyyaml\n      - pillow\n      - soundfile\n      - librosa\n      - moviepy\n      - imageio\n\nSave this as musetalk3.yml and run:\n\nconda env create -f musetalk3.yml\nconda activate musetalk3\n\nNow, we have our environment ready to use. Let’s use it.\n\nconda activate musetalk3\n\nNow, install museetalk repo dependencies.\n\ngit clone https://github.com/TMElyralab/MuseTalk.git\ncd MuseTalk\npip install -r requirements.txt\n\nLet’s get the faces I want to use. I uploaded them to my GDrive.\n\npip install gdown\n\n# Get shareable link from Google Drive and copy file id\ngdown https://drive.google.com/uc?id=FILE_ID -O data/faces/alice.jpg\ngdown https://drive.google.com/uc?id=FILE_ID -O data/faces/bob.jpg\n\nmodify the google drive links for the images and their destination name as you like it."
+    "text": "Learn a lot from Harvard Chan Bioinformatics Core"
   },
   {
     "objectID": "ch/rbasics/solutions.html",
@@ -389,7 +389,7 @@
     "href": "ch/linux-and-ctl/basics.html",
     "title": "Linux Basics",
     "section": "",
-    "text": "Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this step-by-step guide to install Ubuntu (a Linux distribution).\nFollow this pages to install Windows Subsystem for Linux if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can’t do anything except using Linux to analyse Genomic (sequencing) data. So, better start now.\nFollow link1 & link2 to get step-by-step guideline to do it.\nThe problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be update your kernel first and then try."
+    "text": "If you have Linux already, stay calm. Scrol down to learn things instead of installing WSL2.\nTry to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this step-by-step guide to install Ubuntu (a Linux distribution).\nFollow this pages to install Windows Subsystem for Linux if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can’t do anything except using Linux to analyse Genomic (sequencing) data. So, better start now.\nFollow link1 & link2 to get step-by-step guideline to do it.\nA pro tip will be update your kernel first and then try. But here goes something."
   },
   {
     "objectID": "ch/linux-and-ctl/basics.html#linux-and-wsl2",
@@ -1153,5 +1153,313 @@
     "title": "PythRaSh’s AI Newsletter",
     "section": "📱 Connect",
     "text": "📱 Connect\n\n\n\n🌐 Website & Social\n\nPythRaSh Website\nLinkedIn\nGitHub\n\n\n\n\n📧 Newsletter\n\nSubscribe\nArchive\nEmail\n\n\n\n\n\nPublished on September 15, 2025 • Original email format preserved • Subscribe for weekly updates"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#grep---advanced-pattern-matching",
+    "href": "ch/linux-and-ctl/advanced.html#grep---advanced-pattern-matching",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\ngrep - Advanced Pattern Matching",
+    "text": "grep - Advanced Pattern Matching\ngrep is one of the most powerful text search tools. Let’s explore its advanced features.\nBasic grep Usage\n\n# Search for a pattern in a file\ngrep \"pattern\" file.txt\n\n# Search case-insensitive\ngrep -i \"pattern\" file.txt\n\n# Search in multiple files\ngrep \"pattern\" *.txt\n\n# Search recursively in directories\ngrep -r \"pattern\" directory/\n\nAdvanced grep Options\n\n# Show line numbers\ngrep -n \"pattern\" file.txt\n\n# Show context (2 lines before and after)\ngrep -C 2 \"pattern\" file.txt\n\n# Show only filenames with matches\ngrep -l \"pattern\" *.txt\n\n# Show only lines that DON'T match (invert)\ngrep -v \"pattern\" file.txt\n\n# Use regular expressions\ngrep -E \"^[0-9]+\" file.txt  # Lines starting with numbers\n\n# Count matches\ngrep -c \"pattern\" file.txt\n\n# Show only the matching part\ngrep -o \"pattern\" file.txt\n\nRegular Expressions with grep\n\n# Lines starting with specific text\ngrep \"^start\" file.txt\n\n# Lines ending with specific text\ngrep \"end$\" file.txt\n\n# Lines containing either pattern1 OR pattern2\ngrep -E \"pattern1|pattern2\" file.txt\n\n# Lines with exactly 3 digits\ngrep -E \"^[0-9]{3}$\" file.txt\n\n# Lines containing word boundaries\ngrep -w \"word\" file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#awk---pattern-scanning-and-processing",
+    "href": "ch/linux-and-ctl/advanced.html#awk---pattern-scanning-and-processing",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nawk - Pattern Scanning and Processing",
+    "text": "awk - Pattern Scanning and Processing\nawk is a powerful programming language for text processing. It processes files line by line.\nBasic awk Syntax\n\n# Print entire lines\nawk '{print}' file.txt\n\n# Print specific fields (space-separated by default)\nawk '{print $1}' file.txt  # First field\nawk '{print $2}' file.txt  # Second field\nawk '{print $1, $3}' file.txt  # First and third fields\n\n# Print last field\nawk '{print $NF}' file.txt\n\n# Print number of fields in each line\nawk '{print NF}' file.txt\n\nAdvanced awk Examples\n\n# Print lines with more than 3 fields\nawk 'NF &gt; 3' file.txt\n\n# Print lines where first field equals \"name\"\nawk '$1 == \"name\"' file.txt\n\n# Print lines where second field is greater than 100\nawk '$2 &gt; 100' file.txt\n\n# Add line numbers\nawk '{print NR, $0}' file.txt\n\n# Print specific lines (e.g., lines 5-10)\nawk 'NR &gt;= 5 && NR &lt;= 10' file.txt\n\n# Calculate sum of second column\nawk '{sum += $2} END {print sum}' file.txt\n\n# Print average of second column\nawk '{sum += $2; count++} END {print sum/count}' file.txt\n\nawk with Field Separators\n\n# Use comma as field separator\nawk -F',' '{print $1, $2}' file.csv\n\n# Use multiple separators\nawk -F'[,;]' '{print $1, $2}' file.txt\n\n# Use tab as separator\nawk -F'\\t' '{print $1, $2}' file.tsv"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#cut---extract-columns-from-files",
+    "href": "ch/linux-and-ctl/advanced.html#cut---extract-columns-from-files",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\ncut - Extract Columns from Files",
+    "text": "cut - Extract Columns from Files\ncut is simpler than awk for basic column extraction.\nBasic cut Usage\n\n# Extract first column (space-separated)\ncut -d' ' -f1 file.txt\n\n# Extract first and third columns\ncut -d' ' -f1,3 file.txt\n\n# Extract columns 1-3\ncut -d' ' -f1-3 file.txt\n\n# Use comma as delimiter\ncut -d',' -f1,2 file.csv\n\n# Use tab as delimiter\ncut -d$'\\t' -f1,2 file.tsv\n\n# Extract by character positions\ncut -c1-10 file.txt  # Characters 1-10\ncut -c1,5,10 file.txt  # Characters 1, 5, and 10"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#sed---stream-editor",
+    "href": "ch/linux-and-ctl/advanced.html#sed---stream-editor",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nsed - Stream Editor",
+    "text": "sed - Stream Editor\nsed is used for text substitution and editing.\nBasic sed Usage\n\n# Replace first occurrence of \"old\" with \"new\"\nsed 's/old/new/' file.txt\n\n# Replace all occurrences of \"old\" with \"new\"\nsed 's/old/new/g' file.txt\n\n# Replace only on specific lines (e.g., line 5)\nsed '5s/old/new/' file.txt\n\n# Delete lines containing \"pattern\"\nsed '/pattern/d' file.txt\n\n# Delete empty lines\nsed '/^$/d' file.txt\n\n# Print only lines 5-10\nsed -n '5,10p' file.txt\n\nAdvanced sed Examples\n\n# Replace multiple patterns\nsed -e 's/old1/new1/g' -e 's/old2/new2/g' file.txt\n\n# Use different delimiter (useful for paths)\nsed 's|/old/path|/new/path|g' file.txt\n\n# Case-insensitive replacement\nsed 's/old/new/gi' file.txt\n\n# In-place editing (modify file directly)\nsed -i 's/old/new/g' file.txt\n\n# Backup original file\nsed -i.bak 's/old/new/g' file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#sort---sort-lines",
+    "href": "ch/linux-and-ctl/advanced.html#sort---sort-lines",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nsort - Sort Lines",
+    "text": "sort - Sort Lines\n\n# Sort alphabetically\nsort file.txt\n\n# Sort numerically\nsort -n file.txt\n\n# Sort in reverse order\nsort -r file.txt\n\n# Sort by specific field\nsort -k2 file.txt  # Sort by second field\n\n# Sort by multiple fields\nsort -k1,1 -k2,2n file.txt  # Sort by field 1, then by field 2 numerically\n\n# Remove duplicates while sorting\nsort -u file.txt\n\n# Sort ignoring case\nsort -f file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#uniq---remove-duplicate-lines",
+    "href": "ch/linux-and-ctl/advanced.html#uniq---remove-duplicate-lines",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nuniq - Remove Duplicate Lines",
+    "text": "uniq - Remove Duplicate Lines\n\n# Remove consecutive duplicate lines\nuniq file.txt\n\n# Count occurrences of each line\nuniq -c file.txt\n\n# Show only unique lines\nuniq -u file.txt\n\n# Show only duplicate lines\nuniq -d file.txt\n\n# Ignore case when comparing\nuniq -i file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#find---find-files-and-directories",
+    "href": "ch/linux-and-ctl/advanced.html#find---find-files-and-directories",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nfind - Find Files and Directories",
+    "text": "find - Find Files and Directories\n\n# Find files by name\nfind . -name \"*.txt\"\n\n# Find files by type\nfind . -type f  # Files only\nfind . -type d  # Directories only\n\n# Find files by size\nfind . -size +100M  # Files larger than 100MB\nfind . -size -1k    # Files smaller than 1KB\n\n# Find files by modification time\nfind . -mtime -7    # Modified in last 7 days\nfind . -mtime +30   # Modified more than 30 days ago\n\n# Find files by permissions\nfind . -perm 644    # Files with 644 permissions\nfind . -perm -u+x   # Files executable by owner\n\n# Execute commands on found files\nfind . -name \"*.txt\" -exec rm {} \\;  # Delete all .txt files\nfind . -name \"*.log\" -exec mv {} logs/ \\;  # Move .log files to logs directory"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#xargs---execute-commands-on-multiple-arguments",
+    "href": "ch/linux-and-ctl/advanced.html#xargs---execute-commands-on-multiple-arguments",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "\nxargs - Execute Commands on Multiple Arguments",
+    "text": "xargs - Execute Commands on Multiple Arguments\n\n# Find and delete files\nfind . -name \"*.tmp\" | xargs rm\n\n# Find and copy files\nfind . -name \"*.txt\" | xargs cp -t backup/\n\n# Count lines in multiple files\nfind . -name \"*.txt\" | xargs wc -l\n\n# Search in multiple files\nfind . -name \"*.py\" | xargs grep \"import\""
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#creating-and-running-scripts",
+    "href": "ch/linux-and-ctl/advanced.html#creating-and-running-scripts",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "Creating and Running Scripts",
+    "text": "Creating and Running Scripts\n\n# Create a script file\nnano my_script.sh\n\n# Make it executable\nchmod +x my_script.sh\n\n# Run the script\n./my_script.sh"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#basic-script-structure",
+    "href": "ch/linux-and-ctl/advanced.html#basic-script-structure",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "Basic Script Structure",
+    "text": "Basic Script Structure\n\n#!/bin/bash\n# This is a comment\n\n# Set variables\nNAME=\"Linux User\"\nCOUNT=10\n\n# Use variables\necho \"Hello, $NAME!\"\necho \"Count is: $COUNT\"\n\n# Use command substitution\nCURRENT_DIR=$(pwd)\necho \"Current directory: $CURRENT_DIR\"\n\n# Use arithmetic\nRESULT=$((COUNT * 2))\necho \"Double count: $RESULT\""
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#control-structures",
+    "href": "ch/linux-and-ctl/advanced.html#control-structures",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "Control Structures",
+    "text": "Control Structures\nIf-Else Statements\n\n#!/bin/bash\n\nif [ -f \"file.txt\" ]; then\n    echo \"File exists\"\nelse\n    echo \"File does not exist\"\nfi\n\n# String comparison\nif [ \"$1\" = \"hello\" ]; then\n    echo \"You said hello\"\nelif [ \"$1\" = \"goodbye\" ]; then\n    echo \"You said goodbye\"\nelse\n    echo \"You said something else\"\nfi\n\nLoops\n\n#!/bin/bash\n\n# For loop\nfor i in {1..5}; do\n    echo \"Number: $i\"\ndone\n\n# For loop with files\nfor file in *.txt; do\n    echo \"Processing: $file\"\ndone\n\n# While loop\ncount=1\nwhile [ $count -le 5 ]; do\n    echo \"Count: $count\"\n    count=$((count + 1))\ndone"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#file-manipulation-scripts",
+    "href": "ch/linux-and-ctl/advanced.html#file-manipulation-scripts",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "File Manipulation Scripts",
+    "text": "File Manipulation Scripts\nQ1: How to move files to subfolders\nI have many files inside a folder. I want to move them into two sub-folders named f1 and f2 (I made them using mkdir -p f1 f2). How to do that?\nThis is the way:\n\n#!/bin/bash\n# move_files.sh\n\n# Create subdirectories if they don't exist\nmkdir -p f1 f2\n\n# Counter for files\ni=0\n\n# Loop through all .fastq.gz files (sorted by version)\nfor file in $(ls *.fastq.gz | sort -V); do\n    if [ $i -le 400 ]; then\n        mv \"$file\" f1/\n        echo \"Moved $file to f1/\"\n    else\n        mv \"$file\" f2/\n        echo \"Moved $file to f2/\"\n    fi\n    i=$((i + 1))\ndone\n\necho \"File moving completed!\"\necho \"Files in f1: $(ls f1/ | wc -l)\"\necho \"Files in f2: $(ls f2/ | wc -l)\"\n\nHere, I am sending fastq.gz files having 0-400 in their name to f1 folder and remaining ones to f2. You just need to use your file naming pattern in the code block, and you are all set. For example, if you have many .fasta files, use .fasta instead of .fastq.gz. You got the idea, right?\nHow to execute/run this file now? Run these:\n\nchmod +x move_files.sh\n./move_files.sh\n\nchmod +x is making the file named move_files.sh executable. Then we are running it using ./move_files.sh."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#ssh-connection-to-hpc-clusters",
+    "href": "ch/linux-and-ctl/advanced.html#ssh-connection-to-hpc-clusters",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "SSH Connection to HPC Clusters",
+    "text": "SSH Connection to HPC Clusters\nI am going to connect to Uni-Greifswald’s Brain cluster.\n\nssh username@brain.uni-greifswald.de\n\nYou have to use your real username and password. Now, let’s get an interactive session to the gpu compute node (it is named “vision” for uni-greifswald’s gpu node, check for yours).\n\nsrun --pty --gres=gpu:1 --partition=vision --mem=16g -t 12:00:00 bash -i\n\nSo, I am taking the session for 12 hours."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#environment-management-on-hpc",
+    "href": "ch/linux-and-ctl/advanced.html#environment-management-on-hpc",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "Environment Management on HPC",
+    "text": "Environment Management on HPC\nInstalling Conda on HPC\nLet’s install conda for our environment management (if you don’t have already).\n\n# Download the Miniconda installer for Linux\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\n\n# Run the installer, specifying the installation path\nbash Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda_install/\n\nNow, let’s initialize conda:\n\n# Source the conda shell script to make the 'conda' command available\nsource ~/miniconda_install/bin/activate\n\n# Initialize conda for the current shell session.\nconda init bash\n\nSince we’re using an interactive session, we won’t need to manually source anything after this. The conda init command makes it so we can use conda and conda activate as we normally would.\nN.B. We could make some aliases for conda commands to write conda codes in shorter format, but we can do/see it later. Get used to the normal ones."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#advanced-environment-setup",
+    "href": "ch/linux-and-ctl/advanced.html#advanced-environment-setup",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "Advanced Environment Setup",
+    "text": "Advanced Environment Setup\nLet’s make an environment and install our required tools there. Well, our goal is to make a system where we will use some images/characters and make short videos using them to teach Italian. We need to process photos, images, text, and sync lips (video) with audio/speech. We need MuseTalk for this. Let’s configure our environment accordingly.\nStep 1 – Create conda environment\n\n# Create new environment for MuseTalk\nconda create -n musetalk python=3.10\nconda activate musetalk\n\nStep 2 – Install Dependencies\n\n# Install PyTorch (adapt cuda version to your cluster, here CUDA 11.8 example)\npip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --extra-index-url https://download.pytorch.org/whl/cu118\n\n# HuggingFace core libs\npip install transformers accelerate diffusers safetensors\n\n# MuseTalk repo (clone)\ngit clone https://github.com/TMElyralab/MuseTalk.git\ncd MuseTalk\n\n# Install requirements\npip install -r requirements.txt\n\n# Install whisper encoder\npip install --editable ./musetalk/whisper\n\n# Extra: ffmpeg for video processing\nconda install -c conda-forge ffmpeg -y\n\nStep 3 – Download MuseTalk Models\nMuseTalk Hugging Face repo: https://huggingface.co/TMElyralab/MuseTalk We need: - musetalk.pth (main model) - gfpgan (optional face enhancer)\nRun inside MuseTalk:\n\nmkdir checkpoints\ncd checkpoints\n\n# Download core model\nwget https://huggingface.co/TMElyralab/MuseTalk/resolve/main/musetalk.pth\n\n# Optional face enhancer\ngit clone https://github.com/TencentARC/GFPGAN.git\ncd .."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/advanced.html#cuda-environment-configuration",
+    "href": "ch/linux-and-ctl/advanced.html#cuda-environment-configuration",
+    "title": "Advanced Linux and Command Line Tools",
+    "section": "CUDA Environment Configuration",
+    "text": "CUDA Environment Configuration\nBetter way:\n\nexport CUDA_HOME=/usr/local/cuda-11.7\nexport PATH=$CUDA_HOME/bin:$PATH\nexport LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH\n\nIn my HPC Cluster, it is cuda 11.7. I am configuring for that. We could add these lines in my ~/.bashrc file as well. We might see it later.\nLet’s load our cuda module first to get things done smoothly.\n\nmodule load cuda/11.7\n\nNow, make the yml file to make the environment with all the tools required.\nname: musetalk3\nchannels:\n  - pytorch\n  - nvidia\n  - defaults\ndependencies:\n  - python=3.10\n  - pip\n  - ffmpeg\n  - pip:\n      # PyTorch + CUDA 11.8 compatible with 11.7 system\n      - torch==2.1.0+cu118\n      - torchvision==0.16.0+cu118\n      - torchaudio==2.1.0+cu118\n      - --extra-index-url https://download.pytorch.org/whl/cu118\n\n      # OpenMMLab dependencies\n      - mmcv==2.0.1 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1.0/index.html\n      - mmdet==3.1.0\n      - gradio\n      - opencv-python\n      - numpy\n      - scipy\n      - matplotlib\n      - tqdm\n      - pyyaml\n      - pillow\n      - soundfile\n      - librosa\n      - moviepy\n      - imageio\nSave this as musetalk3.yml and run:\n\nconda env create -f musetalk3.yml\nconda activate musetalk3\n\nNow, we have our environment ready to use. Let’s use it.\n\nconda activate musetalk3\n\nNow, install museetalk repo dependencies.\n\ngit clone https://github.com/TMElyralab/MuseTalk.git\ncd MuseTalk\npip install -r requirements.txt\n\nLet’s get the faces I want to use. I uploaded them to my Google Drive.\n\npip install gdown\n\n# Get shareable link from Google Drive and copy file id\ngdown https://drive.google.com/uc?id=FILE_ID -O data/faces/alice.jpg\ngdown https://drive.google.com/uc?id=FILE_ID -O data/faces/bob.jpg\n\nModify the google drive links for the images and their destination name as you like it.\nReal work\nNow, let’s follow the author’s guideline.\n\npip install --no-cache-dir -U openmim\nmim install mmengine\nmim install \"mmcv==2.0.1\"\nmim install \"mmdet==3.1.0\"\nmim install \"mmpose==1.1.0\"\n\nLet’s download the model’s weight.\n\nsh ./download_weights.sh\n\n\n# Check ffmpeg installation\nffmpeg -version\n\nThe conversation\n\npip install TTS\n\n# Example: Alice speaking Italian\ntts --text \"Buon giorno, Bob! Come stai?\" \\\n    --model_name tts_models/it/mai_female/vits \\\n    --out_path alice_buongiorno.wav\n\n# Example: Bob replying\ntts --text \"Buon giorno, Alice! Va bene, grazie mille! Chi è questo?\" \\\n    --model_name tts_models/it/mai_male/vits \\\n    --out_path bob_risposta.wav"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#navigation-commands",
+    "href": "ch/linux-and-ctl/basics.html#navigation-commands",
+    "title": "Linux Basics",
+    "section": "Navigation Commands",
+    "text": "Navigation Commands\n\npwd - Print Working Directory\nShows your current location in the file system.\n\n# Show current directory\npwd\n\n\nls - List Directory Contents\nLists files and folders in the current directory.\n\n# Basic listing\nls\n\n# Detailed listing with permissions, size, date\nls -l\n\n# List all files including hidden ones (starting with .)\nls -la\n\n# List with human-readable file sizes\nls -lh\n\n\n# List files in a specific directory\nls /home/username\n\n\ncd - Change Directory\nNavigate between directories.\n\n# Go to home directory\ncd ~\n# or simply\ncd\n\n# Go to parent directory\ncd ..\n\n# Go to root directory\ncd /\n\n# Go back to previous directory\ncd -\n#or \ncd .\n\n\n# Go to a specific directory\ncd /home/username/Documents"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#file-and-directory-operations",
+    "href": "ch/linux-and-ctl/basics.html#file-and-directory-operations",
+    "title": "Linux Basics",
+    "section": "File and Directory Operations",
+    "text": "File and Directory Operations\n\nmkdir - Make Directory\nCreate new directories.\n\n# Create a single directory\nmkdir my_folder\n\n# Create multiple directories\nmkdir folder1 folder2 folder3\n\n# Create nested directories\nmkdir -p project/data/raw\n\n# Create directory with specific permissions\nmkdir -m 755 public_folder\n\n\ntouch - Create Empty Files\nCreate empty files or update file timestamps.\n\n# Create an empty file\ntouch my_file.txt\n\n# Create multiple files\ntouch file1.txt file2.txt file3.txt\n\n# Update file timestamp (useful for makefiles)\ntouch existing_file.txt\n\n\ncp - Copy Files and Directories\nCopy files and directories.\n\n# Copy a file\ncp source.txt destination.txt\n\n\n# Copy file to a directory\ncp file.txt /path/to/directory/\n\n# Copy directory recursively\ncp -r source_directory/ destination_directory/\n\n# Copy with preservation of attributes\ncp -p file.txt backup/\n\n# Copy multiple files\ncp file1.txt file2.txt destination_folder/\n\n\nmv - Move/Rename Files and Directories\nMove or rename files and directories.\n\n# Rename a file\nmv old_name.txt new_name.txt\n\n\n# Move file to directory\nmv file.txt /path/to/directory/\n\n# Move directory\nmv source_directory/ destination_directory/\n\n# Move and rename in one step\nmv file.txt /new/location/renamed_file.txt\n\n\nrm - Remove Files and Directories\nDelete files and directories.\n\n# Remove a file\nrm file.txt\n\n# Remove multiple files\nrm file1.txt file2.txt file3.txt\n\n# Remove directory and all contents (BE CAREFUL!)\nrm -r directory_name/\n\n# Remove directory with confirmation\nrm -ri directory_name/\n\n# Remove empty directory only\nrmdir empty_directory/\n\n# Remove files with confirmation\nrm -i *.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#file-permissions",
+    "href": "ch/linux-and-ctl/basics.html#file-permissions",
+    "title": "Linux Basics",
+    "section": "File Permissions",
+    "text": "File Permissions\nUnderstanding file permissions is crucial for Linux security.\nViewing Permissions\n\n# List files with permissions\nls -l\n\n# Example output:\n# -rw-r--r-- 1 username group 1234 Dec 15 10:30 file.txt\n# drwxr-xr-x 2 username group 4096 Dec 15 10:30 folder/\n\nThe permission string has 10 characters: - Position 1: File type (- for file, d for directory) - Positions 2-4: Owner permissions (read, write, execute) - Positions 5-7: Group permissions (read, write, execute) - Positions 8-10: Other permissions (read, write, execute)\n\nchmod - Change File Permissions\n\n# Give owner read, write, execute; group and others read, execute\nchmod 755 script.sh\n\n# Give owner read, write; group and others read only\nchmod 644 file.txt\n\n# Add execute permission for owner\nchmod +x script.sh\n\n# Remove write permission for group and others\nchmod go-w file.txt\n\n# Make file readable by everyone\nchmod a+r file.txt\n\n\nchown - Change File Ownership\n\n# Change owner\nchown newowner file.txt\n\n# Change owner and group\nchown newowner:newgroup file.txt\n\n# Change ownership recursively\nchown -R newowner:newgroup directory/"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#text-editing",
+    "href": "ch/linux-and-ctl/basics.html#text-editing",
+    "title": "Linux Basics",
+    "section": "Text Editing",
+    "text": "Text Editing\n\nnano - Simple Text Editor\nGreat for beginners.\n\n# Open file in nano\nnano filename.txt\n\n# Create new file\nnano new_file.txt\n\nNano shortcuts: - Ctrl + X: Exit - Ctrl + O: Save - Ctrl + W: Search - Ctrl + K: Cut line - Ctrl + U: Paste\n\nvim - Advanced Text Editor\nMore powerful but steeper learning curve.\n\n# Open file in vim\nvim filename.txt\n\n# Create new file\nvim new_file.txt\n\nSo, creating and opening command is basically the same. Just write the file name. After opening the file, you have toenter into editing/inserting mode. Press i on your keyboard to be able to insert/write (or copy-paste) contents. After finishing editing, press Esc key to come out of the editing mode. Then write :wq to save.\nBasic vim commands: - i: Enter insert mode - Esc: Exit insert mode - :w: Save - :q: Quit - :wq: Save and quit - :q!: Quit without saving"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#viewing-file-contents",
+    "href": "ch/linux-and-ctl/basics.html#viewing-file-contents",
+    "title": "Linux Basics",
+    "section": "Viewing File Contents",
+    "text": "Viewing File Contents\n\ncat - Display File Contents\n\n# Display entire file\ncat file.txt\n\n# Display multiple files\ncat file1.txt file2.txt\n\n# Display with line numbers\ncat -n file.txt\n\n\nless - View File Page by Page\n\n# View file with pagination\nless file.txt\n\n# Search in less: type `/search_term` and press Enter\n# Navigate: Space (next page), b (previous page), q (quit)\n\n\nhead and tail - View Beginning/End of Files\n\n# Show first 10 lines\nhead file.txt\n\n# Show first 20 lines\nhead -n 20 file.txt\n\n# Show last 10 lines\ntail file.txt\n\n# Show last 20 lines\ntail -n 20 file.txt\n\n# Follow file changes in real-time\ntail -f log_file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#basic-text-processing",
+    "href": "ch/linux-and-ctl/basics.html#basic-text-processing",
+    "title": "Linux Basics",
+    "section": "Basic Text Processing",
+    "text": "Basic Text Processing\n\ngrep - Search Text\n\n# Search for text in file\ngrep \"search_term\" file.txt\n\n# Search case-insensitive\ngrep -i \"search_term\" file.txt\n\n# Search in multiple files\ngrep \"search_term\" *.txt\n\n# Search recursively in directories\ngrep -r \"search_term\" directory/\n\n# Show line numbers\ngrep -n \"search_term\" file.txt\n\n\nwc - Word Count\n\n# Count lines, words, characters\nwc file.txt\n\n# Count only lines\nwc -l file.txt\n\n# Count only words\nwc -w file.txt\n\n# Count only characters\nwc -c file.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#environment-and-system-information",
+    "href": "ch/linux-and-ctl/basics.html#environment-and-system-information",
+    "title": "Linux Basics",
+    "section": "Environment and System Information",
+    "text": "Environment and System Information\n\nwhoami - Current User\n\n# Show current username\nwhoami\n\n\nuname - System Information\n\n# Show system information\nuname -a\n\n# Show operating system\nuname -s\n\n# Show machine architecture\nuname -m\n\n\ndf - Disk Space Usage\n\n# Show disk space usage\ndf -h\n\n\nfree - Memory Usage\n\n# Show memory usage\nfree -h"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#process-management",
+    "href": "ch/linux-and-ctl/basics.html#process-management",
+    "title": "Linux Basics",
+    "section": "Process Management",
+    "text": "Process Management\n\nps - List Processes\n\n# List running processes\nps\n\n# List all processes\nps aux\n\n# List processes for current user\nps u\n\n\ntop - Monitor Processes\n\n# Show running processes interactively\ntop\n\n# Press 'q' to quit"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#getting-help",
+    "href": "ch/linux-and-ctl/basics.html#getting-help",
+    "title": "Linux Basics",
+    "section": "Getting Help",
+    "text": "Getting Help\n\nman - Manual Pages\n\n# Get help for a command\nman ls\n\n# Get help for a command (alternative)\nls --help\n\n\nwhich - Find Command Location\n\n# Find where a command is located\nwhich python3\n\n# Find all locations\nwhich -a python3"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#example-workflow",
+    "href": "ch/linux-and-ctl/basics.html#example-workflow",
+    "title": "Linux Basics",
+    "section": "Example Workflow",
+    "text": "Example Workflow\nLet’s practice with a complete example:\n\n# Create a project directory\nmkdir -p my_project/data\ncd my_project\n\n# Create some files\ntouch data/sample1.txt data/sample2.txt\necho \"Hello World\" &gt; data/sample1.txt\necho \"Linux is awesome\" &gt; data/sample2.txt\n\n# List files\nls -la data/\n\n# View file contents\ncat data/sample1.txt\n\n# Search for text\ngrep \"Hello\" data/*.txt\n\n# Copy files\ncp data/sample1.txt backup_sample1.txt\n\n# Check permissions\nls -l data/\n\n# Change permissions\nchmod 644 data/sample1.txt\n\n# View file with line numbers\ncat -n data/sample1.txt"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#example-shell-command",
+    "href": "ch/linux-and-ctl/basics.html#example-shell-command",
+    "title": "Linux Basics",
+    "section": "Example shell command",
+    "text": "Example shell command\n\n# Your Linux/Bash code here \necho \"Hello from Bash!\" \nls -l"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#prerequisites",
+    "href": "ch/linux-and-ctl/basics.html#prerequisites",
+    "title": "Linux Basics",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nWindows 10 version 2004 and higher (Build 19041 and higher) or Windows 11\nAdministrator access to your computer\nStable internet connection"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-1-check-your-windows-version",
+    "href": "ch/linux-and-ctl/basics.html#step-1-check-your-windows-version",
+    "title": "Linux Basics",
+    "section": "Step 1: Check Your Windows Version",
+    "text": "Step 1: Check Your Windows Version\nFirst, verify you have a compatible Windows version:\n\n# Open Command Prompt and run:\nwinver\n\nYou should see Windows 10 Build 19041+ or Windows 11."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-2-enable-wsl-feature",
+    "href": "ch/linux-and-ctl/basics.html#step-2-enable-wsl-feature",
+    "title": "Linux Basics",
+    "section": "Step 2: Enable WSL Feature",
+    "text": "Step 2: Enable WSL Feature\nOpen Command Prompt as Administrator (Right-click → “Run as administrator”):\n\n# Enable WSL feature\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart\n\n# Enable Virtual Machine Platform\ndism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart\n\nImportant: Restart your computer after running these commands."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-3-install-wsl2-modern-method",
+    "href": "ch/linux-and-ctl/basics.html#step-3-install-wsl2-modern-method",
+    "title": "Linux Basics",
+    "section": "Step 3: Install WSL2 (Modern Method)",
+    "text": "Step 3: Install WSL2 (Modern Method)\nAfter restarting, open Command Prompt as Administrator again:\n\n# Install WSL2 with Ubuntu (this is the easiest method)\nwsl --install\n\nDo “OK” or “Yes” to agree if pop-ups appear. If this command doesn’t work, use the manual method below."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-4-manual-installation-if-step-3-failed",
+    "href": "ch/linux-and-ctl/basics.html#step-4-manual-installation-if-step-3-failed",
+    "title": "Linux Basics",
+    "section": "Step 4: Manual Installation (If Step 3 Failed)",
+    "text": "Step 4: Manual Installation (If Step 3 Failed)\nDownload and Install WSL2 Kernel Update\n\nDownload the WSL2 Linux kernel update package from Microsoft:\n\nWSL2 Linux kernel update package for x64 machines\n\n\nRun the downloaded .msi file and follow the installation wizard.\nSet WSL2 as Default Version\n\n# Set WSL2 as the default version\nwsl --set-default-version 2\n\nInstall Ubuntu Distribution\n\n# List available distributions\nwsl --list --online\n#it will show all the availabe Linux distributions. Choose one of Ubuntus.\n\n# Install Ubuntu\nwsl --install -d Ubuntu"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-5-alternative---install-via-microsoft-store",
+    "href": "ch/linux-and-ctl/basics.html#step-5-alternative---install-via-microsoft-store",
+    "title": "Linux Basics",
+    "section": "Step 5: Alternative - Install via Microsoft Store",
+    "text": "Step 5: Alternative - Install via Microsoft Store\nIf command line installation fails:\n\nOpen Microsoft Store\n\nSearch for “Ubuntu 22.04.3 LTS” or just “Ubuntu”\nClick “Get” or “Install”\nWait for download and installation\nClick “Launch” when ready"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-6-first-time-ubuntu-setup",
+    "href": "ch/linux-and-ctl/basics.html#step-6-first-time-ubuntu-setup",
+    "title": "Linux Basics",
+    "section": "Step 6: First-Time Ubuntu Setup",
+    "text": "Step 6: First-Time Ubuntu Setup\nWhen you launch Ubuntu for the first time:\n\n\nWait for installation to complete (this may take several minutes)\n\nCreate a username when prompted (can be different from your Windows username)\n\nCreate a password (you won’t see characters as you type - this is normal)\nConfirm your password\n\n\n# Example setup (replace 'yourusername' with your preferred username)\nEnter new UNIX username: yourusername\nNew password: [type your password]\nRetype new password: [type your password again]"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-7-verify-installation",
+    "href": "ch/linux-and-ctl/basics.html#step-7-verify-installation",
+    "title": "Linux Basics",
+    "section": "Step 7: Verify Installation",
+    "text": "Step 7: Verify Installation\n\n# Check WSL version and status\nwsl --list --verbose\n\nYou should see output like:\n  NAME      STATE           VERSION\n* Ubuntu    Running         2"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-8-update-ubuntu-system",
+    "href": "ch/linux-and-ctl/basics.html#step-8-update-ubuntu-system",
+    "title": "Linux Basics",
+    "section": "Step 8: Update Ubuntu System",
+    "text": "Step 8: Update Ubuntu System\nIn your Ubuntu terminal, run these commands one by one:\n\n# Update package list\nsudo apt update\n\n# Upgrade installed packages (this may take a while)\nsudo apt upgrade\n\nNote: When prompted, type Y and press Enter to confirm upgrades."
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-9-install-python-development-environment",
+    "href": "ch/linux-and-ctl/basics.html#step-9-install-python-development-environment",
+    "title": "Linux Basics",
+    "section": "Step 9: Install Python Development Environment",
+    "text": "Step 9: Install Python Development Environment\nThis is required for latter use, not exactly now. You might choose not to do it right now. We will see things together.\nOption A: Using Python Virtual Environment (Recommended)\n\n# Install Python and essential tools\nsudo apt install python3 python3-pip python3-venv curl wget git\n\n# Verify Python installation\npython3 --version\npip3 --version\n\nOption B: Using Miniconda (Alternative)\n\n# Download Miniconda installer\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\n\n# Install Miniconda\nbash Miniconda3-latest-Linux-x86_64.sh\n\n# Follow the installation prompts:\n# - Press ENTER to review the license\n# - Type 'yes' to accept the license\n# - Press ENTER to confirm the installation location\n# - Type 'yes' to initialize conda\n\n# Reload your shell configuration\nsource ~/.bashrc\n\n# Verify conda installation\nconda --version"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-10-access-your-windows-files",
+    "href": "ch/linux-and-ctl/basics.html#step-10-access-your-windows-files",
+    "title": "Linux Basics",
+    "section": "Step 10: Access Your Windows Files",
+    "text": "Step 10: Access Your Windows Files\nYour Windows files are accessible from Ubuntu at these locations:\n\n# Your Windows C: drive\ncd /mnt/c/\n\ncd /mnt/c/Users/YourWindowsUsername/\n\n# Your Downloads folder\ncd /mnt/c/Users/YourWindowsUsername/Downloads/\n\nmnt is to denote mounting. Your linux/ubuntu functionalities are actually mounted on Windows. Makes sense?"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#step-11-copy-project-files",
+    "href": "ch/linux-and-ctl/basics.html#step-11-copy-project-files",
+    "title": "Linux Basics",
+    "section": "Step 11: Copy Project Files",
+    "text": "Step 11: Copy Project Files\nTo copy your project from Windows to Ubuntu:\n\n# Navigate to your home directory in Ubuntu\ncd ~\n\n# Copy project from Windows Downloads (adjust path as needed)\ncp -r /mnt/c/Users/YourWindowsUsername/Downloads/folderName ./\n\n# Navigate to the project\ncd folderName\n\n# List files to verify\nls -la"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#common-troubleshooting",
+    "href": "ch/linux-and-ctl/basics.html#common-troubleshooting",
+    "title": "Linux Basics",
+    "section": "Common Troubleshooting",
+    "text": "Common Troubleshooting\nIssue: “WSL has no installed distributions”\nSolution: You need to install a Linux distribution first.\n\n# List available distributions\nwsl --list --online\n\n# Install Ubuntu\nwsl --install Ubuntu\n\nIssue: Command not found errors\nSolution: Make sure you’re running commands in the correct environment: - WSL commands (wsl --install) should be run in Windows Command Prompt as Administrator - Linux commands (sudo apt update) should be run in Ubuntu terminal\nIssue: Network/download problems\nSolutions:\n\nTry different download mirrors:\n\n\n# For Miniconda, try this mirror:\nwget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh\n\n\n\nDownload via Windows browser and copy:\n\nDownload files using your Windows browser\nCopy to Ubuntu using /mnt/c/ path\n\n\nIssue: Permission denied\nSolution: Use sudo for system commands:\n\n# Wrong:\napt update\n\n# Correct:\nsudo apt update\n\nIssue: Ubuntu terminal closes immediately\nSolutions: 1. Make sure WSL2 is properly installed 2. Restart your computer 3. Try reinstalling Ubuntu from Microsoft Store"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#useful-wsl-commands",
+    "href": "ch/linux-and-ctl/basics.html#useful-wsl-commands",
+    "title": "Linux Basics",
+    "section": "Useful WSL Commands",
+    "text": "Useful WSL Commands\n\n# List all installed distributions\nwsl --list --verbose\n\n# Stop a distribution\nwsl --terminate Ubuntu\n\n# Start a specific distribution\nwsl -d Ubuntu\n\n# Uninstall a distribution\nwsl --unregister Ubuntu\n\n# Check WSL version\nwsl --version"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#opening-multiple-terminals",
+    "href": "ch/linux-and-ctl/basics.html#opening-multiple-terminals",
+    "title": "Linux Basics",
+    "section": "Opening Multiple Terminals",
+    "text": "Opening Multiple Terminals\nMethod 1: Windows Terminal (Recommended)\n\nInstall Windows Terminal from Microsoft Store\nOpen Windows Terminal\nClick the dropdown arrow next to the + tab\nSelect “Ubuntu”\nUse Ctrl + Shift + T for new tabs\nMethod 2: Direct Launch\n\nSearch “Ubuntu” in Start Menu\nClick to open new instances"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#next-steps",
+    "href": "ch/linux-and-ctl/basics.html#next-steps",
+    "title": "Linux Basics",
+    "section": "Next Steps",
+    "text": "Next Steps\nOnce WSL2 and Ubuntu are properly installed:\n\n\nSet up your development environment (Python virtual environment or Conda)\n\nCopy your project files from Windows to Ubuntu\nInstall project dependencies\nRun your IELTS AI Coach application"
+  },
+  {
+    "objectID": "ch/linux-and-ctl/basics.html#additional-resources",
+    "href": "ch/linux-and-ctl/basics.html#additional-resources",
+    "title": "Linux Basics",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nOfficial WSL Documentation\nWSL2 Installation Guide\nUbuntu WSL Documentation\n\nNeed Help? If you encounter issues not covered in this guide, please: 1. Take a screenshot of the error message 2. Note which step you were on 3. Contact me"
   }
 ]

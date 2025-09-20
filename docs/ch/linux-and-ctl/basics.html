@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2025-09-11">
+<meta name="dcterms.date" content="2025-09-20">
 <title>pythrash - Linux Basics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -261,8 +261,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#linux-and-wsl2" id="toc-linux-and-wsl2" class="nav-link active" data-scroll-target="#linux-and-wsl2">Linux and WSL(2)</a></li>
-  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+<li><a href="#linux-and-wsl2" id="toc-linux-and-wsl2" class="nav-link active" data-scroll-target="#linux-and-wsl2">Linux and WSL2</a></li>
+  <li>
+<a href="#basic-linux-commands" id="toc-basic-linux-commands" class="nav-link" data-scroll-target="#basic-linux-commands">Basic Linux Commands</a>
+  <ul class="collapse">
+<li>
+<a href="#navigation-commands" id="toc-navigation-commands" class="nav-link" data-scroll-target="#navigation-commands">Navigation Commands</a>
+  <ul class="collapse">
+<li><a href="#pwd---print-working-directory" id="toc-pwd---print-working-directory" class="nav-link" data-scroll-target="#pwd---print-working-directory"><code>pwd</code> - Print Working Directory</a></li>
+  <li><a href="#ls---list-directory-contents" id="toc-ls---list-directory-contents" class="nav-link" data-scroll-target="#ls---list-directory-contents"><code>ls</code> - List Directory Contents</a></li>
+  <li><a href="#cd---change-directory" id="toc-cd---change-directory" class="nav-link" data-scroll-target="#cd---change-directory"><code>cd</code> - Change Directory</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#file-and-directory-operations" id="toc-file-and-directory-operations" class="nav-link" data-scroll-target="#file-and-directory-operations">File and Directory Operations</a>
+  <ul class="collapse">
+<li><a href="#mkdir---make-directory" id="toc-mkdir---make-directory" class="nav-link" data-scroll-target="#mkdir---make-directory"><code>mkdir</code> - Make Directory</a></li>
+  <li><a href="#touch---create-empty-files" id="toc-touch---create-empty-files" class="nav-link" data-scroll-target="#touch---create-empty-files"><code>touch</code> - Create Empty Files</a></li>
+  <li><a href="#cp---copy-files-and-directories" id="toc-cp---copy-files-and-directories" class="nav-link" data-scroll-target="#cp---copy-files-and-directories"><code>cp</code> - Copy Files and Directories</a></li>
+  <li><a href="#mv---moverename-files-and-directories" id="toc-mv---moverename-files-and-directories" class="nav-link" data-scroll-target="#mv---moverename-files-and-directories"><code>mv</code> - Move/Rename Files and Directories</a></li>
+  <li><a href="#rm---remove-files-and-directories" id="toc-rm---remove-files-and-directories" class="nav-link" data-scroll-target="#rm---remove-files-and-directories"><code>rm</code> - Remove Files and Directories</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#file-permissions" id="toc-file-permissions" class="nav-link" data-scroll-target="#file-permissions">File Permissions</a>
+  <ul class="collapse">
+<li><a href="#viewing-permissions" id="toc-viewing-permissions" class="nav-link" data-scroll-target="#viewing-permissions">Viewing Permissions</a></li>
+  <li><a href="#chmod---change-file-permissions" id="toc-chmod---change-file-permissions" class="nav-link" data-scroll-target="#chmod---change-file-permissions"><code>chmod</code> - Change File Permissions</a></li>
+  <li><a href="#chown---change-file-ownership" id="toc-chown---change-file-ownership" class="nav-link" data-scroll-target="#chown---change-file-ownership"><code>chown</code> - Change File Ownership</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#text-editing" id="toc-text-editing" class="nav-link" data-scroll-target="#text-editing">Text Editing</a>
+  <ul class="collapse">
+<li><a href="#nano---simple-text-editor" id="toc-nano---simple-text-editor" class="nav-link" data-scroll-target="#nano---simple-text-editor"><code>nano</code> - Simple Text Editor</a></li>
+  <li><a href="#vim---advanced-text-editor" id="toc-vim---advanced-text-editor" class="nav-link" data-scroll-target="#vim---advanced-text-editor"><code>vim</code> - Advanced Text Editor</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#viewing-file-contents" id="toc-viewing-file-contents" class="nav-link" data-scroll-target="#viewing-file-contents">Viewing File Contents</a>
+  <ul class="collapse">
+<li><a href="#cat---display-file-contents" id="toc-cat---display-file-contents" class="nav-link" data-scroll-target="#cat---display-file-contents"><code>cat</code> - Display File Contents</a></li>
+  <li><a href="#less---view-file-page-by-page" id="toc-less---view-file-page-by-page" class="nav-link" data-scroll-target="#less---view-file-page-by-page"><code>less</code> - View File Page by Page</a></li>
+  <li><a href="#head-and-tail---view-beginningend-of-files" id="toc-head-and-tail---view-beginningend-of-files" class="nav-link" data-scroll-target="#head-and-tail---view-beginningend-of-files"><code>head</code> and <code>tail</code> - View Beginning/End of Files</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#basic-text-processing" id="toc-basic-text-processing" class="nav-link" data-scroll-target="#basic-text-processing">Basic Text Processing</a>
+  <ul class="collapse">
+<li><a href="#grep---search-text" id="toc-grep---search-text" class="nav-link" data-scroll-target="#grep---search-text"><code>grep</code> - Search Text</a></li>
+  <li><a href="#wc---word-count" id="toc-wc---word-count" class="nav-link" data-scroll-target="#wc---word-count"><code>wc</code> - Word Count</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#environment-and-system-information" id="toc-environment-and-system-information" class="nav-link" data-scroll-target="#environment-and-system-information">Environment and System Information</a>
+  <ul class="collapse">
+<li><a href="#whoami---current-user" id="toc-whoami---current-user" class="nav-link" data-scroll-target="#whoami---current-user"><code>whoami</code> - Current User</a></li>
+  <li><a href="#uname---system-information" id="toc-uname---system-information" class="nav-link" data-scroll-target="#uname---system-information"><code>uname</code> - System Information</a></li>
+  <li><a href="#df---disk-space-usage" id="toc-df---disk-space-usage" class="nav-link" data-scroll-target="#df---disk-space-usage"><code>df</code> - Disk Space Usage</a></li>
+  <li><a href="#free---memory-usage" id="toc-free---memory-usage" class="nav-link" data-scroll-target="#free---memory-usage"><code>free</code> - Memory Usage</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#process-management" id="toc-process-management" class="nav-link" data-scroll-target="#process-management">Process Management</a>
+  <ul class="collapse">
+<li><a href="#ps---list-processes" id="toc-ps---list-processes" class="nav-link" data-scroll-target="#ps---list-processes"><code>ps</code> - List Processes</a></li>
+  <li><a href="#top---monitor-processes" id="toc-top---monitor-processes" class="nav-link" data-scroll-target="#top---monitor-processes"><code>top</code> - Monitor Processes</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a>
+  <ul class="collapse">
+<li><a href="#man---manual-pages" id="toc-man---manual-pages" class="nav-link" data-scroll-target="#man---manual-pages"><code>man</code> - Manual Pages</a></li>
+  <li><a href="#which---find-command-location" id="toc-which---find-command-location" class="nav-link" data-scroll-target="#which---find-command-location"><code>which</code> - Find Command Location</a></li>
+  </ul>
+</li>
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  <li><a href="#example-shell-command" id="toc-example-shell-command" class="nav-link" data-scroll-target="#example-shell-command">Example shell command</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#wsl2-installation-guide-for-windows-users" id="toc-wsl2-installation-guide-for-windows-users" class="nav-link" data-scroll-target="#wsl2-installation-guide-for-windows-users">WSL2 Installation Guide for Windows Users</a>
+  <ul class="collapse">
+<li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#step-1-check-your-windows-version" id="toc-step-1-check-your-windows-version" class="nav-link" data-scroll-target="#step-1-check-your-windows-version">Step 1: Check Your Windows Version</a></li>
+  <li><a href="#step-2-enable-wsl-feature" id="toc-step-2-enable-wsl-feature" class="nav-link" data-scroll-target="#step-2-enable-wsl-feature">Step 2: Enable WSL Feature</a></li>
+  <li><a href="#step-3-install-wsl2-modern-method" id="toc-step-3-install-wsl2-modern-method" class="nav-link" data-scroll-target="#step-3-install-wsl2-modern-method">Step 3: Install WSL2 (Modern Method)</a></li>
+  <li>
+<a href="#step-4-manual-installation-if-step-3-failed" id="toc-step-4-manual-installation-if-step-3-failed" class="nav-link" data-scroll-target="#step-4-manual-installation-if-step-3-failed">Step 4: Manual Installation (If Step 3 Failed)</a>
+  <ul class="collapse">
+<li><a href="#download-and-install-wsl2-kernel-update" id="toc-download-and-install-wsl2-kernel-update" class="nav-link" data-scroll-target="#download-and-install-wsl2-kernel-update">Download and Install WSL2 Kernel Update</a></li>
+  <li><a href="#set-wsl2-as-default-version" id="toc-set-wsl2-as-default-version" class="nav-link" data-scroll-target="#set-wsl2-as-default-version">Set WSL2 as Default Version</a></li>
+  <li><a href="#install-ubuntu-distribution" id="toc-install-ubuntu-distribution" class="nav-link" data-scroll-target="#install-ubuntu-distribution">Install Ubuntu Distribution</a></li>
+  </ul>
+</li>
+  <li><a href="#step-5-alternative---install-via-microsoft-store" id="toc-step-5-alternative---install-via-microsoft-store" class="nav-link" data-scroll-target="#step-5-alternative---install-via-microsoft-store">Step 5: Alternative - Install via Microsoft Store</a></li>
+  <li><a href="#step-6-first-time-ubuntu-setup" id="toc-step-6-first-time-ubuntu-setup" class="nav-link" data-scroll-target="#step-6-first-time-ubuntu-setup">Step 6: First-Time Ubuntu Setup</a></li>
+  <li><a href="#step-7-verify-installation" id="toc-step-7-verify-installation" class="nav-link" data-scroll-target="#step-7-verify-installation">Step 7: Verify Installation</a></li>
+  <li><a href="#step-8-update-ubuntu-system" id="toc-step-8-update-ubuntu-system" class="nav-link" data-scroll-target="#step-8-update-ubuntu-system">Step 8: Update Ubuntu System</a></li>
+  <li>
+<a href="#step-9-install-python-development-environment" id="toc-step-9-install-python-development-environment" class="nav-link" data-scroll-target="#step-9-install-python-development-environment">Step 9: Install Python Development Environment</a>
+  <ul class="collapse">
+<li><a href="#option-a-using-python-virtual-environment-recommended" id="toc-option-a-using-python-virtual-environment-recommended" class="nav-link" data-scroll-target="#option-a-using-python-virtual-environment-recommended">Option A: Using Python Virtual Environment (Recommended)</a></li>
+  <li><a href="#option-b-using-miniconda-alternative" id="toc-option-b-using-miniconda-alternative" class="nav-link" data-scroll-target="#option-b-using-miniconda-alternative">Option B: Using Miniconda (Alternative)</a></li>
+  </ul>
+</li>
+  <li><a href="#step-10-access-your-windows-files" id="toc-step-10-access-your-windows-files" class="nav-link" data-scroll-target="#step-10-access-your-windows-files">Step 10: Access Your Windows Files</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#your-windows-user-folder" id="toc-your-windows-user-folder" class="nav-link" data-scroll-target="#your-windows-user-folder">Your Windows user folder</a>
+  <ul class="collapse">
+<li><a href="#step-11-copy-project-files" id="toc-step-11-copy-project-files" class="nav-link" data-scroll-target="#step-11-copy-project-files">Step 11: Copy Project Files</a></li>
+  <li>
+<a href="#common-troubleshooting" id="toc-common-troubleshooting" class="nav-link" data-scroll-target="#common-troubleshooting">Common Troubleshooting</a>
+  <ul class="collapse">
+<li><a href="#issue-wsl-has-no-installed-distributions" id="toc-issue-wsl-has-no-installed-distributions" class="nav-link" data-scroll-target="#issue-wsl-has-no-installed-distributions">Issue: “WSL has no installed distributions”</a></li>
+  <li><a href="#issue-command-not-found-errors" id="toc-issue-command-not-found-errors" class="nav-link" data-scroll-target="#issue-command-not-found-errors">Issue: Command not found errors</a></li>
+  <li><a href="#issue-networkdownload-problems" id="toc-issue-networkdownload-problems" class="nav-link" data-scroll-target="#issue-networkdownload-problems">Issue: Network/download problems</a></li>
+  <li><a href="#issue-permission-denied" id="toc-issue-permission-denied" class="nav-link" data-scroll-target="#issue-permission-denied">Issue: Permission denied</a></li>
+  <li><a href="#issue-ubuntu-terminal-closes-immediately" id="toc-issue-ubuntu-terminal-closes-immediately" class="nav-link" data-scroll-target="#issue-ubuntu-terminal-closes-immediately">Issue: Ubuntu terminal closes immediately</a></li>
+  </ul>
+</li>
+  <li><a href="#useful-wsl-commands" id="toc-useful-wsl-commands" class="nav-link" data-scroll-target="#useful-wsl-commands">Useful WSL Commands</a></li>
+  <li>
+<a href="#opening-multiple-terminals" id="toc-opening-multiple-terminals" class="nav-link" data-scroll-target="#opening-multiple-terminals">Opening Multiple Terminals</a>
+  <ul class="collapse">
+<li><a href="#method-1-windows-terminal-recommended" id="toc-method-1-windows-terminal-recommended" class="nav-link" data-scroll-target="#method-1-windows-terminal-recommended">Method 1: Windows Terminal (Recommended)</a></li>
+  <li><a href="#method-2-direct-launch" id="toc-method-2-direct-launch" class="nav-link" data-scroll-target="#method-2-direct-launch">Method 2: Direct Launch</a></li>
+  </ul>
+</li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  </ul>
+</li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="basics.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -298,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 11, 2025</p>
+      <p class="date">September 20, 2025</p>
     </div>
   </div>
   
@@ -312,43 +444,660 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 
-</header><section id="linux-and-wsl2" class="level2"><h2 class="anchored" data-anchor-id="linux-and-wsl2">Linux and WSL(2)</h2>
+</header><section id="linux-and-wsl2" class="level1"><h1>Linux and WSL2</h1>
+<p>If you have Linux already, stay calm. Scrol down to learn things instead of installing WSL2.</p>
 <p>Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this <a href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">step-by-step guide</a> to install Ubuntu (a Linux distribution).</p>
 <p>Follow this pages to install <code>Windows Subsystem for Linux</code> if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can’t do anything except using Linux to analyse Genomic (sequencing) data. So, <strong>better start now</strong>.</p>
 <p>Follow <a href="https://learn.microsoft.com/en-us/windows/wsl/about">link1</a> &amp; <a href="https://learn.microsoft.com/en-us/windows/wsl/install">link2</a> to get step-by-step guideline to do it.</p>
-<p>The problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be <strong>update your kernel first and then try</strong>.</p>
-</section><section id="intro" class="level2"><h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>A pro tip will be <strong>update your kernel first and then try</strong>. But here goes something.</p>
+</section><section id="basic-linux-commands" class="level1"><h1>Basic Linux Commands</h1>
+<p>Now that you have Linux/WSL2 set up, let’s learn the essential commands. These are the building blocks of working with Linux.</p>
+<section id="navigation-commands" class="level2"><h2 class="anchored" data-anchor-id="navigation-commands">Navigation Commands</h2>
+<section id="pwd---print-working-directory" class="level3"><h3 class="anchored" data-anchor-id="pwd---print-working-directory">
+<code>pwd</code> - Print Working Directory</h3>
+<p>Shows your current location in the file system.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Linux/Bash code here </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello from Bash!"</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre class="custom-output"><code>Hello from Bash!
-total 200
--rw-r--r--  1 md.rasheduzzaman  staff  84578 Sep 17 19:56 advanced.html
--rw-r--r--  1 md.rasheduzzaman  staff   6549 Sep 17 19:55 advanced.qmd
-drwxr-xr-x  3 md.rasheduzzaman  staff     96 Sep 17 19:56 basics_files
--rw-r--r--  1 md.rasheduzzaman  staff   1255 Sep 11 14:36 basics.qmd
--rw-r--r--  1 md.rasheduzzaman  staff   1260 Sep 17 19:56 basics.rmarkdown</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show current directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Learn a lot from https://github.com/hbctraining</p>
+</section><section id="ls---list-directory-contents" class="level3"><h3 class="anchored" data-anchor-id="ls---list-directory-contents">
+<code>ls</code> - List Directory Contents</h3>
+<p>Lists files and folders in the current directory.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic listing</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed listing with permissions, size, date</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># List all files including hidden ones (starting with .)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List with human-readable file sizes</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List files in a specific directory</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /home/username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="cd---change-directory" class="level3"><h3 class="anchored" data-anchor-id="cd---change-directory">
+<code>cd</code> - Change Directory</h3>
+<p>Navigate between directories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to home directory</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or simply</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to parent directory</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to root directory</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Go back to previous directory</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="at">-</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#or </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to a specific directory</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/username/Documents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="file-and-directory-operations" class="level2"><h2 class="anchored" data-anchor-id="file-and-directory-operations">File and Directory Operations</h2>
+<section id="mkdir---make-directory" class="level3"><h3 class="anchored" data-anchor-id="mkdir---make-directory">
+<code>mkdir</code> - Make Directory</h3>
+<p>Create new directories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a single directory</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my_folder</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiple directories</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> folder1 folder2 folder3</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nested directories</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> project/data/raw</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory with specific permissions</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-m</span> 755 public_folder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="touch---create-empty-files" class="level3"><h3 class="anchored" data-anchor-id="touch---create-empty-files">
+<code>touch</code> - Create Empty Files</h3>
+<p>Create empty files or update file timestamps.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty file</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> my_file.txt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiple files</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> file1.txt file2.txt file3.txt</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Update file timestamp (useful for makefiles)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> existing_file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="cp---copy-files-and-directories" class="level3"><h3 class="anchored" data-anchor-id="cp---copy-files-and-directories">
+<code>cp</code> - Copy Files and Directories</h3>
+<p>Copy files and directories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy a file</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> source.txt destination.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy file to a directory</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> file.txt /path/to/directory/</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy directory recursively</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> source_directory/ destination_directory/</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy with preservation of attributes</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-p</span> file.txt backup/</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy multiple files</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> file1.txt file2.txt destination_folder/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="mv---moverename-files-and-directories" class="level3"><h3 class="anchored" data-anchor-id="mv---moverename-files-and-directories">
+<code>mv</code> - Move/Rename Files and Directories</h3>
+<p>Move or rename files and directories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename a file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> old_name.txt new_name.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move file to directory</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> file.txt /path/to/directory/</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Move directory</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> source_directory/ destination_directory/</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Move and rename in one step</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> file.txt /new/location/renamed_file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="rm---remove-files-and-directories" class="level3"><h3 class="anchored" data-anchor-id="rm---remove-files-and-directories">
+<code>rm</code> - Remove Files and Directories</h3>
+<p>Delete files and directories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove a file</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> file.txt</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove multiple files</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> file1.txt file2.txt file3.txt</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove directory and all contents (BE CAREFUL!)</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> directory_name/</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove directory with confirmation</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-ri</span> directory_name/</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove empty directory only</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> empty_directory/</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove files with confirmation</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-i</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="file-permissions" class="level2"><h2 class="anchored" data-anchor-id="file-permissions">File Permissions</h2>
+<p>Understanding file permissions is crucial for Linux security.</p>
+<section id="viewing-permissions" class="level3"><h3 class="anchored" data-anchor-id="viewing-permissions">Viewing Permissions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List files with permissions</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example output:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r-- 1 username group 1234 Dec 15 10:30 file.txt</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># drwxr-xr-x 2 username group 4096 Dec 15 10:30 folder/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The permission string has 10 characters: - <strong>Position 1</strong>: File type (<code>-</code> for file, <code>d</code> for directory) - <strong>Positions 2-4</strong>: Owner permissions (read, write, execute) - <strong>Positions 5-7</strong>: Group permissions (read, write, execute) - <strong>Positions 8-10</strong>: Other permissions (read, write, execute)</p>
+</section><section id="chmod---change-file-permissions" class="level3"><h3 class="anchored" data-anchor-id="chmod---change-file-permissions">
+<code>chmod</code> - Change File Permissions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Give owner read, write, execute; group and others read, execute</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 755 script.sh</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Give owner read, write; group and others read only</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 644 file.txt</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add execute permission for owner</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x script.sh</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove write permission for group and others</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> go-w file.txt</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Make file readable by everyone</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a+r file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="chown---change-file-ownership" class="level3"><h3 class="anchored" data-anchor-id="chown---change-file-ownership">
+<code>chown</code> - Change File Ownership</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change owner</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> newowner file.txt</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change owner and group</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> newowner:newgroup file.txt</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership recursively</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> <span class="at">-R</span> newowner:newgroup directory/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="text-editing" class="level2"><h2 class="anchored" data-anchor-id="text-editing">Text Editing</h2>
+<section id="nano---simple-text-editor" class="level3"><h3 class="anchored" data-anchor-id="nano---simple-text-editor">
+<code>nano</code> - Simple Text Editor</h3>
+<p>Great for beginners.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open file in nano</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> filename.txt</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new file</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> new_file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Nano shortcuts:</strong> - <code>Ctrl + X</code>: Exit - <code>Ctrl + O</code>: Save - <code>Ctrl + W</code>: Search - <code>Ctrl + K</code>: Cut line - <code>Ctrl + U</code>: Paste</p>
+</section><section id="vim---advanced-text-editor" class="level3"><h3 class="anchored" data-anchor-id="vim---advanced-text-editor">
+<code>vim</code> - Advanced Text Editor</h3>
+<p>More powerful but steeper learning curve.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open file in vim</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> filename.txt</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new file</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> new_file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So, creating and opening command is basically the same. Just write the file name. After opening the file, you have toenter into editing/inserting mode. Press <code>i</code> on your keyboard to be able to insert/write (or copy-paste) contents. After finishing editing, press <code>Esc</code> key to come out of the editing mode. Then write <code>:wq</code> to save.</p>
+<p><strong>Basic vim commands:</strong> - <code>i</code>: Enter insert mode - <code>Esc</code>: Exit insert mode - <code>:w</code>: Save - <code>:q</code>: Quit - <code>:wq</code>: Save and quit - <code>:q!</code>: Quit without saving</p>
+</section></section><section id="viewing-file-contents" class="level2"><h2 class="anchored" data-anchor-id="viewing-file-contents">Viewing File Contents</h2>
+<section id="cat---display-file-contents" class="level3"><h3 class="anchored" data-anchor-id="cat---display-file-contents">
+<code>cat</code> - Display File Contents</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display entire file</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> file.txt</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display multiple files</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> file1.txt file2.txt</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display with line numbers</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="less---view-file-page-by-page" class="level3"><h3 class="anchored" data-anchor-id="less---view-file-page-by-page">
+<code>less</code> - View File Page by Page</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View file with pagination</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> file.txt</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Search in less: type `/search_term` and press Enter</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate: Space (next page), b (previous page), q (quit)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="head-and-tail---view-beginningend-of-files" class="level3"><h3 class="anchored" data-anchor-id="head-and-tail---view-beginningend-of-files">
+<code>head</code> and <code>tail</code> - View Beginning/End of Files</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first 10 lines</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> file.txt</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first 20 lines</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show last 10 lines</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> file.txt</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Show last 20 lines</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 20 file.txt</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow file changes in real-time</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> log_file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="basic-text-processing" class="level2"><h2 class="anchored" data-anchor-id="basic-text-processing">Basic Text Processing</h2>
+<section id="grep---search-text" class="level3"><h3 class="anchored" data-anchor-id="grep---search-text">
+<code>grep</code> - Search Text</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for text in file</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"search_term"</span> file.txt</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Search case-insensitive</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"search_term"</span> file.txt</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Search in multiple files</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"search_term"</span> <span class="pp">*</span>.txt</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Search recursively in directories</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-r</span> <span class="st">"search_term"</span> directory/</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show line numbers</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-n</span> <span class="st">"search_term"</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="wc---word-count" class="level3"><h3 class="anchored" data-anchor-id="wc---word-count">
+<code>wc</code> - Word Count</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count lines, words, characters</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> file.txt</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only lines</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> file.txt</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only words</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> file.txt</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only characters</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="environment-and-system-information" class="level2"><h2 class="anchored" data-anchor-id="environment-and-system-information">Environment and System Information</h2>
+<section id="whoami---current-user" class="level3"><h3 class="anchored" data-anchor-id="whoami---current-user">
+<code>whoami</code> - Current User</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show current username</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="uname---system-information" class="level3"><h3 class="anchored" data-anchor-id="uname---system-information">
+<code>uname</code> - System Information</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show system information</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-a</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show operating system</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-s</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show machine architecture</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-m</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="df---disk-space-usage" class="level3"><h3 class="anchored" data-anchor-id="df---disk-space-usage">
+<code>df</code> - Disk Space Usage</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show disk space usage</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="free---memory-usage" class="level3"><h3 class="anchored" data-anchor-id="free---memory-usage">
+<code>free</code> - Memory Usage</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show memory usage</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">free</span> <span class="at">-h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="process-management" class="level2"><h2 class="anchored" data-anchor-id="process-management">Process Management</h2>
+<section id="ps---list-processes" class="level3"><h3 class="anchored" data-anchor-id="ps---list-processes">
+<code>ps</code> - List Processes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List running processes</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all processes</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> aux</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># List processes for current user</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> u</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="top---monitor-processes" class="level3"><h3 class="anchored" data-anchor-id="top---monitor-processes">
+<code>top</code> - Monitor Processes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show running processes interactively</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">top</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Press 'q' to quit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="getting-help" class="level2"><h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
+<section id="man---manual-pages" class="level3"><h3 class="anchored" data-anchor-id="man---manual-pages">
+<code>man</code> - Manual Pages</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get help for a command</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get help for a command (alternative)</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="which---find-command-location" class="level3"><h3 class="anchored" data-anchor-id="which---find-command-location">
+<code>which</code> - Find Command Location</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find where a command is located</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python3</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all locations</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> <span class="at">-a</span> python3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="example-workflow" class="level2"><h2 class="anchored" data-anchor-id="example-workflow">Example Workflow</h2>
+<p>Let’s practice with a complete example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a project directory</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> my_project/data</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my_project</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some files</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data/sample1.txt data/sample2.txt</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello World"</span> <span class="op">&gt;</span> data/sample1.txt</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Linux is awesome"</span> <span class="op">&gt;</span> data/sample2.txt</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List files</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span> data/</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># View file contents</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/sample1.txt</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for text</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"Hello"</span> data/<span class="pp">*</span>.txt</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy files</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> data/sample1.txt backup_sample1.txt</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Check permissions</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data/</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Change permissions</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 644 data/sample1.txt</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="co"># View file with line numbers</span></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> data/sample1.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="example-shell-command" class="level2"><h2 class="anchored" data-anchor-id="example-shell-command">Example shell command</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Linux/Bash code here </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello from Bash!"</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="wsl2-installation-guide-for-windows-users" class="level1"><h1>WSL2 Installation Guide for Windows Users</h1>
+<p>This guide will help you install Windows Subsystem for Linux 2 (WSL2) and set up a Python development environment for running the IELTS AI Coach application.</p>
+<section id="prerequisites" class="level2"><h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11</li>
+<li>Administrator access to your computer</li>
+<li>Stable internet connection</li>
+</ul></section><section id="step-1-check-your-windows-version" class="level2"><h2 class="anchored" data-anchor-id="step-1-check-your-windows-version">Step 1: Check Your Windows Version</h2>
+<p>First, verify you have a compatible Windows version:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Command Prompt and run:</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">winver</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see Windows 10 Build 19041+ or Windows 11.</p>
+</section><section id="step-2-enable-wsl-feature" class="level2"><h2 class="anchored" data-anchor-id="step-2-enable-wsl-feature">Step 2: Enable WSL Feature</h2>
+<p>Open <strong>Command Prompt as Administrator</strong> (Right-click → “Run as administrator”):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable WSL feature</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable Virtual Machine Platform</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Important:</strong> Restart your computer after running these commands.</p>
+</section><section id="step-3-install-wsl2-modern-method" class="level2"><h2 class="anchored" data-anchor-id="step-3-install-wsl2-modern-method">Step 3: Install WSL2 (Modern Method)</h2>
+<p>After restarting, open <strong>Command Prompt as Administrator</strong> again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install WSL2 with Ubuntu (this is the easiest method)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Do “OK” or “Yes” to agree if pop-ups appear. If this command doesn’t work, use the manual method below.</p>
+</section><section id="step-4-manual-installation-if-step-3-failed" class="level2"><h2 class="anchored" data-anchor-id="step-4-manual-installation-if-step-3-failed">Step 4: Manual Installation (If Step 3 Failed)</h2>
+<section id="download-and-install-wsl2-kernel-update" class="level3"><h3 class="anchored" data-anchor-id="download-and-install-wsl2-kernel-update">Download and Install WSL2 Kernel Update</h3>
+<ol type="1">
+<li>Download the WSL2 Linux kernel update package from Microsoft:
+<ul>
+<li><a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">WSL2 Linux kernel update package for x64 machines</a></li>
+</ul>
+</li>
+<li>Run the downloaded <code>.msi</code> file and follow the installation wizard.</li>
+</ol></section><section id="set-wsl2-as-default-version" class="level3"><h3 class="anchored" data-anchor-id="set-wsl2-as-default-version">Set WSL2 as Default Version</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set WSL2 as the default version</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--set-default-version</span> 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="install-ubuntu-distribution" class="level3"><h3 class="anchored" data-anchor-id="install-ubuntu-distribution">Install Ubuntu Distribution</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List available distributions</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--online</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#it will show all the availabe Linux distributions. Choose one of Ubuntus.</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ubuntu</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> <span class="at">-d</span> Ubuntu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="step-5-alternative---install-via-microsoft-store" class="level2"><h2 class="anchored" data-anchor-id="step-5-alternative---install-via-microsoft-store">Step 5: Alternative - Install via Microsoft Store</h2>
+<p>If command line installation fails:</p>
+<ol type="1">
+<li>Open <strong>Microsoft Store</strong>
+</li>
+<li>Search for “<strong>Ubuntu 22.04.3 LTS</strong>” or just “<strong>Ubuntu</strong>”</li>
+<li>Click “<strong>Get</strong>” or “<strong>Install</strong>”</li>
+<li>Wait for download and installation</li>
+<li>Click “<strong>Launch</strong>” when ready</li>
+</ol></section><section id="step-6-first-time-ubuntu-setup" class="level2"><h2 class="anchored" data-anchor-id="step-6-first-time-ubuntu-setup">Step 6: First-Time Ubuntu Setup</h2>
+<p>When you launch Ubuntu for the first time:</p>
+<ol type="1">
+<li>
+<strong>Wait for installation to complete</strong> (this may take several minutes)</li>
+<li>
+<strong>Create a username</strong> when prompted (can be different from your Windows username)</li>
+<li>
+<strong>Create a password</strong> (you won’t see characters as you type - this is normal)</li>
+<li><strong>Confirm your password</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example setup (replace 'yourusername' with your preferred username)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> new UNIX username: yourusername</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="ex">New</span> password: [type your password]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Retype</span> new password: [type your password again]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="step-7-verify-installation" class="level2"><h2 class="anchored" data-anchor-id="step-7-verify-installation">Step 7: Verify Installation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check WSL version and status</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--verbose</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see output like:</p>
+<pre><code>  NAME      STATE           VERSION
+* Ubuntu    Running         2</code></pre>
+</section><section id="step-8-update-ubuntu-system" class="level2"><h2 class="anchored" data-anchor-id="step-8-update-ubuntu-system">Step 8: Update Ubuntu System</h2>
+<p>In your Ubuntu terminal, run these commands one by one:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update package list</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade installed packages (this may take a while)</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note:</strong> When prompted, type <code>Y</code> and press Enter to confirm upgrades.</p>
+</section><section id="step-9-install-python-development-environment" class="level2"><h2 class="anchored" data-anchor-id="step-9-install-python-development-environment">Step 9: Install Python Development Environment</h2>
+<p>This is required for latter use, not exactly now. You might choose not to do it right now. We will see things together.</p>
+<section id="option-a-using-python-virtual-environment-recommended" class="level3"><h3 class="anchored" data-anchor-id="option-a-using-python-virtual-environment-recommended">Option A: Using Python Virtual Environment (Recommended)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Python and essential tools</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-pip python3-venv curl wget git</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify Python installation</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="option-b-using-miniconda-alternative" class="level3"><h3 class="anchored" data-anchor-id="option-b-using-miniconda-alternative">Option B: Using Miniconda (Alternative)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Miniconda installer</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Miniconda</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow the installation prompts:</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># - Press ENTER to review the license</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># - Type 'yes' to accept the license</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - Press ENTER to confirm the installation location</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co"># - Type 'yes' to initialize conda</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload your shell configuration</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify conda installation</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="step-10-access-your-windows-files" class="level2"><h2 class="anchored" data-anchor-id="step-10-access-your-windows-files">Step 10: Access Your Windows Files</h2>
+<p>Your Windows files are accessible from Ubuntu at these locations:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Windows C: drive</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourWindowsUsername/</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Downloads folder</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourWindowsUsername/Downloads/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>mnt</code> is to denote mounting. Your linux/ubuntu functionalities are actually mounted on Windows. Makes sense?</p>
+</section></section><section id="your-windows-user-folder" class="level1"><h1>Your Windows user folder</h1>
+<section id="step-11-copy-project-files" class="level2"><h2 class="anchored" data-anchor-id="step-11-copy-project-files">Step 11: Copy Project Files</h2>
+<p>To copy your project from Windows to Ubuntu:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your home directory in Ubuntu</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project from Windows Downloads (adjust path as needed)</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /mnt/c/Users/YourWindowsUsername/Downloads/folderName ./</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the project</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folderName</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List files to verify</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="common-troubleshooting" class="level2"><h2 class="anchored" data-anchor-id="common-troubleshooting">Common Troubleshooting</h2>
+<section id="issue-wsl-has-no-installed-distributions" class="level3"><h3 class="anchored" data-anchor-id="issue-wsl-has-no-installed-distributions">Issue: “WSL has no installed distributions”</h3>
+<p><strong>Solution:</strong> You need to install a Linux distribution first.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List available distributions</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--online</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ubuntu</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> Ubuntu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="issue-command-not-found-errors" class="level3"><h3 class="anchored" data-anchor-id="issue-command-not-found-errors">Issue: Command not found errors</h3>
+<p><strong>Solution:</strong> Make sure you’re running commands in the correct environment: - WSL commands (<code>wsl --install</code>) should be run in <strong>Windows Command Prompt as Administrator</strong> - Linux commands (<code>sudo apt update</code>) should be run in <strong>Ubuntu terminal</strong></p>
+</section><section id="issue-networkdownload-problems" class="level3"><h3 class="anchored" data-anchor-id="issue-networkdownload-problems">Issue: Network/download problems</h3>
+<p><strong>Solutions:</strong></p>
+<ol type="1">
+<li><strong>Try different download mirrors:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Miniconda, try this mirror:</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>
+<strong>Download via Windows browser and copy:</strong>
+<ul>
+<li>Download files using your Windows browser</li>
+<li>Copy to Ubuntu using <code>/mnt/c/</code> path</li>
+</ul>
+</li>
+</ol></section><section id="issue-permission-denied" class="level3"><h3 class="anchored" data-anchor-id="issue-permission-denied">Issue: Permission denied</h3>
+<p><strong>Solution:</strong> Use <code>sudo</code> for system commands:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wrong:</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> update</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct:</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="issue-ubuntu-terminal-closes-immediately" class="level3"><h3 class="anchored" data-anchor-id="issue-ubuntu-terminal-closes-immediately">Issue: Ubuntu terminal closes immediately</h3>
+<p><strong>Solutions:</strong> 1. Make sure WSL2 is properly installed 2. Restart your computer 3. Try reinstalling Ubuntu from Microsoft Store</p>
+</section></section><section id="useful-wsl-commands" class="level2"><h2 class="anchored" data-anchor-id="useful-wsl-commands">Useful WSL Commands</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all installed distributions</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--verbose</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop a distribution</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--terminate</span> Ubuntu</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a specific distribution</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">-d</span> Ubuntu</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Uninstall a distribution</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--unregister</span> Ubuntu</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Check WSL version</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="opening-multiple-terminals" class="level2"><h2 class="anchored" data-anchor-id="opening-multiple-terminals">Opening Multiple Terminals</h2>
+<section id="method-1-windows-terminal-recommended" class="level3"><h3 class="anchored" data-anchor-id="method-1-windows-terminal-recommended">Method 1: Windows Terminal (Recommended)</h3>
+<ol type="1">
+<li>Install <strong>Windows Terminal</strong> from Microsoft Store</li>
+<li>Open Windows Terminal</li>
+<li>Click the dropdown arrow next to the <code>+</code> tab</li>
+<li>Select “Ubuntu”</li>
+<li>Use <code>Ctrl + Shift + T</code> for new tabs</li>
+</ol></section><section id="method-2-direct-launch" class="level3"><h3 class="anchored" data-anchor-id="method-2-direct-launch">Method 2: Direct Launch</h3>
+<ul>
+<li>Search “Ubuntu” in Start Menu</li>
+<li>Click to open new instances</li>
+</ul></section></section><section id="next-steps" class="level2"><h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>Once WSL2 and Ubuntu are properly installed:</p>
+<ol type="1">
+<li>
+<strong>Set up your development environment</strong> (Python virtual environment or Conda)</li>
+<li>
+<strong>Copy your project files</strong> from Windows to Ubuntu</li>
+<li><strong>Install project dependencies</strong></li>
+<li><strong>Run your IELTS AI Coach application</strong></li>
+</ol></section><section id="additional-resources" class="level2"><h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/">Official WSL Documentation</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL2 Installation Guide</a></li>
+<li><a href="https://ubuntu.com/wsl">Ubuntu WSL Documentation</a></li>
+</ul>
+<p><strong>Need Help?</strong> If you encounter issues not covered in this guide, please: 1. Take a screenshot of the error message 2. Note which step you were on 3. Contact me</p>
 
 
 <!-- -->
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rasheduzzaman2025,
   author = {Md Rasheduzzaman},
   title = {Linux {Basics}},
-  date = {2025-09-11},
+  date = {2025-09-20},
   langid = {en},
   abstract = {Linux, WSL2, Navigation, simple commands}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rasheduzzaman2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Md Rasheduzzaman. 2025. <span>“Linux Basics.”</span> September 11, 2025.
+Md Rasheduzzaman. 2025. <span>“Linux Basics.”</span> September 20, 2025.
 </div></div></section></div></main><!-- /main --><hr>
 <div style="margin-top: 2em;">
   <p style="font-weight: 500; font-size: 1.1em;">
@@ -646,44 +1395,773 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Linux Basics"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Linux, WSL2, Navigation, simple commands"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linux and WSL(2)</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this <span class="co">[</span><span class="ot">step-by-step guide</span><span class="co">](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)</span> to install Ubuntu (a Linux distribution).</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>Follow this pages to install <span class="in">`Windows Subsystem for Linux`</span> if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can't do anything except using Linux to analyse Genomic (sequencing) data. So, **better start now**.</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>Follow <span class="co">[</span><span class="ot">link1</span><span class="co">](https://learn.microsoft.com/en-us/windows/wsl/about)</span> &amp; <span class="co">[</span><span class="ot">link2</span><span class="co">](https://learn.microsoft.com/en-us/windows/wsl/install)</span> to get step-by-step guideline to do it.</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>The problem here is, I am not using Windows. So, I might not be able to help you if there is any issue you are facing while installing WSL2. But I can try. A tip will be **update your kernel first and then try**.</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Linux/Bash code here </span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello from Bash!"</span> </span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>Learn a lot from https://github.com/hbctraining</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb50" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Linux Basics"</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "Linux, WSL2, Navigation, simple commands"</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src/helpersrc.R"</span>))</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Linux and WSL2</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>If you have Linux already, stay calm. Scrol down to learn things instead of installing WSL2. </span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>Try to use Linux to do better in life. The black screen of Linux is way more powerful than you (probably) know till now. Follow this <span class="co">[</span><span class="ot">step-by-step guide</span><span class="co">](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)</span> to install Ubuntu (a Linux distribution).</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>Follow this pages to install <span class="in">`Windows Subsystem for Linux`</span> if you are using Windows. Then you can use the WSL just like a native Linux using your system. You can't do anything except using Linux to analyse Genomic (sequencing) data. So, **better start now**.</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>Follow <span class="co">[</span><span class="ot">link1</span><span class="co">](https://learn.microsoft.com/en-us/windows/wsl/about)</span> &amp; <span class="co">[</span><span class="ot">link2</span><span class="co">](https://learn.microsoft.com/en-us/windows/wsl/install)</span> to get step-by-step guideline to do it.</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>A pro tip will be **update your kernel first and then try**. But here goes something. </span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basic Linux Commands</span></span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>Now that you have Linux/WSL2 set up, let's learn the essential commands. These are the building blocks of working with Linux.</span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Navigation Commands</span></span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### `pwd` - Print Working Directory</span></span>
+<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a>Shows your current location in the file system.</span>
+<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-34"><a href="#cb50-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-35"><a href="#cb50-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Show current directory</span></span>
+<span id="cb50-36"><a href="#cb50-36" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb50-37"><a href="#cb50-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-38"><a href="#cb50-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-39"><a href="#cb50-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### `ls` - List Directory Contents</span></span>
+<span id="cb50-40"><a href="#cb50-40" aria-hidden="true" tabindex="-1"></a>Lists files and folders in the current directory.</span>
+<span id="cb50-41"><a href="#cb50-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-42"><a href="#cb50-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-43"><a href="#cb50-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic listing</span></span>
+<span id="cb50-44"><a href="#cb50-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb50-45"><a href="#cb50-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-46"><a href="#cb50-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed listing with permissions, size, date</span></span>
+<span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb50-48"><a href="#cb50-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-49"><a href="#cb50-49" aria-hidden="true" tabindex="-1"></a><span class="co"># List all files including hidden ones (starting with .)</span></span>
+<span id="cb50-50"><a href="#cb50-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span>
+<span id="cb50-51"><a href="#cb50-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-52"><a href="#cb50-52" aria-hidden="true" tabindex="-1"></a><span class="co"># List with human-readable file sizes</span></span>
+<span id="cb50-53"><a href="#cb50-53" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span>
+<span id="cb50-54"><a href="#cb50-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-55"><a href="#cb50-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-56"><a href="#cb50-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-57"><a href="#cb50-57" aria-hidden="true" tabindex="-1"></a><span class="co"># List files in a specific directory</span></span>
+<span id="cb50-58"><a href="#cb50-58" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /home/username</span>
+<span id="cb50-59"><a href="#cb50-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-60"><a href="#cb50-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-61"><a href="#cb50-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### `cd` - Change Directory</span></span>
+<span id="cb50-62"><a href="#cb50-62" aria-hidden="true" tabindex="-1"></a>Navigate between directories.</span>
+<span id="cb50-63"><a href="#cb50-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-64"><a href="#cb50-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-65"><a href="#cb50-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to home directory</span></span>
+<span id="cb50-66"><a href="#cb50-66" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb50-67"><a href="#cb50-67" aria-hidden="true" tabindex="-1"></a><span class="co"># or simply</span></span>
+<span id="cb50-68"><a href="#cb50-68" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb50-69"><a href="#cb50-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-70"><a href="#cb50-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to parent directory</span></span>
+<span id="cb50-71"><a href="#cb50-71" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb50-72"><a href="#cb50-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-73"><a href="#cb50-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to root directory</span></span>
+<span id="cb50-74"><a href="#cb50-74" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /</span>
+<span id="cb50-75"><a href="#cb50-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-76"><a href="#cb50-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Go back to previous directory</span></span>
+<span id="cb50-77"><a href="#cb50-77" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="at">-</span></span>
+<span id="cb50-78"><a href="#cb50-78" aria-hidden="true" tabindex="-1"></a><span class="co">#or </span></span>
+<span id="cb50-79"><a href="#cb50-79" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .</span>
+<span id="cb50-80"><a href="#cb50-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-81"><a href="#cb50-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-82"><a href="#cb50-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-83"><a href="#cb50-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to a specific directory</span></span>
+<span id="cb50-84"><a href="#cb50-84" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/username/Documents</span>
+<span id="cb50-85"><a href="#cb50-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-86"><a href="#cb50-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-87"><a href="#cb50-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## File and Directory Operations</span></span>
+<span id="cb50-88"><a href="#cb50-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-89"><a href="#cb50-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### `mkdir` - Make Directory</span></span>
+<span id="cb50-90"><a href="#cb50-90" aria-hidden="true" tabindex="-1"></a>Create new directories.</span>
+<span id="cb50-91"><a href="#cb50-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-92"><a href="#cb50-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-93"><a href="#cb50-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a single directory</span></span>
+<span id="cb50-94"><a href="#cb50-94" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my_folder</span>
+<span id="cb50-95"><a href="#cb50-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-96"><a href="#cb50-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiple directories</span></span>
+<span id="cb50-97"><a href="#cb50-97" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> folder1 folder2 folder3</span>
+<span id="cb50-98"><a href="#cb50-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-99"><a href="#cb50-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nested directories</span></span>
+<span id="cb50-100"><a href="#cb50-100" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> project/data/raw</span>
+<span id="cb50-101"><a href="#cb50-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-102"><a href="#cb50-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory with specific permissions</span></span>
+<span id="cb50-103"><a href="#cb50-103" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-m</span> 755 public_folder</span>
+<span id="cb50-104"><a href="#cb50-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-105"><a href="#cb50-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-106"><a href="#cb50-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### `touch` - Create Empty Files</span></span>
+<span id="cb50-107"><a href="#cb50-107" aria-hidden="true" tabindex="-1"></a>Create empty files or update file timestamps.</span>
+<span id="cb50-108"><a href="#cb50-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-109"><a href="#cb50-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-110"><a href="#cb50-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty file</span></span>
+<span id="cb50-111"><a href="#cb50-111" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> my_file.txt</span>
+<span id="cb50-112"><a href="#cb50-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-113"><a href="#cb50-113" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiple files</span></span>
+<span id="cb50-114"><a href="#cb50-114" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> file1.txt file2.txt file3.txt</span>
+<span id="cb50-115"><a href="#cb50-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-116"><a href="#cb50-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Update file timestamp (useful for makefiles)</span></span>
+<span id="cb50-117"><a href="#cb50-117" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> existing_file.txt</span>
+<span id="cb50-118"><a href="#cb50-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-119"><a href="#cb50-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-120"><a href="#cb50-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### `cp` - Copy Files and Directories</span></span>
+<span id="cb50-121"><a href="#cb50-121" aria-hidden="true" tabindex="-1"></a>Copy files and directories.</span>
+<span id="cb50-122"><a href="#cb50-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-123"><a href="#cb50-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-124"><a href="#cb50-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy a file</span></span>
+<span id="cb50-125"><a href="#cb50-125" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> source.txt destination.txt</span>
+<span id="cb50-126"><a href="#cb50-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-127"><a href="#cb50-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-128"><a href="#cb50-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-129"><a href="#cb50-129" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy file to a directory</span></span>
+<span id="cb50-130"><a href="#cb50-130" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> file.txt /path/to/directory/</span>
+<span id="cb50-131"><a href="#cb50-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-132"><a href="#cb50-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy directory recursively</span></span>
+<span id="cb50-133"><a href="#cb50-133" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> source_directory/ destination_directory/</span>
+<span id="cb50-134"><a href="#cb50-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-135"><a href="#cb50-135" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy with preservation of attributes</span></span>
+<span id="cb50-136"><a href="#cb50-136" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-p</span> file.txt backup/</span>
+<span id="cb50-137"><a href="#cb50-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-138"><a href="#cb50-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy multiple files</span></span>
+<span id="cb50-139"><a href="#cb50-139" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> file1.txt file2.txt destination_folder/</span>
+<span id="cb50-140"><a href="#cb50-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-141"><a href="#cb50-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-142"><a href="#cb50-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### `mv` - Move/Rename Files and Directories</span></span>
+<span id="cb50-143"><a href="#cb50-143" aria-hidden="true" tabindex="-1"></a>Move or rename files and directories.</span>
+<span id="cb50-144"><a href="#cb50-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-145"><a href="#cb50-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-146"><a href="#cb50-146" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename a file</span></span>
+<span id="cb50-147"><a href="#cb50-147" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> old_name.txt new_name.txt</span>
+<span id="cb50-148"><a href="#cb50-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-149"><a href="#cb50-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-150"><a href="#cb50-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-151"><a href="#cb50-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Move file to directory</span></span>
+<span id="cb50-152"><a href="#cb50-152" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> file.txt /path/to/directory/</span>
+<span id="cb50-153"><a href="#cb50-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-154"><a href="#cb50-154" aria-hidden="true" tabindex="-1"></a><span class="co"># Move directory</span></span>
+<span id="cb50-155"><a href="#cb50-155" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> source_directory/ destination_directory/</span>
+<span id="cb50-156"><a href="#cb50-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-157"><a href="#cb50-157" aria-hidden="true" tabindex="-1"></a><span class="co"># Move and rename in one step</span></span>
+<span id="cb50-158"><a href="#cb50-158" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> file.txt /new/location/renamed_file.txt</span>
+<span id="cb50-159"><a href="#cb50-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-160"><a href="#cb50-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-161"><a href="#cb50-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### `rm` - Remove Files and Directories</span></span>
+<span id="cb50-162"><a href="#cb50-162" aria-hidden="true" tabindex="-1"></a>Delete files and directories.</span>
+<span id="cb50-163"><a href="#cb50-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-164"><a href="#cb50-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-165"><a href="#cb50-165" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove a file</span></span>
+<span id="cb50-166"><a href="#cb50-166" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> file.txt</span>
+<span id="cb50-167"><a href="#cb50-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-168"><a href="#cb50-168" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove multiple files</span></span>
+<span id="cb50-169"><a href="#cb50-169" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> file1.txt file2.txt file3.txt</span>
+<span id="cb50-170"><a href="#cb50-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-171"><a href="#cb50-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove directory and all contents (BE CAREFUL!)</span></span>
+<span id="cb50-172"><a href="#cb50-172" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> directory_name/</span>
+<span id="cb50-173"><a href="#cb50-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-174"><a href="#cb50-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove directory with confirmation</span></span>
+<span id="cb50-175"><a href="#cb50-175" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-ri</span> directory_name/</span>
+<span id="cb50-176"><a href="#cb50-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-177"><a href="#cb50-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove empty directory only</span></span>
+<span id="cb50-178"><a href="#cb50-178" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> empty_directory/</span>
+<span id="cb50-179"><a href="#cb50-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-180"><a href="#cb50-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove files with confirmation</span></span>
+<span id="cb50-181"><a href="#cb50-181" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-i</span> <span class="pp">*</span>.txt</span>
+<span id="cb50-182"><a href="#cb50-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-183"><a href="#cb50-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-184"><a href="#cb50-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## File Permissions</span></span>
+<span id="cb50-185"><a href="#cb50-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-186"><a href="#cb50-186" aria-hidden="true" tabindex="-1"></a>Understanding file permissions is crucial for Linux security.</span>
+<span id="cb50-187"><a href="#cb50-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-188"><a href="#cb50-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### Viewing Permissions</span></span>
+<span id="cb50-189"><a href="#cb50-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-190"><a href="#cb50-190" aria-hidden="true" tabindex="-1"></a><span class="co"># List files with permissions</span></span>
+<span id="cb50-191"><a href="#cb50-191" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb50-192"><a href="#cb50-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-193"><a href="#cb50-193" aria-hidden="true" tabindex="-1"></a><span class="co"># Example output:</span></span>
+<span id="cb50-194"><a href="#cb50-194" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r-- 1 username group 1234 Dec 15 10:30 file.txt</span></span>
+<span id="cb50-195"><a href="#cb50-195" aria-hidden="true" tabindex="-1"></a><span class="co"># drwxr-xr-x 2 username group 4096 Dec 15 10:30 folder/</span></span>
+<span id="cb50-196"><a href="#cb50-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-197"><a href="#cb50-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-198"><a href="#cb50-198" aria-hidden="true" tabindex="-1"></a>The permission string has 10 characters:</span>
+<span id="cb50-199"><a href="#cb50-199" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Position 1**: File type (<span class="in">`-`</span> for file, <span class="in">`d`</span> for directory)</span>
+<span id="cb50-200"><a href="#cb50-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Positions 2-4**: Owner permissions (read, write, execute)</span>
+<span id="cb50-201"><a href="#cb50-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Positions 5-7**: Group permissions (read, write, execute)</span>
+<span id="cb50-202"><a href="#cb50-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Positions 8-10**: Other permissions (read, write, execute)</span>
+<span id="cb50-203"><a href="#cb50-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-204"><a href="#cb50-204" aria-hidden="true" tabindex="-1"></a><span class="fu">### `chmod` - Change File Permissions</span></span>
+<span id="cb50-205"><a href="#cb50-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-206"><a href="#cb50-206" aria-hidden="true" tabindex="-1"></a><span class="co"># Give owner read, write, execute; group and others read, execute</span></span>
+<span id="cb50-207"><a href="#cb50-207" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 755 script.sh</span>
+<span id="cb50-208"><a href="#cb50-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-209"><a href="#cb50-209" aria-hidden="true" tabindex="-1"></a><span class="co"># Give owner read, write; group and others read only</span></span>
+<span id="cb50-210"><a href="#cb50-210" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 644 file.txt</span>
+<span id="cb50-211"><a href="#cb50-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-212"><a href="#cb50-212" aria-hidden="true" tabindex="-1"></a><span class="co"># Add execute permission for owner</span></span>
+<span id="cb50-213"><a href="#cb50-213" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x script.sh</span>
+<span id="cb50-214"><a href="#cb50-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-215"><a href="#cb50-215" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove write permission for group and others</span></span>
+<span id="cb50-216"><a href="#cb50-216" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> go-w file.txt</span>
+<span id="cb50-217"><a href="#cb50-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-218"><a href="#cb50-218" aria-hidden="true" tabindex="-1"></a><span class="co"># Make file readable by everyone</span></span>
+<span id="cb50-219"><a href="#cb50-219" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a+r file.txt</span>
+<span id="cb50-220"><a href="#cb50-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-221"><a href="#cb50-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-222"><a href="#cb50-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### `chown` - Change File Ownership</span></span>
+<span id="cb50-223"><a href="#cb50-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-224"><a href="#cb50-224" aria-hidden="true" tabindex="-1"></a><span class="co"># Change owner</span></span>
+<span id="cb50-225"><a href="#cb50-225" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> newowner file.txt</span>
+<span id="cb50-226"><a href="#cb50-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-227"><a href="#cb50-227" aria-hidden="true" tabindex="-1"></a><span class="co"># Change owner and group</span></span>
+<span id="cb50-228"><a href="#cb50-228" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> newowner:newgroup file.txt</span>
+<span id="cb50-229"><a href="#cb50-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-230"><a href="#cb50-230" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership recursively</span></span>
+<span id="cb50-231"><a href="#cb50-231" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> <span class="at">-R</span> newowner:newgroup directory/</span>
+<span id="cb50-232"><a href="#cb50-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-233"><a href="#cb50-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-234"><a href="#cb50-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Text Editing</span></span>
+<span id="cb50-235"><a href="#cb50-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-236"><a href="#cb50-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### `nano` - Simple Text Editor</span></span>
+<span id="cb50-237"><a href="#cb50-237" aria-hidden="true" tabindex="-1"></a>Great for beginners.</span>
+<span id="cb50-238"><a href="#cb50-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-239"><a href="#cb50-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-240"><a href="#cb50-240" aria-hidden="true" tabindex="-1"></a><span class="co"># Open file in nano</span></span>
+<span id="cb50-241"><a href="#cb50-241" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> filename.txt</span>
+<span id="cb50-242"><a href="#cb50-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-243"><a href="#cb50-243" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new file</span></span>
+<span id="cb50-244"><a href="#cb50-244" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> new_file.txt</span>
+<span id="cb50-245"><a href="#cb50-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-246"><a href="#cb50-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-247"><a href="#cb50-247" aria-hidden="true" tabindex="-1"></a>**Nano shortcuts:**</span>
+<span id="cb50-248"><a href="#cb50-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ctrl + X`</span>: Exit</span>
+<span id="cb50-249"><a href="#cb50-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ctrl + O`</span>: Save</span>
+<span id="cb50-250"><a href="#cb50-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ctrl + W`</span>: Search</span>
+<span id="cb50-251"><a href="#cb50-251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ctrl + K`</span>: Cut line</span>
+<span id="cb50-252"><a href="#cb50-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ctrl + U`</span>: Paste</span>
+<span id="cb50-253"><a href="#cb50-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-254"><a href="#cb50-254" aria-hidden="true" tabindex="-1"></a><span class="fu">### `vim` - Advanced Text Editor</span></span>
+<span id="cb50-255"><a href="#cb50-255" aria-hidden="true" tabindex="-1"></a>More powerful but steeper learning curve.</span>
+<span id="cb50-256"><a href="#cb50-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-257"><a href="#cb50-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-258"><a href="#cb50-258" aria-hidden="true" tabindex="-1"></a><span class="co"># Open file in vim</span></span>
+<span id="cb50-259"><a href="#cb50-259" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> filename.txt</span>
+<span id="cb50-260"><a href="#cb50-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-261"><a href="#cb50-261" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new file</span></span>
+<span id="cb50-262"><a href="#cb50-262" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> new_file.txt</span>
+<span id="cb50-263"><a href="#cb50-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-264"><a href="#cb50-264" aria-hidden="true" tabindex="-1"></a>So, creating and opening command is basically the same. Just write the file name.</span>
+<span id="cb50-265"><a href="#cb50-265" aria-hidden="true" tabindex="-1"></a>After opening the file, you have toenter into editing/inserting mode. Press <span class="in">`i`</span> on your keyboard to be able to insert/write (or copy-paste) contents. After finishing editing, press <span class="in">`Esc`</span> key to come out of the editing mode. Then write <span class="in">`:wq`</span> to save.</span>
+<span id="cb50-266"><a href="#cb50-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-267"><a href="#cb50-267" aria-hidden="true" tabindex="-1"></a>**Basic vim commands:**</span>
+<span id="cb50-268"><a href="#cb50-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`i`</span>: Enter insert mode</span>
+<span id="cb50-269"><a href="#cb50-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Esc`</span>: Exit insert mode</span>
+<span id="cb50-270"><a href="#cb50-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`:w`</span>: Save</span>
+<span id="cb50-271"><a href="#cb50-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`:q`</span>: Quit</span>
+<span id="cb50-272"><a href="#cb50-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`:wq`</span>: Save and quit</span>
+<span id="cb50-273"><a href="#cb50-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`:q!`</span>: Quit without saving</span>
+<span id="cb50-274"><a href="#cb50-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-275"><a href="#cb50-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viewing File Contents</span></span>
+<span id="cb50-276"><a href="#cb50-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-277"><a href="#cb50-277" aria-hidden="true" tabindex="-1"></a><span class="fu">### `cat` - Display File Contents</span></span>
+<span id="cb50-278"><a href="#cb50-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-279"><a href="#cb50-279" aria-hidden="true" tabindex="-1"></a><span class="co"># Display entire file</span></span>
+<span id="cb50-280"><a href="#cb50-280" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> file.txt</span>
+<span id="cb50-281"><a href="#cb50-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-282"><a href="#cb50-282" aria-hidden="true" tabindex="-1"></a><span class="co"># Display multiple files</span></span>
+<span id="cb50-283"><a href="#cb50-283" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> file1.txt file2.txt</span>
+<span id="cb50-284"><a href="#cb50-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-285"><a href="#cb50-285" aria-hidden="true" tabindex="-1"></a><span class="co"># Display with line numbers</span></span>
+<span id="cb50-286"><a href="#cb50-286" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> file.txt</span>
+<span id="cb50-287"><a href="#cb50-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-288"><a href="#cb50-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-289"><a href="#cb50-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### `less` - View File Page by Page</span></span>
+<span id="cb50-290"><a href="#cb50-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-291"><a href="#cb50-291" aria-hidden="true" tabindex="-1"></a><span class="co"># View file with pagination</span></span>
+<span id="cb50-292"><a href="#cb50-292" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> file.txt</span>
+<span id="cb50-293"><a href="#cb50-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-294"><a href="#cb50-294" aria-hidden="true" tabindex="-1"></a><span class="co"># Search in less: type `/search_term` and press Enter</span></span>
+<span id="cb50-295"><a href="#cb50-295" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate: Space (next page), b (previous page), q (quit)</span></span>
+<span id="cb50-296"><a href="#cb50-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-297"><a href="#cb50-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-298"><a href="#cb50-298" aria-hidden="true" tabindex="-1"></a><span class="fu">### `head` and `tail` - View Beginning/End of Files</span></span>
+<span id="cb50-299"><a href="#cb50-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-300"><a href="#cb50-300" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first 10 lines</span></span>
+<span id="cb50-301"><a href="#cb50-301" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> file.txt</span>
+<span id="cb50-302"><a href="#cb50-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-303"><a href="#cb50-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first 20 lines</span></span>
+<span id="cb50-304"><a href="#cb50-304" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span>
+<span id="cb50-305"><a href="#cb50-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-306"><a href="#cb50-306" aria-hidden="true" tabindex="-1"></a><span class="co"># Show last 10 lines</span></span>
+<span id="cb50-307"><a href="#cb50-307" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> file.txt</span>
+<span id="cb50-308"><a href="#cb50-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-309"><a href="#cb50-309" aria-hidden="true" tabindex="-1"></a><span class="co"># Show last 20 lines</span></span>
+<span id="cb50-310"><a href="#cb50-310" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 20 file.txt</span>
+<span id="cb50-311"><a href="#cb50-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-312"><a href="#cb50-312" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow file changes in real-time</span></span>
+<span id="cb50-313"><a href="#cb50-313" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> log_file.txt</span>
+<span id="cb50-314"><a href="#cb50-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-315"><a href="#cb50-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-316"><a href="#cb50-316" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Text Processing</span></span>
+<span id="cb50-317"><a href="#cb50-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-318"><a href="#cb50-318" aria-hidden="true" tabindex="-1"></a><span class="fu">### `grep` - Search Text</span></span>
+<span id="cb50-319"><a href="#cb50-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-320"><a href="#cb50-320" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for text in file</span></span>
+<span id="cb50-321"><a href="#cb50-321" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"search_term"</span> file.txt</span>
+<span id="cb50-322"><a href="#cb50-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-323"><a href="#cb50-323" aria-hidden="true" tabindex="-1"></a><span class="co"># Search case-insensitive</span></span>
+<span id="cb50-324"><a href="#cb50-324" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"search_term"</span> file.txt</span>
+<span id="cb50-325"><a href="#cb50-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-326"><a href="#cb50-326" aria-hidden="true" tabindex="-1"></a><span class="co"># Search in multiple files</span></span>
+<span id="cb50-327"><a href="#cb50-327" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"search_term"</span> <span class="pp">*</span>.txt</span>
+<span id="cb50-328"><a href="#cb50-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-329"><a href="#cb50-329" aria-hidden="true" tabindex="-1"></a><span class="co"># Search recursively in directories</span></span>
+<span id="cb50-330"><a href="#cb50-330" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-r</span> <span class="st">"search_term"</span> directory/</span>
+<span id="cb50-331"><a href="#cb50-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-332"><a href="#cb50-332" aria-hidden="true" tabindex="-1"></a><span class="co"># Show line numbers</span></span>
+<span id="cb50-333"><a href="#cb50-333" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-n</span> <span class="st">"search_term"</span> file.txt</span>
+<span id="cb50-334"><a href="#cb50-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-335"><a href="#cb50-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-336"><a href="#cb50-336" aria-hidden="true" tabindex="-1"></a><span class="fu">### `wc` - Word Count</span></span>
+<span id="cb50-337"><a href="#cb50-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-338"><a href="#cb50-338" aria-hidden="true" tabindex="-1"></a><span class="co"># Count lines, words, characters</span></span>
+<span id="cb50-339"><a href="#cb50-339" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> file.txt</span>
+<span id="cb50-340"><a href="#cb50-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-341"><a href="#cb50-341" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only lines</span></span>
+<span id="cb50-342"><a href="#cb50-342" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> file.txt</span>
+<span id="cb50-343"><a href="#cb50-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-344"><a href="#cb50-344" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only words</span></span>
+<span id="cb50-345"><a href="#cb50-345" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> file.txt</span>
+<span id="cb50-346"><a href="#cb50-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-347"><a href="#cb50-347" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only characters</span></span>
+<span id="cb50-348"><a href="#cb50-348" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> file.txt</span>
+<span id="cb50-349"><a href="#cb50-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-350"><a href="#cb50-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-351"><a href="#cb50-351" aria-hidden="true" tabindex="-1"></a><span class="fu">## Environment and System Information</span></span>
+<span id="cb50-352"><a href="#cb50-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-353"><a href="#cb50-353" aria-hidden="true" tabindex="-1"></a><span class="fu">### `whoami` - Current User</span></span>
+<span id="cb50-354"><a href="#cb50-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-355"><a href="#cb50-355" aria-hidden="true" tabindex="-1"></a><span class="co"># Show current username</span></span>
+<span id="cb50-356"><a href="#cb50-356" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span>
+<span id="cb50-357"><a href="#cb50-357" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-358"><a href="#cb50-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-359"><a href="#cb50-359" aria-hidden="true" tabindex="-1"></a><span class="fu">### `uname` - System Information</span></span>
+<span id="cb50-360"><a href="#cb50-360" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-361"><a href="#cb50-361" aria-hidden="true" tabindex="-1"></a><span class="co"># Show system information</span></span>
+<span id="cb50-362"><a href="#cb50-362" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-a</span></span>
+<span id="cb50-363"><a href="#cb50-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-364"><a href="#cb50-364" aria-hidden="true" tabindex="-1"></a><span class="co"># Show operating system</span></span>
+<span id="cb50-365"><a href="#cb50-365" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-s</span></span>
+<span id="cb50-366"><a href="#cb50-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-367"><a href="#cb50-367" aria-hidden="true" tabindex="-1"></a><span class="co"># Show machine architecture</span></span>
+<span id="cb50-368"><a href="#cb50-368" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-m</span></span>
+<span id="cb50-369"><a href="#cb50-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-370"><a href="#cb50-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-371"><a href="#cb50-371" aria-hidden="true" tabindex="-1"></a><span class="fu">### `df` - Disk Space Usage</span></span>
+<span id="cb50-372"><a href="#cb50-372" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-373"><a href="#cb50-373" aria-hidden="true" tabindex="-1"></a><span class="co"># Show disk space usage</span></span>
+<span id="cb50-374"><a href="#cb50-374" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span></span>
+<span id="cb50-375"><a href="#cb50-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-376"><a href="#cb50-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-377"><a href="#cb50-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### `free` - Memory Usage</span></span>
+<span id="cb50-378"><a href="#cb50-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-379"><a href="#cb50-379" aria-hidden="true" tabindex="-1"></a><span class="co"># Show memory usage</span></span>
+<span id="cb50-380"><a href="#cb50-380" aria-hidden="true" tabindex="-1"></a><span class="fu">free</span> <span class="at">-h</span></span>
+<span id="cb50-381"><a href="#cb50-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-382"><a href="#cb50-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-383"><a href="#cb50-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## Process Management</span></span>
+<span id="cb50-384"><a href="#cb50-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-385"><a href="#cb50-385" aria-hidden="true" tabindex="-1"></a><span class="fu">### `ps` - List Processes</span></span>
+<span id="cb50-386"><a href="#cb50-386" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-387"><a href="#cb50-387" aria-hidden="true" tabindex="-1"></a><span class="co"># List running processes</span></span>
+<span id="cb50-388"><a href="#cb50-388" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span></span>
+<span id="cb50-389"><a href="#cb50-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-390"><a href="#cb50-390" aria-hidden="true" tabindex="-1"></a><span class="co"># List all processes</span></span>
+<span id="cb50-391"><a href="#cb50-391" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> aux</span>
+<span id="cb50-392"><a href="#cb50-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-393"><a href="#cb50-393" aria-hidden="true" tabindex="-1"></a><span class="co"># List processes for current user</span></span>
+<span id="cb50-394"><a href="#cb50-394" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> u</span>
+<span id="cb50-395"><a href="#cb50-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-396"><a href="#cb50-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-397"><a href="#cb50-397" aria-hidden="true" tabindex="-1"></a><span class="fu">### `top` - Monitor Processes</span></span>
+<span id="cb50-398"><a href="#cb50-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-399"><a href="#cb50-399" aria-hidden="true" tabindex="-1"></a><span class="co"># Show running processes interactively</span></span>
+<span id="cb50-400"><a href="#cb50-400" aria-hidden="true" tabindex="-1"></a><span class="ex">top</span></span>
+<span id="cb50-401"><a href="#cb50-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-402"><a href="#cb50-402" aria-hidden="true" tabindex="-1"></a><span class="co"># Press 'q' to quit</span></span>
+<span id="cb50-403"><a href="#cb50-403" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-404"><a href="#cb50-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-405"><a href="#cb50-405" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting Help</span></span>
+<span id="cb50-406"><a href="#cb50-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-407"><a href="#cb50-407" aria-hidden="true" tabindex="-1"></a><span class="fu">### `man` - Manual Pages</span></span>
+<span id="cb50-408"><a href="#cb50-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-409"><a href="#cb50-409" aria-hidden="true" tabindex="-1"></a><span class="co"># Get help for a command</span></span>
+<span id="cb50-410"><a href="#cb50-410" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span>
+<span id="cb50-411"><a href="#cb50-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-412"><a href="#cb50-412" aria-hidden="true" tabindex="-1"></a><span class="co"># Get help for a command (alternative)</span></span>
+<span id="cb50-413"><a href="#cb50-413" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">--help</span></span>
+<span id="cb50-414"><a href="#cb50-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-415"><a href="#cb50-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-416"><a href="#cb50-416" aria-hidden="true" tabindex="-1"></a><span class="fu">### `which` - Find Command Location</span></span>
+<span id="cb50-417"><a href="#cb50-417" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-418"><a href="#cb50-418" aria-hidden="true" tabindex="-1"></a><span class="co"># Find where a command is located</span></span>
+<span id="cb50-419"><a href="#cb50-419" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python3</span>
+<span id="cb50-420"><a href="#cb50-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-421"><a href="#cb50-421" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all locations</span></span>
+<span id="cb50-422"><a href="#cb50-422" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> <span class="at">-a</span> python3</span>
+<span id="cb50-423"><a href="#cb50-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-424"><a href="#cb50-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-425"><a href="#cb50-425" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example Workflow</span></span>
+<span id="cb50-426"><a href="#cb50-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-427"><a href="#cb50-427" aria-hidden="true" tabindex="-1"></a>Let's practice with a complete example:</span>
+<span id="cb50-428"><a href="#cb50-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-429"><a href="#cb50-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-430"><a href="#cb50-430" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a project directory</span></span>
+<span id="cb50-431"><a href="#cb50-431" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> my_project/data</span>
+<span id="cb50-432"><a href="#cb50-432" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my_project</span>
+<span id="cb50-433"><a href="#cb50-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-434"><a href="#cb50-434" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some files</span></span>
+<span id="cb50-435"><a href="#cb50-435" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> data/sample1.txt data/sample2.txt</span>
+<span id="cb50-436"><a href="#cb50-436" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello World"</span> <span class="op">&gt;</span> data/sample1.txt</span>
+<span id="cb50-437"><a href="#cb50-437" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Linux is awesome"</span> <span class="op">&gt;</span> data/sample2.txt</span>
+<span id="cb50-438"><a href="#cb50-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-439"><a href="#cb50-439" aria-hidden="true" tabindex="-1"></a><span class="co"># List files</span></span>
+<span id="cb50-440"><a href="#cb50-440" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span> data/</span>
+<span id="cb50-441"><a href="#cb50-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-442"><a href="#cb50-442" aria-hidden="true" tabindex="-1"></a><span class="co"># View file contents</span></span>
+<span id="cb50-443"><a href="#cb50-443" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/sample1.txt</span>
+<span id="cb50-444"><a href="#cb50-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-445"><a href="#cb50-445" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for text</span></span>
+<span id="cb50-446"><a href="#cb50-446" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"Hello"</span> data/<span class="pp">*</span>.txt</span>
+<span id="cb50-447"><a href="#cb50-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-448"><a href="#cb50-448" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy files</span></span>
+<span id="cb50-449"><a href="#cb50-449" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> data/sample1.txt backup_sample1.txt</span>
+<span id="cb50-450"><a href="#cb50-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-451"><a href="#cb50-451" aria-hidden="true" tabindex="-1"></a><span class="co"># Check permissions</span></span>
+<span id="cb50-452"><a href="#cb50-452" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data/</span>
+<span id="cb50-453"><a href="#cb50-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-454"><a href="#cb50-454" aria-hidden="true" tabindex="-1"></a><span class="co"># Change permissions</span></span>
+<span id="cb50-455"><a href="#cb50-455" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 644 data/sample1.txt</span>
+<span id="cb50-456"><a href="#cb50-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-457"><a href="#cb50-457" aria-hidden="true" tabindex="-1"></a><span class="co"># View file with line numbers</span></span>
+<span id="cb50-458"><a href="#cb50-458" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> data/sample1.txt</span>
+<span id="cb50-459"><a href="#cb50-459" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-460"><a href="#cb50-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-461"><a href="#cb50-461" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example shell command</span></span>
+<span id="cb50-462"><a href="#cb50-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-463"><a href="#cb50-463" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-464"><a href="#cb50-464" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Linux/Bash code here </span></span>
+<span id="cb50-465"><a href="#cb50-465" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello from Bash!"</span> </span>
+<span id="cb50-466"><a href="#cb50-466" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb50-467"><a href="#cb50-467" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-468"><a href="#cb50-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-469"><a href="#cb50-469" aria-hidden="true" tabindex="-1"></a><span class="fu"># WSL2 Installation Guide for Windows Users</span></span>
+<span id="cb50-470"><a href="#cb50-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-471"><a href="#cb50-471" aria-hidden="true" tabindex="-1"></a>This guide will help you install Windows Subsystem for Linux 2 (WSL2) and set up a Python development environment for running the IELTS AI Coach application.</span>
+<span id="cb50-472"><a href="#cb50-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-473"><a href="#cb50-473" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb50-474"><a href="#cb50-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-475"><a href="#cb50-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11</span>
+<span id="cb50-476"><a href="#cb50-476" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Administrator access to your computer</span>
+<span id="cb50-477"><a href="#cb50-477" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Stable internet connection</span>
+<span id="cb50-478"><a href="#cb50-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-479"><a href="#cb50-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: Check Your Windows Version</span></span>
+<span id="cb50-480"><a href="#cb50-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-481"><a href="#cb50-481" aria-hidden="true" tabindex="-1"></a>First, verify you have a compatible Windows version:</span>
+<span id="cb50-482"><a href="#cb50-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-483"><a href="#cb50-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-484"><a href="#cb50-484" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Command Prompt and run:</span></span>
+<span id="cb50-485"><a href="#cb50-485" aria-hidden="true" tabindex="-1"></a><span class="ex">winver</span></span>
+<span id="cb50-486"><a href="#cb50-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-487"><a href="#cb50-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-488"><a href="#cb50-488" aria-hidden="true" tabindex="-1"></a>You should see Windows 10 Build 19041+ or Windows 11.</span>
+<span id="cb50-489"><a href="#cb50-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-490"><a href="#cb50-490" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 2: Enable WSL Feature</span></span>
+<span id="cb50-491"><a href="#cb50-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-492"><a href="#cb50-492" aria-hidden="true" tabindex="-1"></a>Open **Command Prompt as Administrator** (Right-click → "Run as administrator"):</span>
+<span id="cb50-493"><a href="#cb50-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-494"><a href="#cb50-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-495"><a href="#cb50-495" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable WSL feature</span></span>
+<span id="cb50-496"><a href="#cb50-496" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span>
+<span id="cb50-497"><a href="#cb50-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-498"><a href="#cb50-498" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable Virtual Machine Platform</span></span>
+<span id="cb50-499"><a href="#cb50-499" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span>
+<span id="cb50-500"><a href="#cb50-500" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-501"><a href="#cb50-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-502"><a href="#cb50-502" aria-hidden="true" tabindex="-1"></a>**Important:** Restart your computer after running these commands.</span>
+<span id="cb50-503"><a href="#cb50-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-504"><a href="#cb50-504" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 3: Install WSL2 (Modern Method)</span></span>
+<span id="cb50-505"><a href="#cb50-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-506"><a href="#cb50-506" aria-hidden="true" tabindex="-1"></a>After restarting, open **Command Prompt as Administrator** again:</span>
+<span id="cb50-507"><a href="#cb50-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-508"><a href="#cb50-508" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-509"><a href="#cb50-509" aria-hidden="true" tabindex="-1"></a><span class="co"># Install WSL2 with Ubuntu (this is the easiest method)</span></span>
+<span id="cb50-510"><a href="#cb50-510" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span></span>
+<span id="cb50-511"><a href="#cb50-511" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-512"><a href="#cb50-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-513"><a href="#cb50-513" aria-hidden="true" tabindex="-1"></a>Do "OK" or "Yes" to agree if pop-ups appear. If this command doesn't work, use the manual method below.</span>
+<span id="cb50-514"><a href="#cb50-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-515"><a href="#cb50-515" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 4: Manual Installation (If Step 3 Failed)</span></span>
+<span id="cb50-516"><a href="#cb50-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-517"><a href="#cb50-517" aria-hidden="true" tabindex="-1"></a><span class="fu">### Download and Install WSL2 Kernel Update</span></span>
+<span id="cb50-518"><a href="#cb50-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-519"><a href="#cb50-519" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Download the WSL2 Linux kernel update package from Microsoft:</span>
+<span id="cb50-520"><a href="#cb50-520" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="co">[</span><span class="ot">WSL2 Linux kernel update package for x64 machines</span><span class="co">](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)</span></span>
+<span id="cb50-521"><a href="#cb50-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-522"><a href="#cb50-522" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Run the downloaded <span class="in">`.msi`</span> file and follow the installation wizard.</span>
+<span id="cb50-523"><a href="#cb50-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-524"><a href="#cb50-524" aria-hidden="true" tabindex="-1"></a><span class="fu">### Set WSL2 as Default Version</span></span>
+<span id="cb50-525"><a href="#cb50-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-526"><a href="#cb50-526" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-527"><a href="#cb50-527" aria-hidden="true" tabindex="-1"></a><span class="co"># Set WSL2 as the default version</span></span>
+<span id="cb50-528"><a href="#cb50-528" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--set-default-version</span> 2</span>
+<span id="cb50-529"><a href="#cb50-529" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-530"><a href="#cb50-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-531"><a href="#cb50-531" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install Ubuntu Distribution</span></span>
+<span id="cb50-532"><a href="#cb50-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-533"><a href="#cb50-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-534"><a href="#cb50-534" aria-hidden="true" tabindex="-1"></a><span class="co"># List available distributions</span></span>
+<span id="cb50-535"><a href="#cb50-535" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--online</span></span>
+<span id="cb50-536"><a href="#cb50-536" aria-hidden="true" tabindex="-1"></a><span class="co">#it will show all the availabe Linux distributions. Choose one of Ubuntus.</span></span>
+<span id="cb50-537"><a href="#cb50-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-538"><a href="#cb50-538" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ubuntu</span></span>
+<span id="cb50-539"><a href="#cb50-539" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> <span class="at">-d</span> Ubuntu</span>
+<span id="cb50-540"><a href="#cb50-540" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-541"><a href="#cb50-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-542"><a href="#cb50-542" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 5: Alternative - Install via Microsoft Store</span></span>
+<span id="cb50-543"><a href="#cb50-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-544"><a href="#cb50-544" aria-hidden="true" tabindex="-1"></a>If command line installation fails:</span>
+<span id="cb50-545"><a href="#cb50-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-546"><a href="#cb50-546" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open **Microsoft Store**</span>
+<span id="cb50-547"><a href="#cb50-547" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Search for "**Ubuntu 22.04.3 LTS**" or just "**Ubuntu**"</span>
+<span id="cb50-548"><a href="#cb50-548" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Click "**Get**" or "**Install**"</span>
+<span id="cb50-549"><a href="#cb50-549" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Wait for download and installation</span>
+<span id="cb50-550"><a href="#cb50-550" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Click "**Launch**" when ready</span>
+<span id="cb50-551"><a href="#cb50-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-552"><a href="#cb50-552" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 6: First-Time Ubuntu Setup</span></span>
+<span id="cb50-553"><a href="#cb50-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-554"><a href="#cb50-554" aria-hidden="true" tabindex="-1"></a>When you launch Ubuntu for the first time:</span>
+<span id="cb50-555"><a href="#cb50-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-556"><a href="#cb50-556" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Wait for installation to complete** (this may take several minutes)</span>
+<span id="cb50-557"><a href="#cb50-557" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Create a username** when prompted (can be different from your Windows username)</span>
+<span id="cb50-558"><a href="#cb50-558" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Create a password** (you won't see characters as you type - this is normal)</span>
+<span id="cb50-559"><a href="#cb50-559" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Confirm your password**</span>
+<span id="cb50-560"><a href="#cb50-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-561"><a href="#cb50-561" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-562"><a href="#cb50-562" aria-hidden="true" tabindex="-1"></a><span class="co"># Example setup (replace 'yourusername' with your preferred username)</span></span>
+<span id="cb50-563"><a href="#cb50-563" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> new UNIX username: yourusername</span>
+<span id="cb50-564"><a href="#cb50-564" aria-hidden="true" tabindex="-1"></a><span class="ex">New</span> password: [type your password]</span>
+<span id="cb50-565"><a href="#cb50-565" aria-hidden="true" tabindex="-1"></a><span class="ex">Retype</span> new password: [type your password again]</span>
+<span id="cb50-566"><a href="#cb50-566" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-567"><a href="#cb50-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-568"><a href="#cb50-568" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 7: Verify Installation</span></span>
+<span id="cb50-569"><a href="#cb50-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-570"><a href="#cb50-570" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-571"><a href="#cb50-571" aria-hidden="true" tabindex="-1"></a><span class="co"># Check WSL version and status</span></span>
+<span id="cb50-572"><a href="#cb50-572" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--verbose</span></span>
+<span id="cb50-573"><a href="#cb50-573" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-574"><a href="#cb50-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-575"><a href="#cb50-575" aria-hidden="true" tabindex="-1"></a>You should see output like:</span>
+<span id="cb50-576"><a href="#cb50-576" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-577"><a href="#cb50-577" aria-hidden="true" tabindex="-1"></a><span class="in">  NAME      STATE           VERSION</span></span>
+<span id="cb50-578"><a href="#cb50-578" aria-hidden="true" tabindex="-1"></a><span class="in">* Ubuntu    Running         2</span></span>
+<span id="cb50-579"><a href="#cb50-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-580"><a href="#cb50-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-581"><a href="#cb50-581" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 8: Update Ubuntu System</span></span>
+<span id="cb50-582"><a href="#cb50-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-583"><a href="#cb50-583" aria-hidden="true" tabindex="-1"></a>In your Ubuntu terminal, run these commands one by one:</span>
+<span id="cb50-584"><a href="#cb50-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-585"><a href="#cb50-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-586"><a href="#cb50-586" aria-hidden="true" tabindex="-1"></a><span class="co"># Update package list</span></span>
+<span id="cb50-587"><a href="#cb50-587" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb50-588"><a href="#cb50-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-589"><a href="#cb50-589" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade installed packages (this may take a while)</span></span>
+<span id="cb50-590"><a href="#cb50-590" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span>
+<span id="cb50-591"><a href="#cb50-591" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-592"><a href="#cb50-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-593"><a href="#cb50-593" aria-hidden="true" tabindex="-1"></a>**Note:** When prompted, type <span class="in">`Y`</span> and press Enter to confirm upgrades.</span>
+<span id="cb50-594"><a href="#cb50-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-595"><a href="#cb50-595" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 9: Install Python Development Environment</span></span>
+<span id="cb50-596"><a href="#cb50-596" aria-hidden="true" tabindex="-1"></a>This is required for latter use, not exactly now. You might choose not to do it right now. We will see things together.</span>
+<span id="cb50-597"><a href="#cb50-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-598"><a href="#cb50-598" aria-hidden="true" tabindex="-1"></a><span class="fu">### Option A: Using Python Virtual Environment (Recommended)</span></span>
+<span id="cb50-599"><a href="#cb50-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-600"><a href="#cb50-600" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-601"><a href="#cb50-601" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Python and essential tools</span></span>
+<span id="cb50-602"><a href="#cb50-602" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-pip python3-venv curl wget git</span>
+<span id="cb50-603"><a href="#cb50-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-604"><a href="#cb50-604" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify Python installation</span></span>
+<span id="cb50-605"><a href="#cb50-605" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span>
+<span id="cb50-606"><a href="#cb50-606" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> <span class="at">--version</span></span>
+<span id="cb50-607"><a href="#cb50-607" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-608"><a href="#cb50-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-609"><a href="#cb50-609" aria-hidden="true" tabindex="-1"></a><span class="fu">### Option B: Using Miniconda (Alternative)</span></span>
+<span id="cb50-610"><a href="#cb50-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-611"><a href="#cb50-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-612"><a href="#cb50-612" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Miniconda installer</span></span>
+<span id="cb50-613"><a href="#cb50-613" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb50-614"><a href="#cb50-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-615"><a href="#cb50-615" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Miniconda</span></span>
+<span id="cb50-616"><a href="#cb50-616" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb50-617"><a href="#cb50-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-618"><a href="#cb50-618" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow the installation prompts:</span></span>
+<span id="cb50-619"><a href="#cb50-619" aria-hidden="true" tabindex="-1"></a><span class="co"># - Press ENTER to review the license</span></span>
+<span id="cb50-620"><a href="#cb50-620" aria-hidden="true" tabindex="-1"></a><span class="co"># - Type 'yes' to accept the license</span></span>
+<span id="cb50-621"><a href="#cb50-621" aria-hidden="true" tabindex="-1"></a><span class="co"># - Press ENTER to confirm the installation location</span></span>
+<span id="cb50-622"><a href="#cb50-622" aria-hidden="true" tabindex="-1"></a><span class="co"># - Type 'yes' to initialize conda</span></span>
+<span id="cb50-623"><a href="#cb50-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-624"><a href="#cb50-624" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload your shell configuration</span></span>
+<span id="cb50-625"><a href="#cb50-625" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb50-626"><a href="#cb50-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-627"><a href="#cb50-627" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify conda installation</span></span>
+<span id="cb50-628"><a href="#cb50-628" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
+<span id="cb50-629"><a href="#cb50-629" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-630"><a href="#cb50-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-631"><a href="#cb50-631" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 10: Access Your Windows Files</span></span>
+<span id="cb50-632"><a href="#cb50-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-633"><a href="#cb50-633" aria-hidden="true" tabindex="-1"></a>Your Windows files are accessible from Ubuntu at these locations:</span>
+<span id="cb50-634"><a href="#cb50-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-635"><a href="#cb50-635" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-636"><a href="#cb50-636" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Windows C: drive</span></span>
+<span id="cb50-637"><a href="#cb50-637" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/</span>
+<span id="cb50-638"><a href="#cb50-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-639"><a href="#cb50-639" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourWindowsUsername/</span>
+<span id="cb50-640"><a href="#cb50-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-641"><a href="#cb50-641" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Downloads folder</span></span>
+<span id="cb50-642"><a href="#cb50-642" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourWindowsUsername/Downloads/</span>
+<span id="cb50-643"><a href="#cb50-643" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-644"><a href="#cb50-644" aria-hidden="true" tabindex="-1"></a><span class="in">`mnt`</span> is to denote mounting. Your linux/ubuntu functionalities are actually mounted on Windows. Makes sense?</span>
+<span id="cb50-645"><a href="#cb50-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-646"><a href="#cb50-646" aria-hidden="true" tabindex="-1"></a><span class="fu"># Your Windows user folder</span></span>
+<span id="cb50-647"><a href="#cb50-647" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 11: Copy Project Files</span></span>
+<span id="cb50-648"><a href="#cb50-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-649"><a href="#cb50-649" aria-hidden="true" tabindex="-1"></a>To copy your project from Windows to Ubuntu:</span>
+<span id="cb50-650"><a href="#cb50-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-651"><a href="#cb50-651" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-652"><a href="#cb50-652" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your home directory in Ubuntu</span></span>
+<span id="cb50-653"><a href="#cb50-653" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb50-654"><a href="#cb50-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-655"><a href="#cb50-655" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project from Windows Downloads (adjust path as needed)</span></span>
+<span id="cb50-656"><a href="#cb50-656" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /mnt/c/Users/YourWindowsUsername/Downloads/folderName ./</span>
+<span id="cb50-657"><a href="#cb50-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-658"><a href="#cb50-658" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the project</span></span>
+<span id="cb50-659"><a href="#cb50-659" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> folderName</span>
+<span id="cb50-660"><a href="#cb50-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-661"><a href="#cb50-661" aria-hidden="true" tabindex="-1"></a><span class="co"># List files to verify</span></span>
+<span id="cb50-662"><a href="#cb50-662" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span>
+<span id="cb50-663"><a href="#cb50-663" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-664"><a href="#cb50-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-665"><a href="#cb50-665" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Troubleshooting</span></span>
+<span id="cb50-666"><a href="#cb50-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-667"><a href="#cb50-667" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issue: "WSL has no installed distributions"</span></span>
+<span id="cb50-668"><a href="#cb50-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-669"><a href="#cb50-669" aria-hidden="true" tabindex="-1"></a>**Solution:** You need to install a Linux distribution first.</span>
+<span id="cb50-670"><a href="#cb50-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-671"><a href="#cb50-671" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-672"><a href="#cb50-672" aria-hidden="true" tabindex="-1"></a><span class="co"># List available distributions</span></span>
+<span id="cb50-673"><a href="#cb50-673" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--online</span></span>
+<span id="cb50-674"><a href="#cb50-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-675"><a href="#cb50-675" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ubuntu</span></span>
+<span id="cb50-676"><a href="#cb50-676" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> Ubuntu</span>
+<span id="cb50-677"><a href="#cb50-677" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-678"><a href="#cb50-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-679"><a href="#cb50-679" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issue: Command not found errors</span></span>
+<span id="cb50-680"><a href="#cb50-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-681"><a href="#cb50-681" aria-hidden="true" tabindex="-1"></a>**Solution:** Make sure you're running commands in the correct environment:</span>
+<span id="cb50-682"><a href="#cb50-682" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>WSL commands (<span class="in">`wsl --install`</span>) should be run in **Windows Command Prompt as Administrator**</span>
+<span id="cb50-683"><a href="#cb50-683" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Linux commands (<span class="in">`sudo apt update`</span>) should be run in **Ubuntu terminal**</span>
+<span id="cb50-684"><a href="#cb50-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-685"><a href="#cb50-685" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issue: Network/download problems</span></span>
+<span id="cb50-686"><a href="#cb50-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-687"><a href="#cb50-687" aria-hidden="true" tabindex="-1"></a>**Solutions:**</span>
+<span id="cb50-688"><a href="#cb50-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-689"><a href="#cb50-689" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Try different download mirrors:**</span>
+<span id="cb50-690"><a href="#cb50-690" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-691"><a href="#cb50-691" aria-hidden="true" tabindex="-1"></a><span class="co"># For Miniconda, try this mirror:</span></span>
+<span id="cb50-692"><a href="#cb50-692" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb50-693"><a href="#cb50-693" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-694"><a href="#cb50-694" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-695"><a href="#cb50-695" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Download via Windows browser and copy:**</span>
+<span id="cb50-696"><a href="#cb50-696" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Download files using your Windows browser</span>
+<span id="cb50-697"><a href="#cb50-697" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Copy to Ubuntu using <span class="in">`/mnt/c/`</span> path</span>
+<span id="cb50-698"><a href="#cb50-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-699"><a href="#cb50-699" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issue: Permission denied</span></span>
+<span id="cb50-700"><a href="#cb50-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-701"><a href="#cb50-701" aria-hidden="true" tabindex="-1"></a>**Solution:** Use <span class="in">`sudo`</span> for system commands:</span>
+<span id="cb50-702"><a href="#cb50-702" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-703"><a href="#cb50-703" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-704"><a href="#cb50-704" aria-hidden="true" tabindex="-1"></a><span class="co"># Wrong:</span></span>
+<span id="cb50-705"><a href="#cb50-705" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> update</span>
+<span id="cb50-706"><a href="#cb50-706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-707"><a href="#cb50-707" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct:</span></span>
+<span id="cb50-708"><a href="#cb50-708" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb50-709"><a href="#cb50-709" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-710"><a href="#cb50-710" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-711"><a href="#cb50-711" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issue: Ubuntu terminal closes immediately</span></span>
+<span id="cb50-712"><a href="#cb50-712" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-713"><a href="#cb50-713" aria-hidden="true" tabindex="-1"></a>**Solutions:**</span>
+<span id="cb50-714"><a href="#cb50-714" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Make sure WSL2 is properly installed</span>
+<span id="cb50-715"><a href="#cb50-715" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Restart your computer</span>
+<span id="cb50-716"><a href="#cb50-716" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Try reinstalling Ubuntu from Microsoft Store</span>
+<span id="cb50-717"><a href="#cb50-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-718"><a href="#cb50-718" aria-hidden="true" tabindex="-1"></a><span class="fu">## Useful WSL Commands</span></span>
+<span id="cb50-719"><a href="#cb50-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-720"><a href="#cb50-720" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval=FALSE}</span></span>
+<span id="cb50-721"><a href="#cb50-721" aria-hidden="true" tabindex="-1"></a><span class="co"># List all installed distributions</span></span>
+<span id="cb50-722"><a href="#cb50-722" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--list</span> <span class="at">--verbose</span></span>
+<span id="cb50-723"><a href="#cb50-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-724"><a href="#cb50-724" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop a distribution</span></span>
+<span id="cb50-725"><a href="#cb50-725" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--terminate</span> Ubuntu</span>
+<span id="cb50-726"><a href="#cb50-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-727"><a href="#cb50-727" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a specific distribution</span></span>
+<span id="cb50-728"><a href="#cb50-728" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">-d</span> Ubuntu</span>
+<span id="cb50-729"><a href="#cb50-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-730"><a href="#cb50-730" aria-hidden="true" tabindex="-1"></a><span class="co"># Uninstall a distribution</span></span>
+<span id="cb50-731"><a href="#cb50-731" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--unregister</span> Ubuntu</span>
+<span id="cb50-732"><a href="#cb50-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-733"><a href="#cb50-733" aria-hidden="true" tabindex="-1"></a><span class="co"># Check WSL version</span></span>
+<span id="cb50-734"><a href="#cb50-734" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--version</span></span>
+<span id="cb50-735"><a href="#cb50-735" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-736"><a href="#cb50-736" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-737"><a href="#cb50-737" aria-hidden="true" tabindex="-1"></a><span class="fu">## Opening Multiple Terminals</span></span>
+<span id="cb50-738"><a href="#cb50-738" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-739"><a href="#cb50-739" aria-hidden="true" tabindex="-1"></a><span class="fu">### Method 1: Windows Terminal (Recommended)</span></span>
+<span id="cb50-740"><a href="#cb50-740" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Install **Windows Terminal** from Microsoft Store</span>
+<span id="cb50-741"><a href="#cb50-741" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Open Windows Terminal</span>
+<span id="cb50-742"><a href="#cb50-742" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Click the dropdown arrow next to the <span class="in">`+`</span> tab</span>
+<span id="cb50-743"><a href="#cb50-743" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Select "Ubuntu"</span>
+<span id="cb50-744"><a href="#cb50-744" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use <span class="in">`Ctrl + Shift + T`</span> for new tabs</span>
+<span id="cb50-745"><a href="#cb50-745" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-746"><a href="#cb50-746" aria-hidden="true" tabindex="-1"></a><span class="fu">### Method 2: Direct Launch</span></span>
+<span id="cb50-747"><a href="#cb50-747" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Search "Ubuntu" in Start Menu</span>
+<span id="cb50-748"><a href="#cb50-748" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Click to open new instances</span>
+<span id="cb50-749"><a href="#cb50-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-750"><a href="#cb50-750" aria-hidden="true" tabindex="-1"></a><span class="fu">## Next Steps</span></span>
+<span id="cb50-751"><a href="#cb50-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-752"><a href="#cb50-752" aria-hidden="true" tabindex="-1"></a>Once WSL2 and Ubuntu are properly installed:</span>
+<span id="cb50-753"><a href="#cb50-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-754"><a href="#cb50-754" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Set up your development environment** (Python virtual environment or Conda)</span>
+<span id="cb50-755"><a href="#cb50-755" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Copy your project files** from Windows to Ubuntu</span>
+<span id="cb50-756"><a href="#cb50-756" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Install project dependencies**</span>
+<span id="cb50-757"><a href="#cb50-757" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Run your IELTS AI Coach application**</span>
+<span id="cb50-758"><a href="#cb50-758" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-759"><a href="#cb50-759" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional Resources</span></span>
+<span id="cb50-760"><a href="#cb50-760" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-761"><a href="#cb50-761" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Official WSL Documentation</span><span class="co">](https://docs.microsoft.com/en-us/windows/wsl/)</span></span>
+<span id="cb50-762"><a href="#cb50-762" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">WSL2 Installation Guide</span><span class="co">](https://docs.microsoft.com/en-us/windows/wsl/install)</span></span>
+<span id="cb50-763"><a href="#cb50-763" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Ubuntu WSL Documentation</span><span class="co">](https://ubuntu.com/wsl)</span></span>
+<span id="cb50-764"><a href="#cb50-764" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-765"><a href="#cb50-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-766"><a href="#cb50-766" aria-hidden="true" tabindex="-1"></a>**Need Help?** If you encounter issues not covered in this guide, please:</span>
+<span id="cb50-767"><a href="#cb50-767" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Take a screenshot of the error message</span>
+<span id="cb50-768"><a href="#cb50-768" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Note which step you were on</span>
+<span id="cb50-769"><a href="#cb50-769" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Contact me</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
