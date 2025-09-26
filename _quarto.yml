@@ -32,6 +32,8 @@ website:
         menu: 
           - text: Basics
             href: ch/python/basics.qmd
+          - text: UV Package Manager
+            href: ch/python/uv_tutorial.qmd
           - text: Advanced Python
             href: ch/python/panda.qmd
           - text: Machine Learning Algorithms

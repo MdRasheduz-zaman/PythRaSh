@@ -1,0 +1,91 @@
+STUDENT GRADE REPORT
+==================================================
+
+Student: Alice Johnson
+  Math: 95
+  Science: 88
+  English: 92
+  History: 85
+  Average: 90.0
+  Letter Grade: A
+
+Student: Bob Smith
+  Math: 78
+  Science: 91
+  English: 85
+  History: 88
+  Average: 85.5
+  Letter Grade: B
+
+Student: Carol Davis
+  Math: 88
+  Science: 95
+  English: 90
+  History: 92
+  Average: 91.2
+  Letter Grade: A
+
+Student: David Wilson
+  Math: 92
+  Science: 85
+  English: 88
+  History: 90
+  Average: 88.8
+  Letter Grade: B
+
+Student: Eva Brown
+  Math: 85
+  Science: 92
+  English: 95
+  History: 88
+  Average: 90.0
+  Letter Grade: A
+
+Student: Frank Miller
+  Math: 90
+  Science: 88
+  English: 85
+  History: 92
+  Average: 88.8
+  Letter Grade: B
+
+Student: Grace Lee
+  Math: 88
+  Science: 90
+  English: 92
+  History: 85
+  Average: 88.8
+  Letter Grade: B
+
+Student: Henry Clark
+  Math: 92
+  Science: 88
+  English: 90
+  History: 88
+  Average: 89.5
+  Letter Grade: B
+
+Student: Ivy Taylor
+  Math: 85
+  Science: 95
+  English: 88
+  History: 90
+  Average: 89.5
+  Letter Grade: B
+
+Student: Jack Anderson
+  Math: 90
+  Science: 85
+  English: 92
+  History: 88
+  Average: 88.8
+  Letter Grade: B
+
+CLASS STATISTICS
+------------------------------
+Math Average: 88.3
+Science Average: 89.7
+English Average: 89.7
+History Average: 88.6
+
+Class Average: 89.1

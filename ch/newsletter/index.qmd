@@ -1,24 +1,13 @@
 ---
 title: "PythRaSh's AI Newsletter Archive"
-subtitle: "Weekly digest of AI breakthroughs in biology and healthcare"
-author: "Md Rasheduzzaman"
 listing:
-  contents: 
-    - "*.qmd"
-    - "!index.qmd"
-  sort: "date desc"
+  contents: .
   type: default
   fields: [title, author, date, description]
-  categories: true
-  feed: true
 page-layout: full
-format:
-  html:
-    css: newsletter.css
-    toc: false
 ---
 
-::: {.hero-banner}
+::: hero-banner
 # PythRaSh's AI Newsletter Archive
 
 Your weekly digest of the most exciting developments at the intersection of artificial intelligence, biology, and healthcare.
@@ -26,52 +15,22 @@ Your weekly digest of the most exciting developments at the intersection of arti
 
 ## About the Newsletter
 
-PythRaSh's AI Newsletter is a curated weekly publication featuring:
+PythRaSh's AI Newsletter is an AI curated weekly publication featuring:
 
-- 🚀 **Event of the Week**: Major breakthroughs in AI applications for biology and healthcare
-- ⚡ **Quick Updates**: Latest developments from leading research institutions  
-- 📚 **Research Papers**: Top academic publications with impact analysis
-- 💻 **GitHub Repositories**: Popular tools and frameworks for AI in biology
-- 🛠️ **AI Products**: Featured tools from Product Hunt and industry
-- 🐦 **Trending Discussions**: Key conversations from industry leaders
+-   🚀 **Event of the Week**: Major breakthroughs in AI applications for biology and healthcare
+-   ⚡ **Quick Updates**: Latest developments from leading research institutions\
+-   📚 **Research Papers**: Top academic publications with impact analysis
+-   💻 **GitHub Repositories**: Popular tools and frameworks for AI in biology
+-   🛠️ **AI Products**: Featured tools from Product Hunt and industry
+-   🐦 **Trending Discussions**: Key conversations from industry leaders
 
----
+------------------------------------------------------------------------
 
 ## Recent Issues
 
-The newsletter archive will appear below, automatically sorted by date:
+[All the issues are archived here](https://mdrasheduz-zaman.github.io/ai_news_archive/)
 
----
-
-## Newsletter Statistics
-
-:::: {.columns}
-
-::: {.column width="33%"}
-### 📊 Metrics
-- **Total Issues**: 1+
-- **Active Subscribers**: 14
-- **Weekly Readers**: Growing
-:::
-
-::: {.column width="33%"}
-### 🎯 Topics
-- AI in Biology
-- Healthcare AI  
-- Computational Biology
-- Biotech Innovation
-:::
-
-::: {.column width="33%"}
-### 📱 Format
-- Mobile-responsive HTML
-- Email-optimized design
-- Web archive available
-:::
-
-::::
-
----
+------------------------------------------------------------------------
 
 ## Subscribe & Connect
 
@@ -81,11 +40,11 @@ Ready to stay updated with the latest AI breakthroughs in biology and healthcare
 
 ### Follow PythRaSh
 
-- [🌐 Website](https://mdrasheduz-zaman.github.io/PythRaSh/)
-- [💼 LinkedIn](https://www.linkedin.com/in/md-rashed-uz-zaman) 
-- [🐙 GitHub](https://github.com/mdrasheduz-zaman)
-- [📧 Email](mailto:md.rasheduzzaman.ugoe@gmail.com)
+-   [🌐 Website](https://mdrasheduz-zaman.github.io/PythRaSh/)
+-   [💼 LinkedIn](https://www.linkedin.com/in/md-rashed-uz-zaman)
+-   [🐙 GitHub](https://github.com/mdrasheduz-zaman)
+-   [📧 Email](mailto:md.rasheduzzaman.ugoe@gmail.com)
 
----
+------------------------------------------------------------------------
 
 *Newsletter archive is updated automatically every week. All issues are available in both web and original email format.*

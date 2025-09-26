@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-09-26T21:19:32.325143",
+  "total_patients": 2,
+  "schema_version": "1.0",
+  "patients": [
+    {
+      "patient_id": "P001",
+      "name": "Rashed",
+      "age": 30,
+      "weight": 56.7,
+      "married": true,
+      "allergies": [
+        "Dust",
+        "Pollen"
+      ],
+      "contact_info": {
+        "phone": "+492648973",
+        "email": "abcrashed@gmail.com"
+      }
+    },
+    {
+      "patient_id": "P002",
+      "name": "Rashed",
+      "age": 40,
+      "weight": 70.0,
+      "married": true,
+      "allergies": [
+        "Pollen"
+      ],
+      "contact_info": {
+        "phone": "+49663882",
+        "email": "rashed@gmail.com"
+      }
+    }
+  ]
+}

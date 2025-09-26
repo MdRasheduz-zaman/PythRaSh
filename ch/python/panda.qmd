@@ -40,7 +40,9 @@ insert_patient_data("Rashed", 30)
 insert_patient_data("Rashed", "thirty")
 ```
 
-But this way is not scalable.
+We see a data type error here, so our system works to catch it.
+
+But this way is not scalable. Let's work around it.
 
 ```{python}
 def insert_patient_data(name: str, age: int):
@@ -61,7 +63,7 @@ def update_patient_data(name: str, age: int):
 
 insert_patient_data("Rashed", 30)
 
-update_patient_data("Rashed", 30)
+update_patient_data("Rashed", 29)
 ```
 
 You see the issue with scalability? How many times will we do it if we have more functions using these variables? Data validation is also very important for us for better control. In the above example, we could put `-10` as age, it would pass the data type check, there is no stopping. But is it meaningful? So, we could say `age` can not be less than 0. How to do it?
@@ -88,17 +90,19 @@ insert_patient_data("Rashed", -10)
 insert_patient_data("Rashed", "10")
 ```
 
-Here comes `Pydantic` to help us checking for
+Here comes `Pydantic` to help us checking for 
 
 - Data type, and
 - Data validation
 
 And it does so in 3 steps:  
-- 1. **Define a Pydantic model (class)** representing the **ideal schema**. This includes the expected fields, their data types and any validation constraint (e.g. `lt=0` for negative numbers) 
+
+- 1. **Define a Pydantic model (class)** representing the **ideal schema**. This includes the expected fields, their data types and any validation constraint (e.g. `lt=0` for negative numbers)  
 - 2. **Instantiate the model with raw input data** or make a Pydantic object (usually a dictionary or JSON-like structure) 
-  - Pydantic will automatically **validate** the data and **coerce** it into the correct Python types (if possible)
-  - If the data doesn't meet the model's criteria, Pydantic raise a `ValidationError`. 
-- 3. Pass the validated model object to functions or use it throughout your codebase. - This ensures that every part of your program works with **clean, type-safe, and logically valid data**.
+  - Pydantic will automatically **validate** the data and **coerce** it into the correct Python types (if possible)  
+  - If the data doesn't meet the model's criteria, Pydantic raise a `ValidationError`.  
+- 3. Pass the validated model object to functions or use it throughout your codebase. 
+  - This ensures that every part of your program works with **clean, type-safe, and logically valid data**.
 
 Let's use it now. But let's make the example more realistic. We will make a dataframe with the required fields using pandas first. Then we will insert a patient info into that dataframe if the patient is new. If not, we will update information for that patient.
 
@@ -387,3 +391,469 @@ for patient in db:
 Why did not we use `list` and `dict` though? Because, we could make sure that the fields are list and string, but we could not check the data types inside those list or dict. That's why we used 2-step validation using `List[str]` and `Dict[str, str]`.
 
 We could make our model more flexible. For example, not every patient will have allergies, but that field is required now! Let's work around that.
+
+## Making Fields Optional and Adding Validation
+
+In real-world applications, not all fields are required. Let's make our model more realistic by adding optional fields and custom validation:
+
+```{python}
+#| error: true
+from pydantic import BaseModel, ValidationError, Field, validator
+from typing import List, Dict, Optional
+import json
+from datetime import datetime
+
+# ---------------------
+# 1. Enhanced Patient model with optional fields and validation
+# ---------------------
+class Patient(BaseModel):
+    patient_id: str = Field(..., min_length=4, max_length=10, description="Unique patient identifier")
+    name: str = Field(..., min_length=2, max_length=50, description="Patient full name")
+    age: int = Field(..., ge=0, le=150, description="Patient age in years")
+    weight: float = Field(..., gt=0, le=500, description="Patient weight in kg")
+    height: Optional[float] = Field(None, gt=0, le=300, description="Patient height in cm")
+    married: bool = False  # Default value
+    allergies: Optional[List[str]] = Field(default=[], description="List of known allergies")
+    contact_info: Dict[str, str] = Field(default_factory=dict, description="Contact information")
+    emergency_contact: Optional[Dict[str, str]] = None
+    blood_type: Optional[str] = Field(None, regex=r'^(A|B|AB|O)[+-]
+, description="Blood type (e.g., A+, O-, AB+)")
+    
+    # Custom validator for name formatting
+    @validator('name')
+    def name_must_not_be_empty_or_just_spaces(cls, v):
+        if not v.strip():
+            raise ValueError('Name cannot be empty or just spaces')
+        return v.strip().title()  # Capitalize properly
+    
+    # Custom validator for phone number in contact_info
+    @validator('contact_info')
+    def validate_contact_info(cls, v):
+        if 'phone' in v:
+            phone = v['phone']
+            # Simple phone validation (starts with + and has digits)
+            if not phone.startswith('+') or not phone[1:].replace('-', '').replace(' ', '').isdigit():
+                raise ValueError('Phone number must start with + and contain valid digits')
+        return v
+    
+    # Calculate BMI if height is provided
+    def calculate_bmi(self) -> Optional[float]:
+        if self.height:
+            height_m = self.height / 100  # Convert cm to meters
+            return round(self.weight / (height_m ** 2), 2)
+        return None
+    
+    # Check if patient is adult
+    def is_adult(self) -> bool:
+        return self.age >= 18
+    
+    # Get formatted patient info
+    def get_summary(self) -> str:
+        bmi = self.calculate_bmi()
+        bmi_str = f", BMI: {bmi}" if bmi else ""
+        allergies_str = f", Allergies: {', '.join(self.allergies)}" if self.allergies else ", No known allergies"
+        return f"{self.name} (ID: {self.patient_id}), Age: {self.age}, Weight: {self.weight}kg{bmi_str}{allergies_str}"
+
+# ---------------------
+# 2. Enhanced database operations
+# ---------------------
+db: List[Patient] = []
+
+def insert_patient_data(patient: Patient):
+    global db
+    if any(p.patient_id == patient.patient_id for p in db):
+        print(f"❌ Patient ID '{patient.patient_id}' already exists. Use update instead.")
+        return False
+    db.append(patient)
+    print(f"✅ Inserted patient: {patient.get_summary()}")
+    return True
+
+def update_patient_data(patient: Patient):
+    global db
+    for idx, p in enumerate(db):
+        if p.patient_id == patient.patient_id:
+            db[idx] = patient
+            print(f"✅ Updated patient: {patient.get_summary()}")
+            return True
+    print(f"❌ Patient ID '{patient.patient_id}' not found. Use insert instead.")
+    return False
+
+def find_patient_by_id(patient_id: str) -> Optional[Patient]:
+    for patient in db:
+        if patient.patient_id == patient_id:
+            return patient
+    return None
+
+def list_all_patients():
+    if not db:
+        print("📭 No patients in database.")
+        return
+    
+    print(f"\n👥 All Patients ({len(db)} total):")
+    print("-" * 80)
+    for patient in db:
+        print(f"🏥 {patient.get_summary()}")
+        if patient.blood_type:
+            print(f"   🩸 Blood Type: {patient.blood_type}")
+        if patient.contact_info:
+            contact_str = ", ".join([f"{k}: {v}" for k, v in patient.contact_info.items()])
+            print(f"   📞 Contact: {contact_str}")
+        print()
+
+def get_patients_by_age_range(min_age: int, max_age: int) -> List[Patient]:
+    return [p for p in db if min_age <= p.age <= max_age]
+
+def get_patients_with_allergies() -> List[Patient]:
+    return [p for p in db if p.allergies]
+
+# ---------------------
+# 3. Test the enhanced system
+# ---------------------
+print("🏥 Testing Enhanced Patient Management System")
+print("=" * 50)
+
+try:
+    # Test 1: Valid patient with all fields
+    print("\n🧪 Test 1: Complete patient record")
+    patient1 = Patient(
+        patient_id='P001',
+        name='   rashed uzzaman   ',  # Will be cleaned and capitalized
+        age=29,
+        weight=65.5,
+        height=175,
+        married=True,
+        allergies=['Dust', 'Pollen', 'Cats'],
+        contact_info={'phone': '+49-123-456789', 'email': 'rashed@email.com'},
+        emergency_contact={'name': 'Jane Doe', 'phone': '+49-987-654321'},
+        blood_type='O+'
+    )
+    insert_patient_data(patient1)
+    print(f"   BMI: {patient1.calculate_bmi()}")
+    print(f"   Adult: {patient1.is_adult()}")
+    
+    # Test 2: Minimal patient record (using defaults)
+    print("\n🧪 Test 2: Minimal patient record")
+    patient2 = Patient(
+        patient_id='P002',
+        name='Alice Johnson',
+        age=35,
+        weight=58.2
+    )
+    insert_patient_data(patient2)
+    
+    # Test 3: Child patient
+    print("\n🧪 Test 3: Child patient")
+    patient3 = Patient(
+        patient_id='P003',
+        name='Bobby Smith',
+        age=12,
+        weight=40.0,
+        height=150,
+        allergies=['Peanuts'],
+        contact_info={'phone': '+49-555-123456'},
+        blood_type='A-'
+    )
+    insert_patient_data(patient3)
+    print(f"   Adult: {patient3.is_adult()}")
+    
+    # Test 4: Try to insert duplicate
+    print("\n🧪 Test 4: Duplicate insertion attempt")
+    insert_patient_data(patient1)
+    
+    # Test 5: Update patient
+    print("\n🧪 Test 5: Update patient weight")
+    patient1_updated = Patient(
+        patient_id='P001',
+        name='Rashed Uzzaman',
+        age=30,  # Birthday!
+        weight=67.0,  # Gained weight
+        height=175,
+        married=True,
+        allergies=['Dust', 'Pollen'],  # No longer allergic to cats!
+        contact_info={'phone': '+49-123-456789', 'email': 'rashed.new@email.com'},
+        blood_type='O+'
+    )
+    update_patient_data(patient1_updated)
+    
+except ValidationError as e:
+    print(f"❌ Validation Error: {e}")
+
+# Display all patients
+list_all_patients()
+
+# Query examples
+print("\n🔍 Query Examples:")
+print("-" * 30)
+adults = [p for p in db if p.is_adult()]
+print(f"👨‍👩‍👧‍👦 Adult patients: {len(adults)}")
+
+patients_with_allergies = get_patients_with_allergies()
+print(f"🤧 Patients with allergies: {len(patients_with_allergies)}")
+for p in patients_with_allergies:
+    print(f"   - {p.name}: {', '.join(p.allergies)}")
+
+young_adults = get_patients_by_age_range(18, 30)
+print(f"🧑 Young adults (18-30): {len(young_adults)}")
+for p in young_adults:
+    print(f"   - {p.name} ({p.age} years old)")
+```
+
+## Advanced Validation with Custom Validators
+
+Now let's see what happens when we try to insert invalid data. Pydantic will catch these errors and give us helpful messages:
+
+```{python}
+#| error: true
+print("\n🚨 Testing Validation Errors")
+print("=" * 40)
+
+# Test invalid data scenarios
+test_cases = [
+    {
+        'name': 'Invalid Age Test',
+        'data': {'patient_id': 'P999', 'name': 'Test Patient', 'age': -5, 'weight': 70},
+        'expected_error': 'Age cannot be negative'
+    },
+    {
+        'name': 'Invalid Weight Test', 
+        'data': {'patient_id': 'P998', 'name': 'Test Patient', 'age': 25, 'weight': 0},
+        'expected_error': 'Weight must be greater than 0'
+    },
+    {
+        'name': 'Invalid Blood Type Test',
+        'data': {'patient_id': 'P997', 'name': 'Test Patient', 'age': 25, 'weight': 70, 'blood_type': 'XYZ'},
+        'expected_error': 'Invalid blood type format'
+    },
+    {
+        'name': 'Invalid Phone Number Test',
+        'data': {'patient_id': 'P996', 'name': 'Test Patient', 'age': 25, 'weight': 70, 'contact_info': {'phone': 'invalid-phone'}},
+        'expected_error': 'Invalid phone number format'
+    },
+    {
+        'name': 'Empty Name Test',
+        'data': {'patient_id': 'P995', 'name': '   ', 'age': 25, 'weight': 70},
+        'expected_error': 'Name cannot be empty'
+    }
+]
+
+for test in test_cases:
+    print(f"\n🧪 {test['name']}:")
+    try:
+        invalid_patient = Patient(**test['data'])
+        print(f"   ⚠️ Unexpectedly succeeded: {invalid_patient.name}")
+    except ValidationError as e:
+        print(f"   ✅ Correctly caught error: {str(e).split('\n')[0]}")
+    except Exception as e:
+        print(f"   ❌ Unexpected error type: {type(e).__name__}: {e}")
+```
+
+## Real-World Data Processing with Pydantic
+
+Let's simulate reading patient data from a CSV file and using Pydantic to validate and clean it:
+
+```{python}
+#| error: true
+import csv
+from io import StringIO
+
+# Simulate CSV data (in real world, you'd read from a file)
+csv_data = """patient_id,name,age,weight,height,married,allergies,phone,email,blood_type
+P101,john doe,25,70.5,180,true,"Dust,Pollen",+49-111-222333,john@email.com,A+
+P102,JANE SMITH,35,65.0,,false,Peanuts,+49-444-555666,jane@email.com,O-
+P103,bob wilson,17,55.2,165,false,,+49-777-888999,bob@email.com,
+P104,invalid patient,-5,0,200,maybe,Bad Data,invalid-phone,not-an-email,XYZ
+P105,mary johnson,45,72.3,168,true,"Shellfish,Latex",+49-123-987654,mary@email.com,B+
+"""
+
+def process_csv_data(csv_content: str):
+    """Process CSV data and create Patient objects with validation"""
+    successful_patients = []
+    failed_records = []
+    
+    csv_reader = csv.DictReader(StringIO(csv_content))
+    
+    for row_num, row in enumerate(csv_reader, 1):
+        try:
+            # Clean and prepare data
+            processed_row = {
+                'patient_id': row['patient_id'].strip(),
+                'name': row['name'].strip(),
+                'age': int(row['age']),
+                'weight': float(row['weight']),
+                'married': row['married'].lower() in ['true', '1', 'yes'],
+            }
+            
+            # Handle optional fields
+            if row['height'].strip():
+                processed_row['height'] = float(row['height'])
+            
+            # Process allergies (split by comma if present)
+            if row['allergies'].strip():
+                processed_row['allergies'] = [a.strip() for a in row['allergies'].split(',')]
+            
+            # Build contact info
+            contact_info = {}
+            if row['phone'].strip():
+                contact_info['phone'] = row['phone'].strip()
+            if row['email'].strip():
+                contact_info['email'] = row['email'].strip()
+            if contact_info:
+                processed_row['contact_info'] = contact_info
+            
+            # Blood type
+            if row['blood_type'].strip():
+                processed_row['blood_type'] = row['blood_type'].strip()
+            
+            # Create Patient object (this will validate everything)
+            patient = Patient(**processed_row)
+            successful_patients.append(patient)
+            print(f"✅ Row {row_num}: Successfully processed {patient.name}")
+            
+        except ValidationError as e:
+            error_msg = str(e).split('\n')[0]  # Get first error line
+            failed_records.append({'row': row_num, 'data': row, 'error': error_msg})
+            print(f"❌ Row {row_num}: Validation failed - {error_msg}")
+        except Exception as e:
+            failed_records.append({'row': row_num, 'data': row, 'error': str(e)})
+            print(f"❌ Row {row_num}: Processing failed - {e}")
+    
+    return successful_patients, failed_records
+
+print("\n📊 Processing CSV Data with Pydantic Validation")
+print("=" * 55)
+
+successful, failed = process_csv_data(csv_data)
+
+print(f"\n📈 Summary:")
+print(f"✅ Successfully processed: {len(successful)} patients")
+print(f"❌ Failed to process: {len(failed)} records")
+
+if successful:
+    print(f"\n👥 Successfully Imported Patients:")
+    for patient in successful:
+        print(f"   🏥 {patient.get_summary()}")
+
+if failed:
+    print(f"\n⚠️ Failed Records (need manual review):")
+    for failure in failed:
+        print(f"   Row {failure['row']}: {failure['data']['name']} - {failure['error']}")
+```
+
+## Saving and Loading with JSON Schema
+
+Pydantic can also generate JSON schemas and work seamlessly with JSON data:
+
+```{python}
+#| error: true
+import json
+from datetime import datetime
+
+# Generate JSON schema for our Patient model
+patient_schema = Patient.model_json_schema()
+
+print("📋 Patient Model JSON Schema:")
+print("=" * 35)
+print(json.dumps(patient_schema, indent=2)[:500] + "...\n(truncated)")
+
+# Save all our patients to JSON with timestamp
+def save_patients_with_metadata(filename: str = "patients_database.json"):
+    data = {
+        'timestamp': datetime.now().isoformat(),
+        'total_patients': len(db),
+        'schema_version': '1.0',
+        'patients': [patient.model_dump() for patient in db]
+    }
+    
+    with open(filename, 'w') as f:
+        json.dump(data, f, indent=2)
+    
+    print(f"💾 Saved {len(db)} patients to {filename}")
+    return filename
+
+# Load patients from JSON with validation
+def load_patients_with_validation(filename: str = "patients_database.json"):
+    global db
+    try:
+        with open(filename, 'r') as f:
+            data = json.load(f)
+        
+        print(f"📖 Loading database from {filename}")
+        print(f"   📅 Saved on: {data['timestamp']}")
+        print(f"   👥 Expected patients: {data['total_patients']}")
+        
+        # Validate and load each patient
+        loaded_patients = []
+        for patient_data in data['patients']:
+            try:
+                patient = Patient(**patient_data)
+                loaded_patients.append(patient)
+            except ValidationError as e:
+                print(f"   ❌ Failed to load patient {patient_data.get('name', 'Unknown')}: {e}")
+        
+        db = loaded_patients
+        print(f"   ✅ Successfully loaded {len(db)} patients")
+        
+    except FileNotFoundError:
+        print(f"❌ File {filename} not found")
+    except json.JSONDecodeError as e:
+        print(f"❌ Invalid JSON in {filename}: {e}")
+    except Exception as e:
+        print(f"❌ Error loading database: {e}")
+
+# Save current database
+filename = save_patients_with_metadata()
+
+# Clear database and reload to test
+original_db = db.copy()
+db = []
+print(f"\n🗑️ Cleared database (now has {len(db)} patients)")
+
+# Reload
+load_patients_with_validation(filename)
+print(f"🔄 Reloaded database (now has {len(db)} patients)")
+
+# Verify data integrity
+print(f"\n🔍 Data Integrity Check:")
+if len(original_db) == len(db):
+    print("✅ Patient count matches")
+    for orig, loaded in zip(original_db, db):
+        if orig.model_dump() == loaded.model_dump():
+            print(f"   ✅ {orig.name} data matches perfectly")
+        else:
+            print(f"   ❌ {orig.name} data mismatch detected")
+else:
+    print(f"❌ Patient count mismatch: original {len(original_db)}, loaded {len(db)}")
+```
+
+## Summary: The Power of Pydantic
+
+Throughout this journey, we've seen how Pydantic transforms our approach to data handling:
+
+### 🎯 **Key Benefits We've Demonstrated:**
+
+1.  **🛡️ Automatic Validation**: No more manual type checking - Pydantic does it automatically
+2.  **🔄 Type Coercion**: Smart conversion of compatible types (string "55" → float 55.0)
+3.  **📝 Clear Error Messages**: Helpful validation errors that pinpoint exactly what's wrong
+4.  **🎨 Clean Code**: Models serve as documentation and enforce data contracts
+5.  **🔧 Flexibility**: Optional fields, default values, and custom validators
+6.  **🌐 JSON Integration**: Seamless serialization/deserialization with validation
+7.  **📊 Real-world Ready**: Handles complex data scenarios like CSV imports
+
+### 🚀 **From Simple to Sophisticated:**
+
+-   Started with basic type hints (limited enforcement)
+-   Added manual validation (not scalable)
+-   Introduced Pydantic models (automatic validation)
+-   Enhanced with optional fields and custom validators
+-   Integrated with real data processing (CSV, JSON)
+-   Built a complete data management system
+
+### 💡 **When to Use Pydantic:**
+
+-   **API Development**: Validate request/response data
+-   **Data Processing**: Clean and validate CSV/JSON imports
+-   **Configuration Management**: Validate application settings
+-   **Database Models**: Ensure data integrity before persistence
+-   **Microservices**: Validate inter-service communication
+
+Pydantic transforms unreliable, error-prone data handling into robust, self-documenting, and maintainable code. It's not just about validation - it's about building confidence in your data throughout your entire application! 🎉
